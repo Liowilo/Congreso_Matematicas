@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;400;500;600;700;800;900&display=swap');
+
+/* establece un tamaño de la pagina*/
+html{
+    height: 100%;
+}
+/***********************************/
+.Titulos {
+    font-family: 'Inter Tight', sans-serif;
+    color: rgba(59, 61, 77, 0.83);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 39px;
+}
+
+.Cuerpo-texto {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(59, 61, 77, 0.83);
+}
+
+.botones_descarga {
+    background: #C5B268;
+    border-radius: 9px;
+    text-align: center;
+}
+.text-btn{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 18px;
+}
+

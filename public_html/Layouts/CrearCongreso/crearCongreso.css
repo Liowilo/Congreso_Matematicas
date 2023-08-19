@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;400;500;600;700;800;900&display=swap');
+
+.head {
+    background: #337AB7 !important;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(59, 61, 77, 0.83);
+}
+input{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(59, 61, 77, 0.83) !important;
+}
+.imgQuestion {
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+}
+.textoAdvertencia {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #767676;
+}
+
+.btn-azul{
+    background: #337AB7;
+    mix-blend-mode: normal;
+    border: 1.5px solid rgba(59, 61, 77, 0.15);
+    border-radius: 8px;
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
+    }
+.btn-azul:hover{
+    background-color:rgba(171, 134, 39, 0.9);
+    color: #fff;
+}

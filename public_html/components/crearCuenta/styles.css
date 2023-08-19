@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap');
+/*font-family: 'Archivo Black', sans-serif;
+font-family: 'Montserrat', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;400;500;600;700;800;900&display=swap');
+/*font-family: 'Inter Tight', sans-serif;*/
+/**{
+    border: 1px solid rgb(199, 66, 66);
+    
+}*/
+
+body{
+    background-color: #F3F3F3;
+}
+
+.imagen{
+    margin: 0px;
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.formulario_container{
+    background-color: white;
+    padding-top: 11%;
+    padding-bottom:11% ;
+    padding-right:10% ;
+    padding-left:10% ;
+}
+
+.titulo{
+    text-align: center;
+    color: rgba(59, 61, 77, 0.83);
+}
+
+label{
+    font-family: 'Inter Tight', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16x;
+    line-height: 18px;
+    color: rgb(59, 61, 77,0.83);
+}
+
+.contenedor_link{
+    text-align: center;
+}
+
+.link{
+    color: rgba(171, 134, 39, 0.9);
+    text-align: center;
+}
+.link_sesion{
+    color: rgba(60, 66, 182, 0.9);
+    text-align: center;
+}
+
+.div_boton{
+    text-align: center;
+}
+
+button, .boton{
+    background: #337AB7;
+    border: 1.5px solid rgba(59, 61, 77, 0.15);
+    border-radius: 7px;
+    color: #fff;
+    font-family:'Inter Tight', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button, .boton:hover{
+    background-color: #C5B268 ;
+    color: #fff;
+}
+
+.viewPassword{
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    mix-blend-mode: normal;
+    opacity: 0.6;
+    border: none;
+    background: none;
+}
+.imagenQuestion{
+    object-fit: cover;
+    border-color: #fff !important;
+}
+
+/*Advertencia de errores*/
+/*Formato de error por defecto*/
+.formulario_input-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+    color:red;
+}
+/*Formato de error activo*/
+.formulario_input-error-activo{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: block;
+}
+

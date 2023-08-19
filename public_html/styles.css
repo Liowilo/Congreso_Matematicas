@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;400;500;600;700;800;900&display=swap');
+
+html,
+body {
+  max-width: 100vw !important;
+  padding: 0px;
+  overflow-x: hidden !important;
+  margin: 0;
+  height: 100%;
+}
+
+
+
+.ajustar {
+  max-width: min-content;
+  object-fit: cover !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.9;
+}
+
+.zi {
+  position: relative;
+  z-index: -10000 !important;
+}
+
+.texto-super {
+  color: #3B3D4D;
+}
+
+.backgronund {
+  position: static !important;
+  z-index: 10000;
+  background-color: #337AB7;
+}
+
+
+.linea {
+  margin: auto;
+  border: solid 1px #ffd828 !important;
+  z-index: 1000;
+}
+
+.texto {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.texto-sm {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  color: #3B3D4D;
+}
+
+.imagen {
+  object-fit: scale-down;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.9;
+}
+
+/********estilos del footer*********/
+.footer {
+  position: relative !important;
+  width: 100%;
+  bottom: 0 !important;
+  left: 0;
+  margin-top: auto !important;
+  background-color: #293E6B;
+}
+.texto-foo {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  color: #FFFFFF;
+}
+
+.texto-lista{
+  font-family: 'Inter Tight', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: right;
+  color: #FFFFFF;
+}
+.link-footer{
+  cursor: pointer;
+}
+
+/*********Estilos del Navbar********/
+nav {
+  filter: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.14));
+  z-index: 3000 !important;
+  padding-right: 25%;
+  padding-left: 25%;
+
+}
+
+.centrar {
+  gap: 2.2rem;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 100px) and (max-width:850px) {
+  .sinEspacio {
+    margin: 0 auto !important;
+    gap: 0rem !important;
+  }
+}
+
+a {
+  font-family: 'Montserrat' !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+}
+
+.a-nav {
+  font-family: 'Montserrat' !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff !important;
+}
+
+a.a-nav :hover {
+  color: #FBC16B !important;
+}
+
+.super {
+  background: rgba(255, 255, 255, 0.842);
+  backdrop-filter: blur(2px);
+  font-family: 'Montserrat', sans-serif;
+  vertical-align: middle;
+}
+.fa-solid, .fas {
+  font-weight: 1000 !important;
+}
+
+.a-toggle {
+  font-family: 'Montserrat' !important;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #fff !important;
+}
+
+
+/********************************/
+h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  color: rgba(59, 61, 77, 0.83);
+}
+
+h3 {
+  font-family: 'Inter Tight', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(59, 61, 77, 0.83);
+}
+
+h4 {
+  font-family: 'Inter Tight', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(59, 61, 77, 0.83);
+}
+
+/******Estilos del carrusel*********/
+.carousel_contenedor {
+  position: relative;
+}
+
+.carousel_anterior,
+.carousel_siguiente {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: none;
+  cursor: pointer;
+  line-height: 30px;
+  text-align: center;
+  background: none;
+  color: rgb(255, 255, 255);
+
+}
+
+.carousel .carousel_elemento img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 25%ntrol;
+}
+
+.carousel_anterior {
+  left: -30px;
+}
+
+.carousel_siguiente {
+  right: -30px;
+}
+
+.borde {
+  border-radius: 9px;
+}
+
+.circulo {
+  border-radius: 50%;
+  background-color: #C5B268;
+  width: 42.93px;
+  height: 40px;
+}
+
+/*************************/
+.cartel {
+  object-fit: cover !important;
+  width: 100%;
+}
+
+.img-ajustar {
+  display: block !important;
+  margin: auto !important;
+}
+
+.row-centrar {
+  text-align: center !important;
+}
+
+.centrico {
+  margin: 0px auto !important;
+
+}
+
+.btn-style {
+  background: #337AB7;
+  mix-blend-mode: normal;
+  border: 1.5px solid rgba(59, 61, 77, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-style:hover {
+  background-color: rgba(171, 134, 39, 0.9);
+  color: #fff;
+}
+
+/*----------ESTILO DEL SIDEBAR------------*/
+.background-lateral {
+  /*background: linear-gradient(#ddedfc11, #f7fbff41) !important;*/
+  background: #f4f9fd !important;
+}
+.background{
+  background: #f4f9fd  !important;
+}
+
+.background-lateral-boton {
+  background-color: #f4f9fd  !important;
+  font-family: 'Monserrat', sans-serif !important;
+}
+.offcanvas-body {
+  background-color: #f4f9fd  !important;
+}
+
+
+.lis {
+  border: none !important;
+}
+
+.lis:hover {
+  background: rgba(255, 153, 0, 0.28);
+  border-radius: 2px;
+}
+
+.label-text {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #7A7676;
+}
+
+.text-a {
+  margin-right: 3px;
+  text-decoration: none !important;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  color: #3B3D4D;
+  cursor: pointer;
+  padding-right: 120px !important;
+}
+
+
+/*----------ESTILO DEL SIDEBAR------------*/
+
+@media (max-width: 400px) and (max-heigth: 800px) {
+  .texto {
+    font-size: 14px;
+  }
+}
+
+.offcanvas {
+  top: 0;
+  transform: translateX(-100%);
+  visibility: hidden;
+}
+
+.offcanvas.show {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Estilos para el contenido visible en pantallas lg o mayores */
+.div-lg-visible {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .div-lg-visible {
+    display: block;
+    /* Agrega aquí los estilos adicionales para el contenido visible en pantallas lg o mayores */
+  }
+}
+
