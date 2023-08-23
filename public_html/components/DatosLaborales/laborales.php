@@ -20,7 +20,7 @@ require "../../modelo/traerTrayectoriaLaboral.php";
 
 // Realizar la conexión a la base de datos
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=cbbcongress', 'cbbcongress', 'Develoap');
+    $pdo = new PDO('mysql:host=localhost;dbname=desarrollo', 'desarrollo', 'Develoap');
 } catch (PDOException $exception) {
     die($exception->getMessage());
 }
