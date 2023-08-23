@@ -81,7 +81,7 @@
                         </div>
                         <!--Grupo Volver-->
                         <div class="mt-5" role="group">
-                            <a href="#!"><i class="fa fa-chevron-left link" style="font-size: 20px;" aria-hidden="true" onclick="history.back()"><span style="font-family: 'Inter Tight', sans-serif; font-weight: 600;"> Volver</span></i></a>
+                            <a href="../index.php"><i class="fa fa-chevron-left link" style="font-size: 20px;" aria-hidden="true" onclick="history.back()"><span style="font-family: 'Inter Tight', sans-serif; font-weight: 600;"> Volver</span></i></a>
                         </div>
                         </form>
                     </div>
