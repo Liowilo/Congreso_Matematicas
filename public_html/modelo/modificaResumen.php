@@ -408,7 +408,7 @@ if (($estatusRevision == 'R' || mysqli_num_rows($resUsuarioRevisionPonencia) == 
                 $errores['db-erro4'] = "No existe el tipo de ponencia elegida.";
             }
 
-            print "<script>window.location='/cbbcongress/components/ModificarResumen/ModificaResumen.php?id=$newIdPonencia';</script>";
+            print "<script>window.location='/desarrollo/components/ModificarResumen/ModificaResumen.php?id=$newIdPonencia';</script>";
         } else {
             $newIdPonencia = $idPonencia;
             $newIdTipoPonencia = $oldIdTipoPonencia;
