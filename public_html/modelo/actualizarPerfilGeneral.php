@@ -87,7 +87,7 @@
             $rutaImagen=$ruta.$nombreImagen;
             if(move_uploaded_file($_FILES["inputFotoPerfil"]["tmp_name"],$rutaImagen)){
                 if(count($errores) === 0){
-                    $actualizarFotoUsuario = "UPDATE usuario SET foto_usuario='/cbbcongress/src/fotos_usuarios/$nombreImagen' WHERE id_usuario='$_SESSION[id]'";
+                    $actualizarFotoUsuario = "UPDATE usuario SET foto_usuario='/desarrollo/src/fotos_usuarios/$nombreImagen' WHERE id_usuario='$_SESSION[id]'";
                     $data_check = mysqli_query($conexion, $actualizarFotoUsuario);
                     if($data_check){
                         //Muestra si el registro fue exitoso y lo muestra en información.
@@ -112,7 +112,7 @@
     if(!empty($_POST['botonEliminarFoto'])){
         
         //Si no hay errores ejecuta el registro.
-        $rutaImagen="/cbbcongress/src/fotos_usuarios/picProfileNull.png"; 
+        $rutaImagen="/desarrollo/src/fotos_usuarios/picProfileNull.png"; 
         if(count($errores) === 0){
             $actualizarFotoUsuario = "UPDATE usuario SET foto_usuario='$rutaImagen' WHERE id_usuario='$_SESSION[id]'";
             $data_check = mysqli_query($conexion, $actualizarFotoUsuario);
