@@ -22,7 +22,7 @@
     $emailEvaluador=$fetchDatosEvaluador['email_usuario'];
 
     if(isset($_POST["cancelar"])){
-        print "<script>window.location='/cbbcongress/components/TrabajosRegistrados/trabajosRegistrados.php';</script>";
+        print "<script>window.location='/desarrollo/components/TrabajosRegistrados/trabajosRegistrados.php';</script>";
     }
 
     if(isset($_POST['subirCartel'])){
