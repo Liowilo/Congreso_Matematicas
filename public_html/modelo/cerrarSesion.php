@@ -8,5 +8,5 @@
     session_start();
     session_unset();
     session_destroy();
-    header('location: /cbbcongress/components/inicioSesion/sesion.php');
+    header('location: /desarrollo/components/inicioSesion/sesion.php');
 ?>
