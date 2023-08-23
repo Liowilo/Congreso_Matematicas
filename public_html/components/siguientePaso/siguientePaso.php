@@ -251,7 +251,7 @@ $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
         </div>
         <div class="row mt-5">
             <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 col-xs-12 d-grid">
-                <a href="/cbbcongress/components/GuiasYPlantillas/guias.php"><button type="button" class="btn-azul">Especificaciones de video</button></a>
+                <a href="/desarrollo/components/GuiasYPlantillas/guias.php"><button type="button" class="btn-azul">Especificaciones de video</button></a>
             </div>
         </div>
         <div class="mt-3">
