@@ -32,7 +32,7 @@ require "../../modelo/evaluarExtenso.php"
         ?>
         <div id="informacionExito" class="alert alert-success alert-dismissible fade show mt-3">
             <?php echo $_SESSION['info']; ?>
-            <a href="/cbbcongress/components/TrabajosRegistrados/trabajosRegistrados.php"> Ver mis trabajos asignados</a>
+            <a href="/desarrollo/components/TrabajosRegistrados/trabajosRegistrados.php"> Ver mis trabajos asignados</a>
         </div>
         <?php
     }
