@@ -277,7 +277,7 @@ botonQuitarCoautor.addEventListener("click", (e)=>{
 });
 
 function cancelar(){
-	window.location='/cbbcongress/components/TrabajosRegistrados/trabajosRegistrados.php';
+	window.location='/desarrollo/components/TrabajosRegistrados/trabajosRegistrados.php';
 }
 
 
