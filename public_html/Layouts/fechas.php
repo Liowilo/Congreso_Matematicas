@@ -12,13 +12,13 @@
             </div>
             <hr>
             <div class="d-grid gap-2">
-                <a href="/cbbcongress/components/actividadesFechas/fechas.php">
+                <a href="/desarrrollo/components/actividadesFechas/fechas.php">
                     <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button">Ver Fechas</button></a>
 
-                <a href="/cbbcongress/src/convocatoria/XV.pdf" target="_blank">
+                <a href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">
                     <button class="btn btn-style shadow p-2 mb-4 px-5" type="button">Ver Convocatoria</button></a>
 
-                <a href="/cbbcongress/components/subirResumen/subirResumen.php">
+                <a href="/desarrollo/components/subirResumen/subirResumen.php">
                     <button class="btn btn-style shadow px-5 p-2 mb-4" type="button">Registrar Ponencia</button></a>
             </div>
         </div>
