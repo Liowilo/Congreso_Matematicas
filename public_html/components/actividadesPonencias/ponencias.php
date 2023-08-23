@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-4 d-sm-flex justify-content-center ">
                                     <!--Logo del congreso actual-->
-                                <img src="/cbbcongress/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
+                                <img src="/desarrollo/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -56,7 +56,7 @@
                                 <span class="span-fecha">4 y 5 de Mayo 2023</span>
                             </div>   
                             <div class="d-flex justify-content-start">
-                            <a href="/cbbcongress/components/programaMagistrales/programaMagistral.php" class="link">Ver ponencias</a>
+                            <a href="/desarrollo/components/programaMagistrales/programaMagistral.php" class="link">Ver ponencias</a>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <i class="fab fa-laravel"></i>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-4 d-sm-flex justify-content-center ">
                                     <!--Logo del congreso actual-->
-                                <img src="/cbbcongress/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
+                                <img src="/desarrollo/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -88,7 +88,7 @@
                                 <span class="span-fecha">4 y 5 de Mayo 2023</span>
                             </div>   
                             <div class="d-flex justify-content-start">
-                                <a href="/cbbcongress/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
+                                <a href="/desarrollo/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <i class="fab fa-laravel"></i>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-4 d-sm-flex justify-content-center ">
                                     <!--Logo del congreso actual-->
-                                <img src="/cbbcongress/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
+                                <img src="/desarrollo/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -123,7 +123,7 @@
                                 <span class="span-fecha">4 y 5 de Mayo 2023</span>
                             </div>   
                             <div class="d-flex justify-content-start">
-                                <a href="/cbbcongress/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
+                                <a href="/desarrollo/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <i class="fab fa-laravel"></i>
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-4 d-sm-flex justify-content-center ">
                                     <!--Logo del congreso actual-->
-                                <img src="/cbbcongress/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
+                                <img src="/desarrollo/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -156,7 +156,7 @@
                                 <span class="span-fecha">4 y 5 de Mayo 2023</span>
                             </div>   
                             <div class="d-flex justify-content-start">
-                                <a href="/cbbcongress/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
+                                <a href="/desarrollo/components/GuiasYPlantillas/guias.php" class="link">Ver bases</a>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <i class="fab fa-laravel"></i>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-3 col-md-4 d-sm-flex justify-content-center ">
                                     <!--Logo del congreso actual-->
-                                <img src="/cbbcongress/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
+                                <img src="/desarrollo/src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height= "70px"  width= "80px">
                                 </div>
                             </div>
                             <div class="row mt-3">
