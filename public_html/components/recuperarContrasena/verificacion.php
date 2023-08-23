@@ -74,7 +74,7 @@
                     <input type="password" class="form-control input mb-3" id="verificarContrasena" name="verificarContrasena" placeholder="Escribe tu nueva contraseña" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z\d!@#$%^&*()_+\-]{8,}$" required>
                     <div class="row">
                         <div class="col-4 mt-4">
-                            <a href="/cbbcongress/components/crearCuenta/cuenta.php"><img id="volver" class="volver" src="../../src/back.png" onclick="" data-placement="right">Volver</a>
+                            <a href="/desarrollo/components/crearCuenta/cuenta.php"><img id="volver" class="volver" src="../../src/back.png" onclick="" data-placement="right">Volver</a>
                         </div>
                         <div class="col-8">
                             <button name="verificar" id="verificar" type="submit" class="btn btn boton mt-4" disabled>Verificar codigo</button>
