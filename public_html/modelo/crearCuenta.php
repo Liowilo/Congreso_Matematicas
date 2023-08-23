@@ -41,7 +41,7 @@
         }
         //Si no hay errores ejecuta el registro.
         if(count($errores) === 0){
-            $fotoUsuarioDefault="/cbbcongress/src/fotos_usuarios/picProfileNull.png";
+            $fotoUsuarioDefault="/desarrollo/src/fotos_usuarios/picProfileNull.png";
             $encpass = password_hash($password, PASSWORD_BCRYPT);
             $insertarUsuario = "INSERT INTO usuario (nombres_usuario, apellidos_usuario, email_usuario, rfc_usuario, fecha_registro_usuario,contrasena_usuario,foto_usuario, hash_usuario)
                             values('$nombres', '$apellidos', '$correoElectronico', '$rfc', '$fechaActual','$encpass','$fotoUsuarioDefault','$hash')";
