@@ -12,7 +12,7 @@
             </div>
             <hr>
             <div class="d-grid gap-2">
-                <a href="/desarrrollo/components/actividadesFechas/fechas.php">
+                <a href="/desarrollo/components/actividadesFechas/fechas.php">
                     <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button">Ver Fechas</button></a>
 
                 <a href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">
