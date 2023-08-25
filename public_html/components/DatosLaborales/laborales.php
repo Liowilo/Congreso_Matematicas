@@ -20,7 +20,9 @@ require "../../modelo/traerTrayectoriaLaboral.php";
 
 // Realizar la conexión a la base de datos
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=desarrollo', 'desarrollo', 'Develoap');
+    // Es una conexion orientada a un objeto en PHP, por lo que la estructura es la siguiente:
+    // $pdo = new PDO("mysql:host=$servidor;dbname=nombreDeTuBaseDeDatos", $usuario, $password);
+    $pdo = new PDO('mysql:host=localhost;dbname=desarrollo', 'desarrollo', 'Desarrollo');
 } catch (PDOException $exception) {
     die($exception->getMessage());
 }
