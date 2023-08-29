@@ -50,68 +50,68 @@ session_start();
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">Del 28 de noviembre de 2022 al 15 de enero de 2023</th>
+                                    <th class="fecha py-3" scope="row">Del 27 de noviembre de 2023 al 19 de enero de 2024</th>
                                     <td class="asunto py-3">Recepción de resúmenes de trabajos</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 16 al 22 de enero de 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 22 al 26 de enero de 2024</th>
                                     <td class="asunto py-3">Evaluación de resúmenes por parte del comité</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">Del 23 al 29 de enero de 2023</th>
+                                    <th class="fecha py-3" scope="row">Del 29 al 2 de febrero de 2024</th>
                                     <td class="asunto py-3">Resultado de evaluación de resúmenes</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 30 de enero al 10 de febrero de 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 5 de enero al 9 de febrero de 2023</th>
                                     <td class="asunto py-3">Recepción de corrección de resúmenes</td>
                                 </tr>
                                 <tr class="table bg-danger">
                                     <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su resumen no fue aprobado al 10 de febrero quedará fuera del evento.</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">Del 30 de enero al 12 de febrero de 2023</th>
+                                    <th class="fecha py-3" scope="row">Del 5 de febrero al 16 de febrero de 2024</th>
                                     <td class="asunto py-3">Recepción de trabajos en extenso</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 20 al 24 de febrero de 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 19 al 23 de febrero de 2024</th>
                                     <td class="asunto py-3">Notificación de observaciones de los trabajos en extenso</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">10 de marzo de 2023</th>
+                                    <th class="fecha py-3" scope="row">11 de marzo de 2023</th>
                                     <td class="asunto py-3">Inicia el periodo de recepción de pagos</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 13 al 17 de marzo de 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 26 de febrero al 15 de marzo de 2024</th>
                                     <td class="asunto py-3">Recepción de extensos finales</td>
                                 </tr>
                                 <tr class="table bg-danger">
-                                    <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su extenso no fue aprobado para el 20 de marzo quedará fuera del evento.</td>
+                                    <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su extenso no fue aprobado para el 16 de marzo quedará fuera del evento.</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">Del 20 de marzo al 21 de abril de 2023</th>
+                                    <th class="fecha py-3" scope="row">Del 18 de marzo al 19 de abril de 2024</th>
                                     <td class="asunto py-3">Recepción de videos de las ponencias aceptadas</td>
                                 </tr>
                                 <tr class="table bg-danger">
-                                    <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su video no fue recibido para el 21 de abril quedará fuera del evento.</td>
+                                    <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su video no fue recibido para el 20 de abril quedará fuera del evento.</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">17 de abril de 2023</th>
+                                    <th class="fecha py-3" scope="row">22 de abril de 2024</th>
                                     <td class="asunto py-3">Publicación del programa general del evento</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">2 y 3 de mayo de 2023</th>
+                                    <th class="fecha py-3" scope="row ">6 y 7 de mayo de 2024</th>
                                     <td class="asunto py-3">Periodo de impartición de talleres en línea</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">4 y 5 de mayo de 2023</th>
+                                    <th class="fecha py-3" scope="row">8 y 9 de mayo de 2024</th>
                                     <td class="asunto py-3">Fecha del Congreso</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 5 al 9 de junio 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 10 al 14 de junio 2024</th>
                                     <td class="asunto py-3">Inicia el envío de constancias virtuales</td>
                                 </tr>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">A partir del 12 de junio de 2023</th>
+                                    <th class="fecha py-3" scope="row">A partir del 10 de junio de 2024</th>
                                     <td class="asunto py-3">Publicación de las memorias del Congreso</td>
                                 </tr>
                             </tbody>
