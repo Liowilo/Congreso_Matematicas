@@ -3,12 +3,12 @@
         <div class="centrico col-md-4 text-center texto-sm border border-success 
         p-2 border-opacity-10 rounded d-sm-block col-sm-6">
             <h2 class="mt-4 mb-3">Fechas Importantes</h2>
-            <div class="p-2 mt-4">Publicación del programa del evento:<br>17 de abril de 2023</div>
+            <div class="p-2 mt-4">Publicación del programa del evento:<br>22 de abril de 2024</div>
             <hr>
-            <div class="p-3">Periodo de impartición de talleres presenciales en línea <br> 2 y 3 de mayo de 2023</div>
+            <div class="p-3">Periodo de impartición de talleres presenciales en línea <br> 6 y 7 de mayo de 2024</div>
             <hr>
             <div class="div p-4">
-                <h4>Fecha del Congreso<br>4 y 5 de mayo de 2023</h4>
+                <h4>Fecha del Congreso<br>8 y 9 de mayo de 2024</h4>
             </div>
             <hr>
             <div class="d-grid gap-2">

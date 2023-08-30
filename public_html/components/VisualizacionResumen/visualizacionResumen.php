@@ -21,7 +21,7 @@ if(!isset($_SESSION["id"]) || $_SESSION["id"]==null){
 <body>
     <header> 
         <?php 
-    		//require_once('../../Layouts/nav.php');
+    		require_once('../../Layouts/nav.php');
     	?>
     </header>
 
@@ -29,7 +29,7 @@ if(!isset($_SESSION["id"]) || $_SESSION["id"]==null){
     <div class="row pb-2">
         <div class="col-2 background-lateral">
             <?php 
-		    //require_once('../../Layouts/sidebar.php');
+		    require_once('../../Layouts/sidebar.php');
             ?>
         </div>
         <div class="col-10">
@@ -41,18 +41,11 @@ if(!isset($_SESSION["id"]) || $_SESSION["id"]==null){
         </div>
     </div>
 </div>
-
-
-
 <footer>
 <?php 
-	//require_once('../../Layouts/footer.php');
+	require_once('../../Layouts/footer.php');
 	            ?>
 </footer>
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
     </body>
