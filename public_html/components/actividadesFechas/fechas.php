@@ -62,7 +62,7 @@ session_start();
                                     <td class="asunto py-3">Resultado de evaluación de resúmenes</td>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 30 de enero al 10 de febrero de 2023</th>
+                                    <th class="fecha py-3" scope="row ">Del 5 de enero al 9 de febrero de 2023</th>
                                     <td class="asunto py-3">Recepción de corrección de resúmenes</td>
                                 </tr>
                                 <tr class="table bg-danger">
