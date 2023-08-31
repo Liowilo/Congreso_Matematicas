@@ -31,7 +31,7 @@ session_start();
                         <h2 class="mb-4">Fechas</h2><!--------TITULO INTERNO------------>
                         <div class="row">
                             <div class="col-xl-8 col-lg-8 col-md-8 d-sm-block col-sm-12">
-                                <p class="mt-3 ms-3 titulo-congreso" id="edicion">XIV Edición</p>
+                                <p class="mt-3 ms-3 titulo-congreso" id="edicion">XVI Edición</p>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 mb-4">
                                 <img src="../../src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height="70px" width="80px">
