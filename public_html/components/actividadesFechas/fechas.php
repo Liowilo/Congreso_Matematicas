@@ -43,76 +43,535 @@ session_start();
                         </div>
                         <table class="table">
                             <thead class="categorias">
-                                <tr>
-                                    <th class="fecha py-2" scope="col">Fecha</th>
-                                    <th class="asunto py-2" scope="col">Asunto</th>
+                               <th class="fecha py-2" scope="col" width="20%">Fecha inicio</th> 
+                                    <th class="fecha py-2" scope="col" width="20%">Fecha fin</th>
+                                    <th class="asunto py-2" scope="col" width="70%">Asunto</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="fecha py-3" scope="row">Del 27 de noviembre de 2023 al 19 de enero de 2024</th>
-                                    <td class="asunto py-3">Recepción de resúmenes de trabajos</td>
+                                  
+         
+                                   <!--------RECEPCION DE RESUMENES DE TRABAJOS------------>
+                                   <!--------fecha incio------------>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+									$id_evento = 2;
+									$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+									$result = $conexion->query($sql);
+									$row = $result->fetch_assoc();
+									 $fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+									echo $fecha_inicio;
+									?>
+                                    </th>
+
+                                    <!--------fecha fin------------>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 2;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+																			<!--------Asunto------------>
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 2; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                
+      
+														<!--------Evaluación de resúmenes por parte del comité------------>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 22 al 26 de enero de 2024</th>
-                                    <td class="asunto py-3">Evaluación de resúmenes por parte del comité</td>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 3;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 3;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 3; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">Del 29 al 2 de febrero de 2024</th>
-                                    <td class="asunto py-3">Resultado de evaluación de resúmenes</td>
-                                </tr>
-                                <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 5 al 9 de febrero de 2024</th>
-                                    <td class="asunto py-3">Recepción de corrección de resúmenes</td>
-                                </tr>
+                                
+
+                                <!--------Resultado de evaluación de resúmenes------------>
+                                 <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 4;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			 $fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+
+                                    <!--------fecha fin------------>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 4;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+																			<!--------Asunto------------>
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 4; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                
+                             <!--------ANUNCIO------------>
                                 <tr class="table bg-danger">
                                     <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su resumen no fue aprobado al 10 de febrero quedará fuera del evento.</td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">Del 5 de febrero al 16 de febrero de 2024</th>
-                                    <td class="asunto py-3">Recepción de trabajos en extenso</td>
+                              <!--------ANUNCIO------------>
+                                
+                                
+                                <!--------	Recepción de corrección de resúmenes------------>
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 19 al 23 de febrero de 2024</th>
-                                    <td class="asunto py-3">Notificación de observaciones de los trabajos en extenso</td>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 5;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 5;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 5; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">11 de marzo de 2023</th>
-                                    <td class="asunto py-3">Inicia el periodo de recepción de pagos</td>
-                                </tr>
+                                
+                                
+                                
+                                
+                                <!----Recepción de trabajos en extenso---->
+                               
+                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 26 de febrero al 15 de marzo de 2024</th>
-                                    <td class="asunto py-3">Recepción de extensos finales</td>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 6;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 6;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 6; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
+                                
+               
+                               <!---Notificación de observaciones de los trabajos en extenso--->
+                                 </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 7;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 7;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 7; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                </tr>
+                                
+                                
+                    						<!---	Inicia el periodo de recepción de pagos--->
+                                 </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 8;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 8;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 8; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                </tr>
+                                
+                                
+                                
                                 <tr class="table bg-danger">
                                     <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su extenso no fue aprobado para el 16 de marzo quedará fuera del evento.</td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">Del 18 de marzo al 19 de abril de 2024</th>
-                                    <td class="asunto py-3">Recepción de videos de las ponencias aceptadas</td>
+                                
+        
+                                <!---	Recepción de videos de las ponencias aceptadas--->
+                               </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 9;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 9;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 9; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr class="table bg-danger">
-                                    <td class="importante" colspan="2"><i class="fa fa-exclamation-triangle me-3" aria-hidden="true"></i>Si su video no fue recibido para el 20 de abril quedará fuera del evento.</td>
+                                
+                    
+                                <!---Publicación del programa general del evento--->
+                                
+                               </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 10;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 10;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 10; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">22 de abril de 2024</th>
-                                    <td class="asunto py-3">Publicación del programa general del evento</td>
+                                
+                                <!---Periodo de impartición de talleres en línea--->
+
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">6 y 7 de mayo de 2024</th>
-                                    <td class="asunto py-3">Periodo de impartición de talleres en línea</td>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 11;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 11;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 11; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">8 y 9 de mayo de 2024</th>
-                                    <td class="asunto py-3">Fecha del Congreso</td>
+                                
+                                
+                                <!---Fecha del Congreso--->
+                                
+                               </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 12;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 12;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 12; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                </tr>
+                                
+                                
+                                
+                                <!---Inicia el envío de constancias virtuales--->
+                                
                                 </tr>
                                 <tr class="table-warning">
-                                    <th class="fecha py-3" scope="row ">Del 10 al 14 de junio 2024</th>
-                                    <td class="asunto py-3">Inicia el envío de constancias virtuales</td>
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 13;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 13;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 13; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
-                                <tr>
-                                    <th class="fecha py-3" scope="row">A partir del 10 de junio de 2024</th>
-                                    <td class="asunto py-3">Publicación de las memorias del Congreso</td>
+                                
+                                
+                                <!---Publicación de las memorias del Congreso--->
+                                
+                                
+                                </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 14;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 14;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 14; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
+                                </tr>
+                                
+                                
+                                <!---Publicación de las memorias del Congreso--->
+                                
+                                  </tr>
+                                <tr class="table-warning">
+                                    <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 15;
+																			$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_inicio"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                     <th class="fecha py-3" scope="row">
+                                    <?php
+																			$id_evento = 15;
+																			$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			$fecha_inicio = date("d - m - Y", strtotime($row["fecha_congreso_fin"]));
+																			 echo $fecha_inicio;
+																			?>
+                                    </th>
+                                    
+                                    <td class="asunto py-3">
+                                    <?php
+																			$id_evento = 15; 
+																			$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+																			$result = $conexion->query($sql);
+																			$row = $result->fetch_assoc();
+																			echo $row["descripcion_evento"];?>
+                                </td>
                                 </tr>
                             </tbody>
                         </table>
