@@ -60,6 +60,21 @@ require "../../modelo/traerFechasCongreso.php";
         </div>
     </div>
 
+    <h4>Actualizar Correo del Congreso de Matemáticas</h4>
+    <div class="p-3 row g-12 align-items-center">
+  <div class="col-auto">
+    <label for="inputMail" class="col-form-label">e-mail</label>
+  </div>
+  <div class="col-auto">
+    <input type="text" id="inputMail" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+      Nuevo correo con el que se trabajara en el congreso.
+    </span>
+  </div>
+</div>
+
     <h4>Fecha de las Actividades</h4>
     <div class=" head row mt-3 col-xl-10 col-lg-10 col-md-12 d-none d-sm-block mt-4  p-3  rounded">
         <div class="row">
