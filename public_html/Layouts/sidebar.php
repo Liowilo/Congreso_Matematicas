@@ -224,6 +224,9 @@ tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                     if ($valor == 44 && $estado == 'ON') { ?>
                         <li class="list-group-item lis background">
                             <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/nuevoCongreso/registrarCongreso.php">Congreso</a></label>
+                            <li class="list-group-item lis background">
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/cambiarDiseño/cambiarDiseño.php">Diseño página</a></label>
+                        </li>
                         </li>
                 <?php }
                 }
