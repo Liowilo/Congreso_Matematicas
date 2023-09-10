@@ -67,27 +67,22 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             ?>
                         </div>
                         <form method="POST" id="form" enctype="multipart/form-data">
-                            <div class="d-flex align-items-center justify-content-center contenedor mt-4">
+                            <div class="row d-flex align-items-center justify-content-center contenedor mt-4">
 
-                                <div class="p-2 flex-fill col-xl-4 col-lg-4 col-md-5 col-sm-12 mb-3">
+                                <div class="col p-2 flex-fill col-xl-2 col-lg-2 col-md-2 col-sm-12 mb-3">
                                     <!--Boton para subir o seleccionar nueva foto-->
                                     <label for="inputFoto" class="form-label">Logo del Congreso</label>
                                     <input type="file" accept="image/png,image/jpeg,image/jpg" class="form-control"
                                         name="inputLogo" id="inputFotoPerfil">
 
                                 </div>
-                                <div class="p-2 flex-fill col-xl-4 col-lg-4 col-md-5 col-sm-12 mb-3">
+                                <div class="col p-2 flex-fill col-xl-2 col-lg-2 col-md-2 col-sm-12 mb-3">
                                     <!--Boton para subir o seleccionar nueva foto-->
                                     <label for="inputFoto" class="form-label">Banner del congreso</label>
                                     <input type="file" accept="image/png,image/jpeg,image/jpg" class="form-control"
                                         name="inputBanner" id="inputFotoBanner">
                                 </div>
-                                <div>
-
-
-
-                                </div>
-                                <div class="p-2 flex-fill col-xl-4 col-lg-4 col-md-5 col-sm-12 mb-3">
+                                <div class="col p-2 flex-fill col-xl-2 col-lg-2 col-md-2 col-sm-12 mb-3">
                                     <!--Boton para subir o seleccionar nueva foto-->
                                     <label for="inputFoto" class="form-label">Póster del congreso</label>
                                     <input type="file" accept="image/png,image/jpeg,image/jpg" class="form-control"
