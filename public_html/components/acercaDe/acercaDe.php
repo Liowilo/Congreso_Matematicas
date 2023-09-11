@@ -54,12 +54,86 @@ session_start();
                 <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12">
                     <h4>Créditos</h4>
                     <span class="lista fw-semibold">Esta página fue desarrollada por:</span>
-                    <ul class="lista mt-3">
-                        <li>Rubio García Alison Michelle - allyssonrg@gmail.com</li>
-                        <li>Sánchez Campos Magda Marina - marinacampos1125@gmail.com</li>
-                        <li>Tejeda Araujo Carlos Alfredo - tejedaaraujoc@gmail.com</li>
-                        <li>Vargas Ledesma Marco Antonio - mvargas750@gmail.com</li>
-                    </ul>
+                    <table class="table table-striped">
+                            <thead class="categorias">
+                                <tr>
+                                    <th class="nombre py-2" scope="col">Nombre</th>
+                                    <th class="correo py-2" scope="col">Correo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                    <td class="nombre py-2" scope="row">Rubio García Alison Michelle</td>
+                                    <td class="correo py-2">allyssonrg@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Sánchez Campos Magda Marina</td>
+                                    <td class="correo py-2">marinacampos1125@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row">Tejeda Araujo Carlos Alfredo</td>
+                                    <td class="correo py-2">tejedaaraujoc@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Vargas Ledesma Marco Antonio</td>
+                                    <td class="correo py-2">mvargas750@gmail.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <span class="lista fw-semibold">Esta página recibió mantenimiento por:</span>
+                    <table class="table table-striped">
+                            <thead class="categorias">
+                                <tr>
+                                    <th class="nombre py-2" scope="col">Nombre</th>
+                                    <th class="correo py-2" scope="col">Correo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                    <td class="nombre py-2" scope="row">Antonio García Cesar Eduardo</td>
+                                    <td class="correo py-2">cesareduardoag09@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Espitia Gutiérrez Alberto Ataim</td>
+                                    <td class="correo py-2">aliyati3001@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row">García Rojas Kevin</td>
+                                    <td class="correo py-2">vinke-ggz@hotmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Hernández Carmona Leonardo</td>
+                                    <td class="correo py-2">leonardo.hdzc777@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row">Juárez Aguayo Leonardo Samuel</td>
+                                    <td class="correo py-2">hlsammja@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Leaños Medina Ricardo</td>
+                                    <td class="correo py-2">ricardoleanosmedina@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row">Lin Jayme Ernesto</td>
+                                    <td class="correo py-2">jaymelinbr@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">Moreno Aguirre Sofia</td>
+                                    <td class="correo py-2">theapexsite@gmail.com</td>
+                                </tr><tr>
+                                    <td class="nombre py-2" scope="row">Rivera Villanueva Bruno Iván</td>
+                                    <td class="correo py-2">brunorivera105@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row ">López Sánchez Hugo Yair</td>
+                                    <td class="correo py-2">hugoyair.lopez.sanchez@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td class="nombre py-2" scope="row">López Martínez Héctor</td>
+                                    <td class="correo py-2">hectorml002@gmail.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12">
                     <div class="row p-3 border rounded">
