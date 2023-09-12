@@ -14,6 +14,11 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="./guias.css">
+    
+    <style> ol,ul{
+        padding-left: 20px; /* Elimina el sangrado izquierdo */
+        }
+    </style>
 </head>
 
 <body>
@@ -41,14 +46,14 @@ session_start();
                                     </h2>
                                     <div id="panelsStayOpen-collapseUno" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingUno">
                                         <div class="accordion-body Cuerpo-texto">
-                                            <strong>El registro de ponencias consta de tres procesos:</strong><br>
+                                            <strong>El registro de ponencias consta de tres procesos:</strong><br><br>
                                             <ul class="list-unstyled">
                                                 <ol>
                                                     <li>El resumen.</li>
                                                     <li>El extenso.</li>
                                                     <li>El vídeo de la exposición de la ponencia.</li>
                                                 </ol>
-                                                </li>
+                                                <br>
                                                 <li>El resumen, extenso y el vídeo de cada ponencia requieren ser registrados en el sitio del Congreso para ser evaluados por el Comité correspondiente.</li>
                                             </ul>
                                         </div>
@@ -66,31 +71,36 @@ session_start();
                                             <span class="">
                                                 La ponencia debe ser original y producto de investigación teórica o aplicada.
                                                 Serán aceptados todos los trabajos que puedan hacer alguna aportación al conocimiento
-                                                teórico o práctico en la enseñanza y aplicación de las matemáticas. Así mismo, se debe
+                                                teórico o práctico en la enseñanza y aplicación de las matemáticas. El trabajo deberá tener un fundamento matemático explicito en el desarrollo y presentación de la ponencia. Así mismo, se debe
                                                 cumplir con los lineamientos que se indican en la elaboración del resumen.
                                             </span><br><br>
-                                            <strong>El resumen deberá contener:</strong><br>
+                                            <strong>El resumen deberá contener:</strong>
+                                            <br><br>
                                             <ul class="list-unstyled mt-2 mb-2">
                                                 <ol>
                                                     <li>Título (Máximo 15 palabras)</li>
                                                     <li>Categoría.</li>
                                                     <li>Contenido (máximo 300 palabras estructurado de acuerdo a la categoría seleccionada).</li>
-                                                    <li>Referencias estilo APA (American Psychological Association).</li>
+                                                    <li>Bibliografía y cibergrafía en estilo APA (American Psychological Association).</li>
                                                     <li>Nombre del autor (y opcional coautores. Máximo 5 integrantes).</li>
                                                     <li>Indicar si requiere constancia de participación.</li>
                                                 </ol>
                                             </ul>
-                                            <strong>Especificaciones del resumen:</strong><br>
+                                            <br>
+                                            <strong>Especificaciones del resumen:</strong>
+                                            <br><br>
                                             <ol class="mt-2">
-                                                <li>El título deberá reflejar el contenido de la ponencia.</li>
+                                                <li class="fw-semibold mb-2">El título deberá reflejar el contenido de la ponencia.</li>
+                                                <br>
                                                 <li class="fw-semibold mb-2"> Las categorías en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) son:</li>
-                                                <ul style="list-style-type: square;">
+                                                <ul style="list-style-type: square;" class="lista2">
                                                     <li>Enseñanza de las matemáticas con las TIC en la nueva normalidad (EN)</li>
                                                     <li>Experiencia e innovación didáctica en la enseñanza de las matemáticas (ID)</li>
                                                     <li>Investigación del proceso de la enseñanza de las matemáticas (IP)</li>
                                                     <li>Evaluión del aprendizaje en la enseñanza de las matemáticas en la nueva normalidad (EA)</li>
                                                     <li>Aplicación y/o vinculación de las matemáticas con otras disciplinas (AP)</li>
-                                                    <span>Al momento de registrar sus trabajos el ponente seleccionará la categoría que más se adapte a ellos.</span>
+                                                    <li>Al momento de registrar sus trabajos el ponente seleccionará la categoría que más se adapte a ellos.</li>
+                                                    <br>
                                                 </ul>
                                                 <li class="fw-semibold mb-2">En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li>
                                                 <ul style="list-style-type: square;">
@@ -99,16 +109,19 @@ session_start();
                                                     <li>Metodología o desarrollo</li>
                                                     <li>Resultados y/o conclusiones.</li>
                                                 </ul>
-                                                <li>Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                <br>
+                                                <li class="fw-semibold mb-2">Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                <br>
                                                 <li class="fw-semibold mb-2">Registro autores y coautores.
                                                     Los asistentes al Congreso podrán participar como ponentes con un máximo de 5 trabajos, ya sea como autor o coautor en las siguientes modalidades:</li>
-                                                <ul style="list-style-type: circle;">
+                                                <ul style="list-style-type: square;">
                                                     <li>Ponencias</li>
                                                     <li>Talleres</li>
                                                     <li>Carteles</li>
                                                 </ul>
                                             </ol>
                                             <span>Los asistentes podrán participar como ponentes con un máximo de 3 trabajos en la categoría de Ponencias, con un máximo de 2 Carteles y con un Taller.</span>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
@@ -121,14 +134,15 @@ session_start();
                                     </h2>
                                     <div id="panelsStayOpen-collapseTres" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTres">
                                         <div class="accordion-body Cuerpo-texto">
-                                            <strong>El registro de carteles consta de tres procesos:</strong><br>
+                                            <strong>El registro de carteles consta de tres procesos:</strong>
+                                            <br><br>
                                             <ul class="list-unstyled">
                                                 <ol>
                                                     <li>El resumen.</li>
                                                     <li>El extenso.</li>
                                                     <li>El vídeo de la exposición del cartel.</li>
                                                 </ol>
-                                                </li>
+                                                <br>
                                                 <li> El resumen, cartel y el vídeo de exposición de cada cartel requieren ser registrados en el sitio del congreso para ser evaluados por el comité evaluador.</li>
                                             </ul>
                                         </div>
@@ -146,7 +160,8 @@ session_start();
                                             <span class="">
                                                 El cartel debe ser original y producto de investigación teórica o aplicada. Serán aceptadas todos los trabajos que puedan hacer alguna aportación al conocimiento teórico o práctico en la enseñanza y aplicación de las matemáticas. Así mismo se debe cumplir con los lineamientos que se indican en la elaboración del resumen.
                                             </span><br><br>
-                                            <strong>El resumen deberá contener:</strong><br>
+                                            <strong>El resumen deberá contener:</strong>
+                                            <br><br>
                                             <ul class="list-unstyled mt-2 mb-2">
                                                 <ol>
                                                     <li>Título (Máximo 15 palabras)</li>
@@ -157,9 +172,12 @@ session_start();
                                                     <li>Indicar si requiere constancia de participación.</li>
                                                 </ol>
                                             </ul>
-                                            <strong>Especificaciones del resumen:</strong><br>
+                                            <br>
+                                            <strong>Especificaciones del resumen:</strong>
+                                            <br><br>
                                             <ol class="mt-2">
-                                                <li>El título deberá reflejar el contenido del cartel.</li>
+                                                <li class="fw-semibold mb-2">El título deberá reflejar el contenido del cartel.</li>
+                                                <br>
                                                 <li class="fw-semibold mb-2"> Las categorias en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) son:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Enseñanza de las matemáticas con las TIC en la nueva normalidad (EN)</li>
@@ -169,6 +187,7 @@ session_start();
                                                     <li>Aplicación y/o vinculación de las matemáticas con otras disciplinas (AP)</li>
                                                     <span>Al momento de registrar sus trabajos, el ponente seleccionará la categoría que más se adapte a ellos.</span>
                                                 </ul>
+                                                <br>
                                                 <li class="fw-semibold mb-2">En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Objetivo</li>
@@ -176,17 +195,21 @@ session_start();
                                                     <li>Metodología o desarrollo</li>
                                                     <li>Resultados y/o conclusiones.</li>
                                                 </ul>
-                                                <li>Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                <br>
+                                                <li class="fw-semibold mb-2">Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                <br>
                                                 <li class="fw-semibold mb-2">Registro autores y coautores.
                                                     Los asistentes al congreso podrán participar como ponentes con un máximo de 5 trabajos ya sea como autor o coautor en las siguientes modalidades:</li>
-                                                <ul style="list-style-type: circle;">
+                                                <ul style="list-style-type: square;">
                                                     <li>Ponencias</li>
                                                     <li>Talleres</li>
                                                     <li>Carteles</li>
                                                 </ul>
                                             </ol>
+                                            <br>
                                             <span>Los asistentes podrán participar como ponentes con un máximo de 3 trabajos en la categoría de Ponencias, con un máximo de 2 Carteles y con un Taller.</span>
                                             <span>El cartel debe incluir las siguientes secciones:</span>
+                                            <br><br>
                                             <ol class="mt-2">
                                                 <li>Encabezado</li>
                                                 <li>Resumen</li>
@@ -197,10 +220,12 @@ session_start();
                                                 <li>Discusión y/o conclusiones</li>
                                                 <li>Índice de referencias (en formato APA).</li>
                                             </ol>
+                                            <br>
                                             <span>Todas las imágenes, figuras, tablas y ecuaciones deberán estar numeradas.</span>
                                             <span>El cartel se deberá subir en el sitio del Congreso en formato pdf.</span>
                                             <span>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité evaluador y su decisión será inapelable.
                                             </span>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
@@ -216,26 +241,31 @@ session_start();
                                             <span class="">
                                                 Los talleres servirán para fortalecer la práctica profesional, a través del uso de tecnologías o sistemas aplicados a la enseñanza y aplicación de las matemáticas.
                                             </span><br><br>
-                                            <strong>La propuesta de taller debe ajustarse a los requisitos siguientes:</strong><br>
+                                            <strong>La propuesta de taller debe ajustarse a los requisitos siguientes:</strong>
+                                            <br><br>
                                             <ul class="list-unstyled mt-2 mb-2">
                                                 <ol>
                                                     <li>Un autor o coautor sólo podrá participar en un taller.</li>
                                                     <li>Los talleres constan de 2 sesiones de 2 horas cada una.</li>
                                                     <li>El registro se llevará a cabo en la página del congreso enviando sus resúmenes.</li>
                                                     <li>La propuesta de registro de taller debe contener:</li>
-                                                    <ul style="list-style-type: circle;">
+                                                    <br>
+                                                    <ul style="list-style-type: square;">
                                                         <li>Título (máximo 15 palabras). El título deberá reflejar el contenido del taller.</li>
                                                         <li>Contenido (máximo 300 palabras) describir el objetivo, las actividades a realizar y los logros que se pretenden alcanzar.</li>
                                                         <li>Materiales (máximo 100 palabras), software necesario, el horario propuesto (opcional) y la tecnología en línea que utilizará (Zoom, Meet, Webex, Classroom, otro).</li>
                                                         <li>Autor (y coautores opcional) máximo dos coautores.</li>
                                                         <li>Las constancias son individuales para lo cual el autor y coautores requieren exponer el trabajo y realizar el pago correspondiente.</li>
                                                     </ul>
+                                                    <br>
                                                 </ol>
                                                 <li><strong>Registro de talleres.</strong></li>
+                                                <br>
                                                 <span>Después del registro se revisarán los talleres para enviar la respuesta por email a los ponentes y realizar las observaciones correspondientes si es que las hubiera. También recibirán indicaciones para impartir el taller.
 
                                                     Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por la comisión de talleres y su decisión será inapelable.</span>
                                             </ul>
+                                            <br>
                                         </div>
                                     </div>
                                 </div>
@@ -258,8 +288,8 @@ session_start();
                                                 <li>Respetar la fecha límite de registro de trabajos extensos</li>
                                             </ol>
 
-                                            <strong>Los coautores no pueden registrar o modificar los extensos.</strong><br>
-
+                                            <strong>Los coautores no pueden registrar o modificar los extensos.</strong>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +310,8 @@ session_start();
                                                 <li>Se entregará constancia de <mark>"Presentación de ponencia"</mark>, cuando su trabajo en extenso y vídeo hayan sido aceptados por el comité organizador y estos hayan sido presentados en el evento.</li>
                                                 <li>Se entregará constancia de <mark>"Publicación en memorias del congreso</mark>" con registro ISSN , cuando su trabajo en extenso haya sido incluido en las memorias del congreso.</li>
                                             </ul>
-                                            <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité organizador y su desición será inapelable.</strong><br>
+                                            <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité organizador y su desición será inapelable.</strong>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
@@ -301,12 +332,15 @@ session_start();
                                                 <li>Resolución 1280*720 y 24 fps (fotogramas por segundo).</li>
                                                 <li>Buen audio y vídeo.</li>
                                                 <li>El nombre del archivo es la clave de su ponencia + - + el nombre del autor.</li>
-                                                <ul>
+                                                <br>
+                                                <ul style="list-style-type: square;">
                                                     <li>Ejemplo: POSM001-PedroGarciaMendoza</li>
                                                 </ul>
+                                                <br>
                                                 <li>El vídeo deberá ser subido por el ponente a OneDrive, Drive o cualquier otra plataforma para almacenar archivos multimedia y se deberá compartir el URL para visualizar el vídeo con los permisos necesarios de visualización al correo 15congresomatematicas@cuautitlan.unam.mx.</li>
                                             </ol>
-                                            <strong>Los elementos que debe incluir la exposición de la ponencia son:</strong><br>
+                                            <strong>Los elementos que debe incluir la exposición de la ponencia son:</strong>
+                                            <br><br>
                                             <ul style="list-style-type: square;">
                                                 <li>Temática</li>
                                                 <li>Objetivos</li>
@@ -316,6 +350,7 @@ session_start();
                                                 <li>Bibliografía.</li>
                                             </ul>
                                             <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité técnico y su decisión será inapelable.</strong>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
