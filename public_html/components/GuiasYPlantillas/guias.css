@@ -8,7 +8,7 @@ html{
 /***********************************/
 .Titulos {
     font-family: 'Inter Tight', sans-serif;
-    color: rgba(59, 61, 77, 0.83);
+    color: rgba(0, 0, 128, 0.83);
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -21,9 +21,8 @@ html{
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
-    color: rgba(59, 61, 77, 0.83);
+    color: rgba(0, 0, 128, 0.83);
 }
-
 .botones_descarga {
     background: #C5B268;
     border-radius: 9px;
@@ -37,4 +36,5 @@ html{
     font-size: 17px;
     line-height: 18px;
 }
+
 
