@@ -42,6 +42,29 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="../../Layouts/CrearCongreso/crearCongreso.css">
+            <style>
+                .card {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    width: 300px;
+                }
+
+                .option {
+                    cursor: pointer;
+                    margin-bottom: 5px;
+                    transition: background-color 0.3s;
+                }
+
+                .content {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.5s ease-in-out;
+                }
+
+                .content.show {
+                    max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+                }
+            </style>
 
         </head>
 
@@ -61,11 +84,30 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                         <div class="container">
-                            <h2 class="mt-5 mb-3">Modificar página</h2>
+                            <h2 class="mt-5 mb-3">Administrar Diseño</h2>
                             <?php
                             /* require "../../modelo/cambiarDiseño.php";*/
                             ?>
                         </div>
+                        <div class="card">
+                            <h2>Card Título</h2>
+                            <div class="option" onclick="toggleContent('content1')">Menú 1</div>
+                            <div class="content" id="content1">
+                                <p>Contenido Menú 1...</p>
+                            </div>
+
+                            <div class="option" onclick="toggleContent('content2')">Menú 2</div>
+                            <div class="content" id="content2">
+                                <p>Contenido Menú 2...</p>
+                            </div>
+                        </div>
+
+                        <script>
+                            function toggleContent(id) {
+                                var content = document.getElementById(id);
+                                content.classList.toggle('show');
+                            }
+                        </script>
                         <form method="POST" id="form" enctype="multipart/form-data">
                             <div class="row d-flex align-items-center justify-content-center contenedor mt-4">
 

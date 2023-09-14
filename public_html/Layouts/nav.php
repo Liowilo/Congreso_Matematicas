@@ -1,4 +1,4 @@
-<?php
+<?php 
 //session_start();
 //Verifica si ha iniciado sesión e instancia el modulo para consultar la foto del usuario.
 if (!empty($_SESSION['correoElectronico'])) {
