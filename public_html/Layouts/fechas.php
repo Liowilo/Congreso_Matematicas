@@ -3,12 +3,112 @@
         <div class="centrico col-md-4 text-center texto-sm border border-success 
         p-2 border-opacity-10 rounded d-sm-block col-sm-6">
             <h2 class="mt-4 mb-3">Fechas Importantes</h2>
-            <div class="p-2 mt-4">Publicación del programa del evento:<br>22 de abril de 2024</div>
+            <div class="p-2 mt-4">Publicación del programa del evento:<br>
+                <?php
+                $id_evento = 11;
+                $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                $result = $conexion->query($sql);
+                $row = $result->fetch_assoc();
+                $fecha = new DateTime($row["fecha_congreso_inicio"]);
+                $locale = 'es_ES'; // Establece la configuración regional en español
+
+                $dateFormatter = new IntlDateFormatter(
+                    $locale,
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    'UTC', // Zona horaria
+                    IntlDateFormatter::GREGORIAN
+                );
+
+                $dateFormatter->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+                $fecha_formateada = $dateFormatter->format($fecha);
+
+                // Capitalizar la primera letra del día
+                $fecha_formateada = ucfirst($fecha_formateada);
+
+                echo $fecha_formateada;
+                ?>
+            </div>
             <hr>
-            <div class="p-3">Periodo de impartición de talleres presenciales en línea <br> 6 y 7 de mayo de 2024</div>
+            <div class="p-3">Periodo de impartición de talleres presenciales en línea <br>
+                <?php
+                $id_evento = 12;
+                $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                $result = $conexion->query($sql);
+                $result2 = $conexion->query($sql2);
+                $row = $result->fetch_assoc();
+                $row2 = $result2->fetch_assoc();
+                $fecha = new DateTime($row["fecha_congreso_inicio"]);
+                $fecha2 = new DateTime($row2["fecha_congreso_fin"]);
+                $locale = 'es_ES'; // Establece la configuración regional en español
+
+                $dateFormatter = new IntlDateFormatter(
+                    $locale,
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    'UTC', // Zona horaria
+                    IntlDateFormatter::GREGORIAN
+                );
+
+                $dateFormatter2 = new IntlDateFormatter(
+                    $locale,
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    'UTC', // Zona horaria
+                    IntlDateFormatter::GREGORIAN
+                );
+
+                $dateFormatter->setPattern("d 'de' MMMM");  // Define el patrón de formato
+                $dateFormatter2->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+                $fecha_formateada = $dateFormatter->format($fecha);
+                $fecha_formateada2 = $dateFormatter2->format($fecha2);
+
+                echo $fecha_formateada ." y ". $fecha_formateada2;
+                ?>
+            </div>
             <hr>
             <div class="div p-4">
-                <h4>Fecha del Congreso<br>8 y 9 de mayo de 2024</h4>
+                <h4>Fecha del Congreso: <br>
+                <?php
+                $id_evento = 13;
+                $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                $result = $conexion->query($sql);
+                $result2 = $conexion->query($sql2);
+                $row = $result->fetch_assoc();
+                $row2 = $result2->fetch_assoc();
+                $fecha = new DateTime($row["fecha_congreso_inicio"]);
+                $fecha2 = new DateTime($row2["fecha_congreso_fin"]);
+                $locale = 'es_ES'; // Establece la configuración regional en español
+
+                $dateFormatter = new IntlDateFormatter(
+                    $locale,
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    'UTC', // Zona horaria
+                    IntlDateFormatter::GREGORIAN
+                );
+
+                $dateFormatter2 = new IntlDateFormatter(
+                    $locale,
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                    'UTC', // Zona horaria
+                    IntlDateFormatter::GREGORIAN
+                );
+
+                $dateFormatter->setPattern("d 'de' MMMM");  // Define el patrón de formato
+                $dateFormatter2->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+                $fecha_formateada = $dateFormatter->format($fecha);
+                $fecha_formateada2 = $dateFormatter2->format($fecha2);
+
+                echo $fecha_formateada ." y ". $fecha_formateada2;
+                ?>
+                </h4>
             </div>
             <hr>
             <div class="d-grid gap-2">
