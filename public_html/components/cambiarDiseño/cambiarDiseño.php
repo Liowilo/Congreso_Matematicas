@@ -42,22 +42,42 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="../../Layouts/CrearCongreso/crearCongreso.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-fbnYnJt1BfFj/tKuWELG5S7tv+20a2OvEgduPJi1d0zDAtMDodhQKgX8hKfQIP3z" crossorigin="anonymous">
             <style>
                 .card {
                     border: 1px solid #ccc;
                     padding: 10px;
-                    width: 300px;
+                    width: 800px;
+                    margin-left: 35px;
+                }
+
+                h2.modulo {
+                    margin-top: 16px;
                 }
 
                 .option {
                     cursor: pointer;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    padding: 8px 12px;
                     margin-bottom: 5px;
+                    margin-top: 8px;
                     transition: background-color 0.3s;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .option i {
+                    margin-left: 20px;
                 }
 
                 .content {
                     max-height: 0;
                     overflow: hidden;
+                    transition: max-height 1.5s ease-in-out;
+                }
+
+                .content.slow-close {
                     transition: max-height 0.5s ease-in-out;
                 }
 
@@ -92,12 +112,12 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                         <div class="card">
                             <h2 class="modulo">Módulo</h2>
                             <hr style="border: 1px solid #000;">
-                            <div class="option" onclick="toggleContent('content1')">Menú 1</div>
+                            <div class="option" onclick="toggleContent('content1')">Menú 1<i class="fas fa-plus"></i></div>
                             <div class="content" id="content1">
                                 <p>Contenido Menú 1...</p>
                             </div>
 
-                            <div class="option" onclick="toggleContent('content2')">Menú 2</div>
+                            <div class="option" onclick="toggleContent('content2')">Menú 2<i class="fas fa-plus"></i></div>
                             <div class="content" id="content2">
                                 <p>Contenido Menú 2...</p>
                             </div>
@@ -107,6 +127,15 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             function toggleContent(id) {
                                 var content = document.getElementById(id);
                                 content.classList.toggle('show');
+                                var icon = content.previousElementSibling.querySelector('i');
+                                if (content.classList.contains('show')) {
+                                    icon.classList.remove('fa-plus');
+                                    icon.classList.add('fa-minus');
+                                } else {
+                                    icon.classList.remove('fa-minus');
+                                    icon.classList.add('fa-plus');
+                                    content.classList.add('slow-close');
+                                }
                             }
                         </script>
                         <form method="POST" id="form" enctype="multipart/form-data">
