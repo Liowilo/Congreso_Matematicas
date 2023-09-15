@@ -61,8 +61,26 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -73,8 +91,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 									<!--------Asunto------------>
@@ -84,12 +119,13 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 
-
 									<!--------Evaluación de resúmenes por parte del comité------------>
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -97,8 +133,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -108,8 +161,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -119,7 +189,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -131,8 +203,25 @@ require '../../modelo/conexion.php';
 									$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 									$result = $conexion->query($sql);
 									$row = $result->fetch_assoc();
-									$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-									echo $fecha_inicio;
+									$fecha = new DateTime($row["fecha_congreso_inicio"]);
+									$locale = 'es_ES'; // Establece la configuración regional en español
+
+									$dateFormatter = new IntlDateFormatter(
+										$locale,
+										IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+										IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+										'UTC', // Zona horaria
+										IntlDateFormatter::GREGORIAN
+									);
+
+									$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+									$fecha_formateada = $dateFormatter->format($fecha);
+
+									// Capitalizar la primera letra del día
+									$fecha_formateada = ucfirst($fecha_formateada);
+
+									echo $fecha_formateada;
 									?>
 								</th>
 
@@ -143,8 +232,25 @@ require '../../modelo/conexion.php';
 									$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 									$result = $conexion->query($sql);
 									$row = $result->fetch_assoc();
-									$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-									echo $fecha_inicio;
+									$fecha = new DateTime($row["fecha_congreso_fin"]);
+									$locale = 'es_ES'; // Establece la configuración regional en español
+
+									$dateFormatter = new IntlDateFormatter(
+										$locale,
+										IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+										IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+										'UTC', // Zona horaria
+										IntlDateFormatter::GREGORIAN
+									);
+
+									$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+									$fecha_formateada = $dateFormatter->format($fecha);
+
+									// Capitalizar la primera letra del día
+									$fecha_formateada = ucfirst($fecha_formateada);
+
+									echo $fecha_formateada;
 									?>
 								</th>
 								<!--------Asunto------------>
@@ -154,11 +260,13 @@ require '../../modelo/conexion.php';
 									$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 									$result = $conexion->query($sql);
 									$row = $result->fetch_assoc();
-									echo $row["descripcion_evento"]; ?>
+									$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+									$rowFormater = ucfirst($rowFormater);
+									echo "<b> $rowFormater </b>"; ?>
 								</td>
 
 								<!--------	Recepción de corrección de resúmenes------------>
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -166,8 +274,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -177,8 +302,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -188,7 +330,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -222,7 +366,7 @@ require '../../modelo/conexion.php';
 
 								<!----Recepción de trabajos en extenso---->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -230,8 +374,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -241,8 +402,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -252,13 +430,15 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
 
 								<!---Notificación de observaciones de los trabajos en extenso--->
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -266,8 +446,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -277,8 +474,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -288,13 +502,15 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
 
 								<!---	Inicia el periodo de recepción de pagos--->
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -302,8 +518,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -313,8 +546,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -324,13 +574,14 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"];
-										?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
 								<!---	Recepción de videos de las ponencias aceptadas--->
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -338,8 +589,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -349,8 +617,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -360,7 +645,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -394,7 +681,7 @@ require '../../modelo/conexion.php';
 
 								<!---Recepción de videos de las ponencias aceptadas--->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -402,8 +689,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -413,8 +717,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -424,7 +745,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -459,7 +782,7 @@ require '../../modelo/conexion.php';
 
 								<!---Publicación del programa general del evento--->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -467,8 +790,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -478,8 +818,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -489,14 +846,16 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
 
 								<!---Periodo de impartición de talleres en línea--->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -504,8 +863,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -515,8 +891,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -526,7 +919,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -534,7 +929,7 @@ require '../../modelo/conexion.php';
 
 								<!---Fecha del Congreso--->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -542,8 +937,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -553,8 +965,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -564,7 +993,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
@@ -572,7 +1003,7 @@ require '../../modelo/conexion.php';
 								<!---Inicia el envío de constancias virtuales--->
 
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -580,8 +1011,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -591,8 +1039,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -602,14 +1067,15 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 
-
 								<!---Publicación de las memorias del Congreso--->
 
-								</tr>
+
 								<tr class="table-warning">
 									<th class="fecha py-3" scope="row">
 										<?php
@@ -617,8 +1083,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_inicio"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_inicio"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -628,8 +1111,25 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										$fecha_inicio = date("d/m/Y", strtotime($row["fecha_congreso_fin"]));
-										echo $fecha_inicio;
+										$fecha = new DateTime($row["fecha_congreso_fin"]);
+										$locale = 'es_ES'; // Establece la configuración regional en español
+
+										$dateFormatter = new IntlDateFormatter(
+											$locale,
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+											'UTC', // Zona horaria
+											IntlDateFormatter::GREGORIAN
+										);
+
+										$dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+										$fecha_formateada = $dateFormatter->format($fecha);
+
+										// Capitalizar la primera letra del día
+										$fecha_formateada = ucfirst($fecha_formateada);
+
+										echo $fecha_formateada;
 										?>
 									</th>
 
@@ -639,7 +1139,9 @@ require '../../modelo/conexion.php';
 										$sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
 										$result = $conexion->query($sql);
 										$row = $result->fetch_assoc();
-										echo $row["descripcion_evento"]; ?>
+										$rowFormater = mb_strtolower($row["descripcion_evento"], 'UTF-8');
+										$rowFormater = ucfirst($rowFormater);
+										echo "<b> $rowFormater </b>"; ?>
 									</td>
 								</tr>
 							</tbody>
