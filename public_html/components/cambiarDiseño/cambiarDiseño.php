@@ -90,7 +90,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             ?>
                         </div>
                         <div class="card">
-                            <h2>Card Título</h2>
+                            <h2 class="modulo">Módulo</h2>
+                            <hr style="border: 1px solid #000;">
                             <div class="option" onclick="toggleContent('content1')">Menú 1</div>
                             <div class="content" id="content1">
                                 <p>Contenido Menú 1...</p>
