@@ -37,11 +37,13 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Congreso</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+                integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+                crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="../../Layouts/CrearCongreso/crearCongreso.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-                integrity="sha384-fbnYnJt1BfFj/tKuWELG5S7tv+20a2OvEgduPJi1d0zDAtMDodhQKgX8hKfQIP3z" crossorigin="anonymous">
+                integrity="sha384-fbnYnJt1BfFj/tKuWELG5S7tv+20a2OvEgduPJi1d0zDAtMDodhQKgX8hKfQIP3z"
+                crossorigin="anonymous">
             <style>
                 /* Estilos para la tarjeta */
                 .card {
@@ -84,8 +86,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 }
 
                 .content.show {
-                    max-height: 600px;
-                    /* Ajusta la altura máxima según tus necesidades */
+                    max-height: 600px; /* Ajusta la altura máxima según tus necesidades */
                 }
             </style>
         </head>
@@ -113,10 +114,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                         <div class="mt-5 mb-3 card">
                             <h2 class="mt-5 mb-3 modulo">Administrar Diseño</h2>
                             <hr style="border: 1px solid #000;">
-                            <h4>
-                                <div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content1')">Crear
-                                    Cuenta<i class="fas fa-plus"></i></div>
-                            </h4>
+                            <h4> <div  class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content1')">Crear
+                                Cuenta<i class="fas fa-plus"></i></div></h4>
                             <div class="content" id="content1">
                                 <div class="table-responsive"
                                     style="margin-left: 30px;padding-left: 0px;border-top-left-radius: 14px;border-top-right-radius: 14px;border-bottom-right-radius: 14px;border-bottom-left-radius: 14px;border: 0.5px solid var(--bs-gray);margin-right: 38px;">
@@ -165,17 +164,11 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 </div>
                             </div>
 
-                            <h4>
-                                <div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content2')">Menú
-                                    2<i class="fas fa-plus"></i></div>
-                            </h4>
+                            <h4><div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content2')">Menú 2<i class="fas fa-plus"></i></div></h4>
                             <div class="content" id="content2">
                                 <p>Contenido Menú 2...</p>
                             </div>
-                            <h4>
-                                <div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content3')">Menú
-                                    3<i class="fas fa-plus"></i></div>
-                            </h4>
+                            <h4><div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content3')">Menú 3<i class="fas fa-plus"></i></div></h4>
                             <div class="content" id="content3">
                                 <p>Contenido Menú 3...</p>
                             </div>
@@ -243,7 +236,6 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
         </body>
-
         </html>
     <?php }
 }
