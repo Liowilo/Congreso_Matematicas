@@ -20,6 +20,7 @@ session_start();
     <header class="fixed-top"> <!--------------MANDA A LLAMAR LA NAVBAR--------------->
         <?php
         require_once('../../Layouts/nav.php');
+        require '../../modelo/traerCostos.php';
         ?>
     </header>
     <section style="margin-top: 250px;">
@@ -29,52 +30,29 @@ session_start();
                     <div class="container col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <h2 class="mb-3">Costos individuales</h2><!--------TITULO INTERNO------------>
                         <!-----------DATOS DE CUOTAS AL CONGRESO------------>
+                        <?php 
+                        
+                             while($row=mysqli_fetch_assoc($res)){
+                        ?>
                         <div class="col-sm-4 col-md-6 col-lg-6 px-3 pt-2 mt-3">
-                            <div class="card-body-cuotas rounded text-center py-2">Ponentes</div>
+                            <div class="card-body-cuotas rounded text-center py-2"><?php echo $row['Tipo'];//Asigna el nombre
+                                        ?></div>
                             <div class="row m-1">
                                 <div class="col mt-2">
                                     <p class="pt py-2 text-center">Cuota</p>
                                 </div>
                                 <div class="col mt-3">
-                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$1,400.00</span>
+                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$<?php echo $row['Costo'];//Asigna el nombre
+                                        ?>.00</span>
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <p class="subtitulo py-2">Internos y externos que presentan trabajos</p>
+                                <i class="fa fa-question-circle" style="font-size: 30px;" aria-hidden="true"><p class="subtitulo py-2"><?php echo $row['Descripcion'];//Asigna el nombre
+                                        ?></p></i>
+                                
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-6 col-lg-6  px-3 pt-2">
-                            <div class="card-body-cuotas rounded text-center py-2">Asistentes</div>
-                            <div class="row m-1">
-                                <div class="col m-2">
-                                    <p class="pt py-2 text-center">Cuota</p>
-                                </div>
-                                <div class="col m-2">
-                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$1,000.00</span>
-                                </div>
-                            </div>
-                            <div class="row m-1">
-                                <p class="subtitulo py-2">Internos y externos que no presentan trabajos</p>
-                            </div>
-                        </div>
-                        <div class="row m-1">
-                            <div class="col-sm-4 col-md-6 col-lg-6  px-3 pt-2">
-                                <div class="card-body-cuotas rounded text-center py-2">Estudiantes</div>
-                                <div class="row m-1">
-                                    <div class="col m-2">
-                                        <p class="pt py-2 text-center">Cuota</p>
-                                    </div>
-                                    <div class="col m-2">
-                                        <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$200.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-md-6 col-lg-6  p-3">
-                                <i class="fa fa-question-circle" style="font-size: 30px;" aria-hidden="true"></i>
-                                <p class="info m-3">Estudiantes de licenciatura o media superior, únicamente pueden participar como asistentes y con derecho a un taller o curso.</p>
-                            </div>
-                        </div>
-
+                        <?php } mysqli_free_result($res);?>
                     </div>
                 </div>
                 <section>

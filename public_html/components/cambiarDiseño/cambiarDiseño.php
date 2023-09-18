@@ -28,7 +28,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
     if ($valor == 44 && $estado == 'ON') {
         ?>
         <!DOCTYPE html>
-        <html lang="en">
+        <html lang="es">
 
         <head>
             <link rel="shortcut icon" href="../../favicon.png">
@@ -40,6 +40,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
                 crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
+            <link rel="stylesheet" href="../../Layouts/NavbarYPestaña/pestaña.css">
+            <link rel="stylesheet" href="./admin.css">
             <link rel="stylesheet" href="../../Layouts/CrearCongreso/crearCongreso.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
                 integrity="sha384-fbnYnJt1BfFj/tKuWELG5S7tv+20a2OvEgduPJi1d0zDAtMDodhQKgX8hKfQIP3z"
@@ -79,6 +81,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     max-height: 0;
                     overflow: hidden;
                     transition: max-height 1.5s ease-in-out;
+                    /* max-height: 400px;*/ /* Establece una altura máxima */
+                    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+
                 }
 
                 .content.slow-close {
@@ -88,6 +93,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                 .content.show {
                     max-height: 600px; /* Ajusta la altura máxima según tus necesidades */
                 }
+                .fa {
+  color: #C5B268 !important;
+}
             </style>
         </head>
 
@@ -95,6 +103,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <header>
                 <?php
                 require_once('../../Layouts/nav.php');
+                
                 ?>
             </header>
             <div class="container-fluid">
@@ -106,13 +115,13 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                         <div class="container">
-                            <!--<h2 class="mt-5 mb-3">Administrar Diseño</h2>-->
+                            <h2 class="mt-5 mb-5">Administrar Diseño</h2>
                             <?php
                             /* require "../../modelo/cambiarDiseño.php";*/
                             ?>
                         </div>
                         <div class="mt-5 mb-3 card">
-                            <h2 class="mt-5 mb-3 modulo">Administrar Diseño</h2>
+                            
                             <hr style="border: 1px solid #000;">
                             <h4> <div  class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content1')">Crear
                                 Cuenta<i class="fas fa-plus"></i></div></h4>
@@ -132,7 +141,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <tbody>
                                             <tr>
                                                 <td style="text-align: center;border-style: none;">
-                                                    <img src="http://localhost/Congreso_MatematicasXampp/public_html/src/unamIS.jpg"
+                                                    <img src="../../src/unamIS.jpg"
                                                         width="215" height="319"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                     <button class="btn btn-primary" type="button"
@@ -141,7 +150,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         style="width: 215px;margin-left: 1px;margin-top: 10px;background: rgb(69,129,218);">Eliminar</button>
                                                 </td>
                                                 <td style="text-align: center;border-style: none;">
-                                                    <img src="http://localhost/Congreso_MatematicasXampp/public_html/src/imgCuenta.jpg"
+                                                    <img src="../../src/imgCuenta.jpg"
                                                         width="167" height="259"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                     <button class="btn btn-primary" type="button"
@@ -150,7 +159,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         style="width: 215px;margin-left: 1px;margin-top: 10px;background: rgb(69,129,218);">Eliminar</button>
                                                 </td>
                                                 <td style="text-align: center;border-style: none;">
-                                                    <img src="http://localhost/Congreso_MatematicasXampp/public_html/src/unamRC.jpg"
+                                                    <img src="../../src/unamRC.jpg"
                                                         width="167" height="259"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                     <button class="btn btn-primary" type="button"
@@ -164,10 +173,118 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 </div>
                             </div>
 
-                            <h4><div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content2')">Menú 2<i class="fas fa-plus"></i></div></h4>
-                            <div class="content" id="content2">
-                                <p>Contenido Menú 2...</p>
+                            <h4><div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content2')">Costos Individuales<i class="fas fa-plus"></i></div></h4>
+                            <div class="content" id="content2">                                
+                                <!-----------DATOS DE CUOTAS AL CONGRESO------------>
+                                 <div class="table-responsive"
+                                    style="margin-left: 30px;padding-left: 0px;border-top-left-radius: 14px;border-top-right-radius: 14px;border-bottom-right-radius: 14px;border-bottom-left-radius: 14px;margin-right: 38px;">
+                                    <table class="table">
+                                        <thead style="text-align: center;background: var(--bs-blue);">
+                                            <tr class="first-row">
+                                                <th
+                                                    style="color: white;padding: 16px 0px 8px 8px;padding-right: 0px;margin: 0px;margin-right: 3px;background: #4581da;">
+                                                    Cuotas Actuales&nbsp;</th>
+                                                <th style="color: white;background: rgb(69,129,218);">Cuotas Actualizadas</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="text-align: center; border:0.5px  solid var(--bs-gray);">
+                                                <?php 
+                                                require '../../modelo/traerCostos.php';
+                        while($row=mysqli_fetch_assoc($res)){
+
+                        
+                        ?>
+                        
+                        <div class="row my-1 mx-5">
+                            <div class="card-body-cuotas rounded text-center py-2"><b><?php echo $row['Tipo'];//Asigna el nombre
+                                        ?></b></div>
+                            <div class="col-sm-4 col-md-6 col-lg-6 px-3 pt-2 mt-3">
+                                    <p class="pt py-2 text-center">Cuota</p>
+                                </div>
+                                <div class="col mt-4">
+                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$<?php echo $row['Costo'];//Asigna el nombre
+                                        ?>.00</span>
+                                </div>
                             </div>
+                            <div class="row m-1">
+                                <i class="fa fa-question-circle" style="font-size: 30px;" aria-hidden="true"><p class="subtitulo py-2"><?php echo $row['Descripcion'];//Asigna el nombre
+                                        ?></p></i>
+                                
+                            </div>
+                        </div>
+                        </div>
+                        <?php } mysqli_free_result($res);?>
+                                                </td>
+                                                <form action="atualizaCosto.php" class="row g-4" method="POST">
+                                                <td style="text-align: center; border:0.5px  solid var(--bs-gray);">
+                                                    
+                        <!-----------DATOS DE CUOTAS AL CONGRESO------------>
+                        <!--<form action="<?=$_SERVER['PHP_SELF']?>" class="row g-4" method="POST">-->
+                        <div class="row my-1 mx-5">
+                            <div class="card-body-cuotas rounded text-center py-2" ><b>PONENTES</b></div>
+                            
+                                <div class="col-sm-4 col-md-6 col-lg-6 px-3 pt-2 mt-3">
+                                    <p class="pt py-2 text-center">Nueva Cuota</p>
+                                </div>
+                                <div class="col m-4">
+                                    <!--<span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$1,400.00</span>-->
+                                    <input type="text" name="costoPonente" id="ponente" class="form-control" placeholder="$$$"autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <p class="subtitulo py-2">
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row my-2 mx-5">
+                            <div class="card-body-cuotas rounded text-center py-2"><b>ASISTENTES</b></div>
+                            <div class="col-sm-4 col-md-6 col-lg-6 px-3 pt-2 mt-3">
+                                
+                                    <p class="pt py-2 text-center">Nueva Cuota</p>
+                               </div>
+                                <div class="col m-4">
+                                    <!--<span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$1,000.00</span>-->
+                                    <input type="text" name="costoAsistente" id="asistente" class="form-control" placeholder="$$$"autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row m-1">
+                                <p class="subtitulo py-2"></p>
+                            </div>
+                        </div>
+                        <div class="row my-2 mx-5">
+                            
+                            <div class="card-body-cuotas rounded text-center py-2"><b>ESTUDIANTES</b></div>
+                               <div class="col-sm-4 col-md-6 col-lg-6  px-3 pt-2">
+                                    
+                                        <p class="pt py-2 text-center">Nueva Cuota</p>
+                                </div>
+                                <div class="col m-4">
+                                    <!--<span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$200.00</span>-->
+                                    <input type="text" name="costoEstudiante" id="estudiante" class="form-control" placeholder="$$$"autocomplete="off">
+                                </div>
+                        </div>
+                    </div>
+                    
+                                                </td>
+                                    
+                                            </tr>
+                                            <tr>      
+                                        <td style="text-align: right;border-style: none; width: 215px;" colspan="2">
+                                        <input id="modificarCosto" name="botonModificarCosto"
+                                            class="btn btn-azul pe-5 ps-5" type="submit" value="Modificar">
+                                    </td></form>
+            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+            
+                            </div>
+                            
                             <h4><div class="option" style="color: rgb(234, 190, 63);" onclick="toggleContent('content3')">Menú 3<i class="fas fa-plus"></i></div></h4>
                             <div class="content" id="content3">
                                 <p>Contenido Menú 3...</p>
