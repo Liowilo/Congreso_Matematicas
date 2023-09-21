@@ -56,7 +56,6 @@ font-size: 24px; /* Tamaño de fuente */
 padding: 0; /* Espaciado interno */
 }
 
-}
 label {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -223,4 +222,25 @@ li {
     font-weight: 600;
     font-size: 20px;
     line-height: 18px;
+}
+
+.boton-flex {
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 480px) {
+    .boton-flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    .botones_descarga {
+        width: 150px;
+    }
+}
+
+.boton-flex:last-of-type {
+    margin-bottom: 20px;
+    margin-right: 70px;
 }
