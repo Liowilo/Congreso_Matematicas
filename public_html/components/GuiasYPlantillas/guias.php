@@ -13,10 +13,13 @@ session_start();
     <title>Guías</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="./guias.css">
-    
-    <style> ol,ul{
-        padding-left: 20px; /* Elimina el sangrado izquierdo */
+    <link rel="stylesheet" href="../GuiasYPlantillas/guias.css">
+
+    <style>
+        ol,
+        ul {
+            padding-left: 20px;
+            /* Elimina el sangrado izquierdo */
         }
     </style>
 </head>
@@ -27,7 +30,7 @@ session_start();
         require_once('../../Layouts/nav.php');
         ?>
     </header>
-    <section style="margin-top: 200px;">
+    <section style="margin-top: 200px;" class="Cuerpo-texto texto-justificado">
         <div class="container-fluid mb-5 pb-5">
             <div class="row pb-2">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-1">
