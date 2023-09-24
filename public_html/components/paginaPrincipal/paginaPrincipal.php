@@ -7,6 +7,7 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
+require "../../modelo/actualizarEstiloCogreso.php";
 
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
@@ -158,9 +159,24 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 <div class="elemento-cuadricula bd contenedor-cartel imagen-logo grid-cartel">
                                     <img src="/desarrollo/src/cartel.png" width="254" height="360" alt="cartel" style="border-radius: 10px">
                                 </div>
+
                                 <div class="elemento-cuadricula">
                                     <button class="btn btn-primary" type="button" style="width: 80%; margin: 5px; margin: 30px 0; background-color: #ebc961; font-size: 20px; font-weight: 600; border: none;">Cambiar</button>
                                     <button class="btn btn-primary" type="button" style="width: 80%; margin: 5px; background-color: #4581da; font-size: 20px; font-weight: 600; border: none;">Eliminar</button>
+                                </div>
+
+                                <!-- Banner -->
+
+                                <div class="elemento-cuadricula banner-titulo">
+                                    <h4>Actualizar Banner</h4>
+                                </div>
+                                <div class="elemento-cuadricula banner-imagen">
+                                    <p><b></b>Antiguo banner:</p>
+                                    <img src="/desarrollo/src/Banner-Oficial.jpg" width="80%" alt="cartel" style="border-radius: 10px">
+                                    <div class="botones-banner">
+                                        <button class="boton-dsg boton-dsg--amarillo">Cambiar Banner</button>
+                                        <button class="boton-dsg boton-dsg--azul">Eliminar Banner</button>
+                                    </div>
                                 </div>
 
                                 <!-- Patrocinadores del Congreso -->
