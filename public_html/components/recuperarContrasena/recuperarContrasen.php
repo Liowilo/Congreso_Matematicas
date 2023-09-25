@@ -59,8 +59,13 @@
                         </div>
                     </form>
                 </div>
+                <?php
+            include("../../modelo/conexion.php");
+            $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 3");
+            $rutaPass = $sql->fetch_object();
+            ?>
                 <div class="imagen_container p-0 d-none d-lg-block col-md-5 col-lg-5 col-xl-5 rounded">
-                    <img class="imagen" src="../../src/unamRC.jpeg"> 
+                    <img class="imagen" src="<?= $rutaPass->ruta ?>"> 
                 </div>
                 <div class="col">
                 </div>
