@@ -99,13 +99,8 @@
                         </div>
                     </form>
                 </div>
-                <?php
-            include("../../modelo/conexion.php");
-            $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 2");
-            $rutaAc = $sql->fetch_object();
-            ?>
                 <div class="imagen_container p-0 d-none d-lg-block col-md-5 col-lg-5 col-xl-4 rounded">
-                    <img class="imagen rounded-end" src="<?= $rutaAc->ruta ?>">
+                    <img class="imagen rounded-end" src="../../src/imgCuenta.jpg">
                 </div>
                 <div class="col">
                 </div>
