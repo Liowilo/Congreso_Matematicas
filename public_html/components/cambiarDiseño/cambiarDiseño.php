@@ -129,7 +129,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <br>
                                                     <li class="Cuerpo-texto">Imagen de Crear Cuenta</li>
                                                     <br>
-                                                    <li class="Cuerpo-texto">Imagen de Olvie Contraseña</li>
+                                                    <li class="Cuerpo-texto">Imagen de Olvide Contraseña</li>
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
