@@ -106,7 +106,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
-                                                        <a href="" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                        <a href="../CambiarCosto/cambiarCosto.php" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
                                                     </div>
 
                                                 </div>
