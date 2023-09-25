@@ -14,7 +14,6 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../GuiasYPlantillas/guias.css">
-
     <style>
         ol,
         ul {
@@ -137,16 +136,15 @@ session_start();
                                     </h2>
                                     <div id="panelsStayOpen-collapseTres" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTres">
                                         <div class="accordion-body Cuerpo-texto">
-                                            <strong>El registro de carteles consta de tres procesos:</strong>
+                                            <strong>El registro de carteles consta de dos procesos:</strong>
                                             <br><br>
                                             <ul class="list-unstyled">
                                                 <ol>
                                                     <li>El resumen.</li>
-                                                    <li>El extenso.</li>
-                                                    <li>El vídeo de la exposición del cartel.</li>
+                                                    <li>El cartel.</li>
                                                 </ol>
                                                 <br>
-                                                <li> El resumen, cartel y el vídeo de exposición de cada cartel requieren ser registrados en el sitio del congreso para ser evaluados por el comité evaluador.</li>
+                                                <li> El resumen y el cartel requieren ser registrados en el sitio del congreso para ser evaluados por el comité evaluador.</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -170,9 +168,8 @@ session_start();
                                                     <li>Título (Máximo 15 palabras)</li>
                                                     <li>Categoría.</li>
                                                     <li>Contenido (Máximo 300 palabras estructurado de acuerdo a la categoría seleccionada).</li>
-                                                    <li>Referencias estilo APA (American Psychological Association)</li>
+                                                    <li>Bibliografías y cibergrafías en estilo APA (American Psychological Association)</li>
                                                     <li>Nombre del autor (y opcional coautores. Máximo 5 integrantes).</li>
-                                                    <li>Indicar si requiere constancia de participación.</li>
                                                 </ol>
                                             </ul>
                                             <br>
@@ -181,15 +178,15 @@ session_start();
                                             <ol class="mt-2">
                                                 <li class="fw-semibold mb-2">El título deberá reflejar el contenido del cartel.</li>
                                                 <br>
-                                                <li class="fw-semibold mb-2"> Las categorias en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) son:</li>
+                                                <li class="fw-semibold mb-2"> Las categorias en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) y a la enseñanza y la aplicación de las matemáticas son:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Enseñanza de las matemáticas con las TIC en la nueva normalidad (EN)</li>
                                                     <li>Experiencia e innovación didáctica en la enseñanza de las matemáticas (ID)</li>
                                                     <li>Investigación del proceso de la enseñanza de las matemáticas (IP)</li>
                                                     <li>Evaluación del aprendizaje en la enseñanza de las matemáticas en la nueva normalidad (EA)</li>
                                                     <li>Aplicación y/o vinculación de las matemáticas con otras disciplinas (AP)</li>
-                                                    <span>Al momento de registrar sus trabajos, el ponente seleccionará la categoría que más se adapte a ellos.</span>
-                                                </ul>
+                                                </ul> <br>
+                                                <span>Al momento de registrar sus trabajos, el ponente seleccionará la categoría que más se adapte a ellos.</span> <br>
                                                 <br>
                                                 <li class="fw-semibold mb-2">En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li>
                                                 <ul style="list-style-type: square;">
@@ -215,7 +212,7 @@ session_start();
                                             <br><br>
                                             <ol class="mt-2">
                                                 <li>Encabezado</li>
-                                                <li>Resumen</li>
+                                                <li>Resumen (sustento teórico)</li>
                                                 <li>Palabras clave</li>
                                                 <li>Introducción</li>
                                                 <li>Metodología</li>
@@ -287,6 +284,8 @@ session_start();
                                             <ol>
                                                 <li>Tener aprobado el resumen de la ponencia oral por parte del comité evaluador.</li>
                                                 <li>Que el autor que registró el resumen de la ponencia, sea el mismo que envíe el trabajo extenso.</li>
+                                                <li>Revisar la guía de autores.</li>
+                                                <li>Todos los extensos se deben realizar en la plantilla oficial del congreso actual.</li>
                                                 <li>Accesar al "Registro de trabajos" para poder adjuntar los archivos requeridos.</li>
                                                 <li>Respetar la fecha límite de registro de trabajos extensos</li>
                                             </ol>
