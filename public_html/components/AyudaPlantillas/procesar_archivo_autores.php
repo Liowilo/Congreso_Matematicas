@@ -1,10 +1,10 @@
 <?php
-if (isset($_POST["submit"])) {
-    $nombre_archivo = $_FILES["nuevo_archivo"]["name"];
-    $tipo_archivo = $_FILES["nuevo_archivo"]["type"];
-    $tamano_archivo = $_FILES["nuevo_archivo"]["size"];
-    $temp_archivo = $_FILES["nuevo_archivo"]["tmp_name"];
-    $archivo_a_reemplazar = $_POST["archivo_a_reemplazar"]; // Nombre del archivo a reemplazar
+if (isset($_POST["submit1"])) {
+    $nombre_archivo = $_FILES["nuevo_archivo1"]["name"];
+    $tipo_archivo = $_FILES["nuevo_archivo1"]["type"];
+    $tamano_archivo = $_FILES["nuevo_archivo1"]["size"];
+    $temp_archivo = $_FILES["nuevo_archivo1"]["tmp_name"];
+    $archivo_a_reemplazar = $_POST["archivo_a_reemplazar1"]; // Nombre del archivo a reemplazar
 
     // Inicializa un mensaje vacío
     $mensaje = "";
