@@ -90,9 +90,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <span class="span-sub">Guía para autores</span><br><br>
                                                     <div class="d-flex justify-content-center mt-4">
                                                         <form action="procesar_archivo_autores.php" method="POST" enctype="multipart/form-data">
-                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit" value="Actualizar Archivo"">
-                                                            <input type="file" name="nuevo_archivo">
-                                                            <input type="hidden" name="archivo_a_reemplazar" value="Guia_para_autores_2023.pdf"> <!-- Nombre del archivo a reemplazar -->
+                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit1" value="Actualizar Archivo">
+                                                            <input type="file" name="nuevo_archivo1">
+                                                            <input type="hidden" name="archivo_a_reemplazar1" value="Guia_para_autores_2023.pdf"> <!-- Nombre del archivo a reemplazar -->
                                                         </form>
                                                     </div>
                                                 </td>
@@ -103,16 +103,16 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     Los trabajos extensos deberán redactarse basándose en la plantilla de trabajos extensos. La única modalidad que requiere de un trabajo extenso es ponencia oral en formatos .doc o .docx Los archivos no deben exceder los (3 MB).
                                                     <br><br><br><br>
                                                     <div class="d-flex justify-content-center mt-4">
-                                                        <a href="../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx" download="Plantilla_extenso_2023" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Plantilla</a>
+                                                        <a href="../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx" download="Plantilla_extenso_2023.docx" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Plantilla</a>
                                                     </div>
                                                 </td>
                                                 <td width="50%">
                                                     <span class="span-sub">Plantilla para trabajos extensos</span><br><br>
                                                     <div class="d-flex justify-content-center mt-4">
                                                     <form action="procesar_archivo_extensos.php" method="POST" enctype="multipart/form-data">
-                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit" value="Actualizar Archivo">
-                                                            <input type="file" name="nuevo_archivo">
-                                                            <input type="hidden" name="archivo_a_reemplazar" value="Plantilla_extenso_2023.docx"> <!-- Nombre del archivo a reemplazar -->
+                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit2" value="Actualizar Archivo">
+                                                            <input type="file" name="nuevo_archivo2">
+                                                            <input type="hidden" name="archivo_a_reemplazar2" value="Plantilla_extenso_2023.docx"> <!-- Nombre del archivo a reemplazar -->
                                                         </form>
                                                     </div>
                                                 </td>
