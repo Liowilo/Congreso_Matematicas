@@ -41,6 +41,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="../../Layouts/guiasPlantillas/ayudaPlantillas.css">
         </head>
+
         <body>
             <header>
                 <?php
@@ -58,7 +59,13 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                         <div class="container">
                             <h2 class="mt-5 mb-3">Administrar Diseño</h2>
                             <div class="texto-dorado">Ayuda</div><br>
-                     
+                            <?php
+                            // Mostrar mensaje si existe
+                            if (isset($_SESSION['mensaje'])) {
+                                echo '<div class="alert alert-info" role="alert">' . $_SESSION['mensaje'] . '</div>';
+                                unset($_SESSION['mensaje']); // Limpiar el mensaje
+                            }
+                            ?>
                             <div class="container">
                                 <div class="table Cuerpo-texto">
                                     <table>
@@ -75,17 +82,18 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <br><br>
                                                     Este documento detalla el proceso para presentar un trabajo de ponencia con las especificaciones requeridas para su aprobación
                                                     <br><br><br><br>
-                                                        <div class="d-flex justify-content-center mt-4">
-                                                            <a href="../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf" target="_blank" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Guía</a>
-                                                        </div>
+                                                    <div class="d-flex justify-content-center mt-4">
+                                                        <a href="../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf" target="_blank" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Guía</a>
+                                                    </div>
                                                 </td>
                                                 <td width="50%">
                                                     <span class="span-sub">Guía para autores</span><br><br>
                                                     <div class="d-flex justify-content-center mt-4">
-                                                        <a href="#" target="_blank" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Subir Archivo</a>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center mt-4">
-                                                        <a href="../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf" target="_blank" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Eliminar</a>
+                                                        <form action="procesar_archivo_autores.php" method="POST" enctype="multipart/form-data">
+                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit" value="Actualizar Archivo"">
+                                                            <input type="file" name="nuevo_archivo">
+                                                            <input type="hidden" name="archivo_a_reemplazar" value="Guia_para_autores_2023.pdf"> <!-- Nombre del archivo a reemplazar -->
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -94,17 +102,18 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <span class="span-sub">Plantilla para trabajos extensos</span><br><br>
                                                     Los trabajos extensos deberán redactarse basándose en la plantilla de trabajos extensos. La única modalidad que requiere de un trabajo extenso es ponencia oral en formatos .doc o .docx Los archivos no deben exceder los (3 MB).
                                                     <br><br><br><br>
-                                                        <div class="d-flex justify-content-center mt-4">
-                                                            <a href="../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx" download="Plantilla_extenso_2023" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Plantilla</a>
-                                                        </div>
+                                                    <div class="d-flex justify-content-center mt-4">
+                                                        <a href="../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx" download="Plantilla_extenso_2023" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Descargar Plantilla</a>
+                                                    </div>
                                                 </td>
                                                 <td width="50%">
                                                     <span class="span-sub">Plantilla para trabajos extensos</span><br><br>
-                                                        <div class="d-flex justify-content-center mt-4">
-                                                            <a href="#" target="_blank" class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Subir Archivo</a>
-                                                        </div>
                                                     <div class="d-flex justify-content-center mt-4">
-                                                        <a class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn">Eliminar</a>
+                                                    <form action="procesar_archivo_extensos.php" method="POST" enctype="multipart/form-data">
+                                                            <input class="botones_descarga shadow py-1 px-4 mb-5 text-wrap btn text-btn" type="submit" name="submit" value="Actualizar Archivo">
+                                                            <input type="file" name="nuevo_archivo">
+                                                            <input type="hidden" name="archivo_a_reemplazar" value="Plantilla_extenso_2023.docx"> <!-- Nombre del archivo a reemplazar -->
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -124,7 +133,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
         </body>
-    </html>
-<?php }
+
+        </html>
+<?php
+    }
 }
 ?>
