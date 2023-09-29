@@ -66,48 +66,48 @@
                 $fecha_formateada = $dateFormatter->format($fecha);
                 $fecha_formateada2 = $dateFormatter2->format($fecha2);
 
-                echo $fecha_formateada ." y ". $fecha_formateada2;
+                echo $fecha_formateada . " y " . $fecha_formateada2;
                 ?>
             </div>
             <hr>
             <div class="div p-4">
                 <h4>Fecha del Congreso: <br>
-                <?php
-                $id_evento = 13;
-                $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
-                $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
-                $result = $conexion->query($sql);
-                $result2 = $conexion->query($sql2);
-                $row = $result->fetch_assoc();
-                $row2 = $result2->fetch_assoc();
-                $fecha = new DateTime($row["fecha_congreso_inicio"]);
-                $fecha2 = new DateTime($row2["fecha_congreso_fin"]);
-                $locale = 'es_ES'; // Establece la configuración regional en español
+                    <?php
+                    $id_evento = 13;
+                    $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                    $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                    $result = $conexion->query($sql);
+                    $result2 = $conexion->query($sql2);
+                    $row = $result->fetch_assoc();
+                    $row2 = $result2->fetch_assoc();
+                    $fecha = new DateTime($row["fecha_congreso_inicio"]);
+                    $fecha2 = new DateTime($row2["fecha_congreso_fin"]);
+                    $locale = 'es_ES'; // Establece la configuración regional en español
 
-                $dateFormatter = new IntlDateFormatter(
-                    $locale,
-                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
-                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
-                    'UTC', // Zona horaria
-                    IntlDateFormatter::GREGORIAN
-                );
+                    $dateFormatter = new IntlDateFormatter(
+                        $locale,
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        'UTC', // Zona horaria
+                        IntlDateFormatter::GREGORIAN
+                    );
 
-                $dateFormatter2 = new IntlDateFormatter(
-                    $locale,
-                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
-                    IntlDateFormatter::FULL, // Estilo completo de fecha y hora
-                    'UTC', // Zona horaria
-                    IntlDateFormatter::GREGORIAN
-                );
+                    $dateFormatter2 = new IntlDateFormatter(
+                        $locale,
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        'UTC', // Zona horaria
+                        IntlDateFormatter::GREGORIAN
+                    );
 
-                $dateFormatter->setPattern("d 'de' MMMM");  // Define el patrón de formato
-                $dateFormatter2->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
+                    $dateFormatter->setPattern("d 'de' MMMM");  // Define el patrón de formato
+                    $dateFormatter2->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
 
-                $fecha_formateada = $dateFormatter->format($fecha);
-                $fecha_formateada2 = $dateFormatter2->format($fecha2);
+                    $fecha_formateada = $dateFormatter->format($fecha);
+                    $fecha_formateada2 = $dateFormatter2->format($fecha2);
 
-                echo $fecha_formateada ." y ". $fecha_formateada2;
-                ?>
+                    echo $fecha_formateada . " y " . $fecha_formateada2;
+                    ?>
                 </h4>
             </div>
             <hr>
@@ -124,7 +124,14 @@
         </div>
         <div class="centrico col-md-8  d-sm-block col-sm-6 d-lg-block 
         col-lg-6 d-xs-block col-sm-auto d-xs-block col-xs-6 ">
-            <img src="./src/cartel.png" class=" p-0 img-ajustar rounded cartel mx-auto" alt="" max-width="600" max-height="800"></img>
+            <?php // Traer imagen de la BD
+            $imagenSQL = "SELECT cartel_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+            $traerIMG = mysqli_query($conexion, $imagenSQL);
+            $rowImagen = $traerIMG->fetch_assoc();
+            $rutaIMG = $rowImagen['cartel_congreso'];
+            $rutaFinal = str_replace("../", "./", $rutaIMG);
+            ?>
+            <img src="<?php echo $rutaFinal; ?>" class=" p-0 img-ajustar rounded cartel mx-auto" alt="" max-width="600" max-height="800"></img>
         </div>
     </div>
 </div>
