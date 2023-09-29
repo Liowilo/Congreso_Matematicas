@@ -6,8 +6,7 @@
     text-align: center;
 }
 
-p,
-.botones-banner {
+p {
     font-size: 20px;
 }
 
@@ -131,7 +130,7 @@ p,
 
 .boton-dsg {
     text-decoration: none;
-    color: white;
+    color: white !important;
     font-weight: bold;
     padding: 10px 0;
     width: 80%;
@@ -193,13 +192,26 @@ p,
     padding-bottom: 20px;
 }
 
-.botones-banner {
+.banner-botones {
+    padding: 0 20px;
+    margin-top: 25px;
     display: flex;
-    padding: 10px 20px;
-    gap: 30px;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px !important;
 }
 
-.botones-banner button {
-    border: none;
+@media (max-width: 480px) {
+    .banner-botones {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.campo-pat {
+    padding-bottom: 15px;
+}
+
+.campo-pat label {
+    font-size: 20px;
 }
