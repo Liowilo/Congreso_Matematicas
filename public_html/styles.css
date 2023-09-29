@@ -33,7 +33,6 @@ body {
 .backgronund {
   position: static !important;
   z-index: 10000;
-  background-color: #337AB7;
 }
 
 
