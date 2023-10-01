@@ -10,8 +10,9 @@
         $traerIMG = mysqli_query($conexion, $imagenSQL);
         $rowImagen = $traerIMG->fetch_assoc();
         $rutaIMG = $rowImagen['pat1'];
+        $rutaFinal = str_replace("../", "./", $rutaIMG);
         ?>
-        <img src="<?php echo $rutaIMG; ?>" alt="Pat-1" class="rounded-circle">
+        <img src="<?php echo $rutaFinal; ?>" alt="Pat-1" class="rounded-circle">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -19,8 +20,9 @@
         $traerIMG2 = mysqli_query($conexion, $imagenSQL2);
         $rowImagen2 = $traerIMG2->fetch_assoc();
         $rutaIMG2 = $rowImagen2['pat2'];
+        $rutaFinal2 = str_replace("../", "./", $rutaIMG2);
         ?>
-        <img src="<?php echo $rutaIMG2; ?>" alt="Pat-2" class="rounded-circle">
+        <img src="<?php echo $rutaFinal2; ?>" alt="Pat-2" class="rounded-circle">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -28,8 +30,9 @@
         $traerIMG3 = mysqli_query($conexion, $imagenSQL3);
         $rowImagen3 = $traerIMG3->fetch_assoc();
         $rutaIMG3 = $rowImagen3['pat3'];
+        $rutaFinal3 = str_replace("../", "./", $rutaIMG3);
         ?>
-        <img src="<?php echo $rutaIMG3; ?>"alt="Pat-3" class="rounded-circle">
+        <img src="<?php echo $rutaFinal3; ?>"alt="Pat-3" class="rounded-circle">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -37,8 +40,9 @@
         $traerIMG4 = mysqli_query($conexion, $imagenSQL4);
         $rowImagen4 = $traerIMG4->fetch_assoc();
         $rutaIMG4 = $rowImagen4['pat4'];
+        $rutaFinal4 = str_replace("../", "./", $rutaIMG4);
         ?>
-        <img src="<?php echo $rutaIMG4; ?>" alt="Pat-4" class="rounded-circle">
+        <img src="<?php echo $rutaFinal4; ?>" alt="Pat-4" class="rounded-circle">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -46,8 +50,9 @@
         $traerIMG5 = mysqli_query($conexion, $imagenSQL5);
         $rowImagen5 = $traerIMG5->fetch_assoc();
         $rutaIMG5 = $rowImagen5['pat5'];
+        $rutaFinal5 = str_replace("../", "./", $rutaIMG5);
         ?>
-        <img src="<?php echo $rutaIMG5; ?>" alt="Pat-5" class="rounded-circle">
+        <img src="<?php echo $rutaFinal5; ?>" alt="Pat-5" class="rounded-circle">
       </div>
     </div>
     <button aria-label="Siguiente" class="carousel_siguiente">
