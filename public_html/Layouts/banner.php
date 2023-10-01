@@ -4,8 +4,9 @@
         $traerIMG = mysqli_query($conexion, $imagenSQL);
         $rowImagen = $traerIMG->fetch_assoc();
         $rutaIMG = $rowImagen['banner_congreso'];
+        $rutaFinal = str_replace("../", "./", $rutaIMG);
         ?>
-        <img src="<?php echo $rutaIMG; ?>" alt="" class="imagen d-flex p-0 col-xl-12 col-lg-12 col-md-12 d-sm-none d-md-block ">
+        <img src="<?php echo $rutaFinal; ?>" alt="" class="imagen d-flex p-0 col-xl-12 col-lg-12 col-md-12 d-sm-none d-md-block ">
 </div>
 <hr class="container linea">
 <div class="container p-0  d-sm-block d-md-none justify-content-sm-center zi">
