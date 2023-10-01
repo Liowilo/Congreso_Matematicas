@@ -40,7 +40,7 @@ require '../conexion.php';
             $src1 = $carpeta1.$nombre1;
             move_uploaded_file($contenedorIMG1, $src1);
             // Ruta de la imagen para la BD
-            $imagenPat1 = "/desarrollo/src/ImgPagPrincipal/".$nombre1;
+            $imagenPat1 = "../../src/ImgPagPrincipal/".$nombre1;
         }
     }
 
@@ -67,7 +67,7 @@ require '../conexion.php';
             $src2 = $carpeta2.$nombre2;
             move_uploaded_file($contenedorIMG2, $src2);
             // Ruta de la imagen para la BD
-            $imagenPat2 = "/desarrollo/src/ImgPagPrincipal/".$nombre2;
+            $imagenPat2 = "../../src/ImgPagPrincipal/".$nombre2;
         }
     }
 
@@ -94,7 +94,7 @@ require '../conexion.php';
             $src3 = $carpeta3.$nombre3;
             move_uploaded_file($contenedorIMG3, $src3);
             // Ruta de la imagen para la BD
-            $imagenPat3 = "/desarrollo/src/ImgPagPrincipal/".$nombre3;
+            $imagenPat3 = "../../src/ImgPagPrincipal/".$nombre3;
         }
     }
 
@@ -121,7 +121,7 @@ require '../conexion.php';
             $src4 = $carpeta4.$nombre4;
             move_uploaded_file($contenedorIMG4, $src4);
             // Ruta de la imagen para la BD
-            $imagenPat4 = "/desarrollo/src/ImgPagPrincipal/".$nombre4;
+            $imagenPat4 = "../../src/ImgPagPrincipal/".$nombre4;
         }
     }
 
@@ -148,7 +148,7 @@ require '../conexion.php';
             $src5 = $carpeta5.$nombre5;
             move_uploaded_file($contenedorIMG5, $src5);
             // Ruta de la imagen para la BD
-            $imagenPat5 = "/desarrollo/src/ImgPagPrincipal/".$nombre5;
+            $imagenPat5 = "../../src/ImgPagPrincipal/".$nombre5;
         }
     }
 
