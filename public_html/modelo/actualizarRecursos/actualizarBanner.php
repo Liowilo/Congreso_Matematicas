@@ -34,7 +34,7 @@ require '../conexion.php';
             $src = $carpeta.$nombre;
             move_uploaded_file($contenedorIMG, $src);
             // Ruta de la imagen para la BD
-            $imagen = "/desarrollo/src/ImgPagPrincipal/".$nombre;
+            $imagen = "../../src/ImgPagPrincipal/".$nombre;
         }
     }
     // Almacenar ruta de la imagen en la BD
