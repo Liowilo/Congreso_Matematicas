@@ -8,6 +8,12 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
 
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 
@@ -137,9 +143,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <thead style="text-align: center;background: var(--bs-blue);">
                                         <tr class="first-row">
                                             <th
-                                                    style="color: white;padding: 16px 0px 8px 8px;padding-right: 0px;margin: 0px;margin-right: 3px;background: #4581da;">
+                                                    style="color: white;padding: 16px 0px 8px 8px;padding-right: 0px;margin: 0px;margin-right: 3px;background-color: <?php echo $colorHex; ?> !important;">
                                                     Cuotas Actuales&nbsp;</th>
-                                            <th style="color: white;background: rgb(69,129,218);">Cuotas Actualizadas</th>   
+                                            <th style="color: white;background-color: <?php echo $colorHex; ?> !important;">Cuotas Actualizadas</th>   
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -201,7 +207,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         </tr>
                                         <tr>      
                                             <td style="text-align: right;border-style: none; width: 215px;" colspan="2">
-                                                <input id="modificarCosto" name="botonModificarCosto" class="btn btn-azul pe-5 ps-5" type="submit" value="Modificar">
+                                                <input id="modificarCosto" name="botonModificarCosto" class="btn btn-azul pe-5 ps-5" type="submit" value="Modificar" style="background-color: <?php echo $colorHex; ?> !important;">
                                             </td>
                                             </form>
                                         </tr>
