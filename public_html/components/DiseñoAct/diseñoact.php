@@ -2,6 +2,12 @@
 include '../../modelo/conexion.php';
 include '../FormatoFechas/forfe2.php';
 
+// traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $fechasIniciales = [];
 $errorMessages = [];
 
@@ -57,13 +63,13 @@ for ($i = 2; $i <= 15; $i++) {
                      <h2 class="texto-dorado">Actividades</h2>
                     <form method="POST">
                         <div class="table-responsive">
-                            <table class="my-table table table-striped">
-                                <thead>
+                            <table class="my-table table table-striped" >
+                                <thead >
                                     <tr>
-                                        <th class='fechas-header' scope="col">Fecha</th>
-                                        <th class='asunto-header' scope="col"><strong>Asunto</strong></th>
-                                        <th class ='ff-header' scope="col">Fecha inicio</th>
-                                        <th class ='fi-header' scope="col">Fecha fin</th>
+                                        <th class='fechas-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha</th>
+                                        <th class='asunto-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;"><strong>Asunto</strong></th>
+                                        <th class ='ff-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha inicio</th>
+                                        <th class ='fi-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha fin</th>
                                         
                                     </tr>
                                 </thead>
@@ -139,8 +145,8 @@ for ($i = 2; $i <= 15; $i++) {
                             </table>
                         </div>
                         <div class="text-center">
-                            <button type='button' class='btn btn-primary' id='btnModificar'>Modificar</button>
-                            <button type='submit' class='btn btn-primary' style='display: none;' name='submit_modificar' id='btnActualizar'>Actualizar</button>
+                            <button type='button' class='btn' id='btnModificar' style="background-color: <?php echo $colorHex; ?>!important; color: #FFF;">Modificar</button>
+                            <button type='submit' class='btn' style='display: none; background-color: <?php echo $colorHex; ?>!important; color: #FFF;' name='submit_modificar' id='btnActualizar'>Actualizar</button>
                             <button type='button' class='btn btn-secondary' style='display: none;' id='btnCancelar' onclick='location.reload();'>Cancelar</button>
                         </div>
                     </form>
