@@ -6,6 +6,13 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 }
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
+
+// Color automatico
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 $consPrivilegiosEstado = "SELECT * FROM funcion_usuario WHERE id_usuario = ?";
@@ -83,7 +90,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
-                                                        <a href="../paginaPrincipal/paginaPrincipal.php" class="botones_descarga center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                        <a href="../paginaPrincipal/paginaPrincipal.php" class="botones_descarga center shadow py-2 px-4 mb-1 text-wrap btn text-btn" style="background-color: <?php echo $colorHex; ?>!important;">Modificar</a>
                                                     </div>
 
                                                 </div>
@@ -106,7 +113,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
-                                                        <a href="../CambiarCosto/cambiarCosto.php" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                        <a href="../CambiarCosto/cambiarCosto.php" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn" style="background-color: <?php echo $colorHex; ?>!important;">Modificar</a>
                                                     </div>
 
                                                 </div>
@@ -133,7 +140,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
-                                                        <a href="../modificarCrearCuenta/modificarCrearCuenta.php" class="botones_descarga center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                        <a href="../modificarCrearCuenta/modificarCrearCuenta.php" class="botones_descarga center shadow py-2 px-4 mb-1 text-wrap btn text-btn" style="background-color: <?php echo $colorHex; ?>!important;">Modificar</a>
                                                     </div>
 
                                                 </div>
@@ -156,7 +163,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <div>
                                                     <div class="d-flex boton-flex mt-4">
-                                                        <a href="../DiseñoAct/menudisact.php" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                        <a href="../DiseñoAct/menudisact.php" class="botones_descarga  center shadow py-2 px-4 mb-1 text-wrap btn text-btn" style="background-color: <?php echo $colorHex; ?>!important;">Modificar</a>
                                                     </div>
 
                                                 </div>
@@ -180,7 +187,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             </div>
                                             <div>
                                                 <div class="d-flex boton-flex mt-4">
-                                                    <a href="../../components/AyudaPlantillas/ayudaPlantillas.php" class="botones_descarga shadow py-2 px-4 mb-1 text-wrap btn text-btn">Modificar</a>
+                                                    <a href="../../components/AyudaPlantillas/ayudaPlantillas.php" class="botones_descarga shadow py-2 px-4 mb-1 text-wrap btn text-btn" style="background-color: <?php echo $colorHex; ?>!important;">Modificar</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -206,4 +213,3 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 <?php }
 }
 ?>
-
