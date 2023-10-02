@@ -102,9 +102,14 @@
             include("../../modelo/conexion.php");
             $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 1");
             $rutaSn = $sql->fetch_object();
+            $ruta=$rutaSn->ruta;            
+            if($ruta == ""){
+                $default="../../src/ImgCrearCuenta/defaultScreen.jpg";
+                $ruta=$default;
+            }
             ?>
             <div class="imagen_container p-0 d-none d-lg-block col-md-5 col-lg-5 col-xl-5">
-                <img class="imagen rounded-end" src="<?= $rutaSn->ruta ?>">
+                <img class="imagen rounded-end" src="<?= $ruta  ?>">
             </div>
             <div class="col">
             </div>

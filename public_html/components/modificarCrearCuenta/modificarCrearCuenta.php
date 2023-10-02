@@ -113,9 +113,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <?php
                                                 $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 1");
                                                 $rutaSn = $sql->fetch_object();
+                                                $ruta=$rutaSn->ruta;            
+                                                if($ruta == ""){
+                                                    $default="../../src/ImgCrearCuenta/defaultScreen.jpg";
+                                                    $ruta=$default;
+                                                }
                                                 ?>
                                                 <ul class="list-unstyled mt-3 mb-4">
-                                                    <img src="<?= $rutaSn->ruta ?>" width="167" height="259"
+                                                    <img src="<?= $ruta ?>" width="167" height="259"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                 </ul>
                                                 <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseSesion"
@@ -152,9 +157,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <?php
                                                 $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 2");
                                                 $rutaAccount = $sql->fetch_object();
+                                                $rutaAc=$rutaAccount->ruta;            
+                                                if($rutaAc == ""){
+                                                    $default="../../src/ImgCrearCuenta/defaultScreen.jpg";
+                                                    $rutaAc=$default;
+                                                }
                                                 ?>
                                                 <ul class="list-unstyled mt-3 mb-4">
-                                                    <img src="<?= $rutaAccount->ruta ?>" width="167" height="259"
+                                                    <img src="<?= $rutaAc ?>" width="167" height="259"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                 </ul>
                                                 <button type="button" data-bs-toggle="collapse"
@@ -190,9 +200,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             <?php
                                                 $sql = $conexion->query("SELECT ruta FROM imagenescrearcuenta WHERE id_imagen = 3");
                                                 $rutaPass = $sql->fetch_object();
+                                                $rutaP=$rutaPass->ruta; 
+                                                if($rutaP == ""){
+                                                    $default="../../src/ImgCrearCuenta/defaultScreen.jpg";
+                                                    $rutaP=$default;
+                                                }
                                                 ?>
                                                 <ul class="list-unstyled mt-3 mb-4">
-                                                    <img src="<?= $rutaPass->ruta ?>"
+                                                    <img src="<?= $rutaP ?>"
                                                         width="167" height="259"
                                                         style="width: 215px; height: 320px; object-fit: cover; border-top-left-radius: 14px; border-top-right-radius: 14px; border-bottom-right-radius: 14px; border-bottom-left-radius: 14px;">
                                                 </ul>
