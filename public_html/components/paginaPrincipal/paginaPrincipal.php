@@ -12,6 +12,12 @@ include "../../modelo/traerLogo2.php";
 include "../../modelo/traerCartel.php";
 include "../../modelo/traerNombre.php";
 
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 
@@ -31,6 +37,8 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
     if ($valor == 44 && $estado == 'ON') {
 ?>
+
+
         <!DOCTYPE html>
         <html lang="en">
 
@@ -73,10 +81,10 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 <div class="cuadricula">
                                     <!-- Color del Banner -->
                                     <div class="elemento-cuadricula">
-                                        <h4>Color del Banner</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?> !important;">Color del Banner</h4>
                                     </div>
                                     <div class="elemento-cuadricula">
-                                        <h4>Actualizar Color del Banner</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?> !important;">Actualizar Color del Banner</h4>
                                     </div>
                                     <div class="elemento-cuadicula colores-antes bd">
                                         <div class="contenido-colores">
@@ -112,10 +120,10 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <!-- Nombre del Longreso -->
 
                                     <div class="elemento-cuadricula">
-                                        <h4>Nombre del Congreso</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?> !important;">Nombre del Congreso</h4>
                                     </div>
                                     <div class="elemento-cuadricula">
-                                        <h4>Actualizar Nombre del congreso</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Actualizar Nombre del congreso</h4>
                                     </div>
                                     <div class="elemento-cuadricula bd contenido-flex nombre-antes">
                                         <h5>
@@ -133,10 +141,10 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <!-- Logos del Congreso -->
 
                                     <div class="elemento-cuadricula">
-                                        <h4>Logos</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Logos</h4>
                                     </div>
                                     <div class="elemento-cuadricula">
-                                        <h4>Actualizar Logos</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Actualizar Logos</h4>
                                     </div>
                                     <div class="elemento-cuadricula bd logos-cuadricula grid-logos">
                                         <div class="bloque">
@@ -178,10 +186,10 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <!-- Cartel o Poster del congreso -->
 
                                     <div class="elemento-cuadricula">
-                                        <h4>Cartel</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Cartel</h4>
                                     </div>
                                     <div class="elemento-cuadricula">
-                                        <h4>Actualizar Cartel</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Actualizar Cartel</h4>
                                     </div>
                                     <div class="elemento-cuadricula bd contenedor-cartel imagen-logo grid-cartel">
                                         <img src="../<?php echo $rutaIMG7; ?>" width="254" height="360" alt="cartel" style="border-radius: 10px">
@@ -202,7 +210,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <!-- Banner -->
 
                                     <div class="elemento-cuadricula banner-titulo">
-                                        <h4>Actualizar Banner</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Actualizar Banner</h4>
                                     </div>
                                     <div class="elemento-cuadricula banner-imagen">
                                         <p><b></b>Banner:</p>
@@ -227,10 +235,10 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <!-- Patrocinadores del Congreso -->
 
                                     <div class="elemento-cuadricula">
-                                        <h4>Patrocinadores</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Patrocinadores</h4>
                                     </div>
                                     <div class="elemento-cuadricula">
-                                        <h4>Actualizar Patrocinadores</h4>
+                                        <h4 style="background-color: <?php echo $colorHex; ?>!important;">Actualizar Patrocinadores</h4>
                                     </div>
                                     <div class="elemento-cuadricula bd pat-anterior carrusel"> <!-- Carrusel -->
                                         <!-- Slider main container -->
