@@ -112,14 +112,20 @@
             </div>
             <hr>
             <div class="d-grid gap-2">
+                <?php // Traer color automatizado
+                $valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+                $color = mysqli_query($conexion, $valorColor);
+                $rowColor = $color->fetch_assoc();
+                $colorHex = $rowColor['color_congreso'];
+                ?>
                 <a href="/desarrollo/components/actividadesFechas/fechas.php">
-                    <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button">Ver Fechas</button></a>
+                    <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Ver Fechas</button></a>
 
                 <a href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">
-                    <button class="btn btn-style shadow p-2 mb-4 px-5" type="button">Ver Convocatoria</button></a>
+                    <button class="btn btn-style shadow p-2 mb-4 px-5" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Ver Convocatoria</button></a>
 
                 <a href="/desarrollo/components/subirResumen/subirResumen.php">
-                    <button class="btn btn-style shadow px-5 p-2 mb-4" type="button">Registrar Ponencia</button></a>
+                    <button class="btn btn-style shadow px-5 p-2 mb-4" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Registrar Ponencia</button></a>
             </div>
         </div>
         <div class="centrico col-md-8  d-sm-block col-sm-6 d-lg-block 
