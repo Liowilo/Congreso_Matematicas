@@ -1,7 +1,7 @@
 
 /* FECHA */
 table.my-table th.fechas-header {
-    background-color: #293E6B;
+    /* background-color: #293E6B; */
     color: white;
 	font-size: 18px;
     font-weight: 700;
@@ -10,7 +10,7 @@ table.my-table th.fechas-header {
 }
 /* ASUNTO */
 table.my-table th.asunto-header {
-    background-color: #293E6B;
+    /* background-color: #293E6B; */
     color: white;
 	font-size: 18px;
     font-weight: 500;
@@ -18,7 +18,7 @@ table.my-table th.asunto-header {
 }
 /* FECHA INICIO */
 table.my-table th.ff-header {
-    background-color: #293E6B;
+    /* background-color: #293E6B; */
     color: white;
     border-radius: 0px 0px 0px 0px;
     font-size: 18px;
@@ -28,7 +28,7 @@ table.my-table th.ff-header {
 }
 /* FECHA FINAL */
 table.my-table th.fi-header {
-    background-color: #293E6B;
+    /* background-color: #293E6B; */
     color: white;
 	font-size: 18px;
     font-weight: 700;
