@@ -13,16 +13,13 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
 ?>
 
 
-<button class="btn background-lateral-boton col-12 mt-4 p-3 d-lg-none" type="button" data-bs-toggle="offcanvas" 
-data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+<button class="btn background-lateral-boton col-12 mt-4 p-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
     <i class="fa-solid fa-align-justify"> Panel principal</i>
 </button>
-<div class="offcanvas offcanvasoffcanvas-start py-4" data-bs-scroll="true" data-bs-backdrop="false" 
-tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas offcanvasoffcanvas-start py-4" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
         <h4 class="offcanvas-title ms-3 p-3" id="offcanvasScrollingLabel">Panel principal</h4>
-        <button type="button" class="btn-close text-reset d-lg-none" 
-        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close text-reset d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div class="">
@@ -224,10 +221,10 @@ tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                     if ($valor == 44 && $estado == 'ON') { ?>
                         <li class="list-group-item lis background">
                             <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/nuevoCongreso/registrarCongreso.php">Congreso</a></label>
-</li>
+                        </li>
                         <li class="list-group-item lis background">
                             <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/cambiarDiseño/cambiarDiseño.php">Diseño de página</a></label>
-                        
+
                         </li>
                 <?php }
                 }
@@ -235,9 +232,14 @@ tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
             </ul>
         </div>
 
-
+        <?php // Traer color automatizado
+        $valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+        $color = mysqli_query($conexion, $valorColor);
+        $rowColor = $color->fetch_assoc();
+        $colorHex = $rowColor['color_congreso'];
+        ?>
         <div class="d-grid gap-2 col-6 mx-auto my-5">
-            <a href="../../modelo/cerrarSesion.php"><button class="btn btn-style" type="button">Cerrar sesion</button></a>
+            <a href="../../modelo/cerrarSesion.php"><button class="btn btn-style" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Cerrar sesion</button></a>
         </div>
     </div>
 </div>
