@@ -101,7 +101,13 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
                                 </div>
                                 <div class="col-sm-4 p-2">
                                     <div class="row p-2">
-                                        <input id="botonCambiarFoto" name="botonCambiarFoto" type="button" class="btn btn-style-chico shadow p-1 col-8" value="Cambiar foto">
+                                        <?php // Traer color automatizado
+                                        $valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+                                        $color = mysqli_query($conexion, $valorColor);
+                                        $rowColor = $color->fetch_assoc();
+                                        $colorHex = $rowColor['color_congreso'];
+                                        ?>
+                                        <input id="botonCambiarFoto" name="botonCambiarFoto" type="button" class="btn btn-style-chico shadow p-1 col-8" value="Cambiar foto" style="background-color: <?php echo $colorHex; ?>!important;">
                                         <input style="display:none;" id="botonGuardarFoto" name="botonGuardarFoto" type="submit" class="btn btn-style-chico shadow p-1 col-8 mt-3" value="Guardar foto">
                                         <div id="myDIV" style="border:1px; display:none;" class="myDIV mt-3"><input type="file" accept="image/png,image/jpeg,image/jpg" class="form-control" name="inputFotoPerfil" id="inputFotoPerfil"> <!--Boton para subir o seleccionar nueva foto--></div>
                                     </div>
@@ -196,7 +202,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
 
                                 <!--Grupo Cambiar Datos-->
                                 <div class="mb-1 div_boton align-items-center justify-content-center">
-                                    <input class="btn btn-style-chico shadow p-1 px-5" type="button" name="botonCambiarDatos" id="botonCambiarDatos" value="Cambiar Datos">
+                                    <input class="btn btn-style-chico shadow p-1 px-5" type="button" name="botonCambiarDatos" id="botonCambiarDatos" value="Cambiar Datos" style="background-color: <?php echo $colorHex; ?>!important;">
                                     <input class="btn btn-style-chico shadow p-1 px-5" style="display:none;" type="submit" name="botonGuardar" id="botonGuardar" value="Guardar">
                                 </div>
                             </form>
