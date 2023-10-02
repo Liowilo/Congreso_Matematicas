@@ -1,6 +1,20 @@
 <?php
 session_start();
 require '../../modelo/conexion.php';
+
+// Automatizar nombre
+$valorNombre = "SELECT nombre_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$nombre = mysqli_query($conexion, $valorNombre);
+$rowNombre = $nombre->fetch_assoc();
+$nombreCongreso = $rowNombre['nombre_congreso'];
+
+
+// Automatizar logo congreso
+$valorlogo = "SELECT logo1_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$logo = mysqli_query($conexion, $valorlogo);
+$rowlogo = $logo->fetch_assoc();
+$enlaceLogo = $rowlogo['logo1_congreso'];
+$rutaFinalLogo = str_replace("../", "../../", $enlaceLogo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,18 +46,19 @@ require '../../modelo/conexion.php';
 						<h2 class="mb-4">Fechas</h2><!--------TITULO INTERNO------------>
 						<div class="row">
 							<div class="col-xl-8 col-lg-8 col-md-8 d-sm-block col-sm-12">
-								<p class="mt-3 ms-3 titulo-congreso" id="edicion">XVI Edición</p>
+								<p class="mt-3 ms-3 titulo-congreso" id="edicion"><?php echo $nombreCongreso; ?></p>
 							</div>
 							<div class="col-xl-4 col-lg-4 col-md-4 mb-4">
-								<img src="../../src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="logo" height="70px" width="80px">
+								<img src="<?php echo $rutaFinalLogo; ?>" alt="Logo Congreso" class="logo" height="70px" width="80px">
+								<!-- ../../src/logos_congresos/XV.jpeg -->
 							</div>
-							<span class="ms-3 span-congreso d-flex mb-4">Congreso Internacional Sobre la Enseñanza y Aplicación de las Matemáticas</span>
+							<!-- <span class="ms-3 span-congreso d-flex mb-4">Congreso Internacional Sobre la Enseñanza y Aplicación de las Matemáticas</span> -->
 						</div>
 						<div class="card-alert rounded p-2">
 							Fechas sujetas a cambio
 						</div>
 						<table class="table">
-							<thead class="categorias">
+							<thead class="categorias" style="background-color: <?php echo $colorHex; ?>!important;">
 								<th class="fecha py-2" scope="col" width="20%">Fecha inicio</th>
 								<th class="fecha py-2" scope="col" width="20%">Fecha fin</th>
 								<th class="asunto py-2" scope="col" width="70%">Asunto</th>
