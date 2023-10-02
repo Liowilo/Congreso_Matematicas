@@ -14,6 +14,12 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
 
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 
@@ -99,9 +105,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             <main>
                                 <div class=" p-4 row row-cols-1 row-cols-md-3 mb-3 text-center">
                                     <div class="col">
-                                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                                            <div class="card-header py-3 text-bg-primary border-primary">
-
+                                        <div class="card mb-4 rounded-3 shadow-sm" style="border-color: <?php echo $colorHex; ?>;">
+                                            <div class="card-header py-3" style="background-color: <?php echo $colorHex; ?> !important; border-color: <?php echo $colorHex; ?>;">
                                                 <h4 class="my-0 fw-normal text-white">Inicio de Sesión</h4>
                                             </div>
                                             <div class="card-body">
@@ -115,7 +120,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 </ul>
                                                 <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseSesion"
                                                     aria-expanded="false" aria-controls="collapseSesion"
-                                                    class="w-100 btn btn-lg btn-primary">Cambiar</button>
+                                                    class="w-100 btn btn-lg" style="background-color: <?php echo $colorHex; ?> !important; color: #FFF;">Cambiar</button>
                                                 <div class="collapse" id="collapseSesion">
                                                     <div class="card card-body">
 
@@ -139,8 +144,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                                            <div class="card-header py-3 text-bg-primary border-primary">
+                                        <div class="card mb-4 rounded-3 shadow-sm" style="border-color: <?php echo $colorHex; ?>;">
+                                            <div class="card-header py-3 text-bg-primary" style="background-color: <?php echo $colorHex; ?> !important; border-color: <?php echo $colorHex; ?>;">
                                                 <h4 class="my-0 fw-normal text-white">Crear Cuenta</h4>
                                             </div>
                                             <div class="card-body">
@@ -155,7 +160,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <button type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#collapseAccount" aria-expanded="false"
                                                     aria-controls="collapseAccount"
-                                                    class="w-100 btn btn-lg btn-primary">Cambiar</button>
+                                                    class="w-100 btn btn-lg" style="background-color: <?php echo $colorHex; ?> !important; color: #FFF;">Cambiar</button>
                                                 <div class="collapse" id="collapseAccount">
                                                     <div class="card card-body">
                                                         <label for="formFileSm" class="form-label">Selecciona la nueva
@@ -177,8 +182,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                                            <div class="card-header py-3 text-bg-primary border-primary">
+                                        <div class="card mb-4 rounded-3 shadow-sm" style="border-color: <?php echo $colorHex; ?>;">
+                                            <div class="card-header py-3 text-bg-primary" style="background-color: <?php echo $colorHex; ?> !important; border-color: <?php echo $colorHex; ?>;">
                                                 <h4 class="my-0 fw-normal text-white">Contraseña</h4>
                                             </div>
                                             <div class="card-body">
@@ -194,7 +199,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <button type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#collapsePassword" aria-expanded="false"
                                                     aria-controls="collapsePassword"
-                                                    class="w-100 btn btn-lg btn-primary">Cambiar</button>
+                                                    class="w-100 btn btn-lg" style="background-color: <?php echo $colorHex; ?> !important; color: #FFF;">Cambiar</button>
                                                 <div class="collapse" id="collapsePassword">
                                                     <div class="card card-body">
                                                     <form method="post" enctype="multipart/form-data">
