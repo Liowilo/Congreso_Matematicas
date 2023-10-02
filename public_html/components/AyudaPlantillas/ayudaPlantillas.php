@@ -8,6 +8,12 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
 
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 
@@ -69,7 +75,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             <div class="container">
                                 <div class="table Cuerpo-texto">
                                     <table>
-                                        <thead>
+                                        <thead style="background-color: <?php echo $colorHex; ?> !important;">
                                             <tr>
                                                 <th class="titulo-tabla" scope="col" width="50%"><span class="span-blanco">Plantillas Actuales</span></th>
                                                 <th class="titulo-tabla" scope="col" width="50%"><span class="span-blanco">Modificar Plantillas</span></th>
