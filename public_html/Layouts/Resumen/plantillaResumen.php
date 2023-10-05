@@ -86,6 +86,7 @@ exit;
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,13 +94,14 @@ exit;
                             $_SESSION['coautores']=$coautores;
                             if(count($coautores)!=0){
                                 for($i=0;$i<=count($coautores)-1;$i ++){
-                                    //$idAutor=$coautores["id"];
+                                    $idAutor = $coautores[$i]["id"];
                                     $nombresAutor=$coautores[$i]["nombres"];
                                     $apellidosAutor=$coautores[$i]["apellidos"];
                                     //$rfcAutor=$coautores["rfc"];
                             ?>
                                 <tr>
                                     <td><?php echo $nombresAutor." ".$apellidosAutor; ?></td>
+                                    <td><a onclick="return eliminar()" href="asignaturas.php?idAsignatura=<?= $idAutor ?>" class="btn btn-small btn-danger" type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor"><i class="fa-solid fa-user-xmark"></i></a></td>
                                 </tr>   
                             <?php }
                             }                                    
@@ -107,12 +109,16 @@ exit;
                     </tbody>
                 </table>
                 </div>
-                <div class="d-flex col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mb-3 ">
+
+<!--- Boton de quitar, aun no jala como debe :( ----->
+
+                <!------<div class="d-flex col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mb-3 ">
                     <div class=" d-flex align-self-end">
                         <input  class="btn btn-rojo " type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor" value="Quitar">
                     </div>
-                </div>
+                </div>---->
             </div>
+
         </div>
     </div>
 
