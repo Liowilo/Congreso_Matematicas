@@ -10,6 +10,8 @@
     //Persistencia
     // Establecer
     $coautores=array();
+   //unset($_SESSION['coautores']);
+   //die;
     //Si no esta vacio coautores
     if(!empty($_SESSION['coautores'])){
         $coautores=$_SESSION['coautores'];
@@ -132,13 +134,14 @@
         
         
     }
-
-    if(isset($_POST['botonQuitarCoautor'])){
+   
+    if(isset($_POST['botonQuitarCoautores'])){
         $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
         $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
         $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
         $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
         $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]);
+
         //unset($coautores[1]);
         unset($_SESSION['coautores']);
         unset($coautores);
@@ -149,8 +152,27 @@
         $coautores=array();
         //$_SESSION['coautores']=$coautores;
     }
-    //Sube el trabajo
+    
+  
+    if(isset($_POST['botonQuitarCoautor']) && $_POST['botonQuitarCoautor'] >= 0){
+        $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
+        $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
+        $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
+        $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
+        $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]);
+        $posicionEliminar = $_POST['botonQuitarCoautor'];
 
+        if(isset($coautores[$posicionEliminar])){
+
+            unset($coautores[$posicionEliminar]);
+
+            sort($coautores);
+
+            $_SESSION['coautores'] = $coautores;
+
+        }
+
+    }
     if(isset($_POST['botonParticipar'])){   
         $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
         $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
