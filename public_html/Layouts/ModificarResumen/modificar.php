@@ -165,42 +165,53 @@ if (count($errores) == 1) {
 
 
             <!------------LISTA DE COAUTORES------------->
+            <!------------LISTA DE COAUTORES------------->
             <div class="row mt-4">
                 <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12 mb-3">
                     <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
+                                <th scope="col"><input class="btn btn-sm" style="color:red" type="submit"
+                                        name="botonQuitarCoautores" id="botonQuitarCoautores" value="Quitar Todos X">
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+
                             $_SESSION['coautores'] = $coautores;
-                            if (count($coautores) != 0) {
-                                for ($i = 0; $i <= count($coautores) - 1; $i++) {
-                                    //$idAutor=$coautores["id"];
-                                    $nombresAutor = $coautores[$i]["nombres"];
-                                    $apellidosAutor = $coautores[$i]["apellidos"];
-                                    //$rfcAutor=$coautores["rfc"];
+                            if (isset($_SESSION['coautores']) && !empty($_SESSION['coautores'])) {
+                                foreach ($_SESSION['coautores'] as $indice => $coautores_) {
+                                    $posicion_array = $indice;
+                                    if ($coautores_ != null) {
+
                             ?>
-                                    <tr>
-                                        <td><?php echo $nombresAutor . " " . $apellidosAutor; ?></td>
-                                    </tr>
-                            <?php }
+                            <tr>
+                                <td>
+                                    <?= $coautores_['nombres'] ?>
+                                    <?= $coautores_['apellidos'] ?>
+                                </td>
+                                <td style="text-align: right;">
+                                    <button value="<?= $posicion_array ?>" class="btn btn-small btn-danger"
+                                        type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor">
+                                        <i class="fa-solid fa-user-xmark"></i></button>
+                                </td>
+                            </tr>
+                            <?php
+                                    }
+                                }
+
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mb-3 ">
-                    <div class=" d-flex align-self-end">
-                        <input class="btn btn-rojo " type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor" value="Quitar">
-                    </div>
-                </div>
+
             </div>
+
         </div>
     </div>
-
     <!-------------------------------------------------->
 
 

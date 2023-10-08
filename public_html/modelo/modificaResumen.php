@@ -95,61 +95,53 @@ if (mysqli_num_rows($resUsuarioRevisionPonencia) > 0) {
 
 if (($estatusRevision == 'R' || mysqli_num_rows($resUsuarioRevisionPonencia) == 0)) {
     $errores = array();
-    if (isset($_POST['botonAgregarCoautor'])) {
+    if(isset($_POST['botonAgregarCoautor'])){
         $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
         $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
         $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
         $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
         $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]);
-        /** 
-         *******************************************************************************************************
-         * Boton agregar coautor 
-         *******************************************************************************************************
-         **/
         //Coautor existe
-        $consObtenerRFC = "SELECT rfc_usuario FROM usuario WHERE id_usuario='$_SESSION[id]'";
-        $resObtenerRFC = mysqli_query($conexion, $consObtenerRFC);
-        $fecthObtenerRFC = mysqli_fetch_assoc($resObtenerRFC);
-        $rfcAutor = $fecthObtenerRFC['rfc_usuario'];
+        $consObtenerRFC="SELECT rfc_usuario FROM usuario WHERE id_usuario='$_SESSION[id]'";
+        $resObtenerRFC=mysqli_query($conexion,$consObtenerRFC);
+        $fecthObtenerRFC=mysqli_fetch_assoc($resObtenerRFC);
+        $rfcAutor=$fecthObtenerRFC['rfc_usuario'];
 
-        $couatorExiste = 0;
-        $rfcCoautor = $_POST['coautor'];
+        $couatorExiste=0;
+        $rfcCoautor=$_POST['coautor'];
 
         //Si es diferente de su RFC lo registra
-        if ($rfcCoautor != $rfcAutor) {
+        if($rfcCoautor!=$rfcAutor){
             $coautor = "SELECT * FROM usuario WHERE rfc_usuario='$rfcCoautor'";
             $res4 = mysqli_query($conexion, $coautor);
-            if (mysqli_num_rows($res4) > 0) {
+            if(mysqli_num_rows($res4)>0){
                 $fetch4 = mysqli_fetch_assoc($res4);
-                //Valida que el usuario no sea el mismo
-                $validaCoautor = $_SESSION['coautores'];
-                //Si el usuario no ha introducido ningun coautor
-                if (count($validaCoautor) != 0) {
-                    for ($i = 0; $i <= count($validaCoautor) - 1; $i++) {
-                        //$idAutor=$coautores["id"];
-                        //$rfcAutor=$coautores["rfc"];
-                        if ($coautores[$i]["rfc"] == $fetch4['rfc_usuario']) {
-                            $couatorExiste = $couatorExiste + 1;
+                    //Valida que el usuario no sea el mismo
+                    $validaCoautor=$_SESSION['coautores'];
+                    //Si el usuario no ha introducido ningun coautor
+                    if(count($validaCoautor)!=0){
+                        for($i=0;$i<=count($validaCoautor)-1;$i++){
+                            //$idAutor=$coautores["id"];
+                            //$rfcAutor=$coautores["rfc"];
+                            if($coautores[$i]["rfc"]==$fetch4['rfc_usuario']){
+                                $couatorExiste=$couatorExiste+1;
+                            }
                         }
+                        if($couatorExiste==0){
+                            $coautores[]=array("id"=>$fetch4['id_usuario'],"nombres"=>$fetch4['nombres_usuario'],"apellidos"=>$fetch4['apellidos_usuario'],"rfc"=>$fetch4['rfc_usuario'],"correoElectronico"=>$fetch4['email_usuario']);
+                            $_SESSION['coautores']=$coautores;
+                        }
+                    }else{
+                        $coautores[]=array("id"=>$fetch4['id_usuario'],"nombres"=>$fetch4['nombres_usuario'],"apellidos"=>$fetch4['apellidos_usuario'],"rfc"=>$fetch4['rfc_usuario'],"correoElectronico"=>$fetch4['email_usuario']);
+                        $_SESSION['coautores']=$coautores;
                     }
-                    if ($couatorExiste == 0) {
-                        $coautores[] = array("id" => $fetch4['id_usuario'], "nombres" => $fetch4['nombres_usuario'], "apellidos" => $fetch4['apellidos_usuario'], "rfc" => $fetch4['rfc_usuario'], "correoElectronico" => $fetch4['email_usuario']);
-                        $_SESSION['coautores'] = $coautores;
-                    }
-                } else {
-                    $coautores[] = array("id" => $fetch4['id_usuario'], "nombres" => $fetch4['nombres_usuario'], "apellidos" => $fetch4['apellidos_usuario'], "rfc" => $fetch4['rfc_usuario'], "correoElectronico" => $fetch4['email_usuario']);
-                    $_SESSION['coautores'] = $coautores;
-                }
-                $_SESSION['info'] = "El RFC '" . $rfcCoautor . "' se ha añadido a la lsita de los coautores.";
-
-            } else {
-                $errores['sistema-restriccion'] = "El RFC '" . $rfcCoautor . "' no se encuentra registrado. Comunícate con el coautor para que se registre en la plataforma.";
-
+            }else{
+                $errores['sistema-restriccion'] = "El RFC '".$rfcCoautor."' no se encuentra registrado. Comunícate con el coautor para que se registre en la plataforma.";
+                
             }
-        } else {
-            $errores['sistema-restriccion'] = "El RFC '" . $rfcCoautor . "' te pertence, no puedes ser autor y coautor.";
-        }
-        $_SESSION['error'] = $errores;
+        }else{
+            $errores['sistema-restriccion'] = "El RFC '".$rfcCoautor."' te pertence, no puedes ser autor y coautor.";
+        }  
     }
     /** 
      *******************************************************************************************************
@@ -810,21 +802,43 @@ if (($estatusRevision == 'R' || mysqli_num_rows($resUsuarioRevisionPonencia) == 
      * Boton quitar couator
      *******************************************************************************************************
      **/
-    if (isset($_POST['botonQuitarCoautor'])) {
+    if(isset($_POST['botonQuitarCoautores'])){
         $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
         $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
         $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
         $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
         $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]);
+
         //unset($coautores[1]);
         unset($_SESSION['coautores']);
         unset($coautores);
-        if (!empty($_SESSION['coautores'])) {
-            $coautores = $_SESSION['coautores'];
+        if(!empty($_SESSION['coautores'])){
+            $coautores=$_SESSION['coautores'];
+            
+        }
+        $coautores=array();
+        //$_SESSION['coautores']=$coautores;
+    }
+    
+  
+    if(isset($_POST['botonQuitarCoautor']) && $_POST['botonQuitarCoautor'] >= 0){
+        $_SESSION['titulo_ponencia'] = mysqli_real_escape_string($conexion,$_POST["titulo"]);
+        $_SESSION['id_categoria_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["categoria"]);
+        $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
+        $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
+        $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]);
+        $posicionEliminar = $_POST['botonQuitarCoautor'];
+
+        if(isset($coautores[$posicionEliminar])){
+
+            unset($coautores[$posicionEliminar]);
+
+            sort($coautores);
+
+            $_SESSION['coautores'] = $coautores;
 
         }
-        $coautores = array();
-        //$_SESSION['coautores']=$coautores;
+
     }
 
 
