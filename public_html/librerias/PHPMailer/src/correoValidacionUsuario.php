@@ -7,6 +7,7 @@ use \PHPMailer\PHPMailer\PHPException;
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
+require 'traerCorreoCongreso.php';
 
 //configuracion de la clase phpmailer para envio de correo utilizando
 //SMT 
@@ -16,13 +17,13 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$email = 'congresomatematicas15@gmail.com';
+$email = $correoCongreso;
 $mail->Username = $email;
-$mail->Password = "rsdxrhmuwdcovefj";
+$mail->Password = $hashContra;
 
 ///contenifdo del correro electronico y configuracion de la cuenta 
 /// para envio de correo
-$mail->From = "congresomatematicas15@gmail.com";
+$mail->From = $email;
 $mail->FromName = "Congreso Internacional de Matemáticas";
 $mail->Subject = "Verificación de correo electronico";
 //$mail->AltBody = "Te confirmamos que hemos recibido tu resumen ";
