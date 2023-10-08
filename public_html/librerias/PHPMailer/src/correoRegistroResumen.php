@@ -7,6 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
+require 'traerCorreoCongreso.php';
 
 // Configuración de la clase PHPMailer para el envío de correo utilizando SMTP
 $mail = new PHPMailer();
@@ -15,19 +16,19 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$email = 'congresomatematicas15@gmail.com';
+$email = $correoCongreso;
 $mail->Username = $email;
-$mail->Password = "rsdxrhmuwdcovefj";
+$mail->Password = $hashContra;
 
 // Contenido del correo electrónico y configuración de la cuenta para envío de correo
-$mail->From = "congresomatematicas15@gmail.com";
+$mail->From = $email;
 $mail->FromName = "Congreso Internacional de Matemáticas";
 $mail->Subject = "Registro de trabajo exitoso";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $email2 = '';
 // Construcción del mensaje del correo
-if ($_SESSION['correoElectronico'] !== $email2) {
+if ($_SESSION['correoElectronico'] === $email2) {
     // Si el correo es de la sesión, se dice que es el coautor de la ponencia
     $mensaje = "Registro de trabajo exitoso. Has sido registrado como autor del trabajo.<br><br>";
 } else {
