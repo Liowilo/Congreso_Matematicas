@@ -61,6 +61,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                         <div class="container">
                             <h2 class="mt-5 mb-3">Congreso</h2>
+                            <h4>Dar de Alta un Nuevo Congreso</h3>
                             <?php
                             require "../../Layouts/CrearCongreso/crearCongreso.php";
                             ?>
