@@ -7,6 +7,7 @@ use \PHPMailer\PHPMailer\PHPException;
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
+require 'traerCorreoCongreso.php';
 
 //configuracion de la clase phpmailer para envio de correo utilizando
 //SMT 
@@ -16,39 +17,40 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$email= 'congresomatematicas15@gmail.com';
+$email= $correoCongreso;
 $mail->Username = $email;
-$mail->Password = "rsdxrhmuwdcovefj";
+$mail->Password = $hashContra;
 
-///contenido del correro electronico y configuracion de la cuenta 
+///contenifdo del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
 $mail->FromName = "Congreso Internacional de Matemáticas";
-$mail->Subject = "Evaluacion de trabajo extenso";
+$mail->Subject = "Evaluación resumen";
 
 //mensaje en html 
-$mail->MsgHTML("Le informamos que el Comité Evaluador ha evaluado su trabajo extenso, determinando que debe corregirse en uno o mas aspectos.<br>
+$mail->MsgHTML("Le informamos que el Comité Evaluador ha evaluado el resumen de su propuesta de ponencia<br> 
+                determinando que debe corregirse en uno o mas aspectos.<br>
 				        <br>El documento PDF adjunto en éste correo contiene las observaciones y comentarios del Comité sobre éstos aspectos que deberá 
-                corregir en su trabajo extenso, para ser sometido a una nueva evaluación y pueda subirlo nuevamente.<br><br>
+                corregir en su trabajo, para ser sometido a una nueva evaluación y pueda subirlo nuevamente.<br>
                 Atentamente:<br><br>
-                El comite evaluador.
-                ");
+                El comite evaluador.");
 //direccion de envio
 
-$mail->AddAddress ($emailAutor);
+
+$mail->AddAddress($emailAutor);
 if(count($coautores)!=0){
-    for ($i=0; $i <=count($coautores)-1; $i++) { 
-    $nombresCoautor=$coautores[$i]["nombres"];
-    $apellidosCoautor=$coautores[$i]["apellidos"];
-    $emailCoautor=$coautores[$i]["email"];
+  for ($i=0; $i <=count($coautores)-1; $i++) { 
+  $nombresCoautor=$coautores[$i]["nombres"];
+  $apellidosCoautor=$coautores[$i]["apellidos"];
+  $emailCoautor=$coautores[$i]["email"];
 
-    $mail->AddAddress ($emailCoautor,'coautor'.$i);
+  $mail->AddCC ($emailCoautor,'coautor '.$i);
+  //$pdf -> Ln(1);
 }
 }
-
 ///agregar pdf solo utilizar menos de 3megas 
 //ya que de lo contrario el archivo se puede corromper
-$mail->AddAttachment('../../cartas/extensos/'.$idPonencia.'.pdf' , $idPonencia.'.pdf');
+$mail->AddAttachment('../../cartas/resumen/'.$idPonencia.'.pdf' , $isPonencia.'.pdf');
 $mail->IsHTML(true);
 
 $mail->CharSet = 'UTF-8';
@@ -56,7 +58,6 @@ $mail->CharSet = 'UTF-8';
 if(!$mail->Send()) {
   //si hay un error en el envio de correo se informa
   echo "Error: " . $mail->ErrorInfo;
-
 }
 */
 ?>
