@@ -58,13 +58,19 @@
         $fecha15Fin=$_POST['fecha15Fin'];
 
         $modalidadCongreso=mysqli_real_escape_string($conexion,$_POST['modalidadCongreso']);
+        $emailCongreso=mysqli_real_escape_string($conexion,$_POST['inputMail']);
 
-        $logo=$_FILES['inputLogo'];
+        // Encriptamiento de la contraseña del congreso (PENDIENTE)
+        // $passCongreso=mysqli_real_escape_string($conexion,$_POST['inputPass']);
+        // $encpassCon = password_hash($passCongreso, PASSWORD_BCRYPT);
+        $encpassCon = mysqli_real_escape_string($conexion,$_POST['inputPass']);
+
+        // $logo=$_FILES['inputLogo'];
 
         if($fecha1Inicio==''    || $fecha2Inicio==''    || $fecha3Inicio==''    || $fecha4Inicio==''    || $fecha5Inicio==''    || $fecha6Inicio==''    || $fecha7Inicio==''    || $fecha8Inicio==''    || $fecha9Inicio==''    || $fecha10Inicio==''   || $fecha11Inicio==''  || $fecha12Inicio=='' || $fecha13Inicio==''    || $fecha14Inicio==''   || $fecha15Inicio==''
         || $fecha1Fin==''   || $fecha2Fin==''  || $fecha3Fin=='' || $fecha4Fin==''    || $fecha5Fin==''   || $fecha6Fin==''  || $fecha7Fin=='' || $fecha8Fin==''    || $fecha9Fin==''   || $fecha10Fin=='' || $fecha11Fin==''   || $fecha12Fin=='' || $fecha13Fin==''   || $fecha14Fin=='' || $fecha15Fin==''
-        || $modalidadCongreso=='' || $logo==''
-        ){
+        || $modalidadCongreso=='' || $emailCongreso=='' || $encpassCon==''){
+            // $logo=='' ||
             $errores['db-error'] = "Debes rellenar todos los campos.";
             //$_SESSION['error'] =$errores['db-error'];
         }else{
@@ -72,30 +78,30 @@
             require "traerCongresoActual.php";
             //Inserta el congreso
             $newIdCongreso=$idCongreso+1;
-            //Se sube  el logo del congreos
-            $tamanio = 10000;
-            if(isset($_FILES['inputLogo']) && ($_FILES['inputLogo']['type'] == 'image/jpg' || $_FILES['inputLogo']['type'] == 'image/jpeg')){
-            //Rutas
-            $ruta="../../src/logos_congresos/";
-            $fichero=$ruta.basename($_FILES["inputLogo"]["name"]);
-            //Mueve el fichero al servidor
-            $rutaLogo=$ruta."_logo_".$newIdCongreso."_".$_FILES['inputLogo']['name'];
-                if( $_FILES['inputLogo']['size'] < ($tamanio * 1024) ){
-                    move_uploaded_file( $_FILES['inputLogo']['tmp_name'], $rutaLogo);                   
-                }
-                else{
-                    $errores['db-error'] = "¡Error al subir el documento peso superior al permitido!";
-                }
+            //Se sube  el logo del congresos
+            // $tamanio = 10000;
+            // if(isset($_FILES['inputLogo']) && ($_FILES['inputLogo']['type'] == 'image/jpg' || $_FILES['inputLogo']['type'] == 'image/jpeg')){
+            // //Rutas
+            // $ruta="../../src/logos_congresos/";
+            // $fichero=$ruta.basename($_FILES["inputLogo"]["name"]);
+            // //Mueve el fichero al servidor
+            // $rutaLogo=$ruta."_logo_".$newIdCongreso."_".$_FILES['inputLogo']['name'];
+            //     if( $_FILES['inputLogo']['size'] < ($tamanio * 1024) ){
+            //         move_uploaded_file( $_FILES['inputLogo']['tmp_name'], $rutaLogo);                   
+            //     }
+            //     else{
+            //         $errores['db-error'] = "¡Error al subir el documento peso superior al permitido!";
+            //     }
 
-            }else if(isset($_FILES['inputLogo']) && ($_FILES['inputLogo']['type'] != 'image/jpeg')){
-                $errores['db-error'] ="Solo se admiten imágenes con formato .jpg";
+            // }else if(isset($_FILES['inputLogo']) && ($_FILES['inputLogo']['type'] != 'image/jpeg')){
+            //     $errores['db-error'] ="Solo se admiten imágenes con formato .jpg";
                 
-            }
+            // }
 
             /********************************************************************************************************** */     
-            $insertarCongreso = "INSERT INTO congreso(id_congreso,modalidad_congreso,logo_congreso) VALUES ('$newIdCongreso','$modalidadCongreso','$rutaLogo')";
+            $insertarCongreso = "INSERT INTO congreso(id_congreso,modalidad_congreso,correo_congreso,contra_congreso) VALUES ('$newIdCongreso','$modalidadCongreso', '$emailCongreso', '$encpassCon')";
             $resInsertarCongreso = mysqli_query($conexion, $insertarCongreso);
-
+            //'$rutaLogo', logo_congreso,
 
             //Ciclo para insertar las fechas en un arreglo
             for ($i=1; $i <=15 ; $i++) { 
@@ -112,7 +118,7 @@
             }
     
             if($resInsertarCongreso){
-                $info = "Se han registrado los datos del nuevo congreso.";
+                $info = "Se han registrado los datos del nuevo congreso. Ahora puedes personalizar el congreso en el apartado Diseño de pagina.";
                 $_SESSION['info'] = $info;
             }else{
                 $errores['db-error'] = "No se ha podido registrar el congreso.";
