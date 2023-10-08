@@ -12,10 +12,20 @@
                         <div class="circulo d-none d-md-block">
                         </div>
                     </div>
+                    <?php
+                    //Trae el congreso más reciente
+                    $consCongreso = "SELECT * FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso) FROM congreso);";
+                    $resCongreso = mysqli_query($conexion, $consCongreso);
+                    $fetchCongreso = mysqli_fetch_assoc($resCongreso);
+                    // Traer usuario y contraseña
+                    $correoCongreso = $fetchCongreso['correo_congreso'];
+                    $hashContra = $fetchCongreso['contra_congreso'];
+                    ?>
                     <div class="col-11">
                         <div class=" pt-2 p-2 ">
                             <p class="texto-sm text-break bg-light border p-2 fw-bold borde">
-                                15congresomatematicas@cuautitlan.unam.mx</p>
+                            <?php echo strtolower($correoCongreso); ?>
+                            </p>
                         </div>
                     </div>
                     <div class="mt-3 mb-3">
@@ -32,9 +42,7 @@
             </div>
         </div>
         <div class="col-md-5 col-lg-5 d-none d-lg-block d-flex justify-content-center p-3">
-            <iframe class="ms-3 w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.5259176186373!2d-99.18976938469959!3d19.690221237493482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f54156948569%3A0x9ef349d975d1150f!2sFES%20Cuautitl%C3%A1n%20UNAM%20Campus%20IV!5e0!3m2!1ses!2smx!4v1666125470718!5m2!1ses!2smx" 
-                height="300" style="border:0; border-radius:10px; display:block;" 
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="ms-3 w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.5259176186373!2d-99.18976938469959!3d19.690221237493482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f54156948569%3A0x9ef349d975d1150f!2sFES%20Cuautitl%C3%A1n%20UNAM%20Campus%20IV!5e0!3m2!1ses!2smx!4v1666125470718!5m2!1ses!2smx" height="300" style="border:0; border-radius:10px; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </div>
