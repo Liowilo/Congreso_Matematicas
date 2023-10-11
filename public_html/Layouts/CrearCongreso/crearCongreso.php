@@ -27,17 +27,28 @@ if (count($errores) > 0) {
 <?php
 }
 ?>
+
+<?php
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
+?>
+
 <form method="POST" id="form" enctype="multipart/form-data">
     <div class="contenedor mt-4">
         <div class="row mb-4">
             <div class="col-xl-3 col-lg-3 d-md-block col-md-5 d-sm-block col-sm-10 mb-3">
-                <input id="nuevoCongreso" name="nuevoCongreso" class="btn btn-azul pe-5 ps-5" type="button" value="Nuevo Congreso">
-
+                <input id="nuevoCongreso" name="nuevoCongreso" class="btn pe-5 ps-5" type="button" value="Nuevo Congreso" style="background-color: <?php echo $colorHex; ?>; color: #FFF !important;">
             </div>
             <div class="col-xl-3 col-lg-3 d-md-block col-md-4 d-sm-block col-sm-12 col-xs-block col-xs-12">
                 <!--------BOTON GUARDAR INPUT------------->
-                <input style="display:none;" id="botonGuardarNuevoCongreso" name="botonGuardarNuevoCongreso" class="btn btn-azul pe-5 ps-5" type="submit" value="Crear Congreso">
+                <input style="display:none; background-color: <?php echo $colorHex; ?>; color: #FFF !important;" id="botonGuardarNuevoCongreso" name="botonGuardarNuevoCongreso" class="btn pe-5 ps-5" type="submit" value="Crear Congreso">
             </div>
+        </div>
+        <div class="botonAct">
+            <a href="modificarCongreso.php" class="btn pe-5 ps-5" id="actualizarDatos" style="background-color: <?php echo $colorHex; ?>; color: #FFF !important;">Actualizar Congreso Actual</a>
         </div>
         <div id="nuevo" class="nuevo" style="display:none;">
             <div class="row">
@@ -74,7 +85,7 @@ if (count($errores) > 0) {
                 </div>
                 <div class="campo-email">
                     <div class="col-auto">
-                        <label for="inputMail" class="col-form-label">Contraseña del Nuevo Correo</label>
+                        <label for="inputMail" class="col-form-label">Contraseña de aplicación del Nuevo Correo</label>
                     </div>
                     <div class="col-auto">
                         <input type="password" id="inputPass" name="inputPass" class="form-control input-email" aria-describedby="emailHelp">
@@ -86,9 +97,9 @@ if (count($errores) > 0) {
                 </div>
             </div>
             <h4>Fecha de las Actividades</h4>
-            <div class=" head row mt-3 col-xl-10 col-lg-10 col-md-12 d-none d-sm-block mt-4  p-3  rounded">
+            <div class=" head row mt-3 col-xl-10 col-lg-10 col-md-12 d-none d-sm-block mt-4  p-3  rounded" style="background-color: <?php echo $colorHex; ?> !important; color: #FFF !important;">
                 <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-4">
+                    <div class="col-xl-6 col-lg-6 col-md-4" >
                         <span>Descripcion del evento</span>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4"><span>Fecha de Inicio</span></div>
@@ -290,6 +301,7 @@ if (count($errores) > 0) {
 
 
     var nuevoCongreso = document.getElementById("nuevoCongreso");
+    var actualizarDatos = document.getElementById("actualizarDatos");
     var cancelarNuevoCongreso = document.getElementById("cancelarNuevoCongreso");
     var botonGuardarNuevoCongreso = document.getElementById("botonGuardarNuevoCongreso");
     var editarCongreso = document.getElementById("editarCongreso");
@@ -315,6 +327,7 @@ if (count($errores) > 0) {
     nuevoCongreso.addEventListener('click', function() {
         if (botonGuardarNuevoCongreso.style.display == "block") {
             nuevo.style.display = "none";
+            actualizarDatos.style.display = "block";
             editarCongreso.style.display = "block";
             botonGuardarNuevoCongreso.style.display = "none";
             nuevoCongreso.value = "Nuevo Congreso";
@@ -322,6 +335,7 @@ if (count($errores) > 0) {
             window.location.reload();
         } else {
             nuevo.style.display = "block";
+            actualizarDatos.style.display = "none";
             editarCongreso.style.display = "none";
             botonGuardarNuevoCongreso.style.display = "block";
             nuevoCongreso.value = "Cancelar";
