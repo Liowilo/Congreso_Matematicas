@@ -66,6 +66,7 @@ $resComprobarPonencia = mysqli_query($conexion, $consComprobarPonencia);
             </div><!--col-10-->
         </div>
     </div>
+    </div>
 
 
 
