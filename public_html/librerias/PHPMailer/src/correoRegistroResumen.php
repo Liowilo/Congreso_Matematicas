@@ -28,7 +28,7 @@ $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $email2 = '';
 // Construcción del mensaje del correo
-if ($_SESSION['correoElectronico'] === $email2) {
+if ($_SESSION['correoElectronico'] !== $email2) {
     // Si el correo es de la sesión, se dice que es el coautor de la ponencia
     $mensaje = "Registro de trabajo exitoso. Has sido registrado como autor del trabajo.<br><br>";
 } else {
