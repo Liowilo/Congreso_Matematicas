@@ -101,6 +101,8 @@
             /********************************************************************************************************** */     
             $insertarCongreso = "INSERT INTO congreso(id_congreso,modalidad_congreso,correo_congreso,contra_congreso) VALUES ('$newIdCongreso','$modalidadCongreso', '$emailCongreso', '$encpassCon')";
             $resInsertarCongreso = mysqli_query($conexion, $insertarCongreso);
+            $actualizarCategorias = "UPDATE categoria SET id_congreso = '$newIdCongreso'";
+            $actCateg = mysqli_query($conexion, $actualizarCategorias);
             //'$rutaLogo', logo_congreso,
 
             //Ciclo para insertar las fechas en un arreglo
