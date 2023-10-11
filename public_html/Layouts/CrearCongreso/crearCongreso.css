@@ -59,7 +59,7 @@ input {
 
 }
 
-.btn-azul:hover {
+.btn:hover {
   background-color: rgba(171, 134, 39, 0.9);
   color: #fff;
 }
@@ -122,4 +122,32 @@ input {
 .check-pass {
   transform: scale(1.5);
   margin-top: 15px;
+}
+
+@media (max-width: 480px) {
+    .botones {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .botones a{
+      margin: 20px 0;
+    }
+}
+
+.info-final {
+  margin-top: 25px;
+}
+
+@media (max-width: 480px) {
+    .info-final {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-final a {
+      margin-bottom: 20px;
+    }
 }
