@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 require "../../librerias/PHPMailer/src/Exception.php";
 require "../../librerias/PHPMailer/src/PHPMailer.php";
 require "../../librerias/PHPMailer/src/SMTP.php";
+require "../../librerias/PHPMailer/src/traerCorreoCongreso.php";
 
 if ($idPonencia == '') {
     print "<script>window.location='/cbb/index.php';</script>";
@@ -82,15 +83,16 @@ if (strlen($_SESSION['info']) > 1 && count($errores) < 1) {
         ?>
         <?php print "<script>alert(\" Modificacion de trabajo exitosa. Se ha enviado un correo electrónico al autor y coautores.\");window.location='../TrabajosRegistrados/trabajosRegistrados.php';</script>";
         // Configuración de la clase PHPMailer para el envío de correo utilizando SMTP
-$mail = new PHPMailer();
-$mail->IsSMTP();
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = "ssl";
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465;
-$email = 'congresomatematicas15@gmail.com';
-$mail->Username = $email;
-$mail->Password = "rsdxrhmuwdcovefj";
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = "ssl";
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465;
+        $email= $correoCongreso;
+        $mail->Username = $email;
+        $mail->Password = $hashContra;
+        
 
 // Obtener ID de la ponencia a eliminar
 $idPonencia = $_GET['id'];
@@ -143,7 +145,7 @@ $mail->Body = "Se ha modificado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-
 $mail->Subject = "Se ha modificado un trabajo";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
-$mail->From = "congresomatematicas15@gmail.com";
+$mail->From = $email;
 $mail->FromName = "Congreso Internacional de Matemáticas";
 $mail->Send();
 $mail->ClearAddresses();
@@ -156,7 +158,7 @@ if (!empty($coautoresEmails)) {
         $mail->Subject = "Se ha modificado un trabajo";
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
-        $mail->From = "congresomatematicas15@gmail.com";
+        $mail->From = $email;
         $mail->FromName = "Congreso Internacional de Matemáticas";
         $mail->Send();
         $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
