@@ -3,6 +3,13 @@
 require "../../modelo/modificaResumen.php";
 $idPonencia = $_GET['id'];
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require "../../librerias/PHPMailer/src/Exception.php";
+require "../../librerias/PHPMailer/src/PHPMailer.php";
+require "../../librerias/PHPMailer/src/SMTP.php";
+
 if ($idPonencia == '') {
     print "<script>window.location='/cbb/index.php';</script>";
 }
@@ -73,8 +80,90 @@ if (strlen($_SESSION['info']) > 1 && count($errores) < 1) {
             require_once "../../librerias/PHPMailer/src/correoTrabajoModificadoEvaluador.php";
         }
         ?>
-        <?php print "<script>alert(\" Registro de trabajo exitoso. Se ha enviado un correo electrónico al autor y coautores.\");window.location='../TrabajosRegistrados/trabajosRegistrados.php';</script>";
+        <?php print "<script>alert(\" Modificacion de trabajo exitosa. Se ha enviado un correo electrónico al autor y coautores.\");window.location='../TrabajosRegistrados/trabajosRegistrados.php';</script>";
+        // Configuración de la clase PHPMailer para el envío de correo utilizando SMTP
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = "ssl";
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 465;
+$email = 'congresomatematicas15@gmail.com';
+$mail->Username = $email;
+$mail->Password = "rsdxrhmuwdcovefj";
+
+// Obtener ID de la ponencia a eliminar
+$idPonencia = $_GET['id'];
+
+// Consulta para obtener id_usuario del autor
+$consultaAutor = "SELECT id_usuario_registra FROM ponencia WHERE id_ponencia='$idPonencia'";
+$resultadoAutor = mysqli_query($conexion, $consultaAutor);
+
+if ($filaAutor = mysqli_fetch_assoc($resultadoAutor)) {
+    $idUsuarioAutor = $filaAutor['id_usuario_registra'];
+    
+    // Consulta para obtener email_usuario del autor
+    $consultaEmailAutor = "SELECT email_usuario FROM usuario WHERE id_usuario='$idUsuarioAutor'";
+    $resultadoEmailAutor = mysqli_query($conexion, $consultaEmailAutor);
+    
+    if ($filaEmailAutor = mysqli_fetch_assoc($resultadoEmailAutor)) {
+        $autorEmail = $filaEmailAutor['email_usuario'];
+    }
+}
+
+// Consulta para obtener id_usuario de coautores
+$consultaCoautores = "SELECT id_usuario FROM usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
+$resultadoCoautores = mysqli_query($conexion, $consultaCoautores);
+
+$coautoresEmails = array();
+while ($filaCoautor = mysqli_fetch_assoc($resultadoCoautores)) {
+    $idUsuarioCoautor = $filaCoautor['id_usuario'];
+    
+    // Consulta para obtener email_usuario de coautor
+    $consultaEmailCoautor = "SELECT email_usuario FROM usuario WHERE id_usuario='$idUsuarioCoautor'";
+    $resultadoEmailCoautor = mysqli_query($conexion, $consultaEmailCoautor);
+    
+    if ($filaEmailCoautor = mysqli_fetch_assoc($resultadoEmailCoautor)) {
+        $coautoresEmails[] = $filaEmailCoautor['email_usuario'];
+    }
+}
+
+// Consulta para obtener el título de la ponencia
+$consultaTitulo = "SELECT titulo_ponencia FROM ponencia WHERE id_ponencia='$idPonencia'";
+$resultadoTitulo = mysqli_query($conexion, $consultaTitulo);
+$titulo = "";
+
+if ($filaTitulo = mysqli_fetch_assoc($resultadoTitulo)) {
+    $titulo = $filaTitulo['titulo_ponencia'];
+}
+
+// Envío de correos electrónicos al autor y coautores
+$mail->addAddress($autorEmail); // Agregar al autor
+$mail->Body = "Se ha modificado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
+$mail->Subject = "Se ha modificado un trabajo";
+$mail->isHTML(true);
+$mail->CharSet = 'UTF-8';
+$mail->From = "congresomatematicas15@gmail.com";
+$mail->FromName = "Congreso Internacional de Matemáticas";
+$mail->Send();
+$mail->ClearAddresses();
+
+// Envío de correos electrónicos a los coautores
+if (!empty($coautoresEmails)) {
+    foreach ($coautoresEmails as $destinatario) {
+        $mail->addAddress($destinatario);
+        $mail->Body = "Se ha modificado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
+        $mail->Subject = "Se ha modificado un trabajo";
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->From = "congresomatematicas15@gmail.com";
+        $mail->FromName = "Congreso Internacional de Matemáticas";
+        $mail->Send();
+        $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
+    }
+}
         exit;
+        
         ?>
 
     </div>
@@ -165,53 +254,42 @@ if (count($errores) == 1) {
 
 
             <!------------LISTA DE COAUTORES------------->
-            <!------------LISTA DE COAUTORES------------->
             <div class="row mt-4">
                 <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12 mb-3">
                     <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col"><input class="btn btn-sm" style="color:red" type="submit"
-                                        name="botonQuitarCoautores" id="botonQuitarCoautores" value="Quitar Todos X">
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-
                             $_SESSION['coautores'] = $coautores;
-                            if (isset($_SESSION['coautores']) && !empty($_SESSION['coautores'])) {
-                                foreach ($_SESSION['coautores'] as $indice => $coautores_) {
-                                    $posicion_array = $indice;
-                                    if ($coautores_ != null) {
-
+                            if (count($coautores) != 0) {
+                                for ($i = 0; $i <= count($coautores) - 1; $i++) {
+                                    //$idAutor=$coautores["id"];
+                                    $nombresAutor = $coautores[$i]["nombres"];
+                                    $apellidosAutor = $coautores[$i]["apellidos"];
+                                    //$rfcAutor=$coautores["rfc"];
                             ?>
-                            <tr>
-                                <td>
-                                    <?= $coautores_['nombres'] ?>
-                                    <?= $coautores_['apellidos'] ?>
-                                </td>
-                                <td style="text-align: right;">
-                                    <button value="<?= $posicion_array ?>" class="btn btn-small btn-danger"
-                                        type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor">
-                                        <i class="fa-solid fa-user-xmark"></i></button>
-                                </td>
-                            </tr>
-                            <?php
-                                    }
-                                }
-
+                                    <tr>
+                                        <td><?php echo $nombresAutor . " " . $apellidosAutor; ?></td>
+                                    </tr>
+                            <?php }
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
-
+                <div class="d-flex col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mb-3 ">
+                    <div class=" d-flex align-self-end">
+                        <input class="btn btn-rojo " type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor" value="Quitar">
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
+
     <!-------------------------------------------------->
 
 
