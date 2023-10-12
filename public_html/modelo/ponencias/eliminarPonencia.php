@@ -10,6 +10,7 @@ require "../conexion.php";
 require "../../librerias/PHPMailer/src/Exception.php";
 require "../../librerias/PHPMailer/src/PHPMailer.php";
 require "../../librerias/PHPMailer/src/SMTP.php";
+require "../../librerias/PHPMailer/src/traerCorreoCongreso.php";
 
 // Configuración de la clase PHPMailer para el envío de correo utilizando SMTP
 $mail = new PHPMailer();
@@ -18,9 +19,9 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = "ssl";
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465;
-$email = 'congresomatematicas15@gmail.com';
+$email= $correoCongreso;
 $mail->Username = $email;
-$mail->Password = "rsdxrhmuwdcovefj";
+$mail->Password = $hashContra;
 
 // Obtener ID de la ponencia a eliminar
 $idPonencia = $_GET['id'];
@@ -73,7 +74,7 @@ $mail->Body = "Se ha eliminado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-m
 $mail->Subject = "Se ha eliminado un trabajo";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
-$mail->From = "congresomatematicas15@gmail.com";
+$mail->From = $email;
 $mail->FromName = "Congreso Internacional de Matemáticas";
 $mail->Send();
 $mail->ClearAddresses();
@@ -86,7 +87,7 @@ if (!empty($coautoresEmails)) {
         $mail->Subject = "Se ha eliminado un trabajo";
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
-        $mail->From = "congresomatematicas15@gmail.com";
+        $mail->From = $email;
         $mail->FromName = "Congreso Internacional de Matemáticas";
         $mail->Send();
         $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
