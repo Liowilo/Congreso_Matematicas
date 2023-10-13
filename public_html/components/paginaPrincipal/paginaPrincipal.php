@@ -149,16 +149,16 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <div class="elemento-cuadricula bd logos-cuadricula grid-logos">
                                         <div class="bloque">
                                             <img src="../<?php echo $rutaIMG5; ?>" width="80%" style="border-radius: 10px">
-                                            <label style="font-size: 20px; font-weight: bold;">Logo 1</label>
+                                            <label style="font-size: 20px; font-weight: bold;">Logo Congreso Actual</label>
                                         </div>
                                         <div class="bloque">
                                             <img src="../<?php echo $rutaIMG6; ?>" width="80%" style="border-radius: 10px">
-                                            <label style="font-size: 20px; font-weight: bold;">Logo 2</label>
+                                            <label style="font-size: 20px; font-weight: bold;">Logo Departamento Matemáticas</label>
                                         </div>
                                     </div>
-                                    <div class="elemento-cuadricula bd logos-cuadricula grid-logos-botones">
+                                    <div class="elemento-cuadricula logos-cuadricula grid-logos-botones">
                                         <div class="bloque bd">
-                                            <label style="font-size: 20px; font-weight: bold;">Logo 1</label>
+                                            <label style="font-size: 20px; font-weight: bold;">Logo Congreso Actual</label>
                                             <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseSesion" aria-expanded="false" aria-controls="collapseSesion" class="btn btn-primary" type="button" style="width: 80%; margin: 30px 0; background-color: #ebc961; font-size: 20px; font-weight: 600; border: none;">Cambiar</button>
                                             <div class="collapse" id="collapseSesion">
                                                 <div class="card card-body">
@@ -170,7 +170,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             </div>
                                         </div>
                                         <div class="bloque">
-                                            <label style="font-size: 20px; font-weight: bold;">Logo 2</label>
+                                            <label style="font-size: 20px; font-weight: bold;">Logo Departamento Matemáticas</label>
                                             <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccount" aria-expanded="false" aria-controls="collapseAccount" class="btn btn-primary" type="button" style="width: 80%; margin: 30px 0; background-color: #ebc961; font-size: 20px; font-weight: 600; border: none;">Cambiar</button>
                                             <div class="collapse" id="collapseAccount">
                                                 <div class="card card-body">
