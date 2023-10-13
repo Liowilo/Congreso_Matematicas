@@ -1,5 +1,6 @@
 <?php 
-    session_start();    
+    session_start();
+    require "../../modelo/conexion.php";
     /** 
 *******************************************************************************************************
 * Apartado que muestra card las memorias del congreso anterior empezando por el congreso XV .
