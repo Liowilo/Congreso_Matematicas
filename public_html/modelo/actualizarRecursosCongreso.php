@@ -6,6 +6,8 @@
 * @author Ricardo Leaños Medina ricardoleanosmedina@gmail.com y Jayme Ernesto Lin jaymelinbr@gmail.com
 *******************************************************************************************************
 **/ 
+
+    include "traerCongresoActual.php";
     $imagen='';
     if(isset($_FILES["logo1"])){
         require 'conexion.php';
@@ -14,7 +16,7 @@
         $tipo = $file["type"];
         $size = $file["size"];
         $ruta_temp = $file["tmp_name"];
-        $carpeta = "../src/logopagprinc/";
+        $carpeta = "../src/logos_congresos/";
 
         if ($tipo != 'image/jpg' && $tipo != 'image/JPG' && $tipo != 'image/jpeg' && $tipo != 'image/png' && $tipo != 'image/webp')
         {
@@ -27,9 +29,9 @@
         {
             $src = $carpeta.$nombre;
             move_uploaded_file($ruta_temp, $src);
-            $imagen="../src/logopagprinc/".$nombre;
+            $imagen="../../src/logos_congresos/".$nombre;
         }
     }
-    $query=mysqli_query($conexion,"UPDATE recursos_pagprin SET logo1_congreso = '$imagen'");
+    $query=mysqli_query($conexion,"UPDATE congreso SET logo_congreso = '$imagen' WHERE id_congreso = '$idCongreso'");
     header('location: ../components/paginaPrincipal/paginaPrincipal.php');
 ?>
