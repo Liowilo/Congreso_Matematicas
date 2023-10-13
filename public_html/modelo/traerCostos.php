@@ -10,7 +10,9 @@
     //Para que no inicie sesion 2 veces
     require "conexion.php";
     require 'traerCongresoActual.php';
-    $idUsuario=$_SESSION["id"];
+    if(!empty($_SESSION["id"])){
+        $idUsuario=$_SESSION["id"];
+    }
 
     $consCongreso1="SELECT * FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso)-1 FROM congreso);";
     $resCongreso1 = mysqli_query($conexion, $consCongreso1);
