@@ -99,7 +99,7 @@
             // }
 
             /********************************************************************************************************** */     
-            $insertarCongreso = "INSERT INTO congreso(id_congreso,modalidad_congreso,correo_congreso,contra_congreso) VALUES ('$newIdCongreso','$modalidadCongreso', '$emailCongreso', '$encpassCon')";
+            $insertarCongreso = "INSERT INTO congreso(id_congreso,modalidad_congreso,logo_congreso,correo_congreso,contra_congreso) VALUES ('$newIdCongreso','$modalidadCongreso','$rutaProvisional', '$emailCongreso', '$encpassCon')";
             $resInsertarCongreso = mysqli_query($conexion, $insertarCongreso);
             $actualizarCategorias = "UPDATE categoria SET id_congreso = '$newIdCongreso'";
             $actCateg = mysqli_query($conexion, $actualizarCategorias);
