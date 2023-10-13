@@ -1,5 +1,11 @@
 <?php
 session_start();
+require "../../modelo/conexion.php";
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +40,7 @@ session_start();
 
                         <table class="table table-striped">
                             <thead class="categorias">
-                                <tr>
+                                <tr style="background-color: <?php echo $colorHex; ?>;">
                                     <th class="nombre py-2" scope="col">Nombre completo</th>
                                     <th class="institucion py-2" scope="col">Institución</th>
                                 </tr>
@@ -147,7 +153,7 @@ session_start();
 
                         <table class="table">
                             <thead class="categorias">
-                                <tr>
+                                <tr style="background-color: <?php echo $colorHex; ?>;">
                                     <th class="nombre py-2" scope="col">Nombre completo</th>
                                     <th class="institucionI py-2" scope="col">Institución</th>
                                     <th class="pais py-2" scope="col">País</th>
