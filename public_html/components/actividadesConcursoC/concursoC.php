@@ -1,5 +1,11 @@
 <?php
 session_start();
+require "../../modelo/conexion.php";
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +58,7 @@ session_start();
                             <div class="container">
                                 <table class="table w-100">
                                     <thead class="categorias">
-                                        <tr>
+                                        <tr style="background-color: <?php echo $colorHex; ?>;">
                                             <th class="titulo-tabla" scope="col">Título</th>
                                             <th class="autor" scope="col">Autores</th>
                                             <th class="premio" scope="col">Premio</th>
