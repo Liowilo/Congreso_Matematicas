@@ -1,7 +1,6 @@
 <?php
 session_start();
 require "../../modelo/conexion.php";
-require '../../modelo/traerCostos.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +21,7 @@ require '../../modelo/traerCostos.php';
     <header class="fixed-top"> <!--------------MANDA A LLAMAR LA NAVBAR--------------->
         <?php
         require_once('../../Layouts/nav.php');
+        require '../../modelo/traerCostos.php';
         ?>
     </header>
     <section style="margin-top: 250px;">
