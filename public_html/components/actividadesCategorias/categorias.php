@@ -8,6 +8,12 @@
  *******************************************************************************************************
  **/
 session_start();
+require "../../modelo/conexion.php";
+// Traer color automatizado
+$valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$color = mysqli_query($conexion, $valorColor);
+$rowColor = $color->fetch_assoc();
+$colorHex = $rowColor['color_congreso'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +47,7 @@ session_start();
                                 <?php
                                 require "../../modelo/conexion.php";
                                 ?>
-                                <tr>
+                                <tr style="background-color: <?php echo $colorHex; ?>;">
                                     <th class="edicion" scope="col">Edición</th>
                                     <th class="categoria" scope="col">Categoría</th>
                                 </tr>
