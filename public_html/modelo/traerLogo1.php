@@ -7,8 +7,5 @@
 *******************************************************************************************************
 **/ 
 require 'conexion.php';
-$imagenSQL5 = "SELECT logo1_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
-$traerIMG5 = mysqli_query($conexion, $imagenSQL5);
-$rowImagen5 = $traerIMG5->fetch_assoc();
-$rutaIMG5 = $rowImagen5['logo1_congreso'];
+include 'traerCongresoActual.php';
 ?>
