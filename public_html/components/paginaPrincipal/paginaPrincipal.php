@@ -108,7 +108,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <div class="contenido-colores">
                                             <form method="post" action="../../modelo/actualizarRecursos/actualizarColor.php">
                                                 <label for="color2" class="textoCuadricula">Color Nuevo:</label><br>
-                                                <input type="color" id="color2" name="color2" class="colorInput"><br><br>
+                                                <input type="color" id="color2" name="color2" class="colorInput" required><br><br>
                                                 <div id="muestraColor2"></div>
                                                 <div id="valorHexadecimal2" class="textoCuadricula"></div>
                                                 <input type="submit" value="Actualizar" class="boton-dsg boton-dsg--amarillo" style="border: none; max-width: 200px; font-size: 20px; margin-top: 15px;">
@@ -133,7 +133,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <div class="elemento-cuadricula">
                                         <form action="../../modelo/actualizarRecursosCongreso4.php" method="post">
                                             <label for="nombreC" class="nombreTitulo">Nuevo Nombre</label><br>
-                                            <textarea name="nombre" id="nombreC" class="nombreCongreso"></textarea> <!-- Script Uppercase debajo -->
+                                            <textarea name="nombre" id="nombreC" class="nombreCongreso" required></textarea> <!-- Script Uppercase debajo -->
                                             <input type="submit" value="Guardar" class="btn btn-primary" style="width: 80%; margin-bottom: 20px; background-color: #ebc961; font-size: 20px; font-weight: 600; border: none; color: white !important;">
                                         </form>
                                     </div>
@@ -148,7 +148,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     </div>
                                     <div class="elemento-cuadricula bd logos-cuadricula grid-logos">
                                         <div class="bloque">
-                                            <img src="../<?php echo $rutaIMG5; ?>" width="80%" style="border-radius: 10px">
+                                            <img src="<?php echo $rutaProvisional; ?>" width="80%" style="border-radius: 10px">
                                             <label style="font-size: 20px; font-weight: bold;">Logo Congreso Actual</label>
                                         </div>
                                         <div class="bloque">
@@ -163,7 +163,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             <div class="collapse" id="collapseSesion">
                                                 <div class="card card-body">
                                                     <form action="../../modelo/actualizarRecursosCongreso.php" method="post" enctype="multipart/form-data">
-                                                        <input type="file" name="logo1" class="form-control">
+                                                        <input type="file" name="logo1" class="form-control" required>
                                                         <input type="submit" value="Guardar" class="m-auto w-100 btn btn-sm btn-outline-warning">
                                                     </form>
                                                 </div>
@@ -175,7 +175,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             <div class="collapse" id="collapseAccount">
                                                 <div class="card card-body">
                                                     <form action="../../modelo/actualizarRecursosCongreso2.php" method="post" enctype="multipart/form-data">
-                                                        <input type="file" name="logo2" class="form-control">
+                                                        <input type="file" name="logo2" class="form-control" required>
                                                         <input type="submit" value="Guardar" class="m-auto w-100 btn btn-sm btn-outline-warning">
                                                     </form>
                                                 </div>
@@ -200,7 +200,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <div class="collapse" id="collapsePassword">
                                             <div class="card card-body">
                                                 <form action="../../modelo/actualizarRecursosCongreso3.php" method="post" enctype="multipart/form-data">
-                                                    <input type="file" name="cartel" class="form-control">
+                                                    <input type="file" name="cartel" class="form-control" required>
                                                     <input type="submit" value="Guardar" class="m-auto w-100 btn btn-sm btn-outline-warning">
                                                 </form>
                                             </div>
@@ -226,7 +226,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <img src="<?php echo $rutaIMG; ?>" width="80%" alt="Imagen Cartel no disponible" style="border-radius: 10px">
                                         <form method="post" enctype="multipart/form-data" action="../../modelo/actualizarRecursos/actualizarBanner.php"> <!-- flex botones-banner -->
                                             <div class="banner-botones">
-                                                <input type="file" name="bannerIMG" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="bannerIMG" class="form-control" style="max-width: 400px;" required>
                                                 <input type="submit" value="Actualizar" class="boton-dsg boton-dsg--amarillo" style="border: none; max-width: 200px; font-size: 20px;">
                                             </div>
                                         </form>
@@ -306,23 +306,23 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <form method="post" action="../../modelo/actualizarRecursos/actualizarPatrocinadores.php" enctype="multipart/form-data">
                                             <div class="campo-pat">
                                                 <label for="pat1">Seleccionar Patrocinador 1:</label>
-                                                <input type="file" name="pat1" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="pat1" class="form-control" style="max-width: 400px;" required>
                                             </div>
                                             <div class="campo-pat">
                                                 <label for="pat1">Seleccionar Patrocinador 2:</label>
-                                                <input type="file" name="pat2" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="pat2" class="form-control" style="max-width: 400px;" required>
                                             </div>
                                             <div class="campo-pat">
                                                 <label for="pat1">Seleccionar Patrocinador 3:</label>
-                                                <input type="file" name="pat3" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="pat3" class="form-control" style="max-width: 400px;" required>
                                             </div>
                                             <div class="campo-pat">
                                                 <label for="pat1">Seleccionar Patrocinador 4:</label>
-                                                <input type="file" name="pat4" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="pat4" class="form-control" style="max-width: 400px;" required>
                                             </div>
                                             <div class="campo-pat">
                                                 <label for="pat1">Seleccionar Patrocinador 5:</label>
-                                                <input type="file" name="pat5" class="form-control" style="max-width: 400px;">
+                                                <input type="file" name="pat5" class="form-control" style="max-width: 400px;" required>
                                             </div>
                                             <input type="submit" value="Actualizar" class="boton-dsg boton-dsg--amarillo" style="border: none; max-width: 200px; font-size: 20px;">
                                         </form>
