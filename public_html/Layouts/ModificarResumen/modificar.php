@@ -219,7 +219,7 @@ if (count($errores) == 1) {
     <div class="row mt-4">
         <div class="col-xl-4 col-lg-4 col-md-6 d-ms-block col-sm-12">
             <label for="validationCustom02" class="form-label subtitulos">Autor</label>
-            <input id="autor" name="autor" type="text" class="form-control" id="validationCustom02" required value="<?php echo $fetch['nombres_usuario']; ?>" disabled>
+            <input id="autor" name="autor" type="text" class="form-control" id="validationCustom02" required value="<?php echo $fetch['nombres_usuario'] . ' ' . $fetch['apellidos_usuario']; ?>" disabled>
         </div>
         <div class="d-flex col-xl-4 col-lg-4 col-md-6 d-ms-block col-sm-12">
             <div class="mt-4 d-flex align-self-end">
@@ -262,33 +262,44 @@ if (count($errores) == 1) {
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
+                                <th scope="col"><input class="btn btn-sm" style="color:red" type="submit"
+                                        name="botonQuitarCoautores" id="botonQuitarCoautores" value="Quitar Todos X">
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+
                             $_SESSION['coautores'] = $coautores;
-                            if (count($coautores) != 0) {
-                                for ($i = 0; $i <= count($coautores) - 1; $i++) {
-                                    //$idAutor=$coautores["id"];
-                                    $nombresAutor = $coautores[$i]["nombres"];
-                                    $apellidosAutor = $coautores[$i]["apellidos"];
-                                    //$rfcAutor=$coautores["rfc"];
+                            if (isset($_SESSION['coautores']) && !empty($_SESSION['coautores'])) {
+                                foreach ($_SESSION['coautores'] as $indice => $coautores_) {
+                                    $posicion_array = $indice;
+                                    if ($coautores_ != null) {
+
                             ?>
-                                    <tr>
-                                        <td><?php echo $nombresAutor . " " . $apellidosAutor; ?></td>
-                                    </tr>
-                            <?php }
+                            <tr>
+                                <td>
+                                    <?= $coautores_['nombres'] ?>
+                                    <?= $coautores_['apellidos'] ?>
+                                </td>
+                                <td style="text-align: right;">
+                                    <button value="<?= $posicion_array ?>" class="btn btn-small btn-danger"
+                                        type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor">
+                                        <i class="fa-solid fa-user-xmark"></i></button>
+                                </td>
+                            </tr>
+                            <?php
+                                    }
+                                }
+
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="d-flex col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mb-3 ">
-                    <div class=" d-flex align-self-end">
-                        <input class="btn btn-rojo " type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor" value="Quitar">
-                    </div>
-                </div>
+
             </div>
+
         </div>
     </div>
 
