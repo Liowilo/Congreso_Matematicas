@@ -44,7 +44,7 @@ if (count($errores) > 0) {
         <div class="col-xl-4 col-lg-4 col-md-6 d-ms-block col-sm-12">
             <label for="validationCustom02" class="form-label subtitulos">Autor</label>
             <input id="autor" name="autor" type="text" class="form-control" id="validationCustom02" required
-                value="<?php echo $fetch['nombres_usuario']; ?>" disabled>
+                value="<?php echo $fetch['nombres_usuario'] . ' ' . $fetch['apellidos_usuario']; ?>" disabled>
         </div>
         <div class="d-flex col-xl-4 col-lg-4 col-md-6 d-ms-block col-sm-12">
             <div class="mt-4 d-flex align-self-end">
@@ -94,7 +94,8 @@ if (count($errores) > 0) {
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col"><input class="btn btn-sm" style="color:red" type="submit"
-                                        name="botonQuitarCoautores" id="botonQuitarCoautores" value="Quitar Todos X"></th>
+                                        name="botonQuitarCoautores" id="botonQuitarCoautores" value="Quitar Todos X">
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,10 +103,8 @@ if (count($errores) > 0) {
 
                             $_SESSION['coautores'] = $coautores;
                             if (isset($_SESSION['coautores']) && !empty($_SESSION['coautores'])) {
-                                //var_dump($_SESSION['coautores']).'<br>';
                                 foreach ($_SESSION['coautores'] as $indice => $coautores_) {
                                     $posicion_array = $indice;
-
                                     if ($coautores_ != null) {
 
                                         ?>
@@ -115,8 +114,8 @@ if (count($errores) > 0) {
                                     <?= $coautores_['apellidos'] ?>
                                 </td>
                                 <td style="text-align: right;">
-                                    <button value="<?= $posicion_array ?>" class="btn btn-small btn-danger" type="submit"
-                                        name="botonQuitarCoautor" id="botonQuitarCoautor">
+                                    <button value="<?= $posicion_array ?>" class="btn btn-small btn-danger"
+                                        type="submit" name="botonQuitarCoautor" id="botonQuitarCoautor">
                                         <i class="fa-solid fa-user-xmark"></i></button>
                                 </td>
                             </tr>
