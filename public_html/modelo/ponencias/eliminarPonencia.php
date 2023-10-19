@@ -70,7 +70,7 @@ if ($filaTitulo = mysqli_fetch_assoc($resultadoTitulo)) {
 
 // Envío de correos electrónicos al autor y coautores
 $mail->addAddress($autorEmail); // Agregar al autor
-$mail->Body = "Se ha eliminado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
+$mail->Body = "Se ha eliminado el trabajo  <b>$titulo</b> con la clave <b>$idPonencia</b>.<br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
 $mail->Subject = "Se ha eliminado un trabajo";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
