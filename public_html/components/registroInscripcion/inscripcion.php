@@ -47,7 +47,7 @@ require "../../modelo/conexion.php";
                                 <i class="fa fa-exclamation-triangle" style="color:#3B3D4D; font-size:48px; vertical-align:center;"></i>
                             </div>
                             <div class="col-sm">
-                                <h3>Para solicitar constancia de asistencia al evento<br> se deberá asistir minimo al 70% de las ponencias.</h3>
+                                <h3>Para solicitar constancia de asistencia al congreso<br> se deberá asistir y participar en minimo 3 ponencias orales virtuales.</h3>
                             </div>
                         </div>
                     </div>
