@@ -27,16 +27,28 @@ $mail->Subject = "Registro de trabajo exitoso";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $email2 = '';
+
+// Verificar si el usuario ha iniciado sesión y configurar $_SESSION['correoElectronico']
+// ...
+
 // Construcción del mensaje del correo
-if ($_SESSION['correoElectronico'] === $email2) {
-    // Si el correo es de la sesión, se dice que es el coautor de la ponencia
-    $mensaje = "Registro de trabajo exitoso. Has sido registrado como autor del trabajo.<br><br>";
-} else {
-    // Si el correo es del array coautores, se dice que fue registrado como coautor del trabajo
-    $mensaje = "Registro de trabajo exitoso. Has sido registrado como coautor del trabajo.<br><br>";
+if ($_SESSION['correoElectronico'] !== $email2) {
+    // Enviar correo al autor principal
+    $mail->addAddress($_SESSION['correoElectronico']);
+    $mensaje .= "Registro de trabajo exitoso. Has sido registrado como AUTOR del trabajo.<br><br>";
+    $mensaje .= "El trabajo <b>" . $titulo . "</b> fue registrado con éxito en la categoría <b>" . $tipoPonencia . "</b> con la clave <b>" . $idPonencia . "</b>.<br>";
+    $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
+    $mensaje .= "Atentamente,<br><br>";
+    $mensaje .= "El Comité Organizador del Evento<br>";
+    $mensaje .= "Por mi Raza Hablará el Espíritu";
+    $mail->Body = $mensaje;
+    $mail->Send();
+    $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
 }
 
-$mensaje .= "El trabajo <b>" . $titulo . "</b> fue registrado con éxito en la categoría <b>" . $tipoPonencia . "</b>.<br>";
+$mensaje = "Registro de trabajo exitoso. Has sido registrado como COAUTOR del trabajo.<br><br>";
+
+$mensaje .= "El trabajo <b>" . $titulo . "</b> fue registrado con éxito en la categoría <b>" . $tipoPonencia . "</b> con la clave <b>" . $idPonencia . "</b>.<br>";
 $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
 $mensaje .= "Atentamente,<br><br>";
 $mensaje .= "El Comité Organizador del Evento<br>";
@@ -53,20 +65,14 @@ if (!empty($coautores)) {
 
 // Envío del correo electrónico a todos los destinatarios
 foreach ($destinatarios as $destinatario) {
-    $mail->addAddress($destinatario); // Utiliza el método addAddress() en lugar de AddAddress()
-    $mail->Body = $mensaje;
-    if ($destinatario == $_SESSION['correoElectronico']) {
-        $email2 = $_SESSION['correoElectronico'];
-    } else {
-        $email2 = '';
+    if ($destinatario !== $_SESSION['correoElectronico']) {
+        $mail->addAddress($destinatario);
+        $mail->Body = $mensaje;
+        $mail->Send();
+        $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
     }
-    if (!$mail->Send()) {
-        // Si hay un error en el envío de correo, se muestra un mensaje de error
-        echo "Error: " . $mail->ErrorInfo;
-    } else {
-    }
-    $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
 }
+
 $info = "Registro de trabajo exitoso. Se ha enviado un correo electrónico a su dirección (" . $_SESSION['correoElectronico'] . ") y a la de los coautores (si existen) con la información del registro.";
 echo $info;
-
+?>
