@@ -179,6 +179,13 @@
         $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
         $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
         $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]); 
+        //consulta nombre autor
+        
+        $nombreAutor=mysqli_real_escape_string($conexion, $_POST['nombre_autor']);
+
+        //consulta lista couatores
+        $lista_coautores= mysqli_real_escape_string($conexion, $_POST['lista_coautores']);
+
         //Consulta Tipo Ponencia
         $tipoPonencia=mysqli_real_escape_string($conexion, $_POST['tipo']);
         $consultaTipoPonencia = "SELECT * FROM tipo_ponencia WHERE categoria_ponencia = '$tipoPonencia'";

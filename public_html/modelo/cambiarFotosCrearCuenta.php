@@ -55,7 +55,7 @@ if (!empty($_POST["saveSn"])) {
             $var_error = '<div class="alert alert-warning m-1 mt-5" role="alert">El tamaño máximo permitido es de 3MB.</div>';
 
         } else {
-            $folder = $_SERVER['DOCUMENT_ROOT'] . "/Congreso_MatematicasXampp/public_html/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
+            $folder = $_SERVER['DOCUMENT_ROOT'] . "/desarrollo/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
 
             // Creamos una ruta única para la imagen
             $src = $folder . $name . '.' . $extension;
@@ -138,7 +138,7 @@ if (!empty($_POST["saveAccount"])) {
             $var_error = '<div class="alert alert-warning m-1 mt-5" role="alert">El tamaño máximo permitido es de 3MB.</div>';
 
         } else {
-            $folderAc = $_SERVER['DOCUMENT_ROOT'] . "/Congreso_MatematicasXampp/public_html/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
+            $folderAc = $_SERVER['DOCUMENT_ROOT'] . "/desarrollo/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
 
             // Creamos una ruta única para la imagen
             $srcAc = $folderAc . $nameAc . '.' . $extensionAc;
@@ -222,7 +222,7 @@ if (!empty($_POST["saveImgPAss"])) {
             $var_error = '<div class="alert alert-warning m-1 mt-5" role="alert">El tamaño máximo permitido es de 3MB.</div>';
 
         } else {
-            $folderPass = $_SERVER['DOCUMENT_ROOT'] . "/Congreso_MatematicasXampp/public_html/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
+            $folderPass = $_SERVER['DOCUMENT_ROOT'] . "/desarrollo/src/ImgCrearCuenta/"; // Carpeta donde se almacenará la imagen
 
             // Creamos una ruta única para la imagen
             $srcPass = $folderPass . $namePass . '.' . $extensionPass;
