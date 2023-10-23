@@ -10,10 +10,10 @@ $nombreCongreso = $rowNombre['nombre_congreso'];
 
 
 // Automatizar logo congreso
-$valorlogo = "SELECT logo1_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+$valorlogo = "SELECT logo_congreso FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso) FROM congreso);";
 $logo = mysqli_query($conexion, $valorlogo);
 $rowlogo = $logo->fetch_assoc();
-$enlaceLogo = $rowlogo['logo1_congreso'];
+$enlaceLogo = $rowlogo['logo_congreso'];
 $rutaFinalLogo = str_replace("../", "../../", $enlaceLogo);
 ?>
 <!DOCTYPE html>
