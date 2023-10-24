@@ -179,13 +179,24 @@
         $_SESSION['resumen_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["resumen"]);
         $_SESSION['tipo_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["tipo"]);
         $_SESSION['referencia_ponencia'] =  mysqli_real_escape_string($conexion,$_POST["referencia"]); 
+
+/*****************************************************************************************************************/
+//Correccion de codigo por Leonardo Samuel Juarez Aguayo
+
         //consulta nombre autor
         
-        $nombreAutor=mysqli_real_escape_string($conexion, $_POST['nombre_autor']);
+        $nombreAutor = $fetch['nombres_usuario'] . ' ' . $fetch['apellidos_usuario'];
+        $res = mysqli_query($conexion, $datosAutor);
+        $fetch = mysqli_fetch_assoc($res);
 
-        //consulta lista couatores
-        $lista_coautores= mysqli_real_escape_string($conexion, $_POST['lista_coautores']);
+        $nombreCat = $_SESSION['id_categoria_ponencia'];
 
+        $datosCategoria = "SELECT * FROM categoria WHERE id_categoria='$nombreCat'";
+        $res2 = mysqli_query($conexion, $datosCategoria);
+        $fetch2 = mysqli_fetch_assoc($res2);
+        $nombreCategoria = $fetch2['categoria'];
+        
+/*****************************************************************************************************************/
         //Consulta Tipo Ponencia
         $tipoPonencia=mysqli_real_escape_string($conexion, $_POST['tipo']);
         $consultaTipoPonencia = "SELECT * FROM tipo_ponencia WHERE categoria_ponencia = '$tipoPonencia'";
