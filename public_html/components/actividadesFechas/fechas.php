@@ -14,7 +14,7 @@ $valorlogo = "SELECT logo_congreso FROM congreso WHERE id_congreso=(SELECT MAX(i
 $logo = mysqli_query($conexion, $valorlogo);
 $rowlogo = $logo->fetch_assoc();
 $enlaceLogo = $rowlogo['logo_congreso'];
-$rutaFinalLogo = str_replace("../", "../../", $enlaceLogo);
+$rutaFinalLogo = $enlaceLogo;
 ?>
 <!DOCTYPE html>
 <html lang="en">
