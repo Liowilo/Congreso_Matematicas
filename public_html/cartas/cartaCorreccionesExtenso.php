@@ -9,9 +9,13 @@
       $this->SetFont('Arial','B',9);
 
       $this->Line(10,10,206,10);
-      
+      $conexion = mysqli_connect("localhost","root","","desarrollo");
+ 				$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
+				$rowImagen6 = $traerIMG6->fetch_assoc();
+				$logo = $rowImagen6['banner_congreso'];
      // $this->Cell(35,25,'',0,0,'C',$this->Image('imagenes/Banner_k.jpg', 50(columna),41(renglon), 105(ancho)));
-     $this->Cell(50,25,'',0,0,'C',$this->Image('../../src/Banner-Oficial.jpg', 10,8, 190));
+     $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
 
       //$this->Line(10,35.5,206,35.5);
       // $this->Cell(30,25,'',0,0,'C',$this->Image('imagenes/logomate.jpeg', 182,12, 19));
