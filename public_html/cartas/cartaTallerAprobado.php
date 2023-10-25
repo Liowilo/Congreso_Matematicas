@@ -43,7 +43,12 @@ class PDF extends FPDF
 
          $this->Line(10,60,200,60);
         //logo del congreso dentro de lineas
-        $this->Cell(50,25,'',0,0,'C',$this->Image('../../src/Banner-Oficial.jpg', 10,8, 190));
+     $conexion = mysqli_connect("localhost","root","","desarrollo");
+ 				$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
+				$rowImagen6 = $traerIMG6->fetch_assoc();
+				$logo = $rowImagen6['banner_congreso'];
+        $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
         
         
         // clave,categoría y modalidad
