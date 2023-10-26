@@ -6,6 +6,39 @@ $valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'
 $color = mysqli_query($conexion, $valorColor);
 $rowColor = $color->fetch_assoc();
 $colorHex = $rowColor['color_congreso'];
+
+// Traer congreso actual a numero romano
+
+require '../../modelo/traerCongresoActual.php';
+
+function convertirARomano($numero)
+{
+    $numeros = array(
+        1000 => "M",
+        900 => "CM",
+        500 => "D",
+        400 => "CD",
+        100 => "C",
+        90 => "XC",
+        50 => "L",
+        40 => "XL",
+        10 => "X",
+        9 => "IX",
+        5 => "V",
+        4 => "IV",
+        1 => "I"
+    );
+    $resultado = '';
+    foreach ($numeros as $valor => $simbolo) {
+        $conteo = intval($numero / $valor);
+        $resultado .= str_repeat($simbolo, $conteo);
+        $numero = $numero % $valor;
+    }
+    return $resultado;
+}
+
+$numeroCongresoRomano = convertirARomano($idCongreso);
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +70,7 @@ $colorHex = $rowColor['color_congreso'];
             <div class="container  border rounded justify-content-center">
                 <div class="d-flex flex-row">
                     <div class="container d-inline-block col-xl-9 col-lg-8 col-md-8 d-sm-block col-sm-12 mt-4">
-                        <div class="mb-3 card-body-congresoXV rounded p-3">XV EDICIÓN</div>
+                        <div class="mb-3 card-body-congresoXV rounded p-3"><?php echo $numeroCongresoRomano; ?> EDICIÓN</div>
                     </div>
                     <div class="container d-inline-block col-xl-3 col-lg-4 col-md-4 d-sm-block col-sm-12 mt-4">
                         <div class=""><img src="../../src/logos_congresos/XV.jpeg" alt="XV Congreso" height="95px" width="95px"></div>
@@ -48,7 +81,44 @@ $colorHex = $rowColor['color_congreso'];
                 <div class="row justify-content-center">
                     <div class="col ms-2">
                         <h5>Congreso Internacional Sobre la Enseñanza y Aplicación de las Matemáticas</h5>
-                        <p>4 y 5 de Mayo 2023</p>
+                        <p>
+                            <?php
+                            $id_evento = 13;
+                            $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                            $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                            $result = $conexion->query($sql);
+                            $result2 = $conexion->query($sql2);
+                            $row = $result->fetch_assoc();
+                            $row2 = $result2->fetch_assoc();
+                            $fecha = new DateTime($row["fecha_congreso_inicio"]);
+                            $fecha2 = new DateTime($row2["fecha_congreso_fin"]);
+                            $locale = 'es_ES'; // Establece la configuración regional en español
+
+                            $dateFormatter = new IntlDateFormatter(
+                                $locale,
+                                IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                                IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                                'UTC', // Zona horaria
+                                IntlDateFormatter::GREGORIAN
+                            );
+
+                            $dateFormatter2 = new IntlDateFormatter(
+                                $locale,
+                                IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                                IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                                'UTC', // Zona horaria
+                                IntlDateFormatter::GREGORIAN
+                            );
+
+                            $dateFormatter->setPattern("d");  // Define el patrón de formato
+                            $dateFormatter2->setPattern("d 'de' MMMM 'de' y"); // Define el patrón de formato
+
+                            $fecha_formateada = $dateFormatter->format($fecha);
+                            $fecha_formateada2 = $dateFormatter2->format($fecha2);
+
+                            echo $fecha_formateada . " y " . $fecha_formateada2;
+                            ?>
+                        </p>
                     </div>
                 </div>
                 <div>
