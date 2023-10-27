@@ -396,7 +396,9 @@
                                                     }
                                                 }
                                                 
-                                                $idPonencia='CASM'.$numeroCartelesCongreso.$idCongreso;
+                                                // $idPonencia='CASM'.$numeroCartelesCongreso.$idCongreso;
+                                                $idPonencia='CASM'.$numeroCartelesCongreso;
+
                                                 //Inserta nueva ponencia
                                                 $insertarPonencia = "INSERT INTO ponencia (id_ponencia,titulo_ponencia, resumen_ponencia, referencia_ponencia, id_tipo_ponencia, id_categoria, id_usuario_registra, fecha_registro_ponencia, id_congreso)
                                                 values('$idPonencia','$titulo', '$resumen', '$referencias', '$idTipoPonencia', '$categoria','$autor','$fechaActual','$idCongreso')";
@@ -480,7 +482,8 @@
                                                     }
                                                 }
                                                 
-                                                $idPonencia='POSM'.$numeroPonenciasCongreso.$idCongreso;                                        
+                                                // $idPonencia='POSM'.$numeroPonenciasCongreso.$idCongreso;                                        
+                                                $idPonencia='POSM'.$numeroPonenciasCongreso;                                        
                                             //Inserta nueva ponencia
                                             $insertarPonencia = "INSERT INTO ponencia (id_ponencia,titulo_ponencia, resumen_ponencia, referencia_ponencia, id_tipo_ponencia, id_categoria, id_usuario_registra, fecha_registro_ponencia, id_congreso)
                                             values('$idPonencia','$titulo', '$resumen', '$referencias', '$idTipoPonencia', '$categoria','$autor','$fechaActual','$idCongreso')";
@@ -564,7 +567,8 @@
                                                 }
                                             }
                                             
-                                            $idPonencia='TASM'.$numeroTalleresCongreso.$idCongreso; 
+                                            // $idPonencia='TASM'.$numeroTalleresCongreso.$idCongreso; 
+                                            $idPonencia='TASM'.$numeroTalleresCongreso; 
                                             
                                         
                                             
