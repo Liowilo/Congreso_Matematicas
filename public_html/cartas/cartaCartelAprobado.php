@@ -28,7 +28,7 @@ class PDF extends FPDF
         
         $this->SetFont('Arial','B',9);
  
-    $conexion = mysqli_connect("localhost","root","","desarrollo");
+    $conexion = mysqli_connect("localhost","desarrollo","Desarrollo","desarrollo");
  			$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
 				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
 				$rowImagen6 = $traerIMG6->fetch_assoc();
