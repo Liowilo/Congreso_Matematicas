@@ -10,7 +10,7 @@
 
       $this->Line(10,10,206,10);
       //$this->Line(10,35.5,206,35.5);
-      $conexion = mysqli_connect("localhost","root","","desarrollo");
+      $conexion = mysqli_connect("localhost","desarrollo","Desarrollo","desarrollo");
  				$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
 				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
 				$rowImagen6 = $traerIMG6->fetch_assoc();
