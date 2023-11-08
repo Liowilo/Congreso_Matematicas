@@ -55,6 +55,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           <li><a class="dropdown-item " href="/desarrollo/components/registroCuotas/cuotas.php">Cuotas</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/GuiasYPlantillas/guias.php">Guias</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/acercaDe/acercaDe.php">Acerca de...</a></li>
+          <li><a class="dropdown-item " href="/desarrollo/components/avisoPrivacidad/avisoPrivacidad.php">Aviso de privacidad</a></li>
         </ul>
       </li>
 
