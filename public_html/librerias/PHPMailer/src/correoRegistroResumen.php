@@ -22,7 +22,7 @@ $mail->Password = $hashContra;
 
 // Contenido del correo electrónico y configuración de la cuenta para envío de correo
 $mail->From = $email;
-$mail->FromName = "Congreso Internacional de Matemáticas";
+$mail->FromName = "CISEyAM";
 $mail->Subject = "Registro de trabajo exitoso";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
@@ -39,10 +39,15 @@ else{
 if ($_SESSION['correoElectronico'] !== $email2) {
     // Enviar correo al autor principal
     $mail->addAddress($_SESSION['correoElectronico']);
-    $mensaje .= "Registro de trabajo exitoso. Has sido registrado como AUTOR del trabajo.<br><br>";
+    $mensaje .= "Registro de trabajo exitoso. Has sido registrado como AUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.<br><br>";
 
-    $mensaje .= "El trabajo <b>" . $titulo . "</b> fue registrado con el tipo <b>" . $tipoPonencia . "</b> con la categoria <b>" . $nombreCategoria . "</b> y con la clave <b>" . $idPonencia . "</b> con el Autor <b>". $nombreAutor ."</b>.<br>".$txt."<br><br>";
-    $coautoresCadena = "<ul>";
+    $mensaje .= "Los detalles del trabajo se describen a continuación: <ul>";
+    $mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";
+    $mensaje .= "<li><b>Categoría: </b>" . $nombreCategoria . "</li>";
+    $mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
+    $mensaje .= "<li><b>Titulo: </b>" . $titulo . "</li>";
+    $mensaje .= "<li><b>Autor: </b>" . $nombreAutor . "</li>";
+    $mensaje .= "</ul><br>Con los coautor(es):";
     // Nombe de Coautores
     foreach ($coautores as $coautor) {
         $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
@@ -59,9 +64,16 @@ if ($_SESSION['correoElectronico'] !== $email2) {
     $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
 }
 
-$mensaje = "Registro de trabajo exitoso. Has sido registrado como COAUTOR del trabajo.<br><br>";
+$mensaje = "Registro de trabajo exitoso. Has sido registrado como COAUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.<br><br>";
 
-$mensaje .= "El trabajo <b>" . $titulo . "</b> fue registrado con el tipo <b>" . $tipoPonencia . "</b> con la categoria <b>" . $nombreCategoria . "</b> y con la clave <b>" . $idPonencia . "</b> con el Autor <b>". $nombreAutor ."</b>.<br>".$txt."<br><br>";
+$mensaje .= "Los detalles del trabajo se describen a continuación: <ul>";
+$mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";
+$mensaje .= "<li><b>Categoría: </b>" . $nombreCategoria . "</li>";
+$mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
+$mensaje .= "<li><b>Titulo: </b>" . $titulo . "</li>";
+$mensaje .= "<li><b>Autor: </b>" . $nombreAutor . "</li>";
+$mensaje .= "</ul><br>Con los coautor(es):";
+
 $coautoresCadena = "<ul>";
 // Nombe de Coautores
 foreach ($coautores as $coautor) {
