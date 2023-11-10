@@ -30,6 +30,10 @@ $idPonencia = $_GET['id'];
 $consultaAutor = "SELECT id_usuario_registra FROM ponencia WHERE id_ponencia='$idPonencia'";
 $resultadoAutor = mysqli_query($conexion, $consultaAutor);
 
+$resultadoAutor1 = mysqli_query($conexion, $consultaAutor);
+$fetchAutor = mysqli_fetch_assoc($resultadoAutor1);
+$idAutorClave = $fetchAutor['id_usuario_registra'];
+
 if ($filaAutor = mysqli_fetch_assoc($resultadoAutor)) {
     $idUsuarioAutor = $filaAutor['id_usuario_registra'];
     
@@ -41,6 +45,37 @@ if ($filaAutor = mysqli_fetch_assoc($resultadoAutor)) {
         $autorEmail = $filaEmailAutor['email_usuario'];
     }
 }
+
+/* --------------------------------------------  Consultas para describir los datos de la ponencia -------------------------------------- */
+$consultaPonencia = "SELECT * FROM ponencia WHERE id_ponencia='$idPonencia'";
+$fetchPonencia = mysqli_query($conexion, $consultaPonencia);
+$datosPonencia = mysqli_fetch_assoc($fetchPonencia);
+
+// Traer el nombre de la ponencia
+$nombrePonencia = $datosPonencia['titulo_ponencia'];
+
+// Taer el tipo de ponencia
+$tPonencia = $datosPonencia['id_tipo_ponencia'];
+$tipoP = "SELECT categoria_ponencia FROM tipo_ponencia WHERE id_tipo_Ponencia = '$tPonencia'";
+$tipoPon =  mysqli_query($conexion, $tipoP);
+$PonRow = mysqli_fetch_assoc($tipoPon);
+$tipoPonencia = $PonRow['categoria_ponencia'];
+
+// Traer categoria de ponencia
+$cPonencia = $datosPonencia['id_categoria'];
+$categoriaP = "SELECT * FROM categoria WHERE id_categoria = '$cPonencia'";
+$categoriaPon =  mysqli_query($conexion, $categoriaP);
+$PonRow2 = mysqli_fetch_assoc($categoriaPon);
+$categoriaPonencia = $PonRow2['categoria'];
+
+// Traer nombre autor
+$claveAutor = mysqli_fetch_assoc($resultadoAutor);
+$nAutor = "SELECT * FROM usuario WHERE id_usuario = '$idAutorClave'";
+$autorDatos = mysqli_query($conexion, $nAutor);
+$rowAutor = mysqli_fetch_assoc($autorDatos);
+$nombresAutor = $rowAutor['nombres_usuario'];
+$apellidosAutor = $rowAutor['apellidos_usuario'];
+$nombreFAutor = $nombresAutor . " " . $apellidosAutor;
 
 // Consulta para obtener id_usuario de coautores
 $consultaCoautores = "SELECT id_usuario FROM usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
@@ -59,6 +94,18 @@ while ($filaCoautor = mysqli_fetch_assoc($resultadoCoautores)) {
     }
 }
 
+// Traer nombre coautores con su correo
+$nombreCoautores = array();
+foreach($coautoresEmails as $emailDestinatario) {
+    $traerNombre = "SELECT nombres_usuario, apellidos_usuario FROM usuario WHERE email_usuario = '$emailDestinatario'";
+    $resultadoTraerNombre = mysqli_query($conexion, $traerNombre);
+    $fetchCoautores = mysqli_fetch_assoc($resultadoTraerNombre);
+    $nombreCoautor = $fetchCoautores['nombres_usuario'];
+    $apellidoCoautor = $fetchCoautores['apellidos_usuario'];
+    $nombreFCoautor = $nombreCoautor . " " . $apellidoCoautor;
+    $nombreCoautores[] = $nombreFCoautor;
+}
+
 // Consulta para obtener el título de la ponencia
 $consultaTitulo = "SELECT titulo_ponencia FROM ponencia WHERE id_ponencia='$idPonencia'";
 $resultadoTitulo = mysqli_query($conexion, $consultaTitulo);
@@ -70,29 +117,46 @@ if ($filaTitulo = mysqli_fetch_assoc($resultadoTitulo)) {
 
 // Envío de correos electrónicos al autor y coautores
 $mail->addAddress($autorEmail); // Agregar al autor
-$mail->Body = "Se ha eliminado el trabajo  <b>$titulo</b> con la clave <b>$idPonencia</b>.<br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
-$mail->Subject = "Se ha eliminado un trabajo";
-$mail->isHTML(true);
-$mail->CharSet = 'UTF-8';
-$mail->From = $email;
-$mail->FromName = "Congreso Internacional de Matemáticas";
-$mail->Send();
-$mail->ClearAddresses();
 
 // Envío de correos electrónicos a los coautores
 if (!empty($coautoresEmails)) {
     foreach ($coautoresEmails as $destinatario) {
         $mail->addAddress($destinatario);
-        $mail->Body = "Se ha eliminado el trabajo '$titulo'.<br><br>Fecha: " . date('Y-m-d') . "<br><br>Atentamente,<br>El Comité Organizador del Evento<br>Por mi Raza Hablará el Espíritu";
-        $mail->Subject = "Se ha eliminado un trabajo";
-        $mail->isHTML(true);
-        $mail->CharSet = 'UTF-8';
-        $mail->From = $email;
-        $mail->FromName = "Congreso Internacional de Matemáticas";
-        $mail->Send();
-        $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
     }
 }
+
+$mensaje .= "Se ha eliminado un trabajo. La eliminación de un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas fue exitósa.<br><br>";
+
+$mensaje .= "Los detalles del trabajo eliminado se describen a continuación: <ul>";
+$mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";
+$mensaje .= "<li><b>Categoría: </b>" . $categoriaPonencia . "</li>";
+$mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
+$mensaje .= "<li><b>Titulo: </b>" . $nombrePonencia . "</li>";
+$mensaje .= "<li><b>Autor: </b>" . $nombreFAutor . "</li>";
+$mensaje .= "</ul><br>Con los coautor(es):";
+$mensaje .= "<ul>";
+// Imprimir coautores
+foreach($nombreCoautores as $nombreC){
+    $mensaje .= "<li>" . $nombreC . "</li>";
+}
+
+$mensaje .= "</ul><br>";
+        
+$mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
+$mensaje .= "Atentamente,<br><br>";
+$mensaje .= "El Comité Organizador del Evento<br>";
+$mensaje .= "Por mi Raza Hablará el Espíritu";
+
+$mail->Body = $mensaje;
+$mail->Subject = "Se ha eliminado el trabajo " . $nombrePonencia;
+$mail->isHTML(true);
+$mail->CharSet = 'UTF-8';
+$mail->From = $email;
+$mail->FromName = "CISEyAM";
+$mail->Send();
+$mail->ClearAddresses();
+
+
 
 if (isset($_GET['id'])) {
     $idPonencia = $_GET['id'];
