@@ -10,6 +10,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    
+        <link rel="stylesheet" href="./styles.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <script type="text/javascript">
         var onloadCallback = function () {
@@ -18,10 +21,30 @@
             });
         };
     </script>
-    <link rel="stylesheet" href="styles.css">
+
+
 </head>
 
 <body>
+<div class="mascara-blur" id="mascara-blur"></div>
+<div class="container mt-4 content-flag" id="content-flag">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="important-ad">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="alert-heading w-100"><strong>Anuncio Importante:</strong></h4>
+                    <i class="fas fa-times px-1" id="close-flag"></i>
+                    
+                </div>
+                <h4>Incompatibilidad con Mozilla Firefox</h4>
+                <p><br><br>Por favor, ten en cuenta que nuestra página web no es compatible actualmente con Mozilla Firefox. Te sugerimos utilizar otro navegador como Google Chrome, Microsoft Edge u Opera para acceder a nuestros servicios. Lamentamos las molestias y agradecemos tu comprensión.</p>
+                <p><br><br>Gracias.</p>
+                <p><strong>CISEyAM</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!--Centra el formulario a la mitad de la pantalla-->
     <div class="container full-screen d-flex align-items-center justify-content-center vh-100">
         <div class="row registro p-sm-10">

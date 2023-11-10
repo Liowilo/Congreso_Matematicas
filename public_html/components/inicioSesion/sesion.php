@@ -9,12 +9,37 @@
     <title>Iniciar Sesión</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="./styles.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
 </head>
 
 <body>
+
+
+<div class="mascara-blur" id="mascara-blur"></div>
+<div class="container mt-4 content-flag" id="content-flag">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="important-ad">
+                    <button type="button" class="close-button" id="close-flag">
+                        <i class="fas fa-times px-2"></i>
+                    </button>
+                    <h4 class="alert-heading"><strong>Anuncio Importante:</strong></h4>
+					<h4>Incompatibilidad con Mozilla Firefox</h4>
+                    <p><br><br>Por favor, ten en cuenta que nuestra página web no es compatible actualmente con Mozilla Firefox. Te sugerimos utilizar otro navegador como Google Chrome, Microsoft Edge u Opera para acceder a nuestros servicios. Lamentamos las molestias y agradecemos tu comprensión.</p>
+                    <p><br><br>Gracias.</p>
+                    <p><strong>CISEyAM</strong></p>
+                </div>
+            </div>
+        </div>
+	</div>
+
+
     <!--Centra el formulario a la mitad de la pantalla-->
     <div class="container full-screen d-flex align-items-center justify-content-center vh-100">
+        
         <div class="row registro p-sm-10">
             <div class="col">
             </div>
@@ -115,6 +140,7 @@
             </div>
         </div>
     </div>
+
     <!--Referencia al archivo de JavaScript al final para que se carguen los componentes-->
     <script src="sesion.js"></script>
 

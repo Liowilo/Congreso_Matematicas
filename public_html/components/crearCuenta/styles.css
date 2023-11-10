@@ -92,17 +92,82 @@ button, .boton:hover{
 }
 
 /*Advertencia de errores*/
-/*Formato de error por defecto*/
-.formulario_input-error{
-    font-size: 12px;
-    margin-bottom: 0;
-    display: none;
-    color:red;
-}
-/*Formato de error activo*/
-.formulario_input-error-activo{
-    font-size: 12px;
-    margin-bottom: 0;
-    display: block;
-}
 
+/* Estilos personalizados del anuncio*/
+.important-ad {
+    background-color: #f7f7f7; /* Fondo blanco */
+    color: #000; /* Texto negro */
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .important-ad h4 {
+    color: goldenrod; /* Título dorado */
+    text-align: center;
+  }
+  
+  .important-ad p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: justify;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #000; /* Texto negro */
+    padding: 0;
+    outline: none;
+  }
+  
+  .close-button:hover {
+    transform: scale(1.2);
+  }
+  body .content-flag {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  body .content-flag.mostrar {
+    opacity: 1;
+    z-index: 1032;
+  }
+  body .content-flag i {
+    display:block;
+    float:right;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor:pointer;
+  }
+ 
+  
+  body .mascara-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 48%); /* Color de fondo con transparencia */
+    backdrop-filter: blur(5px); /* Aplicar el efecto de desenfoque a la máscara */
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.1s ease;
+  }
+  
+  body .mascara-blur.mostrar {
+    opacity: 1;
+    z-index: 1031;
+  }

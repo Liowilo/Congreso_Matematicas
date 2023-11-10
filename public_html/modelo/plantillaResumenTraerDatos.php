@@ -195,6 +195,12 @@
         $res2 = mysqli_query($conexion, $datosCategoria);
         $fetch2 = mysqli_fetch_assoc($res2);
         $nombreCategoria = $fetch2['categoria'];
+
+        $querycat= "SELECT * FROM categoria WHERE id_categoria='$nombreCat'";
+        $resCat = mysqli_query($conexion, $querycat);
+        $fetchCat = mysqli_fetch_assoc($resCat);
+        $claveCat = $fetchCat['clave_cat'];
+
         
 /*****************************************************************************************************************/
         //Consulta Tipo Ponencia
@@ -397,7 +403,7 @@
                                                 }
                                                 
                                                 // $idPonencia='CASM'.$numeroCartelesCongreso.$idCongreso;
-                                                $idPonencia='CASM'.$numeroCartelesCongreso;
+                                                $idPonencia=$claveCat.'-CASM'.$numeroCartelesCongreso;
 
                                                 //Inserta nueva ponencia
                                                 $insertarPonencia = "INSERT INTO ponencia (id_ponencia,titulo_ponencia, resumen_ponencia, referencia_ponencia, id_tipo_ponencia, id_categoria, id_usuario_registra, fecha_registro_ponencia, id_congreso)
@@ -483,7 +489,7 @@
                                                 }
                                                 
                                                 // $idPonencia='POSM'.$numeroPonenciasCongreso.$idCongreso;                                        
-                                                $idPonencia='POSM'.$numeroPonenciasCongreso;                                        
+                                                $idPonencia=$claveCat.'-POSM'.$numeroPonenciasCongreso;                                        
                                             //Inserta nueva ponencia
                                             $insertarPonencia = "INSERT INTO ponencia (id_ponencia,titulo_ponencia, resumen_ponencia, referencia_ponencia, id_tipo_ponencia, id_categoria, id_usuario_registra, fecha_registro_ponencia, id_congreso)
                                             values('$idPonencia','$titulo', '$resumen', '$referencias', '$idTipoPonencia', '$categoria','$autor','$fechaActual','$idCongreso')";
@@ -568,7 +574,7 @@
                                             }
                                             
                                             // $idPonencia='TASM'.$numeroTalleresCongreso.$idCongreso; 
-                                            $idPonencia='TASM'.$numeroTalleresCongreso; 
+                                            $idPonencia=$claveCat.'-TASM'.$numeroTalleresCongreso; 
                                             
                                         
                                             
@@ -657,7 +663,8 @@
                                                     }
                                                 }
                                                 
-                                                $idPonencia='PRSM'.$numeroPrototiposCongreso.$idCongreso;                                        
+                                                // $idPonencia='PRSM'.$numeroPrototiposCongreso.$idCongreso;                                        
+                                                $idPonencia=$claveCat.'-PRSM'.$numeroPrototiposCongreso;                                        
                                             //Inserta nueva ponencia
                                             $insertarPonencia = "INSERT INTO ponencia (id_ponencia,titulo_ponencia, resumen_ponencia, referencia_ponencia, id_tipo_ponencia, id_categoria, id_usuario_registra, fecha_registro_ponencia, id_congreso)
                                             values('$idPonencia','$titulo', '$resumen', '$referencias', '$idTipoPonencia', '$categoria','$autor','$fechaActual','$idCongreso')";
