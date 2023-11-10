@@ -21,6 +21,7 @@ require "../../modelo/conexion.php";
 require "../../modelo/maximoAsignacion.php";
 require_once "../../modelo/privilegiosUsuario.php";
 
+
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
 
@@ -52,6 +53,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="./admin.css">
+            <link rel="stylesheet" href="./styleOfTab.css">
+            
         </head>
 
         <body>
@@ -75,8 +78,18 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 <h2 class="mt-5 mb-5">Asignaciones</h2>
                                 <!-------------------------------------------------------------------------------------------->
 
-                                <h4>Ponencias</h4>
-                                <div class="row">
+                                <h4>Tipo de Trabajo</h4>
+                                <div class="tabs-container">
+                                    <ul aria-labelledby="tabs-title">
+                                        <li><a id="tab-1" href="#ponencia"> Ponencia </a></li>
+                                        <li><a id="tab-2" href="#cartel"> Cartel </a></li>
+                                        <li><a id="tab-3" href="#taller"> Taller </a></li>
+                                        <li><a id="tab-4" href="#prototipo"> Prototipo </a></li>
+                                    </ul>
+                                    <div class="tabs_panels flow">
+                                        <div id="ponencia" aria-labelledby="tab-1">
+                                            <p></p>
+                                            <div class="row">
 
                                     <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
                                         <?php if (strlen($_SESSION['info']) > 1) : ?>
@@ -113,14 +126,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <?php
                                                 require "../../modelo/traerDatosPrograma.php";
 
-                                                while ($idPonencia = mysqli_fetch_assoc($resTrabajosRegistrados)) : ?>
+                                                while ($idPonencia = mysqli_fetch_assoc($resPOregisSE)) : ?>
 
                                                     <tr id="<?php echo htmlspecialchars($idPonencia['id_ponencia']); ?>">
                                                     <?php endwhile; ?>
                                                     <?php
                                                     require "../../modelo/traerDatosPrograma.php"; //Trae los registros de Ponencias del congreso actual
 
-                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resTrabajosRegistrados)) {
+                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resPOregisSE)) {
                                                         $tituloPonencia = htmlspecialchars($fetchTrabajosRegistrados['titulo_ponencia']);
                                                         $idUsuarioEvalua = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_evalua']);
                                                         $idPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_ponencia']);
@@ -218,6 +231,449 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         </table>
                                     </div>
                                 </div>
+                                        </div>
+                                        <div id="cartel" aria-labelledby="tab-2">
+                                            <p></p>
+                                            <div class="row">
+
+                                    <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
+                                        <?php if (strlen($_SESSION['info']) > 1) : ?>
+                                            <div id="informacionExito" class="alert alert-success text-center">
+                                                <?php echo htmlspecialchars($_SESSION['info']);
+                                                require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
+                                                ?>
+
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (count($errores) > 0) : ?>
+                                            <div id="informacionError" class="alert alert-danger text-center">
+                                                <?php foreach ($errores as $showerror) : ?>
+                                                    <?php echo htmlspecialchars($showerror); ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-cabecera">
+                                                    <th scope="col" class="text-wrap">#</th>
+                                                    <th scope="col" class="text-wrap">Título</th>
+                                                    <th scope="col" class="text-wrap">Autor</th>
+                                                    <th scope="col" class="text-wrap">Tipo</th>
+                                                    <th scope="col" class="text-wrap">Categoría</th>
+                                                    <th scope="col" class="text-wrap">Fecha</th>
+                                                    <th scope="col" class="text-wrap">Ver Detalles</th>
+                                                    <th scope="col" class="text-wrap">Evaluador</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                require "../../modelo/traerDatosPrograma.php";
+
+                                                while ($idPonencia = mysqli_fetch_assoc($resCAregisSE)) : ?>
+
+                                                    <tr id="<?php echo htmlspecialchars($idPonencia['id_ponencia']); ?>">
+                                                    <?php endwhile; ?>
+                                                    <?php
+                                                    require "../../modelo/traerDatosPrograma.php"; //Trae los registros de Ponencias del congreso actual
+
+                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resCAregisSE)) {
+                                                        $tituloPonencia = htmlspecialchars($fetchTrabajosRegistrados['titulo_ponencia']);
+                                                        $idUsuarioEvalua = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_evalua']);
+                                                        $idPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_ponencia']);
+                                                        $idTipoPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_tipo_ponencia']);
+                                                        $idAutor = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_registra']);
+                                                        $idCategoriaPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_categoria']);
+                                                        $fechaRegistroPonencia = htmlspecialchars($fetchTrabajosRegistrados['fecha_registro_ponencia']);
+
+                                                        //Da formato de fecha
+                                                        $date = date_create($fechaRegistroPonencia);
+                                                        $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
+
+                                                        // la categoria de la ponencia
+                                                        $consCategoriaPonencia = "SELECT * FROM categoria WHERE id_categoria='$idCategoriaPonencia'";
+                                                        $resCategoriaPonencia = mysqli_query($conexion, $consCategoriaPonencia);
+                                                        $fetchCategoriaPonencia = mysqli_fetch_assoc($resCategoriaPonencia);
+                                                        $categoriaPonencia = htmlspecialchars($fetchCategoriaPonencia['categoria']);
+
+                                                        //Consulta el tipo de la ponencia
+                                                        $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
+                                                        $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);
+                                                        $fetchTipoPonencia = mysqli_fetch_assoc($resTipoPonencia);
+                                                        $tipoPonencia = htmlspecialchars($fetchTipoPonencia['categoria_ponencia']);
+
+                                                        //Consulta al autor
+                                                        //Hace la consulta de los autores de la ponencia
+                                                        $consAutor = "SELECT * FROM usuario WHERE id_usuario='$idAutor'";
+                                                        $resAutor = mysqli_query($conexion, $consAutor);
+                                                        $fetchAutor = mysqli_fetch_assoc($resAutor);
+                                                        $nombreAutor = htmlspecialchars($fetchAutor['nombres_usuario']);
+                                                        $apellidosAutor = htmlspecialchars($fetchAutor['apellidos_usuario']);
+                                                        $nombreCompletoAutor = $apellidosAutor . " " . $nombreAutor;
+
+                                                        //Traer id de usuario revision ponencia
+                                                        $consIdRevisionPonencia = "SELECT * FROM usuario_revision_ponencia WHERE id_ponencia='$idPonencia'";
+                                                        $resIdRevisionPonencia = mysqli_query($conexion, $consIdRevisionPonencia);
+
+                                                        if (mysqli_num_rows($resIdRevisionPonencia) > 0) {
+                                                            $consUsuarioRevisionPonencia = "SELECT * FROM revision WHERE revision.fecha_revision=(SELECT MAX(fecha_revision) FROM revision 
+                                INNER JOIN usuario_revision_ponencia ON revision.id_revision=usuario_revision_ponencia.id_revision_ponencia
+                                WHERE usuario_revision_ponencia.id_ponencia='$idPonencia')";
+
+                                                            $resUsuarioRevisionPonencia = mysqli_query($conexion, $consUsuarioRevisionPonencia);
+                                                            $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
+
+                                                            //Campos de la revision
+                                                            if (mysqli_num_rows($resUsuarioRevisionPonencia) > 0) {
+                                                                $estadoRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['estatus_revision']);
+                                                                $descripcionRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['descripcion_revision']);
+                                                            }
+                                                        } else {
+                                                            $descripcionRevisionPonencia = "RESUMEN";
+                                                        }
+
+                                                        if ($idUsuarioEvalua != '') {
+                                                            $consNombreEvaluador = "SELECT * FROM usuario WHERE id_usuario='$idUsuarioEvalua'";
+                                                            $resNombreUsuarioEvalua = mysqli_query($conexion, $consNombreEvaluador);
+                                                            $fetchNombreUsuarioEvalua = mysqli_fetch_assoc($resNombreUsuarioEvalua);
+                                                            $nombresUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["nombres_usuario"]);
+                                                            $apellidosUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["apellidos_usuario"]);
+                                                            $nombreCompletoUsuarioEvalua = $apellidosUsuarioEvalua . " " . $nombresUsuarioEvalua;
+                                                        } else {
+                                                            $nombreCompletoUsuarioEvalua = '';
+                                                        }
+                                                    ?>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="<?php echo htmlspecialchars($idPonencia) ?>" value="<?php echo htmlspecialchars($idPonencia) ?>" name="checkbox[]">
+                                                            </div>
+                                                        </th>
+                                                        <td>
+                                                            <?php echo $tituloPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoAutor ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $tipoPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $categoriaPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $fechaRevisionPonenciaFormato ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $descripcionRevisionPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoUsuarioEvalua ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                            <!--/* AQUI CIERRA DIV */-->
+                                        </div>
+                                        <div id="taller" aria-labelledby="tab-3">
+                                            <p></p>
+                                            <div class="row">
+
+                                    <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
+                                        <?php if (strlen($_SESSION['info']) > 1) : ?>
+                                            <div id="informacionExito" class="alert alert-success text-center">
+                                                <?php echo htmlspecialchars($_SESSION['info']);
+                                                require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
+                                                ?>
+
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (count($errores) > 0) : ?>
+                                            <div id="informacionError" class="alert alert-danger text-center">
+                                                <?php foreach ($errores as $showerror) : ?>
+                                                    <?php echo htmlspecialchars($showerror); ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-cabecera">
+                                                    <th scope="col" class="text-wrap">#</th>
+                                                    <th scope="col" class="text-wrap">Título</th>
+                                                    <th scope="col" class="text-wrap">Autor</th>
+                                                    <th scope="col" class="text-wrap">Tipo</th>
+                                                    <th scope="col" class="text-wrap">Categoría</th>
+                                                    <th scope="col" class="text-wrap">Fecha</th>
+                                                    <th scope="col" class="text-wrap">Ver Detalles</th>
+                                                    <th scope="col" class="text-wrap">Evaluador</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                require "../../modelo/traerDatosPrograma.php";
+
+                                                while ($idPonencia = mysqli_fetch_assoc($resTAregisSE)) : ?>
+
+                                                    <tr id="<?php echo htmlspecialchars($idPonencia['id_ponencia']); ?>">
+                                                    <?php endwhile; ?>
+                                                    <?php
+                                                    require "../../modelo/traerDatosPrograma.php"; //Trae los registros de Ponencias del congreso actual
+
+                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resTAregisSE)) {
+                                                        $tituloPonencia = htmlspecialchars($fetchTrabajosRegistrados['titulo_ponencia']);
+                                                        $idUsuarioEvalua = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_evalua']);
+                                                        $idPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_ponencia']);
+                                                        $idTipoPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_tipo_ponencia']);
+                                                        $idAutor = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_registra']);
+                                                        $idCategoriaPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_categoria']);
+                                                        $fechaRegistroPonencia = htmlspecialchars($fetchTrabajosRegistrados['fecha_registro_ponencia']);
+
+                                                        //Da formato de fecha
+                                                        $date = date_create($fechaRegistroPonencia);
+                                                        $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
+
+                                                        // la categoria de la ponencia
+                                                        $consCategoriaPonencia = "SELECT * FROM categoria WHERE id_categoria='$idCategoriaPonencia'";
+                                                        $resCategoriaPonencia = mysqli_query($conexion, $consCategoriaPonencia);
+                                                        $fetchCategoriaPonencia = mysqli_fetch_assoc($resCategoriaPonencia);
+                                                        $categoriaPonencia = htmlspecialchars($fetchCategoriaPonencia['categoria']);
+
+                                                        //Consulta el tipo de la ponencia
+                                                        $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
+                                                        $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);
+                                                        $fetchTipoPonencia = mysqli_fetch_assoc($resTipoPonencia);
+                                                        $tipoPonencia = htmlspecialchars($fetchTipoPonencia['categoria_ponencia']);
+
+                                                        //Consulta al autor
+                                                        //Hace la consulta de los autores de la ponencia
+                                                        $consAutor = "SELECT * FROM usuario WHERE id_usuario='$idAutor'";
+                                                        $resAutor = mysqli_query($conexion, $consAutor);
+                                                        $fetchAutor = mysqli_fetch_assoc($resAutor);
+                                                        $nombreAutor = htmlspecialchars($fetchAutor['nombres_usuario']);
+                                                        $apellidosAutor = htmlspecialchars($fetchAutor['apellidos_usuario']);
+                                                        $nombreCompletoAutor = $apellidosAutor . " " . $nombreAutor;
+
+                                                        //Traer id de usuario revision ponencia
+                                                        $consIdRevisionPonencia = "SELECT * FROM usuario_revision_ponencia WHERE id_ponencia='$idPonencia'";
+                                                        $resIdRevisionPonencia = mysqli_query($conexion, $consIdRevisionPonencia);
+
+                                                        if (mysqli_num_rows($resIdRevisionPonencia) > 0) {
+                                                            $consUsuarioRevisionPonencia = "SELECT * FROM revision WHERE revision.fecha_revision=(SELECT MAX(fecha_revision) FROM revision 
+                                INNER JOIN usuario_revision_ponencia ON revision.id_revision=usuario_revision_ponencia.id_revision_ponencia
+                                WHERE usuario_revision_ponencia.id_ponencia='$idPonencia')";
+
+                                                            $resUsuarioRevisionPonencia = mysqli_query($conexion, $consUsuarioRevisionPonencia);
+                                                            $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
+
+                                                            //Campos de la revision
+                                                            if (mysqli_num_rows($resUsuarioRevisionPonencia) > 0) {
+                                                                $estadoRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['estatus_revision']);
+                                                                $descripcionRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['descripcion_revision']);
+                                                            }
+                                                        } else {
+                                                            $descripcionRevisionPonencia = "RESUMEN";
+                                                        }
+
+                                                        if ($idUsuarioEvalua != '') {
+                                                            $consNombreEvaluador = "SELECT * FROM usuario WHERE id_usuario='$idUsuarioEvalua'";
+                                                            $resNombreUsuarioEvalua = mysqli_query($conexion, $consNombreEvaluador);
+                                                            $fetchNombreUsuarioEvalua = mysqli_fetch_assoc($resNombreUsuarioEvalua);
+                                                            $nombresUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["nombres_usuario"]);
+                                                            $apellidosUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["apellidos_usuario"]);
+                                                            $nombreCompletoUsuarioEvalua = $apellidosUsuarioEvalua . " " . $nombresUsuarioEvalua;
+                                                        } else {
+                                                            $nombreCompletoUsuarioEvalua = '';
+                                                        }
+                                                    ?>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="<?php echo htmlspecialchars($idPonencia) ?>" value="<?php echo htmlspecialchars($idPonencia) ?>" name="checkbox[]">
+                                                            </div>
+                                                        </th>
+                                                        <td>
+                                                            <?php echo $tituloPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoAutor ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $tipoPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $categoriaPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $fechaRevisionPonenciaFormato ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $descripcionRevisionPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoUsuarioEvalua ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                            <!--/* AQUI CIERRA DIV */-->
+                                        </div>
+                                        <div id="prototipo" aria-labelledby="tab-4">
+                                            <p></p>
+                                            <div class="row">
+
+                                    <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
+                                        <?php if (strlen($_SESSION['info']) > 1) : ?>
+                                            <div id="informacionExito" class="alert alert-success text-center">
+                                                <?php echo htmlspecialchars($_SESSION['info']);
+                                                require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
+                                                ?>
+
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (count($errores) > 0) : ?>
+                                            <div id="informacionError" class="alert alert-danger text-center">
+                                                <?php foreach ($errores as $showerror) : ?>
+                                                    <?php echo htmlspecialchars($showerror); ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-cabecera">
+                                                    <th scope="col" class="text-wrap">#</th>
+                                                    <th scope="col" class="text-wrap">Título</th>
+                                                    <th scope="col" class="text-wrap">Autor</th>
+                                                    <th scope="col" class="text-wrap">Tipo</th>
+                                                    <th scope="col" class="text-wrap">Categoría</th>
+                                                    <th scope="col" class="text-wrap">Fecha</th>
+                                                    <th scope="col" class="text-wrap">Ver Detalles</th>
+                                                    <th scope="col" class="text-wrap">Evaluador</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                require "../../modelo/traerDatosPrograma.php";
+
+                                                while ($idPonencia = mysqli_fetch_assoc($resPRregisSE)) : ?>
+
+                                                    <tr id="<?php echo htmlspecialchars($idPonencia['id_ponencia']); ?>">
+                                                    <?php endwhile; ?>
+                                                    <?php
+                                                    require "../../modelo/traerDatosPrograma.php"; //Trae los registros de Ponencias del congreso actual
+
+                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resPRregisSE)) {
+                                                        $tituloPonencia = htmlspecialchars($fetchTrabajosRegistrados['titulo_ponencia']);
+                                                        $idUsuarioEvalua = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_evalua']);
+                                                        $idPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_ponencia']);
+                                                        $idTipoPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_tipo_ponencia']);
+                                                        $idAutor = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_registra']);
+                                                        $idCategoriaPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_categoria']);
+                                                        $fechaRegistroPonencia = htmlspecialchars($fetchTrabajosRegistrados['fecha_registro_ponencia']);
+
+                                                        //Da formato de fecha
+                                                        $date = date_create($fechaRegistroPonencia);
+                                                        $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
+
+                                                        // la categoria de la ponencia
+                                                        $consCategoriaPonencia = "SELECT * FROM categoria WHERE id_categoria='$idCategoriaPonencia'";
+                                                        $resCategoriaPonencia = mysqli_query($conexion, $consCategoriaPonencia);
+                                                        $fetchCategoriaPonencia = mysqli_fetch_assoc($resCategoriaPonencia);
+                                                        $categoriaPonencia = htmlspecialchars($fetchCategoriaPonencia['categoria']);
+
+                                                        //Consulta el tipo de la ponencia
+                                                        $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
+                                                        $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);
+                                                        $fetchTipoPonencia = mysqli_fetch_assoc($resTipoPonencia);
+                                                        $tipoPonencia = htmlspecialchars($fetchTipoPonencia['categoria_ponencia']);
+
+                                                        //Consulta al autor
+                                                        //Hace la consulta de los autores de la ponencia
+                                                        $consAutor = "SELECT * FROM usuario WHERE id_usuario='$idAutor'";
+                                                        $resAutor = mysqli_query($conexion, $consAutor);
+                                                        $fetchAutor = mysqli_fetch_assoc($resAutor);
+                                                        $nombreAutor = htmlspecialchars($fetchAutor['nombres_usuario']);
+                                                        $apellidosAutor = htmlspecialchars($fetchAutor['apellidos_usuario']);
+                                                        $nombreCompletoAutor = $apellidosAutor . " " . $nombreAutor;
+
+                                                        //Traer id de usuario revision ponencia
+                                                        $consIdRevisionPonencia = "SELECT * FROM usuario_revision_ponencia WHERE id_ponencia='$idPonencia'";
+                                                        $resIdRevisionPonencia = mysqli_query($conexion, $consIdRevisionPonencia);
+
+                                                        if (mysqli_num_rows($resIdRevisionPonencia) > 0) {
+                                                            $consUsuarioRevisionPonencia = "SELECT * FROM revision WHERE revision.fecha_revision=(SELECT MAX(fecha_revision) FROM revision 
+                                INNER JOIN usuario_revision_ponencia ON revision.id_revision=usuario_revision_ponencia.id_revision_ponencia
+                                WHERE usuario_revision_ponencia.id_ponencia='$idPonencia')";
+
+                                                            $resUsuarioRevisionPonencia = mysqli_query($conexion, $consUsuarioRevisionPonencia);
+                                                            $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
+
+                                                            //Campos de la revision
+                                                            if (mysqli_num_rows($resUsuarioRevisionPonencia) > 0) {
+                                                                $estadoRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['estatus_revision']);
+                                                                $descripcionRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['descripcion_revision']);
+                                                            }
+                                                        } else {
+                                                            $descripcionRevisionPonencia = "RESUMEN";
+                                                        }
+
+                                                        if ($idUsuarioEvalua != '') {
+                                                            $consNombreEvaluador = "SELECT * FROM usuario WHERE id_usuario='$idUsuarioEvalua'";
+                                                            $resNombreUsuarioEvalua = mysqli_query($conexion, $consNombreEvaluador);
+                                                            $fetchNombreUsuarioEvalua = mysqli_fetch_assoc($resNombreUsuarioEvalua);
+                                                            $nombresUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["nombres_usuario"]);
+                                                            $apellidosUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["apellidos_usuario"]);
+                                                            $nombreCompletoUsuarioEvalua = $apellidosUsuarioEvalua . " " . $nombresUsuarioEvalua;
+                                                        } else {
+                                                            $nombreCompletoUsuarioEvalua = '';
+                                                        }
+                                                    ?>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="<?php echo htmlspecialchars($idPonencia) ?>" value="<?php echo htmlspecialchars($idPonencia) ?>" name="checkbox[]">
+                                                            </div>
+                                                        </th>
+                                                        <td>
+                                                            <?php echo $tituloPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoAutor ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $tipoPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $categoriaPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $fechaRevisionPonenciaFormato ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $descripcionRevisionPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoUsuarioEvalua ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                            <!--/* AQUI CIERRA DIV */-->
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
 
                             <hr>
@@ -259,7 +715,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             </div>
 
                             <!--Configuracion del ponenicas por evaluador-->
-                            <br>
+                            
                             <hr></br>
                             <div class="container">
                                 <h4>Configuración del Evaluador </h4>
@@ -279,6 +735,154 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 
                                 </div>
                             </div>
+                            <hr>
+                            <!--Totla de trabajos que cuentan con un evaluador-->
+                            <div class="container">
+                                <h4>Trabajos Totales con Evaluador </h4>
+                                <div class="row">
+                                    <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
+                                        <?php if (strlen($_SESSION['info']) > 1) : ?>
+                                            <div id="informacionExito" class="alert alert-success text-center">
+                                                <?php echo htmlspecialchars($_SESSION['info']);
+                                                require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
+                                                ?>
+
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (count($errores) > 0) : ?>
+                                            <div id="informacionError" class="alert alert-danger text-center">
+                                                <?php foreach ($errores as $showerror) : ?>
+                                                    <?php echo htmlspecialchars($showerror); ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-cabecera">
+                                                    <th scope="col" class="text-wrap">#</th>
+                                                    <th scope="col" class="text-wrap">Título</th>
+                                                    <th scope="col" class="text-wrap">Autor</th>
+                                                    <th scope="col" class="text-wrap">Tipo</th>
+                                                    <th scope="col" class="text-wrap">Categoría</th>
+                                                    <th scope="col" class="text-wrap">Fecha</th>
+                                                    <th scope="col" class="text-wrap">Ver Detalles</th>
+                                                    <th scope="col" class="text-wrap">Evaluador</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                require "../../modelo/traerDatosPrograma.php";
+
+                                                while ($idPonencia = mysqli_fetch_assoc($resTrabajosTotCE)) : ?>
+
+                                                    <tr id="<?php echo htmlspecialchars($idPonencia['id_ponencia']); ?>">
+                                                    <?php endwhile; ?>
+                                                    <?php
+                                                    require "../../modelo/traerDatosPrograma.php"; //Trae los registros de Ponencias del congreso actual
+
+                                                    while ($fetchTrabajosRegistrados = mysqli_fetch_assoc($resTrabajosTotCE)) {
+                                                        $tituloPonencia = htmlspecialchars($fetchTrabajosRegistrados['titulo_ponencia']);
+                                                        $idUsuarioEvalua = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_evalua']);
+                                                        $idPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_ponencia']);
+                                                        $idTipoPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_tipo_ponencia']);
+                                                        $idAutor = htmlspecialchars($fetchTrabajosRegistrados['id_usuario_registra']);
+                                                        $idCategoriaPonencia = htmlspecialchars($fetchTrabajosRegistrados['id_categoria']);
+                                                        $fechaRegistroPonencia = htmlspecialchars($fetchTrabajosRegistrados['fecha_registro_ponencia']);
+
+                                                        //Da formato de fecha
+                                                        $date = date_create($fechaRegistroPonencia);
+                                                        $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
+
+                                                        // la categoria de la ponencia
+                                                        $consCategoriaPonencia = "SELECT * FROM categoria WHERE id_categoria='$idCategoriaPonencia'";
+                                                        $resCategoriaPonencia = mysqli_query($conexion, $consCategoriaPonencia);
+                                                        $fetchCategoriaPonencia = mysqli_fetch_assoc($resCategoriaPonencia);
+                                                        $categoriaPonencia = htmlspecialchars($fetchCategoriaPonencia['categoria']);
+
+                                                        //Consulta el tipo de la ponencia
+                                                        $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
+                                                        $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);
+                                                        $fetchTipoPonencia = mysqli_fetch_assoc($resTipoPonencia);
+                                                        $tipoPonencia = htmlspecialchars($fetchTipoPonencia['categoria_ponencia']);
+
+                                                        //Consulta al autor
+                                                        //Hace la consulta de los autores de la ponencia
+                                                        $consAutor = "SELECT * FROM usuario WHERE id_usuario='$idAutor'";
+                                                        $resAutor = mysqli_query($conexion, $consAutor);
+                                                        $fetchAutor = mysqli_fetch_assoc($resAutor);
+                                                        $nombreAutor = htmlspecialchars($fetchAutor['nombres_usuario']);
+                                                        $apellidosAutor = htmlspecialchars($fetchAutor['apellidos_usuario']);
+                                                        $nombreCompletoAutor = $apellidosAutor . " " . $nombreAutor;
+
+                                                        //Traer id de usuario revision ponencia
+                                                        $consIdRevisionPonencia = "SELECT * FROM usuario_revision_ponencia WHERE id_ponencia='$idPonencia'";
+                                                        $resIdRevisionPonencia = mysqli_query($conexion, $consIdRevisionPonencia);
+
+                                                        if (mysqli_num_rows($resIdRevisionPonencia) > 0) {
+                                                            $consUsuarioRevisionPonencia = "SELECT * FROM revision WHERE revision.fecha_revision=(SELECT MAX(fecha_revision) FROM revision 
+                                INNER JOIN usuario_revision_ponencia ON revision.id_revision=usuario_revision_ponencia.id_revision_ponencia
+                                WHERE usuario_revision_ponencia.id_ponencia='$idPonencia')";
+
+                                                            $resUsuarioRevisionPonencia = mysqli_query($conexion, $consUsuarioRevisionPonencia);
+                                                            $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
+
+                                                            //Campos de la revision
+                                                            if (mysqli_num_rows($resUsuarioRevisionPonencia) > 0) {
+                                                                $estadoRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['estatus_revision']);
+                                                                $descripcionRevisionPonencia = htmlspecialchars($fetchUsuarioRevisionPonencia['descripcion_revision']);
+                                                            }
+                                                        } else {
+                                                            $descripcionRevisionPonencia = "RESUMEN";
+                                                        }
+
+                                                        if ($idUsuarioEvalua != '') {
+                                                            $consNombreEvaluador = "SELECT * FROM usuario WHERE id_usuario='$idUsuarioEvalua'";
+                                                            $resNombreUsuarioEvalua = mysqli_query($conexion, $consNombreEvaluador);
+                                                            $fetchNombreUsuarioEvalua = mysqli_fetch_assoc($resNombreUsuarioEvalua);
+                                                            $nombresUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["nombres_usuario"]);
+                                                            $apellidosUsuarioEvalua = htmlspecialchars($fetchNombreUsuarioEvalua["apellidos_usuario"]);
+                                                            $nombreCompletoUsuarioEvalua = $apellidosUsuarioEvalua . " " . $nombresUsuarioEvalua;
+                                                        } else {
+                                                            $nombreCompletoUsuarioEvalua = '';
+                                                        }
+                                                    ?>
+                                                        <th scope="row">
+                                                           <!-- <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="<?php echo htmlspecialchars($idPonencia) ?>" value="<?php echo htmlspecialchars($idPonencia) ?>" name="checkbox[]">
+                                                            </div>-->
+                                                        </th>
+                                                        <td>
+                                                            <?php echo $tituloPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoAutor ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $tipoPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $categoriaPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $fechaRevisionPonenciaFormato ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $descripcionRevisionPonencia ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php echo $nombreCompletoUsuarioEvalua ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!------------------------------------------------------->
+                            </div>
+
 
 
                             <!----------------------------------------------------------------------------------------------->
@@ -299,7 +903,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
-
+            <script src="../../components/Administrador/tabla.js"></script>
         </body>
 
         </html>
