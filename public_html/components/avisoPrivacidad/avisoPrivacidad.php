@@ -69,7 +69,7 @@ require "../../components/avisoPrivacidad/correoCongreso.php";
     <p class="justified-text reduced-line-height">
       Los participantes tienen derecho a acceder, rectificar, cancelar u oponerse al uso de sus datos personales. Para ejercer estos derechos, podrán contactar a la organización del congreso a través de la dirección de correo electrónico designada para este propósito. 
     </p>
-    <p class="justified-text reduced-line-height"><em><?php echo $correoCongreso; ?></em></p>
+    <p class="justified-text reduced-line-height"><em><?php echo strtolower($correoCongreso); ?></em></p>
     
     <p class="justified-text reduced-line-height">
       En caso de solicitar acceso, deberá registrarse en la página.

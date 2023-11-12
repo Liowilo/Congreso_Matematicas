@@ -1,6 +1,16 @@
 <div class="container w-60 pt-4 d-block-sm d-block-md mb-5 mt-4">
     <div class="row align-items-stretch">
         <div class="col-md-7 col-lg-7 col-sm-12">
+            <div class="mt-3 mb-3">
+                <h2>Ubicación de la sede</h2>
+            </div>
+            <div class=" border border-success p-2 border-opacity-10 borde">
+                <span class="texto-sm ">Facultad de Estudios Superiores Cuautitlán
+                    Km 2.5 carretera Cuautitlán-Teoloyucan, San Sebastián Xhala, Cuautitlán Izcalli,
+                    Estado de México.
+                    C.P. 54714.
+                </span>
+            </div> <br>
             <h2 class="fw-bold">Contacto</h2>
             <div class="mb-2">
                 <span class="texto-sm">En caso de tener una duda, sugerencia u opinión
@@ -24,19 +34,17 @@
                     <div class="col-11">
                         <div class=" pt-2 p-2 ">
                             <p class="texto-sm text-break bg-light border p-2 fw-bold borde">
-                            <?php echo strtolower($correoCongreso); ?>
+                                <?php echo strtolower($correoCongreso); ?>
                             </p>
                         </div>
                     </div>
-                    <div class="mt-3 mb-3">
-                        <h2>Ubicacion de la sede</h2>
-                    </div>
-                    <div class=" border border-success p-2 border-opacity-10 borde">
-                        <span class="texto-sm ">Facultad de Estudios Superiores Cuautitlán
-                            Km 2.5 carretera Cuautitlán-Teoloyucan, San Sebastián Xhala, Cuautitlán Izcalli;,
-                            Estado de México.
-                            C.P. 54714.
-                        </span>
+                    <div class="mb-2">
+                        <span class="texto-sm">Para mayores informes comunicarse a los siguientes teléfonos:</span>
+                        <ul class="texto-sm">
+                            <br>
+                            <li>56 23 18 86</li>
+                            <li>56 23 18 90</li>
+                        </ul>
                     </div>
                 </div>
             </div>
