@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"]) || $_SESSION["id"] == null) {
-    print "<script>alert(\"Acceso invalido!\");window.location='../../components/inicioSesion/sesion.php';</script>";
+    header("Location: ../../components/inicioSesion/sesion.php");
 }
 require_once('../../modelo/actualizarPerfilGeneral.php');
 /*
