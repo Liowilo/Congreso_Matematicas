@@ -2,13 +2,6 @@
 session_start();
 require '../../modelo/conexion.php';
 
-// Automatizar nombre
-$valorNombre = "SELECT nombre_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
-$nombre = mysqli_query($conexion, $valorNombre);
-$rowNombre = $nombre->fetch_assoc();
-$nombreCongreso = $rowNombre['nombre_congreso'];
-
-
 // Automatizar logo congreso
 $valorlogo = "SELECT logo_congreso FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso) FROM congreso);";
 $logo = mysqli_query($conexion, $valorlogo);
@@ -50,12 +43,12 @@ $rutaFinalLogo = $enlaceLogo;
 								<!-- ../../src/logos_congresos/XV.jpeg -->
 							</div>
 							<div class="col-xl-8 col-lg-8 col-md-8 d-sm-block col-sm-12 text-center">
-								<p class="mt-3 ms-3 titulo-congreso" id="edicion"><?php echo $nombreCongreso; ?></p>
+								<p class="mt-3 ms-3 titulo-congreso" id="edicion">CONGRESO INTERNACIONAL SOBRE LA ENSEÑANZA Y APLICACIÓN DE LAS MATEMÁTICAS</p>
 							</div>
 							<!-- <span class="ms-3 span-congreso d-flex mb-4">Congreso Internacional Sobre la Enseñanza y Aplicación de las Matemáticas</span> -->
 						</div>
 						<div class="card-alert rounded p-2">
-							Fechas sujetas a cambio
+							Fechas del congreso
 						</div>
 						<table class="table">
 							<thead class="categorias" style="background-color: <?php echo $colorHex; ?>!important;">

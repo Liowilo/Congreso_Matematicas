@@ -39,7 +39,7 @@ else{
 if ($_SESSION['correoElectronico'] !== $email2) {
     // Enviar correo al autor principal
     $mail->addAddress($_SESSION['correoElectronico']);
-    $mensaje .= "Registro de trabajo exitoso. Has sido registrado como AUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.<br><br>";
+    $mensaje .= "Registro de trabajo exitoso. Has sido registrado como AUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas con sede en la Facultad de Estudios Superiores Cuautitlán.<br><br>";
 
     $mensaje .= "Los detalles del trabajo se describen a continuación: <ul>";
     $mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";
@@ -64,7 +64,7 @@ if ($_SESSION['correoElectronico'] !== $email2) {
     $mail->ClearAddresses(); // Limpiar las direcciones para el siguiente destinatario
 }
 
-$mensaje = "Registro de trabajo exitoso. Has sido registrado como COAUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.<br><br>";
+$mensaje = "Registro de trabajo exitoso. Has sido registrado como COAUTOR en un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas con sede en la Facultad de Estudios Superiores Cuautitlán.<br><br>";
 
 $mensaje .= "Los detalles del trabajo se describen a continuación: <ul>";
 $mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";

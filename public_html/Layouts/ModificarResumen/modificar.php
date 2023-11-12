@@ -198,7 +198,7 @@ if (!empty($coautoresEmails)) {
     }
 }
 
-$mensaje .= "Se ha modificado un trabajo. La actualización de un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas fue exitósa.<br><br>";
+$mensaje .= "Se ha modificado un trabajo. <b>La actualización</b> de un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas con sede en la Facultad de Estudios Superiores Cuautitlán fue <b>exitósa.</b><br><br>";
 
 $mensaje .= "Los detalles del trabajo modificado se describen a continuación: <ul>";
 $mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";

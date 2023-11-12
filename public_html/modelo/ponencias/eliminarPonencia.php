@@ -125,7 +125,7 @@ if (!empty($coautoresEmails)) {
     }
 }
 
-$mensaje .= "Se ha eliminado un trabajo. La eliminación de un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas fue exitósa.<br><br>";
+$mensaje .= "Se ha eliminado un trabajo. <b>La eliminación</b> de un trabajo presentado para el Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas con sede en la Facultad de Estudios Superiores Cuautitlán <b>fue exitósa.</b><br><br>";
 
 $mensaje .= "Los detalles del trabajo eliminado se describen a continuación: <ul>";
 $mensaje .= "<li><b>Tipo: </b>" . $tipoPonencia . "</li>";
