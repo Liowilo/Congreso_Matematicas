@@ -73,10 +73,10 @@ class PDF extends FPDF
  
     $pdf = new PDF();             
     $pdf->AddPage('P', 'Letter'); 
-    $pdf ->Text(180,64, utf8_decode($id)); 
+    $pdf ->Text(180,64, utf8_decode($idPonencia)); 
 
     $pdf -> SetXY(10,72);
-    $idPonenciaFormato=substr("$idPonencia", 0,-2);
+    
 $pdf->Text(10,75, utf8_decode($nombre_usuario. ' '.$apellidos_usuario));
 
 $pdf ->SetXY(10,106);
