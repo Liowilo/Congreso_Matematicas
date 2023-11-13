@@ -97,9 +97,9 @@ $h2 = date("G:i:s");  // Hora actual en 24 hr
  
 $pdf = new PDF();             
 $pdf->AddPage('P', 'Letter'); 
-$idPonenciaFormato=substr("$idPonencia", 0,-2);
+
 $pdf ->Text(100,105, utf8_decode($tipoPonencia));
-$pdf ->Text(180,68, utf8_decode($idPonenciaFormato));    
+$pdf ->Text(180,68, utf8_decode($idPonencia));    
 $pdf ->Text(30,115, utf8_decode($nombre_categoria));  
 $pdf -> SetXY(10,78);
     
