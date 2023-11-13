@@ -14,7 +14,7 @@ require "traerCongresoActual.php";
     //Consulta el número de carteles del congreso
 
     
-    $consNumeroCartelesCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 1, 2) = 'CA' AND id_congreso='$idCongreso'";
+    $consNumeroCartelesCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 4, 2) = 'CA' AND id_congreso='$idCongreso'";
     $resNumeroCartelesCongreso = mysqli_query($conexion, $consNumeroCartelesCongreso);
     if (mysqli_num_rows($resNumeroCartelesCongreso) > 0) {
         $fetchNumeroCartelesCongreso = mysqli_fetch_assoc($resNumeroCartelesCongreso);
@@ -22,11 +22,11 @@ require "traerCongresoActual.php";
     } else {
         $idPonenciaCartel = 'CASM000';
     }
-    $numeroCartelesCongreso = (int)substr("$idPonenciaCartel", 4) + 1;
+    $numeroCartelesCongreso = (int)substr("$idPonenciaCartel", 7) + 1;
     
     //Consulta el número de ponencias orales del congreso
     
-    $consNumeroPonenciasCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 1, 2) = 'PO' AND id_congreso='$idCongreso'";
+    $consNumeroPonenciasCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 4, 2) = 'PO' AND id_congreso='$idCongreso'";
     $resNumeroPonenciasCongreso = mysqli_query($conexion, $consNumeroPonenciasCongreso);
     if (mysqli_num_rows($resNumeroPonenciasCongreso) > 0) {
         $fetchNumeroPonenciasCongreso = mysqli_fetch_assoc($resNumeroPonenciasCongreso);
@@ -34,11 +34,11 @@ require "traerCongresoActual.php";
     } else {
         $idPonenciaOral = 'POSM000';
     }
-    $numeroPonenciasCongreso = (int)substr("$idPonenciaOral", 4) + 1;
+    $numeroPonenciasCongreso = (int)substr("$idPonenciaOral", 7) + 1;
     
     //Consulta el número de talleres del congreso
 
-    $consNumeroTalleresCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 1, 2) = 'TA' AND id_congreso='$idCongreso'";
+    $consNumeroTalleresCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 4, 2) = 'TA' AND id_congreso='$idCongreso'";
     $resNumeroTalleresCongreso = mysqli_query($conexion, $consNumeroTalleresCongreso);
     if (mysqli_num_rows($resNumeroTalleresCongreso) > 0) {
         $fetchNumeroTalleresCongreso = mysqli_fetch_assoc($resNumeroTalleresCongreso);
@@ -46,11 +46,11 @@ require "traerCongresoActual.php";
     } else {
         $idPonenciaTaller = 'TASM000';
     }
-    $numeroTalleresCongreso = (int)substr("$idPonenciaTaller", 4) + 1;
+    $numeroTalleresCongreso = (int)substr("$idPonenciaTaller", 7) + 1;
    
     //Consulta el número de prototipos del congreso
 
-    $consNumeroPrototiposCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 1, 2) = 'PR' AND id_congreso='$idCongreso'";
+    $consNumeroPrototiposCongreso = "SELECT MAX(id_ponencia) AS max_id FROM ponencia WHERE substring(id_ponencia, 4, 2) = 'PR' AND id_congreso='$idCongreso'";
     $resNumeroPrototiposCongreso = mysqli_query($conexion, $consNumeroPrototiposCongreso);
     if (mysqli_num_rows($resNumeroPrototiposCongreso) > 0) {
         $fetchNumeroPrototiposCongreso = mysqli_fetch_assoc($resNumeroPrototiposCongreso);
@@ -58,7 +58,7 @@ require "traerCongresoActual.php";
     } else {
         $idPonenciaPrototipo = 'PRSM000';
     }
-    $numeroPrototiposCongreso = (int)substr("$idPonenciaPrototipo", 4) + 1;
+    $numeroPrototiposCongreso = (int)substr("$idPonenciaPrototipo", 7) + 1;
     /** 
     *******************************************************************************************************
     *******************************************************************************************************
