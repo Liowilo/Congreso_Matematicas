@@ -12,7 +12,7 @@
         $rutaIMG = $rowImagen['pat1'];
         $rutaFinal = str_replace("../", "./", $rutaIMG);
         ?>
-        <img src="<?php echo $rutaFinal; ?>" alt="Pat-1" class="rounded-circle">
+        <img src="<?php echo $rutaFinal; ?>" alt="Pat-1">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -22,7 +22,7 @@
         $rutaIMG2 = $rowImagen2['pat2'];
         $rutaFinal2 = str_replace("../", "./", $rutaIMG2);
         ?>
-        <img src="<?php echo $rutaFinal2; ?>" alt="Pat-2" class="rounded-circle">
+        <img src="<?php echo $rutaFinal2; ?>" alt="Pat-2">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -32,7 +32,7 @@
         $rutaIMG3 = $rowImagen3['pat3'];
         $rutaFinal3 = str_replace("../", "./", $rutaIMG3);
         ?>
-        <img src="<?php echo $rutaFinal3; ?>"alt="Pat-3" class="rounded-circle">
+        <img src="<?php echo $rutaFinal3; ?>"alt="Pat-3">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -42,7 +42,7 @@
         $rutaIMG4 = $rowImagen4['pat4'];
         $rutaFinal4 = str_replace("../", "./", $rutaIMG4);
         ?>
-        <img src="<?php echo $rutaFinal4; ?>" alt="Pat-4" class="rounded-circle">
+        <img src="<?php echo $rutaFinal4; ?>" alt="Pat-4">
       </div>
       <div class="carousel_elemento">
       <?php // Traer imagen de la BD
@@ -52,7 +52,7 @@
         $rutaIMG5 = $rowImagen5['pat5'];
         $rutaFinal5 = str_replace("../", "./", $rutaIMG5);
         ?>
-        <img src="<?php echo $rutaFinal5; ?>" alt="Pat-5" class="rounded-circle">
+        <img src="<?php echo $rutaFinal5; ?>" alt="Pat-5">
       </div>
     </div>
     <button aria-label="Siguiente" class="carousel_siguiente">

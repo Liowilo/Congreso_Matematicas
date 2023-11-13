@@ -200,8 +200,7 @@ h4 {
 }
 
 .carousel .carousel_elemento img {
-  width: 80%;
-  height: 80%;
+  width: 80% !important;
   object-fit: cover;
   border-radius: 25%ntrol;
 }
