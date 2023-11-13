@@ -87,8 +87,8 @@
   //firmas
   //$pdf->Cell(200,100,'',0,0,'C',$pdf->Image('imagenes/firma_oaxaca.jpeg', 10,228, 100));
   //$pdf->Cell(200,100,'',0,0,'C',$pdf->Image('imagenes/firma_2.jpeg', 140,238, 20));
-  $idPonenciaFormato=substr("$idPonencia", 0,-2);
-  $pdf ->Text(180,64, utf8_decode($idPonenciaFormato));    
+  
+  $pdf ->Text(180,64, utf8_decode($idPonencia));    
   $pdf ->Text(30,68, utf8_decode($nombre_categoria));  
   //$pdf ->Text(180,72, utf8_decode($modalidad));
   $pdf -> SetXY(10,81);
