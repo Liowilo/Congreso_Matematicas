@@ -53,8 +53,8 @@
   $pdf->Text(150,64,utf8_decode('Clave del trabajo:'));
   $pdf->Text(10,125,utf8_decode('Categoría:'));
   //$pdf->Text(150,72,utf8_decode('Modalidad:'));
-  $idPonenciaFormato=substr("$idPonencia", 0,-2);
-  $pdf ->Text(180,64, utf8_decode($idPonenciaFormato));    
+  
+  $pdf ->Text(180,64, utf8_decode($idPonencia));    
   $pdf ->Text(30,125, utf8_decode($nombre_categoria));  
   //$pdf ->Text(180,72, utf8_decode($modalidad));
   $pdf -> SetXY(10,84);
