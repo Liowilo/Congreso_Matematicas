@@ -82,8 +82,8 @@ class PDF extends FPDF
         $pdf = new PDF();             
         //$pdf -> SetLeftMargin(30);
         $pdf->AddPage('P', 'Letter'); 
-        $idPonenciaFormato=substr("$idPonencia", 0,-2);
-$pdf ->Text(180,64, utf8_decode($idPonenciaFormato));    
+        
+$pdf ->Text(180,64, utf8_decode($idPonencia));    
 //
  $pdf -> SetXY(10,71);
  $pdf -> MultiCell(80,5, utf8_decode($nombre_usuario.' '.$apellidos_usuario),0,'L');
