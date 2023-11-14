@@ -84,7 +84,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           <li><a class="dropdown-item disabled" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
           <li><a class="dropdown-item disabled" href="">Exposición de prototipos y proyectos de IA</a></li>
           <li><a class="dropdown-item disabled" href="">Mesa redonda</a></li>
-          <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias Magistrales</a></li>
+          <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias magistrales</a></li>
 
          <!--  <li><a class="dropdown-item " href="../../components/actividadesCategorias/categorias.php">Categorias</a></li>  -->
 
@@ -96,9 +96,9 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           Organizadores
         </a>
         <ul class="dropdown-menu super">
-          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cOrganizador.php">Comite Organizador</a></li>
-          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cTecnico.php">Comite Tecnico</a></li>
-          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cEvaluador.php">Comite Evaluador</a></li>
+          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cOrganizador.php">Comite organizador</a></li>
+          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cTecnico.php">Comite tecnico</a></li>
+          <li><a class="dropdown-item " href="/desarrollo/components/organizadoresComites/cEvaluador.php">Comite evaluador</a></li>
         </ul>
       </li>
       <?php
@@ -132,9 +132,9 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           //Hace un if para comprobar que la sesión está abierta y y muestra los elementos.
           if (!empty($_SESSION['correoElectronico'])) {
           ?>
-            <li><a class="dropdown-item" href="/desarrollo/components/perfil/perfil.php">Mi Perfil</a></li>
+            <li><a class="dropdown-item" href="/desarrollo/components/perfil/perfil.php">Mi perfil</a></li>
             <li><a class="dropdown-item" href="/desarrollo/components/TrabajosRegistrados/trabajosRegistrados.php">Mis trabajos</a></li>
-            <li><a class="dropdown-item" href="/desarrollo/modelo/cerrarSesion.php">Cerrar Sesión</a></li>
+            <li><a class="dropdown-item" href="/desarrollo/modelo/cerrarSesion.php">Cerrar sesión</a></li>
           <?php
           }
           ?>
@@ -142,7 +142,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           //Hace un if para comprobar que la sesión está cerrada y muestra los elementos.
           if (empty($_SESSION['correoElectronico'])) {
           ?>
-            <li><a class="dropdown-item" href="/desarrollo/components/inicioSesion/sesion.php">Iniciar Sesión</a></li>
+            <li><a class="dropdown-item" href="/desarrollo/components/inicioSesion/sesion.php">Iniciar sesión</a></li>
             <li><a class="dropdown-item" href="/desarrollo/components/crearCuenta/cuenta.php">Registrarse</a></li>
           <?php
           }
