@@ -49,7 +49,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           Información
         </a>
         <ul class="dropdown-menu super">
-          <li><a class="dropdown-item " href="/desarrollo/src/convocatoria/XVI.pdf" target="_blank">Convocatoria</a></li>
+        <li><a class="dropdown-item " href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">Convocatoria</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/registroInscripcion/inscripcion.php">Inscripción</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/Lugar/lugar.php">Lugar</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/registroCuotas/cuotas.php">Cuotas</a></li>
@@ -64,9 +64,12 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           Programa
         </a>
         <ul class="dropdown-menu super">
-          <li><a class="dropdown-item" href="/desarrollo/components/programaMemorias/programaMemorias.php">Memorias</a></li>
-          <li><a class="dropdown-item " href="/desarrollo/components/programa/programa.php">Programa</a></li>
-          <li><a class="dropdown-item" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias Magistrales</a></li>
+        <li><a class="dropdown-item " href="/desarrollo/components/actividadesFechas/fechas.php">Fechas importantes</a></li>
+        <li><a class="dropdown-item disabled" href="">Programa general</a></li>
+        <li><a class="dropdown-item disabled" href="">Programa específico (por definir)</a></li>
+          <!--  <li><a class="dropdown-item" href="/desarrollo/components/programaMemorias/programaMemorias.php">Memorias</a></li>
+          <li><a class="dropdown-item " href="/desarrollo/components/programa/programa.php">Programa</a></li>  -->
+          
         </ul>
       </li>
 
@@ -75,9 +78,15 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           Actividades
         </a>
         <ul class="dropdown-menu super">
-          <li><a class="dropdown-item " href="/desarrollo/components/actividadesCategorias/categorias.php">Categorias</a></li>
-          <li><a class="dropdown-item " href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
-          <li><a class="dropdown-item " href="/desarrollo/components/actividadesFechas/fechas.php">Fechas</a></li>
+
+        <li><a class="dropdown-item disabled" href="">Ponencias orales</a></li>
+          <li><a class="dropdown-item disabled" href="">Talleres</a></li>
+          <li><a class="dropdown-item disabled" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
+          <li><a class="dropdown-item disabled" href="">Exposición de prototipos y proyectos de IA</a></li>
+          <li><a class="dropdown-item disabled" href="">Mesa redonda</a></li>
+          <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias Magistrales</a></li>
+
+         <!--  <li><a class="dropdown-item " href="../../components/actividadesCategorias/categorias.php">Categorias</a></li>  -->
 
         </ul>
       </li>

@@ -16,35 +16,35 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
 <button class="btn background-lateral-boton col-12 mt-4 p-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
     <i class="fa-solid fa-align-justify"> Panel principal</i>
 </button>
-<div class="offcanvas offcanvasoffcanvas-start py-4" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas offcanvasoffcanvas-start py-4 position-static" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
         <h4 class="offcanvas-title ms-3 p-3" id="offcanvasScrollingLabel">Panel principal</h4>
         <button type="button" class="btn-close text-reset d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div class="">
-            <ul class="list-group list-group-flush ">
-                <li class="list-group-item background">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item background position-static">
                     <i class="fa-sharp fa-solid fa-graduation-cap"></i>
-                    <label class="form-check-label label-text" for="firstRadio">Datos Academicos</label>
+                    <label class="form-check-label label-text" for="firstRadio">Datos academicos</label>
                 </li>
 
-                <li class="list-group-item lis background">
+                <li class="list-group-item lis background position-static">
                     <label class="form-check-label" for="firstRadio"><a class="text-a ms-4" href="../../components/DatosAcademicos/academicos.php">Escolar</a></label>
                 </li>
                 <?php
                 if ($estadoUsuario != '') {
                 ?>
-                    <li class="list-group-item lis background">
+                    <li class="list-group-item lis background position-static">
                         <label class="form-check-label" for="firstRadio"><a class="text-a ms-4" href="../../components/DatosLaborales/laborales.php">Laboral</a></label>
                     </li>
                 <?php
                 }
                 if ($estadoUsuario == 'A') {
                 ?>
-                    <li class="list-group-item background">
+                    <li class="list-group-item background position-static">
                         <i class="fa-solid fa-person"></i>
-                        <label class="form-check-label label-text" for="firstRadio">Datos Personales</label>
+                        <label class="form-check-label label-text" for="firstRadio">Datos personales</label>
                     </li>
 
                     <li class="list-group-item lis background">
@@ -59,13 +59,13 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                 <?php
                 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     if ($valor == 20 && $estado == 'ON') { ?>
-                        <li class="list-group-item background">
+                        <li class="list-group-item background position-static">
                             <i class="fa-solid fa-square-check"></i>
                             <label class="form-check-label label-text" for="firstRadio">Evaluaciones</label>
                         </li>
                         <!---la funcion de asgnados solo se muestra si eres evaluador-->
                         <li class="list-group-item lis background">
-                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/TrabajosAsignados/trabajosAsignados.php">Mis Evaluaciones</a></label>
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/TrabajosAsignados/trabajosAsignados.php">Mis evaluaciones</a></label>
                         </li>
                         <!------------------------------------------------------------------>
                     <?php }
@@ -74,15 +74,15 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                     if ($valor == 23 && $estado == 'ON') {
                     ?>
                         <!--Extensos para el evaluador final-->
-                        <li class="list-group-item lis background">
-                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 " href="../../components/ExtensosFinales/extensosAsignados.php">Extensos Finales</a></label>
+                        <li class="list-group-item lis background position-static">
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 " href="../../components/ExtensosFinales/extensosAsignados.php">Extensos finales</a></label>
                         </li>
                 <?php }
                 } ?>
                 <?php
                 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     if ($valor == 15 && $estado == 'ON') { ?>
-                        <li class="list-group-item background">
+                        <li class="list-group-item background position-static">
                             <i class="fa fa-money background"></i>
                             <label class="form-check-label label-text" for="firstRadio">Asistencia</label>
                         </li>
@@ -98,7 +98,7 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     if ($valor >= 12 && $valor <= 14 && $estado == 'ON') { ?>
 
-                        <li class="list-group-item background">
+                        <li class="list-group-item background position-static">
                             <i class="fa-solid fa-pencil background"></i>
                             <label class="form-check-label label-text" for="firstRadio">Trabajos</label>
                         </li>
@@ -114,7 +114,7 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                     if ($valor == 14 && $estado == 'ON') { ?>
 
                         <li class="list-group-item lis background">
-                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/subirResumen/subirResumen.php">Subir Resumen</a></label>
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4" href="../../components/subirResumen/subirResumen.php">Subir resumen</a></label>
                         </li>
                 <?php }
                 } ?>
@@ -123,7 +123,7 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     if ($valor == 12 && $estado == 'ON') { ?>
                         <li class="list-group-item lis background">
-                            <label class="form-check-label" for="firstRadio"><a class="text-a ms-4" href="../../components/TrabajosRegistrados/trabajosRegistrados.php">Mis Trabajos</a></label>
+                            <label class="form-check-label" for="firstRadio"><a class="text-a ms-4" href="../../components/TrabajosRegistrados/trabajosRegistrados.php">Mis trabajos</a></label>
                         </li>
                 <?php }
                 } ?>
@@ -193,7 +193,7 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
                             <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 " href="../../components/Administrador/Reportes.php">Reportes</a></label>
                         </li>
                         <li class="list-group-item lis background">
-                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 " href="../../components/Administrador/tablaDeTrabajosHistorico.php">Historial de Trabajos</a></label>
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 " href="../../components/Administrador/tablaDeTrabajosHistorico.php">Historial de trabajos</a></label>
                         </li>
 
                 <?php }

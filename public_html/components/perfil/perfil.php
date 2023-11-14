@@ -32,7 +32,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
     //Verifica que el usuario tenga su perfil completado
 
     if ($estadoUsuario == '') {
-        $info = "No tienes registrados tus Datos Laborales o tu Nivel Académico. Debes completar tú perfil para acceder a todas las funciones del sitio. Al completar tu perfil debes cerrar la sesión y volverla a iniciar para habilitar las funciones.";
+        $info = "No tienes registrados tus datos laborales o tu nivel académico. Debes completar tú perfil para acceder a todas las funciones del sitio. Al completar tu perfil debes cerrar la sesión y volverla a iniciar para habilitar las funciones.";
         $_SESSION['datosAdicionales'] = $info;
     } else if ($estadoUsuario == 'I') {
         $info = "La vigencia de tu semblanza ha expirado. Debes ir a tus datos académicos para actualizar tu semblanza para acceder a todas las funciones del sitio. Al completar tu perfil debes cerrar la sesión y volverla a iniciar para habilitar las funciones.";
@@ -68,14 +68,14 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
                     <?php
                     if (strlen($_SESSION['datosAdicionales']) > 1) {
                     ?>
-                        <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading">Completar Perfil</h4>
+                        <div class="alert alert-warning position-static" role="alert">
+                            <h4 class="alert-heading">Completar perfil</h4>
                             <p>Aún no has completado tu perfil.</p>
                             <hr>
                             <p class="mb-0"><?php echo $_SESSION['datosAdicionales']; ?></p>
-                            <a href="../DatosAcademicos/academicos.php"> Datos Académicos</a>
+                            <a href="../DatosAcademicos/academicos.php"> Datos académicos</a>
                             <span>o</span>
-                            <a href="../DatosLaborales/laborales.php"> Datos Laborales</a>
+                            <a href="../DatosLaborales/laborales.php"> Datos laborales</a>
                         </div>
                     <?php
                     }
@@ -88,7 +88,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
                         <form method="POST" action="" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 p-3">
-                                    <h2>Foto de Perfil</h2>
+                                    <h2>Foto de perfil</h2>
                                     <div class="row-sm-1 p-4">
                                         <?php
                                         //Asigna la foto de usuario correpondiente
@@ -171,7 +171,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
                                 <!--Grupo Correo Electrónico-->
                                 <div class="row">
                                     <div class="col">
-                                        <label for="correoElectronico" class="form-label" maxlength="90">Correo Electrónico</label>
+                                        <label for="correoElectronico" class="form-label" maxlength="90">Correo electrónico</label>
                                         <input class="form-control" type="text" id="correoElectronico" placeholder="Escribe tu correo" name="correoElectronico" onkeypress="return validarCorreo(event)" value="<?php echo $emailUsuario //Consulta los datos del usuario en la sesion
                                                                                                                                                                                                                 ?>" aria-label="correoElectronico" disabled>
                                         <p class="formulario_input-error is-valid" id="formulario_informacion_correoElectronico">Esta dirección no tiene formato de correo válido. (ejemplo@ejemplo.com)</p>
@@ -186,7 +186,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
                                 </div>
                                 <!--Grupo Número de Teléfono-->
                                 <div class="row mb-3 formulario_grupo">
-                                    <label for="phone" class="form-label" maxlength="90">Número de Teléfono</label>
+                                    <label for="phone" class="form-label" maxlength="90">Número de teléfono</label>
 
                                     <div class="col">
                                         <input class="form-control" type="text" id="telefono" name="telefono" placeholder="Escribe tu telefono" onkeypress="return validarTelefono(event)" value="<?php echo $telefonoUsuario //Consulta los datos del usuario en la sesion
@@ -202,7 +202,7 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
 
                                 <!--Grupo Cambiar Datos-->
                                 <div class="mb-1 div_boton align-items-center justify-content-center">
-                                    <input class="btn btn-style-chico shadow p-1 px-5" type="button" name="botonCambiarDatos" id="botonCambiarDatos" value="Cambiar Datos" style="background-color: <?php echo $colorHex; ?>!important;">
+                                    <input class="btn btn-style-chico shadow p-1 px-5" type="button" name="botonCambiarDatos" id="botonCambiarDatos" value="Cambiar datos" style="background-color: <?php echo $colorHex; ?>!important;">
                                     <input class="btn btn-style-chico shadow p-1 px-5" style="display:none;" type="submit" name="botonGuardar" id="botonGuardar" value="Guardar">
                                 </div>
                             </form>
