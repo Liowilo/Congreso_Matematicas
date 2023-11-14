@@ -49,6 +49,23 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
 </header>
 
 <body>
+    <div class="mascara-blur" id="mascara-blur"></div>
+    
+    <div class="mt-4 content-flag ad" id="content-flag">
+        <button type="button" class="close-button" id="close-ad">
+            <i class="fas fa-times px-2"></i>
+        </button>
+        <div class="align-items-center">
+            <div id="anuncio-container">
+                <!-- Imagen del cartel/poster -->
+                <?php
+                    include '../../components/perfil/perfilConsultaCartel.php';
+                ?>
+                <img id="imagen-anuncio" src="<?php echo $rutaImgCookie; ?>" alt="Anuncio">
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-1 d-sm-block background-lateral">
@@ -239,11 +256,15 @@ require_once('../../modelo/actualizarPerfilGeneral.php');
             })
             .then((resp) => callback(resp.country));
     }
+    var phoneInput = null;
 
     const phoneInputField = document.querySelector("#phone");
-    const phoneInput = window.intlTelInput(phoneInputField, {
+    if( phoneInputField != null){
+        phoneInput = window.intlTelInput(phoneInputField, {
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
+    }
+    
 
     function process(event) {
         event.preventDefault();
