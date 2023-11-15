@@ -209,8 +209,8 @@ require "../../modelo/conexion.php";
                                             </ol>
                                             <br>
                                             <span>Los asistentes podrán participar como ponentes con un máximo de 3 trabajos en la categoría de Ponencias, con un máximo de 2 Carteles y con un Taller.</span>
-                                            <span>El cartel debe incluir las siguientes secciones:</span>
                                             <br><br>
+                                            <li class="fw-semibold mb-2">El cartel debe incluir las siguientes secciones:</li>
                                             <ol class="mt-2">
                                                 <li>Encabezado</li>
                                                 <li>Resumen (sustento teórico)</li>
@@ -222,10 +222,26 @@ require "../../modelo/conexion.php";
                                                 <li>Índice de referencias (en formato APA).</li>
                                             </ol>
                                             <br>
-                                            <span>Todas las imágenes, figuras, tablas y ecuaciones deberán estar numeradas.</span>
-                                            <span>El cartel se deberá subir en el sitio del Congreso en formato pdf.</span>
-                                            <span>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité evaluador y su decisión será inapelable.
-                                            </span>
+                                            <li class="fw-semibold mb-2">Elementos de Contenido</li>
+                                            
+                                            <ol class="mt-2">
+                                                <li>Logo del congreso (se lo compartiremos por correo)</li>
+                                                <li>Logo de su institución</li>
+                                                <li>Titulo centrado entre los logos de no más de 15 palabras</li>
+                                                <li>No más de 4 autores</li>
+                                                <li>El texto debe limitarse a no más de 500 palabras</li>
+                                            </ol>
+                                            <br>
+                                            <li class="fw-semibold mb-2">Elementos de Formato</li>
+                                            <ol class="mt-2">
+                                                <li>El tipo de letra será a elección del autor. Un tamaño recomendado es 28 puntos</li>
+                                                <li>Es necesario una cuidadosa presentación tipográfica y calidad en los títulos, fotos, gráficos, etc.</li>
+                                                <li>Todas las imágenes, figuras, tablas y ecuaciones deberán estar numeradas.</li>
+                                                <li>Incluir un máximo de cuatro imágenes, figuras, tablas y/o ecuaciones.</li>
+                                                <li>Cuidar la ortografía </li>
+                                            </ol>
+                                            <br>
+                                            <span>Cualquier situación no prevista estará sujeta a la resolución del comité organizador del evento</span>
                                             <br><br>
                                         </div>
                                     </div>
@@ -312,12 +328,27 @@ require "../../modelo/conexion.php";
                                                 <li>Se entregará constancia de <mark>"Asistencia al congreso"</mark>, cuando haya participado en las actividades del congreso.</li>
                                                 <li>Se entregará constancia de <mark>"Presentación de ponencia"</mark>, cuando su trabajo en extenso y vídeo hayan sido aceptados por el comité organizador y estos hayan sido presentados en el evento.</li>
                                                 <li>Se entregará constancia de <mark>"Publicación en memorias del congreso</mark>" con registro ISSN , cuando su trabajo en extenso haya sido incluido en las memorias del congreso.</li>
+                                                <li>Se entregará constancia de <mark>“Participación en el concurso de carteles”</mark>, cuando el resumen, cartel y vídeo hayan sido aprobados por el comité y hayan participado en el concurso.</li>
+                                                <li>Se entregará constancia de <mark>“Ganador en el concurso de ganadores (1er, 2do y 3er lugar)”</mark>, cuando haya resultado ganador del concurso.</li>
+                                                <li>Se entregará constancia de <mark>“Exposición de prototipo o proyecto”</mark>, cuando haya expuesto su prototipo y/o proyecto en el evento.</li>
+                                                <li>Se entregará constancia de <mark>“Presentación de taller”</mark>, cuando el resumen haya sido aprobado por el comité y este se haya impartido (ponentes).</li>
+                                                <li>Se entregar constancia de <mark>“Participación en taller”</mark>, cuando haya cursado los dos días correspondientes a la impartición de taller (asistentes).</li>
+                                            </ul>
                                             </ul>
                                             <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité organizador y su desición será inapelable.</strong>
                                             <br><br>
                                         </div>
                                     </div>
                                 </div>
+                                <?php
+                                //Trae el congreso más reciente
+                                $consCongreso = "SELECT * FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso) FROM congreso);";
+                                $resCongreso = mysqli_query($conexion, $consCongreso);
+                                $fetchCongreso = mysqli_fetch_assoc($resCongreso);
+                                // Traer usuario y contraseña
+                                $correoCongreso = $fetchCongreso['correo_congreso'];
+                                $hashContra = $fetchCongreso['contra_congreso'];
+                                ?>
                                 <!-------------OCTAVO ITEM---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingOctavo">
@@ -340,7 +371,7 @@ require "../../modelo/conexion.php";
                                                     <li>Ejemplo: POSM001-PedroGarciaMendoza</li>
                                                 </ul>
                                                 <br>
-                                                <li>El vídeo deberá ser subido por el ponente a OneDrive, Drive o cualquier otra plataforma para almacenar archivos multimedia y se deberá compartir el URL para visualizar el vídeo con los permisos necesarios de visualización al correo 15congresomatematicas@cuautitlan.unam.mx.</li>
+                                                <li>El vídeo deberá ser subido por el ponente a OneDrive, Drive o cualquier otra plataforma para almacenar archivos multimedia y se deberá compartir el URL para visualizar el vídeo con los permisos necesarios de visualización al correo <?php echo strtolower($correoCongreso); ?>.</li>
                                             </ol>
                                             <strong>Los elementos que debe incluir la exposición de la ponencia son:</strong>
                                             <br><br>
