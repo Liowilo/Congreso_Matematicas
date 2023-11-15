@@ -206,7 +206,6 @@ require "../../modelo/conexion.php";
                                                     <li>Talleres</li>
                                                     <li>Carteles</li>
                                                 </ul>
-                                            </ol>
                                             <br>
                                             <span>Los asistentes podrán participar como ponentes con un máximo de 3 trabajos en la categoría de Ponencias, con un máximo de 2 Carteles y con un Taller.</span>
                                             <br><br>
@@ -224,25 +223,24 @@ require "../../modelo/conexion.php";
                                             <br>
                                             <li class="fw-semibold mb-2">Elementos de Contenido</li>
                                             
-                                            <ol class="mt-2">
+                                            <ul style="list-style-type: square;">
                                                 <li>Logo del congreso (se lo compartiremos por correo)</li>
                                                 <li>Logo de su institución</li>
                                                 <li>Titulo centrado entre los logos de no más de 15 palabras</li>
                                                 <li>No más de 4 autores</li>
                                                 <li>El texto debe limitarse a no más de 500 palabras</li>
-                                            </ol>
+                                            </ul>
                                             <br>
                                             <li class="fw-semibold mb-2">Elementos de Formato</li>
-                                            <ol class="mt-2">
+                                            <ul style="list-style-type: square;">
                                                 <li>El tipo de letra será a elección del autor. Un tamaño recomendado es 28 puntos</li>
                                                 <li>Es necesario una cuidadosa presentación tipográfica y calidad en los títulos, fotos, gráficos, etc.</li>
                                                 <li>Todas las imágenes, figuras, tablas y ecuaciones deberán estar numeradas.</li>
                                                 <li>Incluir un máximo de cuatro imágenes, figuras, tablas y/o ecuaciones.</li>
                                                 <li>Cuidar la ortografía </li>
+                                            </ul>
                                             </ol>
-                                            <br>
                                             <span>Cualquier situación no prevista estará sujeta a la resolución del comité organizador del evento</span>
-                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
