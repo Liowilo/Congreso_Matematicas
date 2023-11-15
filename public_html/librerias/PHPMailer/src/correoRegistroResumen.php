@@ -27,12 +27,10 @@ $mail->Subject = "Registro de trabajo exitoso";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $email2 = '';
-if(count($coautores) > 1){
-    $txt = "Con los Coautores:";
-}
-else{
-    $txt = "Con el Coautor:";
-}
+$mensaje = '';
+$coautoresCadena = '';
+
+
 // Verificar si el usuario ha iniciado sesión y configurar $_SESSION['correoElectronico']
 // ...
 // Construcción del mensaje del correo
@@ -47,14 +45,25 @@ if ($_SESSION['correoElectronico'] !== $email2) {
     $mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
     $mensaje .= "<li><b>Titulo: </b>" . $titulo . "</li>";
     $mensaje .= "<li><b>Autor: </b>" . $nombreAutor . "</li>";
-    $mensaje .= "</ul><br>Con los coautor(es):";
-    // Nombe de Coautores
-    foreach ($coautores as $coautor) {
-        $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
-        $coautoresCadena .= "<li>" . $nombreCoautor . "</li>";
+    $mensaje .= "</ul>";
+
+    if(!empty($coautores)){
+        if(count($coautores) > 1){
+            $txt = "Con los Coautores:";
+        }
+        else{
+            $txt = "Con el Coautor:";
+        }
+        $mensaje .= "<br>" . $txt;
+        // Nombre de Coautores
+        foreach ($coautores as $coautor) {
+            $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
+            $coautoresCadena .= "<li>" . $nombreCoautor . "</li>";
+        }
+        $coautoresCadena .= "</ul><br>";
+        $mensaje .= $coautoresCadena;
     }
-    $coautoresCadena .= "</ul><br>";
-    $mensaje .= $coautoresCadena;
+    
     $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
     $mensaje .= "Atentamente,<br><br>";
     $mensaje .= "El Comité Organizador del Evento<br>";
@@ -72,16 +81,25 @@ $mensaje .= "<li><b>Categoría: </b>" . $nombreCategoria . "</li>";
 $mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
 $mensaje .= "<li><b>Titulo: </b>" . $titulo . "</li>";
 $mensaje .= "<li><b>Autor: </b>" . $nombreAutor . "</li>";
-$mensaje .= "</ul><br>Con los coautor(es):";
+$mensaje .= "</ul>";
 
-$coautoresCadena = "<ul>";
-// Nombe de Coautores
-foreach ($coautores as $coautor) {
-    $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
-    $coautoresCadena .= "<li>" . $nombreCoautor . "</li>";
+if(!empty($coautores)){
+        if(count($coautores) > 1){
+            $txt = "Con los Coautores:<ul>";
+        }
+        else{
+            $txt = "Con el Coautor:<ul>";
+        }
+        $mensaje .= "<br>" . $txt;
+        // Nombre de Coautores
+        foreach ($coautores as $coautor) {
+            $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
+            $coautoresCadena .= "<li>" . $nombreCoautor . "</li>";
+        }
+        $coautoresCadena .= "</ul><br>";
+        $mensaje .= $coautoresCadena;
 }
-$coautoresCadena .= "</ul><br>";
-$mensaje .= $coautoresCadena;
+
 $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
 $mensaje .= "Atentamente,<br><br>";
 $mensaje .= "El Comité Organizador del Evento<br>";

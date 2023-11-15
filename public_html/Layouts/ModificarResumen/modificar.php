@@ -206,13 +206,22 @@ $mensaje .= "<li><b>Categoría: </b>" . $categoriaPonencia . "</li>";
 $mensaje .= "<li><b>Clave del trabajo: </b>" . $idPonencia . "</li>";
 $mensaje .= "<li><b>Titulo: </b>" . $nombrePonencia . "</li>";
 $mensaje .= "<li><b>Autor: </b>" . $nombreFAutor . "</li>";
-$mensaje .= "</ul><br>Con los coautor(es):";
-$mensaje .= "<ul>";
-// Imprimir coautores
-foreach($nombreCoautores as $nombreC){
-    $mensaje .= "<li>" . $nombreC . "</li>";
+$mensaje .= "</ul>";
+
+if(!empty($nombreCoautores)){
+    if(count($nombreCoautores) > 1){
+        $txt = "Con los Coautores:<ul>";
+    }
+    else{
+        $txt = "Con el Coautor:<ul>";
+    }
+    $mensaje .= "<br>" . $txt;
+    // Imprimir coautores
+    foreach($nombreCoautores as $nombreC){
+        $mensaje .= "<li>" . $nombreC . "</li>";
+    }
+    $mensaje .= "</ul><br>";
 }
-$mensaje .= "</ul><br>";
         
 $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
 $mensaje .= "Atentamente,<br><br>";
