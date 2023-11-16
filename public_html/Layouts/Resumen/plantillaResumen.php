@@ -164,7 +164,7 @@ if (count($errores) > 0) {
 
             <div class="col-xl-2 col-lg-2 d-md-inline col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mt-2">
                 <div class="d-grid">
-                    <button type="button" name="btn-prototipo" id="btn-prototipo" class="btn btn-tipo-ponencia p-2">Prototipo</button>
+                    <button type="button" name="btn-prototipo" id="btn-prototipo" class="btn btn-tipo-ponencia p-2" disabled>Prototipo</button>
                 </div>
             </div>
         </div>
