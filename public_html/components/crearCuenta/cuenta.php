@@ -170,7 +170,7 @@
                     <div class="mb-1 contenedor_link">
                         <label class="form-label">
                             <span class="text-danger">*</span>
-                            <input type="checkbox" id="accept-checkbox" disabled > Da click en <span id="privacy-link">"Aviso de privacidad"</span> y lee con atención antes de aceptar.
+                            <input type="checkbox" id="accept-checkbox"> Da click en <span id="privacy-link">"Aviso de privacidad"</span> y lee con atención antes de aceptar.
                         </label>
                     </div>
 
