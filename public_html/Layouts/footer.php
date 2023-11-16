@@ -30,6 +30,7 @@
                     <li class="texto-foo ">56 23 18 86</li>
                     <li class="texto-foo ">56 23 18 90</li>
                     <p class="texto-foo"></p>
+                    <a class="Cuerpo-texto" style ="color: white; font-weight: bold; text-align: center" href= "../avisoPrivacidad/avisoPrivacidad.php">Aviso de privacidad</a>
             </div>
         </div>
     </div>
