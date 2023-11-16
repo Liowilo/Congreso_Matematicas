@@ -7,5 +7,4 @@ $fetchCongreso = mysqli_fetch_assoc($resCongreso);
 
 // Traer usuario y contraseña
 $correoCongreso = $fetchCongreso['correo_congreso'];
-$hashContra = $fetchCongreso['contra_congreso'];
 ?>
