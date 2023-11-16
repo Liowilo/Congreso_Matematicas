@@ -44,7 +44,7 @@ require "../../modelo/conexion.php";
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingUno">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseUno" aria-expanded="true" aria-controls="panelsStayOpen-collapseUno">
-                                            ¿Cómo se registra una Ponencia Oral?
+                                            ¿Cómo se registra una ponencia oral?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseUno" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingUno">
@@ -66,7 +66,7 @@ require "../../modelo/conexion.php";
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingDos">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseDos" aria-expanded="true" aria-controls="panelsStayOpen-collapseDos">
-                                            ¿Cuáles son los elementos que debe tener un resúmen para Ponencia Oral?
+                                            ¿Cuáles son los elementos que debe tener un resúmen para ponencia oral?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseDos" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingDos">
@@ -130,9 +130,74 @@ require "../../modelo/conexion.php";
                                 </div>
                                 <!-------------TERCER ITEM---------------------->
                                 <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingSexto">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSexto" aria-expanded="true" aria-controls="panelsStayOpen-collapseSexto">
+                                            ¿Cuáles son los elementos que debe tener un extenso para ponencia oral?
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseSexto" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSexto">
+                                        <div class="accordion-body Cuerpo-texto">
+                                            <span class="">
+                                                Para poder entregar los trabajos extensos de las ponencias orales es necesario:
+                                            </span><br><br>
+                                            <ol>
+                                                <li>Tener aprobado el resumen de la ponencia oral por parte del comité evaluador.</li>
+                                                <li>Que el autor que registró el resumen de la ponencia, sea el mismo que envíe el trabajo extenso.</li>
+                                                <li>Revisar la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf">guía de autores</a> </li>
+                                                <li>Todos los extensos se deben realizar en la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx">plantilla oficial del congreso actual</a> </li>
+                                                <li>Accesar al "Registro de trabajos" para poder adjuntar los archivos requeridos.</li>
+                                                <li>Respetar la fecha límite de registro de trabajos extensos</li>
+                                            </ol>
+
+                                            <strong>Los coautores no pueden registrar o modificar los extensos.</strong>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------CUARTO ITEM---------------------->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingOctavo">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOctavo" aria-expanded="true" aria-controls="panelsStayOpen-collapseOctavo">
+                                            ¿Cuáles son los elementos que debe tener un video para ponencia oral?
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseOctavo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOctavo">
+                                        <div class="accordion-body Cuerpo-texto">
+                                            <strong>La propuesta del video debe ajustarse a los requisitos siguientes:</strong><br><br>
+                                            <ol>
+                                                <li>La propuesta del video debe ajustarse a los requisitos siguientes:</li>
+                                                <li>No debe de exceder los 300 MB (ya que tardaría demasiado en subir).</li>
+                                                <li>El formato debe ser en .mp4 (encoder H.264).</li>
+                                                <li>Resolución 1280*720 y 24 fps (fotogramas por segundo).</li>
+                                                <li>Buen audio y vídeo.</li>
+                                                <li>El nombre del archivo es la clave de su ponencia + - + el nombre del autor.</li>
+                                                <br>
+                                                <ul style="list-style-type: square;">
+                                                    <li>Ejemplo: POSM001-PedroGarciaMendoza</li>
+                                                </ul>
+                                                <br>
+                                                <li>El vídeo deberá ser subido por el ponente a OneDrive, Drive o cualquier otra plataforma para almacenar archivos multimedia y se deberá compartir el URL para visualizar el vídeo con los permisos necesarios de visualización al correo <?php echo strtolower($correoCongreso); ?>.</li>
+                                            </ol>
+                                            <strong>Los elementos que debe incluir la exposición de la ponencia son:</strong>
+                                            <br><br>
+                                            <ul style="list-style-type: square;">
+                                                <li>Temática</li>
+                                                <li>Objetivos</li>
+                                                <li>Sustento teórico, antececedentes o introducción.</li>
+                                                <li>Metodología o desarrollo.</li>
+                                                <li>Resultados y/o conclusiones.</li>
+                                                <li>Bibliografía.</li>
+                                            </ul>
+                                            <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité técnico y su decisión será inapelable.</strong>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------QUINTO ITEM---------------------->
+                                <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingTres">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTres" aria-expanded="true" aria-controls="panelsStayOpen-collapseTres">
-                                            ¿Cómo se registra un Cartel?
+                                            ¿Cómo se registra un cartel?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseTres" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTres">
@@ -150,36 +215,30 @@ require "../../modelo/conexion.php";
                                         </div>
                                     </div>
                                 </div>
-                                <!-------------CUARTO ITEM---------------------->
+                                <!-------------SEXTO ITEM---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingCuarto">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseCuarto" aria-expanded="true" aria-controls="panelsStayOpen-collapseCuarto">
-                                            ¿Cómo elaborar un resúmen para un Cartel?
+                                            ¿Cómo elaborar un resúmen?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseCuarto" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingCuarto">
                                         <div class="accordion-body Cuerpo-texto">
+                                            <strong>Especificaciones del resumen:</strong>
+                                            <br><br>
                                             <span class="">
                                                 El cartel debe ser original y producto de investigación teórica o aplicada. Serán aceptadas todos los trabajos que puedan hacer alguna aportación al conocimiento teórico o práctico en la enseñanza y aplicación de las matemáticas. Así mismo se debe cumplir con los lineamientos que se indican en la elaboración del resumen.
                                             </span><br><br>
-                                            <strong>El resumen deberá contener:</strong>
-                                            <br><br>
-                                            <ul class="list-unstyled mt-2 mb-2">
-                                                <ol>
-                                                    <li>Título (Máximo 15 palabras)</li>
-                                                    <li>Categoría.</li>
-                                                    <li>Contenido (Máximo 300 palabras estructurado de acuerdo a la categoría seleccionada).</li>
-                                                    <li>Bibliografías y cibergrafías en estilo APA (American Psychological Association)</li>
-                                                    <li>Nombre del autor (y opcional coautores. Máximo 5 integrantes).</li>
-                                                </ol>
-                                            </ul>
-                                            <br>
-                                            <strong>Especificaciones del resumen:</strong>
-                                            <br><br>
+                                            
                                             <ol class="mt-2">
-                                                <li class="fw-semibold mb-2">El título deberá reflejar el contenido del cartel.</li>
+                                                <li class="fw-semibold mb-2">Título (Máximo 15 palabras).</li>
+                                                <ul style="list-style-type: square;">
+                                                    <li>El titulo deberá reflejar el contenido del cartel.</li>
+                                                </ul>
                                                 <br>
-                                                <li class="fw-semibold mb-2"> Las categorias en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) y a la enseñanza y la aplicación de las matemáticas son:</li>
+                                                <li class="fw-semibold mb-2">Categoria</li>
+                                                <ul style="list-style-type: square;">
+                                                    <li> Las categorias en donde los autores podrán registrar sus trabajos relacionados al Proceso de Enseñanza Aprendizaje (PEA) y a la enseñanza y la aplicación de las matemáticas son:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Enseñanza de las matemáticas con las TIC en la nueva normalidad (EN)</li>
                                                     <li>Experiencia e innovación didáctica en la enseñanza de las matemáticas (ID)</li>
@@ -189,18 +248,26 @@ require "../../modelo/conexion.php";
                                                 </ul> <br>
                                                 <span>Al momento de registrar sus trabajos, el ponente seleccionará la categoría que más se adapte a ellos.</span> <br>
                                                 <br>
-                                                <li class="fw-semibold mb-2">En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li>
+                                                </ul>
+                                                <li class="fw-semibold mb-2">Contenido (Máximo 300 palabras estructurado de acuerdo a la categoría seleccionada).</li>
+                                                <ul style="list-style-type: square;">
+                                                    <li> En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Objetivo</li>
                                                     <li>Sustento teórico o antecedentes</li>
                                                     <li>Metodología o desarrollo</li>
                                                     <li>Resultados y/o conclusiones.</li>
                                                 </ul>
+                                                </ul>
                                                 <br>
-                                                <li class="fw-semibold mb-2">Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                <li class="fw-semibold mb-2">Bibliografías y cibergrafías en estilo APA (American Psychological Association)</li>
+                                                <ul style="list-style-type: square;">
+                                                <li>"Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                                </ul>
                                                 <br>
-                                                <li class="fw-semibold mb-2">Registro autores y coautores.
-                                                    Los asistentes al congreso podrán participar como ponentes con un máximo de 5 trabajos ya sea como autor o coautor en las siguientes modalidades:</li>
+                                                <li class="fw-semibold mb-2">Nombre del autor (y opcional coautores. Máximo 5 integrantes).</li>
+                                                <ul style="list-style-type: square;">
+                                                <li> Los asistentes al congreso podrán participar como ponentes con un máximo de 5 trabajos ya sea como autor o coautor en las siguientes modalidades:</li>
                                                 <ul style="list-style-type: square;">
                                                     <li>Ponencias</li>
                                                     <li>Talleres</li>
@@ -209,6 +276,18 @@ require "../../modelo/conexion.php";
                                             <br>
                                             <span>Los asistentes podrán participar como ponentes con un máximo de 3 trabajos en la categoría de Ponencias, con un máximo de 2 Carteles y con un Taller.</span>
                                             <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------SEPTIMO ITEM---------------------->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingNueve">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNueve" aria-expanded="true" aria-controls="panelsStayOpen-collapseNueve">
+                                            ¿Cómo elaborar un cartel?
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseNueve" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingNueve">
+                                        <div class="accordion-body Cuerpo-texto">
                                             <li class="fw-semibold mb-2">El cartel debe incluir las siguientes secciones:</li>
                                             <ol class="mt-2">
                                                 <li>Encabezado</li>
@@ -244,11 +323,11 @@ require "../../modelo/conexion.php";
                                         </div>
                                     </div>
                                 </div>
-                                <!-------------QUINTO ITEM---------------------->
+                                <!-------------OCTAVO ITEM---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingQuinto">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseQuinto" aria-expanded="true" aria-controls="panelsStayOpen-collapseQuinto">
-                                            ¿Cómo registrar un Taller?
+                                            ¿Cómo registrar un taller?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseQuinto" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingQuinto">
@@ -284,33 +363,8 @@ require "../../modelo/conexion.php";
                                         </div>
                                     </div>
                                 </div>
-                                <!-------------SEXTO ITEM---------------------->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="panelsStayOpen-headingSexto">
-                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSexto" aria-expanded="true" aria-controls="panelsStayOpen-collapseSexto">
-                                            ¿Cómo elaborar un Extenso?
-                                        </button>
-                                    </h2>
-                                    <div id="panelsStayOpen-collapseSexto" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSexto">
-                                        <div class="accordion-body Cuerpo-texto">
-                                            <span class="">
-                                                Para poder entregar los trabajos extensos de las ponencias orales es necesario:
-                                            </span><br><br>
-                                            <ol>
-                                                <li>Tener aprobado el resumen de la ponencia oral por parte del comité evaluador.</li>
-                                                <li>Que el autor que registró el resumen de la ponencia, sea el mismo que envíe el trabajo extenso.</li>
-                                                <li>Revisar la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf">guía de autores</a> </li>
-                                                <li>Todos los extensos se deben realizar en la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx">plantilla oficial del congreso actual</a> </li>
-                                                <li>Accesar al "Registro de trabajos" para poder adjuntar los archivos requeridos.</li>
-                                                <li>Respetar la fecha límite de registro de trabajos extensos</li>
-                                            </ol>
-
-                                            <strong>Los coautores no pueden registrar o modificar los extensos.</strong>
-                                            <br><br>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-------------SEPTIMO ITEM---------------------->
+                                
+                                <!-------------NOVENO ITEM---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingSeptimo">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeptimo" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeptimo">
@@ -330,7 +384,7 @@ require "../../modelo/conexion.php";
                                                 <li>Se entregará constancia de <mark>“Ganador en el concurso de ganadores (1er, 2do y 3er lugar)”</mark>, cuando haya resultado ganador del concurso.</li>
                                                 <li>Se entregará constancia de <mark>“Exposición de prototipo o proyecto”</mark>, cuando haya expuesto su prototipo y/o proyecto en el evento.</li>
                                                 <li>Se entregará constancia de <mark>“Presentación de taller”</mark>, cuando el resumen haya sido aprobado por el comité y este se haya impartido (ponentes).</li>
-                                                <li>Se entregar constancia de <mark>“Participación en taller”</mark>, cuando haya cursado los dos días correspondientes a la impartición de taller (asistentes).</li>
+                                                <li>Se entregará constancia de <mark>“Participación en taller”</mark>, cuando haya cursado los dos días correspondientes a la impartición de taller (asistentes).</li>
                                             </ul>
                                             </ul>
                                             <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité organizador y su desición será inapelable.</strong>
@@ -347,45 +401,7 @@ require "../../modelo/conexion.php";
                                 $correoCongreso = $fetchCongreso['correo_congreso'];
                                 $hashContra = $fetchCongreso['contra_congreso'];
                                 ?>
-                                <!-------------OCTAVO ITEM---------------------->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="panelsStayOpen-headingOctavo">
-                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOctavo" aria-expanded="true" aria-controls="panelsStayOpen-collapseOctavo">
-                                            Especificaciones para Crear un Video
-                                        </button>
-                                    </h2>
-                                    <div id="panelsStayOpen-collapseOctavo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOctavo">
-                                        <div class="accordion-body Cuerpo-texto">
-                                            <strong>La propuesta del video debe ajustarse a los requisitos siguientes:</strong><br><br>
-                                            <ol>
-                                                <li>La propuesta del video debe ajustarse a los requisitos siguientes:</li>
-                                                <li>No debe de exceder los 300 MB (ya que tardaría demasiado en subir).</li>
-                                                <li>El formato debe ser en .mp4 (encoder H.264).</li>
-                                                <li>Resolución 1280*720 y 24 fps (fotogramas por segundo).</li>
-                                                <li>Buen audio y vídeo.</li>
-                                                <li>El nombre del archivo es la clave de su ponencia + - + el nombre del autor.</li>
-                                                <br>
-                                                <ul style="list-style-type: square;">
-                                                    <li>Ejemplo: POSM001-PedroGarciaMendoza</li>
-                                                </ul>
-                                                <br>
-                                                <li>El vídeo deberá ser subido por el ponente a OneDrive, Drive o cualquier otra plataforma para almacenar archivos multimedia y se deberá compartir el URL para visualizar el vídeo con los permisos necesarios de visualización al correo <?php echo strtolower($correoCongreso); ?>.</li>
-                                            </ol>
-                                            <strong>Los elementos que debe incluir la exposición de la ponencia son:</strong>
-                                            <br><br>
-                                            <ul style="list-style-type: square;">
-                                                <li>Temática</li>
-                                                <li>Objetivos</li>
-                                                <li>Sustento teórico, antececedentes o introducción.</li>
-                                                <li>Metodología o desarrollo.</li>
-                                                <li>Resultados y/o conclusiones.</li>
-                                                <li>Bibliografía.</li>
-                                            </ul>
-                                            <strong>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité técnico y su decisión será inapelable.</strong>
-                                            <br><br>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div><!--final del acordeon-->
                         </div><!--col-10-->
                         <!----------------------------------ACORDEON--------------------------------------------->
