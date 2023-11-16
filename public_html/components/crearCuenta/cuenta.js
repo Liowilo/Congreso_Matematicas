@@ -113,20 +113,24 @@ function habilitarBoton() {
 }
 
 
-//Validación general del formulario.
-formulario.addEventListener("keyup",(e)=>{
-	e.preventDefault();
-	habilitarBoton();
+function validarCaptcha() {
+    campos.captcha = true;
+    campos.accept = document.getElementById('accept-checkbox').checked;
+    habilitarBoton();
+}
+
+
+document.getElementById('accept-checkbox').addEventListener('change', function () {
+    campos.accept = this.checked;
+    validarCaptcha();  // Verifica el estado del captcha al cambiar el checkbox
 });
 
+formulario.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    habilitarBoton();
+});
 
-
-function validarCaptcha(){
-	campos.captcha=true;
-	campos.accept = document.getElementById('accept-checkbox').checked;
-	habilitarBoton();
-}
-document.getElementById('accept-checkbox').addEventListener('change', function() {
+document.getElementById('accept-checkbox').addEventListener('change', function () {
     campos.accept = this.checked;
     habilitarBoton();
 });
