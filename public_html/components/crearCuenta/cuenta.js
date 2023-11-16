@@ -10,7 +10,8 @@ const campos={
 	apellidos: false,
 	correoElectronico: false,
 	rfc: false,
-	captcha:false
+	captcha:false,
+	accept: false
 }
 
 //Funcion Validar formularios.
@@ -103,11 +104,14 @@ inputs.forEach((input)=>{
 	input.addEventListener("keyup",validarFormulario);
 });
 
-function habilitarBoton(){
-	if(campos.nombres && campos.apellidos && campos.correoElectronico && campos.rfc && campos.captcha){
-		registrate.disabled=false;
-	}
+function habilitarBoton() {
+    if (campos.nombres && campos.apellidos && campos.correoElectronico && campos.rfc && campos.captcha && campos.accept) {
+        registrate.disabled = false;
+    } else {
+        registrate.disabled = true;
+    }
 }
+
 
 //Validación general del formulario.
 formulario.addEventListener("keyup",(e)=>{
@@ -119,9 +123,13 @@ formulario.addEventListener("keyup",(e)=>{
 
 function validarCaptcha(){
 	campos.captcha=true;
+	campos.accept = document.getElementById('accept-checkbox').checked;
 	habilitarBoton();
 }
-
+document.getElementById('accept-checkbox').addEventListener('change', function() {
+    campos.accept = this.checked;
+    habilitarBoton();
+});
 
 
 
@@ -214,3 +222,25 @@ window.addEventListener('load', function() {
 	  
 	}
   });
+
+//Aviso de privacidad emergente
+
+  document.getElementById('privacy-link').addEventListener('click', function() {
+	console.log('trigger!');
+	document.getElementById('mascara-privacidad').style.opacity = 1;
+	document.getElementById('mascara-privacidad').style.zIndex = 1;
+	document.getElementById('privacy-notice').style.display = 'block';
+	document.body.style.overflow = 'hidden';
+  });
+  
+  document.getElementById('accept-btn').addEventListener('click', function() {
+	// Marcar el checkbox al hacer clic en el botón "Aceptar"
+	document.getElementById('accept-checkbox').checked = true;
+  
+	document.getElementById('mascara-privacidad').style.opacity = 0;
+	document.getElementById('mascara-privacidad').style.zIndex = -1;
+	document.getElementById('privacy-notice').style.display = 'none';
+	document.body.style.overflow = 'auto';
+  });
+  
+ 

@@ -49,6 +49,9 @@ function crearCuenta($conex)
         }
         */
 
+        
+
+
         mysqli_close($conex);
     }
     header('Location: ../inicioSesion/sesion.html');
