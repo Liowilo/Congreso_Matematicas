@@ -113,7 +113,7 @@
                         </div>
                         <div class="d-grid col-10 m-auto">
                             <a href="../crearCuenta/cuenta.php" class="btn btn-style mt-2 mb-5 p-2" id="registrate"
-                                name="registrate" tabindex="0">Registrate</a>
+                                name="registrate" tabindex="0">Regístrate</a>
                         </div>
                         <!--Grupo Volver-->
                         <div class="mt-5" role="group">
