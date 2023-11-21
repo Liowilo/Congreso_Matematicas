@@ -122,7 +122,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           <?php }
           if (empty($_SESSION['correoElectronico'])) {
           ?>
-            Iniciar Sesion
+            Iniciar Sesión
 
           <?php
           }
