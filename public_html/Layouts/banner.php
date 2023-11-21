@@ -1,5 +1,5 @@
 <div class="container p-0 col-xl-12 col-lg-12 col-md-12 d-none d-md-block justify-content-sm-center zi">
-        <?php // Traer imagen de la BD
+        <?php // Traer imagen del banner de la BD
         $imagenSQL = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
         $traerIMG = mysqli_query($conexion, $imagenSQL);
         $rowImagen = $traerIMG->fetch_assoc();
@@ -10,5 +10,13 @@
 </div>
 <hr class="container linea">
 <div class="container p-0  d-sm-block d-md-none justify-content-sm-center zi">
-        <img src="./src/logos_congresos/XV.jpeg" alt="XIV Congreso" class="img-thumbnail border border-0">
+        <?php // Traer imagen del logo de la BD
+        $rutaSQL = "SELECT * FROM congreso WHERE id_congreso=(SELECT MAX(id_congreso) FROM congreso);";
+        $ejecrutaSQL = mysqli_query($conexion, $rutaSQL);
+        $rowCongreso = mysqli_fetch_assoc($ejecrutaSQL);
+        $rutaLogo = $rowCongreso['logo_congreso'];
+        $rutaFinalLogo = str_replace("../../", "./", $rutaLogo);
+        ?>
+        <!-- ./src/logos_congresos/logoXVI.jpg -->
+        <img src="<?php echo $rutaFinalLogo; ?>" alt="Logo Congreso" class="img-thumbnail border border-0">
 </div>

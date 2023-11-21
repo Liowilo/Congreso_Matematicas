@@ -49,7 +49,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           Información
         </a>
         <ul class="dropdown-menu super">
-        <li><a class="dropdown-item " href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">Convocatoria</a></li>
+        <li><a class="dropdown-item " href="/desarrollo/src/convocatoria/XVI.pdf" target="_blank">Convocatoria</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/registroInscripcion/inscripcion.php">Inscripción</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/Lugar/lugar.php">Lugar</a></li>
           <li><a class="dropdown-item " href="/desarrollo/components/registroCuotas/cuotas.php">Cuotas</a></li>

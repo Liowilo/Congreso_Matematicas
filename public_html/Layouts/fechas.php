@@ -53,7 +53,7 @@
                 <a href="/desarrollo/components/actividadesFechas/fechas.php">
                     <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Ver Fechas</button></a>
 
-                <a href="/desarrollo/src/convocatoria/XV.pdf" target="_blank">
+                <a href="/desarrollo/src/convocatoria/XVI.pdf" target="_blank">
                     <button class="btn btn-style shadow p-2 mb-4 px-5" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Ver Convocatoria</button></a>
 
                 <a href="/desarrollo/components/subirResumen/subirResumen.php">
