@@ -140,7 +140,7 @@
                     ?>
                     <!--Grupo Nombres-->
                     <div class="mb-3" id="formulario_grupo_nombres">
-                        <label for="nombres" class="form-label"><span class="text-danger">*</span> Nombres</label>
+                        <label for="nombres" class="form-label"><span class="text-danger">*</span> Nombre</label>
                         <input type="text" class="form-control" id="nombres" name="nombres" maxlength="90" placeholder="Escribe tus nombres" onkeypress="return validarNombres(event)">
                         <p class="formulario_input-error" id="formulario_informacion_nombres">El nombre no debe contener
                             más de dos espacios y máximo 90 caractéres.</p>
