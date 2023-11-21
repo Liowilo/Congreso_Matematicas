@@ -34,4 +34,6 @@
     }
     $query=mysqli_query($conexion,"UPDATE congreso SET logo_congreso = '$imagen' WHERE id_congreso = '$idCongreso'");
     header('location: ../components/paginaPrincipal/paginaPrincipal.php');
+
+    include 'iconoCongreso.php';
 ?>

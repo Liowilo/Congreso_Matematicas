@@ -3,7 +3,9 @@
 <html lang="es">
 
 <head>
-    <link rel="shortcut icon" href="../../favicon.png">
+    <?php
+		require_once('../../Layouts/iconoCongresoLink.php');
+	?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Crear Cuenta</title>
