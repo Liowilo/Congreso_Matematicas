@@ -23,7 +23,7 @@ $mail->Password = "rsdxrhmuwdcovefj";
 ///contenifdo del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
-$mail->FromName = "Congreso Internacional de Matemáticas";
+$mail->FromName = "CISEyAM";
 $mail->Subject = "Evaluación resumen";
 
 //mensaje en html 

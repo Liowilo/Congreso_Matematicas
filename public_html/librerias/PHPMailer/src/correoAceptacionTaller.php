@@ -24,7 +24,7 @@ $mail->Password = $hashContra;
 ///contenido del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
-$mail->FromName = "Congreso Internacional de Matemáticas";
+$mail->FromName = "CISEyAM";
 $mail->Subject = "Evaluacion de taller";
 
 $mail->MsgHTML("Le informamos con agrado que el Comité Evaluador ha evaluado su Taller 

@@ -24,7 +24,7 @@ $mail->Password = $hashContra;
 ///contenifdo del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
-$mail->FromName = "Congreso Internacional de Matemáticas";
+$mail->FromName = "CISEyAM";
 $mail->Subject = "Verificación de correo electronico";
 //$mail->AltBody = "Te confirmamos que hemos recibido tu resumen ";
 
