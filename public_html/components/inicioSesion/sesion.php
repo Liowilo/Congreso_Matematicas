@@ -106,7 +106,7 @@
                         </div>
                         <div class="d-grid col-10 m-auto">
                             <input type="submit" class="btn btn-style mb-3 p-2" id="iniciaSesion" name="iniciaSesion"
-                                value="Iniciar Sesion">
+                                value="Iniciar Sesión">
                             <div class="text-center">
                                 <span class="tt link">o</span>
                             </div>
