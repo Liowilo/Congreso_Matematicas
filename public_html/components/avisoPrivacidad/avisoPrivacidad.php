@@ -47,7 +47,7 @@ require "../../components/avisoPrivacidad/correoCongreso.php";
         <p><strong><br>II. Identidad y domicilio de la responsable</strong></p>
         <p>El Departamento de Matemáticas de la Facultad de Estudios Superiores Cuautitlán de la UNAM, ubicado en el edificio A8, planta baja.</p>
 
-        <p><strong><br>III. Datos personales que trata la FES CUAUTITLAN.</strong></p>
+        <p><strong><br>III. Datos personales que trata la FES CUAUTITLÁN.</strong></p>
         <p>Los datos personales que solicita el departamento de matemáticas son: nombre y apellidos, RFC, correo electrónico vigente, número de teléfono, y posiblemente una clave de acceso. Además, se requieren datos académicos y laborales pertinentes. Asimismo, se sugiere adjuntar una foto de perfil para facilitar la identificación.</p>
 
         <p><strong><br>IV. Transferencia de datos personales</strong></p>
