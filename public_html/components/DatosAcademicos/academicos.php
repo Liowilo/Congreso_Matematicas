@@ -51,7 +51,7 @@ require '../../modelo/completarPerfil.php';
                 //Verifica que el usuario tenga su perfil completado
 
                 if ($estadoUsuario == '') {
-                    $info = "Completa tus datos académicos seleccionando la preparación que tienes y subiendo una semblanza.";
+                    $info = "Completa tus datos académicos seleccionando la preparación que tienes y subiendo una semblanza. <br><b>Es necesario que completes todos los datos (datos académicos y laborales) para poder subir un trabajo.</b>";
                     $_SESSION['datosAdicionales'] = $info;
                 } else if ($estadoUsuario == 'I') {
                     $info = "La vigencia de tu semblanza ha expirado. Debes ir a tus datos académicos para actualizar tu semblanza para acceder a todas las funciones del sitio. Al completar tu perfil automáticamente se habilitarán todas  las funciones.";
@@ -75,14 +75,14 @@ require '../../modelo/completarPerfil.php';
                     <?php
                     }
                     ?>
-                    <h2 class="my-5 "><span class="text-danger">*</span> Mis datos Académicos</h2>
-                    <span class="mt-1 mb-3 texto-academicos">Estudios y Logros</span><br>
+                    <h2 class="my-5 "><span class="text-danger">*</span> Mis datos académicos</h2>
+                    <span class="mt-1 mb-3 texto-academicos">Estudios y logros</span><br>
                     <?php
 
                     if (strlen($_SESSION['datosAdicionales']) > 1) {
                     ?>
                         <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading">Completar Registro</h4>
+                            <h4 class="alert-heading">Completar registro</h4>
                             <p>Aún no has completado tu perfil.</p>
                             <hr>
                             <p class="mb-0"><?php echo $_SESSION['datosAdicionales']; ?></p>
@@ -91,7 +91,7 @@ require '../../modelo/completarPerfil.php';
                     <?php
                     }
                     ?>
-                   <span class="mt-1 mb-3 texto-academicos"> <span class="text-danger">*</span> Nivel Académico</span>
+                   <span class="mt-1 mb-3 texto-academicos"> <span class="text-danger">*</span> Nivel académico</span>
 
                     <div class="row mt-3 ">
                         <div class="col-lg-6 col-md-6">

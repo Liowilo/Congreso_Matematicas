@@ -3,7 +3,9 @@
 //Verifica si ha iniciado sesión e instancia el modulo para consultar la foto del usuario.
 if (!empty($_SESSION['correoElectronico'])) {
   require_once $_SERVER["DOCUMENT_ROOT"] . "/desarrollo/modelo/traerFoto.php";
+  require_once $_SERVER["DOCUMENT_ROOT"] . "/desarrollo/modelo/completarPerfil.php";
 }
+
 ?>
 
 <?php
@@ -102,8 +104,9 @@ $congresoNombre = $rowNombre['nombre_congreso'];
         </ul>
       </li>
       <?php
+      
       //Hace un if para comprobar que la sesión está abierta y y muestra los elementos.
-      if (!empty($_SESSION['correoElectronico'])) {
+      if (!empty($_SESSION['correoElectronico']) && $estadoUsuario == 'A') {
       ?>
         <li class="nav-item">
           <a class="nav-link a-nav mt-2" href="/desarrollo/components/subirResumen/subirResumen.php">Registrar trabajos</a>
