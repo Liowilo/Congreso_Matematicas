@@ -165,12 +165,12 @@ require "../../modelo/traerCongresoActual.php";
                                         <option disabled>Selecciona una opción</option>
                                         <?php
                                         //Trae los datos de las categorias
-                                        $tipoAsistenciaPago = "SELECT * FROM tipo_asistencia_pago";
+                                      $tipoAsistenciaPago = "SELECT * FROM costo";
                                         $res2 = mysqli_query($conexion, $tipoAsistenciaPago);
                                         while ($fetch2 = mysqli_fetch_assoc($res2)) {
-                                            $idTipoAsistenciaPago = $fetch2["id_tipo_asistencia_pago"];
-                                            $tipoAsistenciaPago = $fetch2["tipo_asistencia_pago"];
-                                            $costoAsistenciaPago = $fetch2["costo_asistencia_pago"];
+                                            $idTipoAsistenciaPago = $fetch2["idCosto"];
+                                            $tipoAsistenciaPago = $fetch2["Tipo"];
+                                            $costoAsistenciaPago = $fetch2["Costo"];
                                         ?>
                                             <option value="<?php echo $idTipoAsistenciaPago; ?>" name="<?php echo $idTipoAsistenciaPago; ?>"><?php echo $tipoAsistenciaPago . ' $' . $costoAsistenciaPago . '.00'; ?></option>
                                         <?php
