@@ -39,7 +39,7 @@ require "../../modelo/conexion.php";
                             <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de participación como ponente (oral o cartel o taller en su caso)<br></li>
                             <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de publicación de artículo en las memorias del Congreso con ISSN (sólo extensos aceptados)<br></li>
                             <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de participación en taller (en su caso)<br></li>
-                            <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de ganador en el concurso de ganadores (en el caso de que haya resultado como ganador)<br></li>
+                            <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de ganador en el concurso de carteles (en el caso de que haya resultado como ganador)<br></li>
                             <li class="lista-texto"><i class="fa-li fa fa-square me-2" style="color: #C5B268;"></i>Constancia de exposicion de prototipo o proyecto (en su caso)<br></li>
                         </ul>
                         <div class="mb-3">
