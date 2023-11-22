@@ -560,7 +560,7 @@ if (count($errores) == 1) {
                 ?>
                     <div class="col-xl-3 col-lg-3 d-md-block col-md-4 d-sm-block col-sm-12 col-xs-block col-xs-12 my-4">
                         <!--------BOTON GUARDAR INPUT------------->
-                        <input disabled id="botonGuardar" name="botonGuardar" class=" btn btn-azul ps-5 pe-5 ms-3" type="submit" value="Actualizar">
+                        <input id="botonGuardar" name="botonGuardar" class=" btn btn-azul ps-5 pe-5 ms-3" type="submit" value="Actualizar">
                     </div>
                 <?php
                 } else {
