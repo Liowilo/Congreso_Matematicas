@@ -42,8 +42,8 @@
                         <span class="texto-sm">Para mayores informes comunicarse a los siguientes teléfonos:</span>
                         <ul class="texto-sm">
                             <br>
-                            <li>56 23 18 86</li>
-                            <li>56 23 18 90</li>
+                            <li>55 56 23 18 86</li>
+                            <li>55 56 23 18 90</li>
                         </ul>
                     </div>
                 </div>
