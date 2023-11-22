@@ -27,8 +27,8 @@
             <div class="col-xl-2 col-lg-2 col-md-2 d-sm-block col-sm-12 mt-4">
                 <p class="texto-foo">Telefonos</p>
                 <ul style="list-style: none;">
-                    <li class="texto-foo ">56 23 18 86</li>
-                    <li class="texto-foo ">56 23 18 90</li>
+                    <li class="texto-foo ">55 56 23 18 86</li>
+                    <li class="texto-foo ">55 56 23 18 90</li>
                     <p class="texto-foo"></p>
                     <a class="Cuerpo-texto" style ="color: white; font-weight: bold; text-align: center" href= "../avisoPrivacidad/avisoPrivacidad.php">Aviso de privacidad</a>
             </div>
