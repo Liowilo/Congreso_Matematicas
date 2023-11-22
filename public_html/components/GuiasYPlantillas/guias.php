@@ -102,7 +102,7 @@ require "../../modelo/conexion.php";
                                                     <li>Enseñanza de las matemáticas con las TIC en la nueva normalidad (EN)</li>
                                                     <li>Experiencia e innovación didáctica en la enseñanza de las matemáticas (ID)</li>
                                                     <li>Investigación del proceso de la enseñanza de las matemáticas (IP)</li>
-                                                    <li>Evaluión del aprendizaje en la enseñanza de las matemáticas en la nueva normalidad (EA)</li>
+                                                    <li>Evaluación del aprendizaje en la enseñanza de las matemáticas en la nueva normalidad (EA)</li>
                                                     <li>Aplicación y/o vinculación de las matemáticas con otras disciplinas (AP)</li>
                                                     <li>Al momento de registrar sus trabajos el ponente seleccionará la categoría que más se adapte a ellos.</li>
                                                     <br>
