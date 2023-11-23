@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "../../modelo/conexion.php";
+require "../avisoPrivacidad/correoCongreso.php";
 ?>
 
 <!DOCTYPE html>
@@ -145,7 +146,7 @@ require "../../modelo/conexion.php";
                                             <ol>
                                                 <li>Tener aprobado el resumen de la ponencia oral por parte del comité evaluador.</li>
                                                 <li>Que el autor que registró el resumen de la ponencia, sea el mismo que envíe el trabajo extenso.</li>
-                                                <li>Revisar la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf">guía de autores</a> </li>
+                                                <li>Revisar la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Guia_para_autores_2023.pdf" target="_blank">guía de autores</a> </li>
                                                 <li>Todos los extensos se deben realizar en la <a class="Cuerpo-texto" href= "../../src/GuiasYPlantillas/Plantilla_extenso_2023.docx">plantilla oficial del congreso actual</a> </li>
                                                 <li>Accesar al "Registro de trabajos" para poder adjuntar los archivos requeridos.</li>
                                                 <li>Respetar la fecha límite de registro de trabajos extensos</li>

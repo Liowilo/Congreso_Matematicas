@@ -60,7 +60,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
         </head>
 
         <body>
-            <header">
+            <header>
                 <?php
                 require_once('../../Layouts/nav.php');
                 ?>

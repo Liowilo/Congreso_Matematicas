@@ -146,7 +146,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           if (empty($_SESSION['correoElectronico'])) {
           ?>
             <li><a class="dropdown-item" href="/desarrollo/components/inicioSesion/sesion.php">Iniciar sesión</a></li>
-            <li><a class="dropdown-item" href="/desarrollo/components/crearCuenta/cuenta.php">Registrarse</a></li>
+            <li><a class="dropdown-item" href="/desarrollo/components/crearCuenta/cuenta.php">Regístrarse</a></li>
           <?php
           }
           ?>

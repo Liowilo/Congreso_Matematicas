@@ -42,133 +42,120 @@ for ($i = 2; $i <= 15; $i++) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
-		require_once('../../Layouts/iconoCongresoLink.php');
-	?>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrar Diseño</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="FF.css">
-    <link rel="stylesheet" href="../../styles.css">
-    
-</head>
-<body>
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="container mb-5">
-                    <h2 class="mb-4">Administrar Diseño</h2>
-                     <h2 class="texto-dorado">Actividades</h2>
-                    <form method="POST">
-                        <div class="table-responsive">
-                            <table class="my-table table table-striped" >
-                                <thead >
-                                    <tr>
-                                        <th class='fechas-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha</th>
-                                        <th class='asunto-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;"><strong>Asunto</strong></th>
-                                        <th class ='ff-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha inicio</th>
-                                        <th class ='fi-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha fin</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $mostrarMensaje6a7 = $mostrarMensaje8a9 = $mostrarMensaje9a10 = false;
 
-                                    for ($i = 2; $i <= 15; $i++) {
-                                        $id_evento = $i;
-                                        $fecha_formateada = formatFechaEvento($id_evento, $conexion);
-                                        $sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
-                                        $result = $conexion->query($sql);
-                                        $row = $result->fetch_assoc();
-                                        $descripcion_evento = $row["descripcion_evento"];
-                                        $fechaInicioInicial = $fechasIniciales[$id_evento]['fecha_congreso_inicio'];
-                                        $fechaFinInicial = $fechasIniciales[$id_evento]['fecha_congreso_fin'];
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="container mb-5">
+                <h2 class="mb-4">Administrar Diseño</h2>
+                <h2 class="texto-dorado">Actividades</h2>
+                <form method="POST">
+                    <div class="table-responsive">
+                        <table class="my-table table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class='fechas-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha</th>
+                                    <th class='asunto-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;"><strong>Asunto</strong></th>
+                                    <th class='ff-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha inicio</th>
+                                    <th class='fi-header' scope="col" style="background-color: <?php echo $colorHex; ?>!important;">Fecha fin</th>
 
-                                        if (!$mostrarMensaje6a7 && $i >= 6 && $i <= 7) {
-                                            $mostrarMensaje6a7 = true;
-                                            mostrarMensaje($i, $conexion);
-                                        }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $mostrarMensaje6a7 = $mostrarMensaje8a9 = $mostrarMensaje9a10 = false;
 
-                                        if (!$mostrarMensaje8a9 && $i >= 10 && $i <= 11) {
-                                            $mostrarMensaje8a9 = true;
-                                            mostrarMensaje(9, $conexion);
-                                        }
+                                for ($i = 2; $i <= 15; $i++) {
+                                    $id_evento = $i;
+                                    $fecha_formateada = formatFechaEvento($id_evento, $conexion);
+                                    $sql = "SELECT descripcion_evento FROM evento WHERE id_evento = $id_evento";
+                                    $result = $conexion->query($sql);
+                                    $row = $result->fetch_assoc();
+                                    $descripcion_evento = $row["descripcion_evento"];
+                                    $fechaInicioInicial = $fechasIniciales[$id_evento]['fecha_congreso_inicio'];
+                                    $fechaFinInicial = $fechasIniciales[$id_evento]['fecha_congreso_fin'];
 
-                                        if (!$mostrarMensaje9a10 && $i >= 11 && $i <= 12) {
-                                            $mostrarMensaje9a10 = true;
-                                            mostrarMensaje(10, $conexion);
-                                        }
-
-                                       
-                                        echo "<th>$fecha_formateada</th>";
-                                        echo "<td><strong>$descripcion_evento</strong></td>"; 
-                                        echo "<td>";
-                                        
-                                        echo "<input name='inicio$i' type='date' placeholder='Nueva fecha de inicio' value='$fechaInicioInicial' disabled>";
-                                        echo "</td>";
-                                        echo "<td>";
-                                         // Título en azul
-                                        echo "<input name='fin$i'  type='date' placeholder='Nueva fecha final' value='$fechaFinInicial' disabled>";
-                                        echo "</td>";
-                                        echo "</tr>";
+                                    if (!$mostrarMensaje6a7 && $i >= 6 && $i <= 7) {
+                                        $mostrarMensaje6a7 = true;
+                                        mostrarMensaje(5, $conexion);
                                     }
 
-                                    function mostrarMensaje($id_evento_mensaje, $conexion)
-                                    {
-                                        echo "<tr class='table bg-danger'>";
-                                        echo "<td class='importante' colspan='4'><i class='fa fa-exclamation-triangle me-3' aria-hidden='true'></i>Si su resumen no fue aprobado para el ";
-                                        $sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento_mensaje AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento_mensaje)";
-                                        $result = $conexion->query($sql);
-                                        $row = $result->fetch_assoc();
-                                        $fecha = new DateTime($row["fecha_congreso_fin"]);
-                                        $locale = 'es_ES';
-                                        $dateFormatter = new IntlDateFormatter(
-                                            $locale,
-                                            IntlDateFormatter::FULL,
-                                            IntlDateFormatter::FULL,
-                                            'UTC',
-                                            IntlDateFormatter::GREGORIAN
-                                        );
-
-                                        $dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y");
-                                        $fecha_formateada = $dateFormatter->format($fecha);
-
-                                        echo $fecha_formateada;
-                                        echo " quedará fuera del evento.</td>";
-                                        echo "</tr>";
+                                    if (!$mostrarMensaje8a9 && $i >= 10 && $i <= 11) {
+                                        $mostrarMensaje8a9 = true;
+                                        mostrarMensaje(9, $conexion);
                                     }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center">
-                            <button type='button' class='btn' id='btnModificar' style="background-color: <?php echo $colorHex; ?>!important; color: #FFF;">Modificar</button>
-                            <button type='submit' class='btn' style='display: none; background-color: <?php echo $colorHex; ?>!important; color: #FFF;' name='submit_modificar' id='btnActualizar'>Actualizar</button>
-                            <button type='button' class='btn btn-secondary' style='display: none;' id='btnCancelar' onclick='location.reload();'>Cancelar</button>
-                        </div>
-                    </form>
-                </div>
+
+                                    if (!$mostrarMensaje9a10 && $i >= 11 && $i <= 12) {
+                                        $mostrarMensaje9a10 = true;
+                                        mostrarMensaje(10, $conexion);
+                                    }
+
+
+                                    echo "<th>$fecha_formateada</th>";
+                                    echo "<td><strong>$descripcion_evento</strong></td>";
+                                    echo "<td>";
+
+                                    echo "<input name='inicio$i' type='date' placeholder='Nueva fecha de inicio' value='$fechaInicioInicial' disabled>";
+                                    echo "</td>";
+                                    echo "<td>";
+                                    // Título en azul
+                                    echo "<input name='fin$i'  type='date' placeholder='Nueva fecha final' value='$fechaFinInicial' disabled>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+
+                                function mostrarMensaje($id_evento_mensaje, $conexion)
+                                {
+                                    echo "<tr class='table bg-danger'>";
+                                    echo "<td class='importante' colspan='4'><i class='fa fa-exclamation-triangle me-3' aria-hidden='true'></i>Si su resumen no fue aprobado para el ";
+
+                                    $sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento_mensaje AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento_mensaje)";
+                                    $result = $conexion->query($sql);
+                                    $row = $result->fetch_assoc();
+                                    $fecha = new DateTime($row["fecha_congreso_fin"]);
+
+                                    // Sumar 1 día a la fecha
+                                    $fecha->modify('+1 day');
+
+                                    $locale = 'es_ES';
+                                    $dateFormatter = new IntlDateFormatter(
+                                        $locale,
+                                        IntlDateFormatter::FULL,
+                                        IntlDateFormatter::FULL,
+                                        'UTC',
+                                        IntlDateFormatter::GREGORIAN
+                                    );
+
+                                    $dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y");
+                                    $fecha_formateada = $dateFormatter->format($fecha);
+
+                                    echo $fecha_formateada;
+                                    echo " quedará fuera del evento.</td>";
+                                    echo "</tr>";
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <button type='button' class='btn' id='btnModificar' style="background-color: <?php echo $colorHex; ?>!important; color: #FFF;">Modificar</button>
+                        <button type='submit' class='btn' style='display: none; background-color: <?php echo $colorHex; ?>!important; color: #FFF;' name='submit_modificar' id='btnActualizar'>Actualizar</button>
+                        <button type='button' class='btn btn-secondary' style='display: none;' id='btnCancelar' onclick='location.reload();'>Cancelar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('btnModificar').addEventListener('click', function() {
-    var inputs = document.querySelectorAll('input[type="date"]');
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].removeAttribute('disabled');
-    }
-    document.getElementById('btnActualizar').style.display = 'inline-block';
-    document.getElementById('btnCancelar').style.display = 'inline-block';
-    document.getElementById('btnModificar').style.display = 'none';
-});
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</body>
-</html>
+</div>
+<script>
+    document.getElementById('btnModificar').addEventListener('click', function() {
+        var inputs = document.querySelectorAll('input[type="date"]');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].removeAttribute('disabled');
+        }
+        document.getElementById('btnActualizar').style.display = 'inline-block';
+        document.getElementById('btnCancelar').style.display = 'inline-block';
+        document.getElementById('btnModificar').style.display = 'none';
+    });
+</script>
