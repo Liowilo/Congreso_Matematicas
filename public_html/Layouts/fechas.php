@@ -3,8 +3,11 @@
         <div class="centrico col-md-4 text-center texto-sm border border-success 
         p-2 border-opacity-10 rounded d-sm-block col-sm-6">
             <div class="div p-4" style="font-size: 22px;">
-                <h4 style="font-size: 36px;">Fecha del Congreso:</h4> <br>
+                <h4 style="font-size: 36px;">Fechas importantes:</h4> <br>
                     <?php
+
+                    /*
+                    //Fecha del congreso
                     $id_evento = 13;
                     $sql = "SELECT fecha_congreso_inicio FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
                     $sql2 = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
@@ -39,6 +42,124 @@
                     $fecha_formateada2 = $dateFormatter2->format($fecha2);
 
                     echo $fecha_formateada . " y " . $fecha_formateada2;
+                    //------------------------------------------------------------------------------
+                    */
+
+                    $id_eventos = array(); // Array que almacena los eventos, se actualiza si es que se introduce uno nuevo 
+
+                    $limite_post = 2; // Numero de fechas proximas a mostrar
+
+                    $sql_eventos = "SELECT * FROM evento WHERE id_evento > 0";
+
+                    //llenado del array de eventos
+                    $resultado = $conexion->query($sql_eventos);
+                    if ($resultado->num_rows > 0) {
+                        while ($row = $resultado->fetch_assoc()) {
+                            $id_eventos[] = $row['id_evento'];
+                        }
+                    }
+
+                    $id_list = implode(',', $id_eventos);
+
+                    $sql = "SELECT fc.*, e.*, fc.fecha_congreso_inicio as fecha_inicio, fc.fecha_congreso_fin as fecha_congreso_fin,
+                    e.descripcion_evento as descripcion_evento
+                    FROM fecha_congreso as fc
+                    JOIN evento as e ON fc.id_evento = e.id_evento
+                    WHERE fc.id_evento IN ($id_list)
+                    AND fc.id_congreso = (
+                    SELECT MAX(id_congreso) 
+                    FROM fecha_congreso
+                    WHERE id_evento IN ($id_list)
+                    )
+                    ORDER BY fc.fecha_congreso_inicio ASC";
+
+                    $result = $conexion->query($sql);
+
+                    
+
+                    $meses = array(
+                        1 => 'Enero',
+                        2 => 'Febrero',
+                        3 => 'Marzo',
+                        4 => 'Abril',
+                        5 => 'Mayo',
+                        6 => 'Junio',
+                        7 => 'Julio',
+                        8 => 'Agosto',
+                        9 => 'Septiembre',
+                        10 => 'Octubre',
+                        11 => 'Noviembre',
+                        12 => 'Diciembre'
+                    );
+        
+                    $fecha_c = date('Y-m-d');
+
+                    $contador = 0;
+
+                    if ($result->num_rows > 0) {
+                        // Output de los datos usando un bucle while
+                        while ($row = $result->fetch_assoc()) {
+                            
+                            $fecha_i = $row["fecha_inicio"];
+
+                            $fecha_f = $row["fecha_congreso_fin"];
+
+                            
+                            //Selecciona la fecha más cercana
+                            if(strtotime($fecha_c) <= strtotime($fecha_i) && strtotime($fecha_c) <= strtotime($fecha_f)){
+
+                                $contador = $contador + 1;
+
+                       
+                                $d_evento = $row["descripcion_evento"];
+
+                                $f_i_ = new DateTime($fecha_i);
+                                $f_f_ = new DateTime($fecha_f);
+
+                              
+
+                                if ($f_i_->format('m') == $f_f_->format('m') && $f_i_->format('Y') == $f_f_->format('Y')) {
+                                    $formatted_date1 = date("j", strtotime($fecha_i)); 
+                                    $formatted_date2 = date("j", strtotime($fecha_f)); 
+
+                                    $month = $meses[date("n", strtotime($fecha_i))]; 
+
+                                    $y = date("Y", strtotime($fecha_i)); 
+
+                                    $date_range = $formatted_date1 . " al " . $formatted_date2 . " de " . $month.' del '.$y;
+
+
+                                } 
+                                else {
+                                    
+                                    $formatted_date1 = date("j", strtotime($fecha_i)); 
+                                    $formatted_date2 = date("j", strtotime($fecha_f)); 
+
+                                    $month = $meses[date("n", strtotime($fecha_i))]; 
+                                    $month_ = $meses[date("n", strtotime($fecha_f))]; 
+                                    
+                                    $y = date("Y", strtotime($fecha_i)); 
+                                    $y_ = date("Y", strtotime($fecha_f));
+
+                                    $date_range = $formatted_date1 . " de ".$month.' del '.$y." al " . $formatted_date2 . " de " . $month_.' del '.$y_;
+
+                                }
+                                
+                                echo '<hr><b>'.$d_evento.'</b><br><br><em>'.$date_range.'</em><br><br>';
+
+                                if($contador >= $limite_post){
+                                    break;
+                                }
+                            }
+                            
+
+                        }
+                    } 
+                    //Si no hay fechas cercanas, mostrara que no hay eventos programados.
+                    else {
+                        echo "Sin eventos programados!";
+                    }
+
                     ?>
                 
             </div>
