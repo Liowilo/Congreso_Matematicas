@@ -53,39 +53,47 @@ $colorHex = $rowColor['color_congreso'];
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">M.C. Mayte Flores Pérez</th>
+                                    <th class="nombre py-2" scope="row ">M GTI De La Luz Oliva Ana Karen</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">M.C. Maricela Lara Martínez</th>
+                                    <th class="nombre py-2" scope="row">M.C. Flores Pérez Mayte</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">L.S.C. Liana López Pachecho</th>
+                                    <th class="nombre py-2" scope="row ">Ing. Hernández Vázquez Gonzalo</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">M. en CE. Domingo Márquez Ortega</th>
+                                    <th class="nombre py-2" scope="row">M. en SI. Lara Martínez Maricela</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Ing. Guillermo Pérez Hernández</th>
+                                    <th class="nombre py-2" scope="row ">L.S.C. López Pacheco Liana</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Ing. José Juan Rico Castro</th>
+                                    <th class="nombre py-2" scope="row">M. en CE. Márquez Ortega Domingo</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">M.G.T.I. Rosalba Nancy Rosas Fonseca</th>
+                                    <th class="nombre py-2" scope="row ">M. en CE. Márquez Ortega Domingo</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">M.V.Z. Alejandro Valdez Santamaría</th>
+                                    <th class="nombre py-2" scope="row">M.G.T.I. Rosas Fonseca Rosalba Nancy</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">M. en C. María Guadalupe Vázquez Salazar</th>
+                                    <th class="nombre py-2" scope="row ">M en C Sánchez Guerra José Isaac</th>
+                                    <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
+                                </tr>
+                                <tr>
+                                    <th class="nombre py-2" scope="row ">Lic. Simón Farfán Karina</th>
+                                    <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
+                                </tr>
+                                <tr>
+                                    <th class="nombre py-2" scope="row ">M. en C. Vázquez Salazar María Guadalupe</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                             </tbody>
