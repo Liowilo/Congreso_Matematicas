@@ -182,36 +182,30 @@ $colorHex = $rowColor['color_congreso'];
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <th class="nombre py-2" scope="row">Dr. Ricardo Gaitán Lozano</th>
+                                    <td class="institucionI py-2">Facultad de Estudios Superiores Cuautitlán</td>
+                                    <td class="pais py-2">Colombia</td>
+                                </tr>
                                 <tr class="table-warning">
-                                    <th class="nombre py-2" scope="row">Dra. Crespo Crespo Cecilia</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Italo Francisco Curcio</th>
+                                    <td class="institucionI py-2">Universidade Presbiteriana Mackenzie</td>
+                                    <td class="pais py-2">Brasil</td>
+                                </tr>
+                                <tr>
+                                    <th class="nombre py-2" scope="row">Dra. Cecilia Crespo Crespo</th>
                                     <td class="institucionI py-2">Instituto Nacional Superior del Profesorado Técnico. UTN</td>
                                     <td class="pais py-2">Argentina</td>
                                 </tr>
-                                <tr>
-                                    <th class="nombre py-2" scope="row">Dr. Gaitán Lozano Ricardo</th>
-                                    <td class="institucionI py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                    <td class="pais py-2">Colombia</td>
-                                </tr>
                                 <tr class="table-warning">
-                                    <th class="nombre py-2" scope="row">Dra. López Iñesta Emilia</th>
-                                    <td class="institucionI py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                    <td class="pais py-2">España</td>
-                                </tr>
-                                <tr>
-                                    <th class="nombre py-2" scope="row">Dra. Mota Villegas Dorenis Josefina </th>
+                                    <th class="nombre py-2" scope="row ">Mtro. Ricardo Enrique Valle Pereira</th>
                                     <td class="institucionI py-2">Universidad Simón Bolívar (México)</td>
                                     <td class="pais py-2">Venezuela</td>
                                 </tr>
-                                <tr class="table-warning">
-                                    <th class="nombre py-2" scope="row ">Rendón Mesa Paula Andrea</th>
-                                    <td class="institucionI py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                    <td class="pais py-2">Colombia</td>
-                                </tr>
-                               
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dra. Reyes Gasperini Daniela </th>
-                                    <td class="institucionI py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                    <td class="pais py-2">Argentina</td>
+                                    <th class="nombre py-2" scope="row">Dra. Dorenis Josefina Mota Villegas</th>
+                                    <td class="institucionI py-2">Universidad Simón Bolívar (México)</td>
+                                    <td class="pais py-2">Venezuela</td>
                                 </tr>
                             </tbody>
                         </table>
