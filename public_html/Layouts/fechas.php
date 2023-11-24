@@ -3,7 +3,7 @@
         <div class="centrico col-md-4 text-center texto-sm border border-success 
         p-2 border-opacity-10 rounded d-sm-block col-sm-6">
             <div class="div p-4" style="font-size: 22px;">
-                <h4 style="font-size: 36px;">Fechas importantes:</h4> <br>
+                <h4 style="font-size: 36px;">Fechas importantes</h4> <br>
                     <?php
 
                     /*
@@ -75,21 +75,19 @@
 
                     $result = $conexion->query($sql);
 
-                    
-
                     $meses = array(
-                        1 => 'Enero',
-                        2 => 'Febrero',
-                        3 => 'Marzo',
-                        4 => 'Abril',
-                        5 => 'Mayo',
-                        6 => 'Junio',
-                        7 => 'Julio',
-                        8 => 'Agosto',
-                        9 => 'Septiembre',
-                        10 => 'Octubre',
-                        11 => 'Noviembre',
-                        12 => 'Diciembre'
+                        1 => 'enero',
+                        2 => 'febrero',
+                        3 => 'marzo',
+                        4 => 'abril',
+                        5 => 'mayo',
+                        6 => 'junio',
+                        7 => 'julio',
+                        8 => 'agosto',
+                        9 => 'septiembre',
+                        10 => 'octubre',
+                        11 => 'noviembre',
+                        12 => 'diciembre'
                     );
         
                     $fecha_c = date('Y-m-d');
@@ -145,7 +143,7 @@
 
                                 }
                                 
-                                echo '<hr><b>'.$d_evento.'</b><br><br><em>'.$date_range.'</em><br><br>';
+                                echo '<hr><b>'.ucfirst(mb_strtolower($d_evento)).'</b><br><br><em>'.$date_range.'</em><br><br>';
 
                                 if($contador >= $limite_post){
                                     break;

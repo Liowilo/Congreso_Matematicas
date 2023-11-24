@@ -28,7 +28,7 @@ if(isset($_POST['restablecerContrasena'])){
         $estCodigo=mysqli_query($conexion,$nuevoCodigo);
                         
         require '../../librerias/PHPMailer/src/correoRecuperacionContrasena.php';
-        $info='Se ha enviado el correo de Recuperacion';
+        $info='Se ha enviado el correo de recuperación.';
         //Muestra si el registro fue exitoso y lo muestra en información.
         $_SESSION['info'] = $info;
         header('Location: ../../components/recuperarContrasena/verificacion.php');

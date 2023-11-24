@@ -71,7 +71,7 @@ require "../../components/avisoPrivacidad/correoCongreso.php";
         <ul>
             <li>Anuncios visibles en la FES CUAUTITLÁN UNAM;</li>
             <li>Trípticos o folletos disponibles en nuestras instalaciones;</li>
-            <li>El sitio web oficial de la FESC UNAM, <a href="http://www.cuautitlan.unam.mx/">http://www.cuautitlan.unam.mx/</a>;</li>
+            <li>El sitio web oficial de la FESC UNAM, <a href="http://www.cuautitlan.unam.mx/">http://www.cuautitlan.unam.mx/</a></li>
             <li>Correo electrónico institucional o el que usted nos haya proporcionado.</li>
         </ul>
 

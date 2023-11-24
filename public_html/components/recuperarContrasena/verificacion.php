@@ -61,7 +61,7 @@
                     }
                     ?>
                     <label for="codigoVerificaion" class="form-label">Código de verificación</label>
-                    <input type="text" class="form-control input mb-3" id="codigoVerificaion" name="codigoVerificaion" autocomplete="off" placeholder="codigo">
+                    <input type="text" class="form-control input mb-3" id="codigoVerificaion" name="codigoVerificaion" autocomplete="off" placeholder="Ingresa el código de verificación">
                     <label for="contrasena" class="form-label">Nueva contraseña</label>
                     <input type="password" class="form-control input mb-3" id="contrasena" name="contrasena" autocomplete="off" placeholder="Escribe tu nueva contraseña" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z\d!@#$%^&*()_+\-]{8,}$" required>
                     <div class="instruccion">
@@ -73,14 +73,14 @@
                             <li id="reqMayuscula">Una letra mayúscula</li>
                         </ul>
                     </div>
-                    <label for="verificarContrasena" class="form-label">Verificar Contraseña</label>
+                    <label for="verificarContrasena" class="form-label">Verificar contraseña</label>
                     <input type="password" class="form-control input mb-3" id="verificarContrasena" name="verificarContrasena" placeholder="Escribe tu nueva contraseña" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-])[A-Za-z\d!@#$%^&*()_+\-]{8,}$" required>
                     <div class="row">
                         <div class="col-4 mt-4">
                             <a href="/desarrollo/components/crearCuenta/cuenta.php"><img id="volver" class="volver" src="../../src/back.png" onclick="" data-placement="right">Volver</a>
                         </div>
                         <div class="col-8">
-                            <button name="verificar" id="verificar" type="submit" class="btn btn boton mt-4" disabled>Verificar codigo</button>
+                            <button name="verificar" id="verificar" type="submit" class="btn btn boton mt-4" disabled>Verificar código</button>
                         </div>
                     </div>
                 </form>

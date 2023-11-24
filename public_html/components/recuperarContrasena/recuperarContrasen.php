@@ -20,7 +20,7 @@
             <div class="col">
             </div>
             <div class="col-md-12 col-lg-5 col-xl-5 formulario_container">
-                <h1 class="">Restablecer Contraseña</h1>
+                <h1 class="">Restablecer contraseña</h1>
                 <hr class="mb-4" />
                 <?php
                 require 'recuperarContrasena.php';
@@ -49,9 +49,9 @@
                 <p class="instruccion">Escriba su correo electrónico y, en caso de tener una cuenta, recibirá
                     instrucciones para restablecer su contraseña.</p>
                 <form id="formulario" class="formulario" action="recuperarContrasena.php" method="POST">
-                    <label for="correoElectronico" class="form-label">Correo Electronico</label>
+                    <label for="correoElectronico" class="form-label">Correo electrónico</label>
                     <input type="text" class="form-control input mb-3" id="correoElectronico" name="correoElectronico"
-                        placeholder="Escribe tu correo" onkeypress="return validarCorreo(event)">
+                        placeholder="Escribe tu correo" onkeypress="return validarCorreo(event)" required>
                     <div class="row">
                         <div class="col-4 mt-4">
                             <a href="#!" onclick="history.back()"><img id="volver" class="volver"
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-8">
                             <button id="restablecerContrasena" name="restablecerContrasena" type="submit"
-                                class="btn btn boton mt-4">Restablecer Contraseña</button>
+                                class="btn btn boton mt-4">Restablecer contraseña</button>
                         </div>
                     </div>
                 </form>
