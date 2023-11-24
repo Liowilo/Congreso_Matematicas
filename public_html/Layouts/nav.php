@@ -81,12 +81,14 @@ $congresoNombre = $rowNombre['nombre_congreso'];
         </a>
         <ul class="dropdown-menu super">
 
-        <li><a class="dropdown-item disabled" href="">Ponencias orales</a></li>
-          <li><a class="dropdown-item disabled" href="">Talleres</a></li>
-          <li><a class="dropdown-item disabled" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
-          <li><a class="dropdown-item disabled" href="">Exposición de prototipos y proyectos de IA</a></li>
-          <li><a class="dropdown-item disabled" href="">Mesa redonda</a></li>
-          <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias magistrales</a></li>
+        <li><a class="dropdown-item" href="/desarrollo/components/ponenciasOrales/ponenciasOrales.php">Ponencias orales</a></li>
+          <li><a class="dropdown-item" href="">Talleres</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
+          <!-- <li><a class="dropdown-item disabled" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li> -->
+          <li><a class="dropdown-item" href="">Presentación de prototipos y proyectos de IA</a></li>
+          <li><a class="dropdown-item" href="">Mesa redonda</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Conferencias magistrales</a></li>
+          <!-- <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias magistrales</a></li> -->
 
          <!--  <li><a class="dropdown-item " href="../../components/actividadesCategorias/categorias.php">Categorias</a></li>  -->
 
