@@ -25,7 +25,7 @@ $fechaActual = date('Y-m-d');
 
 // Contenido del correo electrónico y configuración de la cuenta para envío de correo
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISEMAT";
 $mail->Subject = "Actualización de trabajo: " . $tituloPonencia;
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';

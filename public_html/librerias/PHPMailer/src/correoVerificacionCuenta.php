@@ -22,7 +22,7 @@ $mail->Password = $hashContra;
 
 // Contenido del correo electrónico y configuración de la cuenta para envío de correo
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISEMAT";
 $mail->Subject = "Verificación de correo electrónico";
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';

@@ -24,7 +24,7 @@ $mail->Password = $hashContra;
 ///contenido del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISEMAT";
 $mail->Subject = "Evaluacion de propuesta";
 
 //mensaje en html 

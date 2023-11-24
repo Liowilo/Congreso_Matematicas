@@ -23,7 +23,7 @@ $mail->Password = "rsdxrhmuwdcovefj";
 ///contenifdo del correro electronico y configuracion de la cuenta 
 /// para envio de correo
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISEMAT";
 $mail->Subject = "Evaluación resumen";
 
 //mensaje en html 
