@@ -46,80 +46,68 @@ $colorHex = $rowColor['color_congreso'];
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th class="nombre py-2" scope="row">Dr. José Juan Contreras Espinosa</th>
+                               <tr>
+                                    <th class="nombre py-2" scope="row">Dr. Aguilar Márquez Armando</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dra. Celina Elena Urrutia Vargas</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Altamira Ibarra Jorge</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Dr. Armando Aguilar Márquez</th>
+                                    <th class="nombre py-2" scope="row">Dr. Contreras Espinosa José Juan</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dra. Frida María León Rodríguez</th>
+                                    <th class="nombre py-2" scope="row ">Dra. Cruz Sánchez Claudia</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Dr. José Luz Hernández Castillo</th>
+                                    <th class="nombre py-2" scope="row">Dr. García León Omar</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Jorge Altamira Ibarra</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Hernández Castillo José Luz</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">M. en I. Miguel de Nazareth Pineda Becerril</th>
+                                    <th class="nombre py-2" scope="row">Dr. Hernández Gómez Víctor Hugo</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Leonel Gualberto López Salazar</th>
+                                    <th class="nombre py-2" scope="row ">Dra. León Rodríguez Frida María</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Dr. Carlos Oropeza Legorreta</th>
+                                    <th class="nombre py-2" scope="row">Dr. López Salazar Leonel Gualberto</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Omar García León</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Oropeza Legorreta Carlos</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Ing. José Juan Rico Castro</th>
+                                    <th class="nombre py-2" scope="row">M. en I. Pineda Becerril Miguel de Nazareth</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Rogelio Ramos Carranza</th>
+                                    <th class="nombre py-2" scope="row ">Ing. Rico Castro José Juan</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">Dr. Víctor Hugo Hernández Gómez</th>
+                                    <th class="nombre py-2" scope="row">Dra. Rigaud Telllez Nelly</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Julio Moisés Sánchez Barrera</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Roldán Vázquez Valentín</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row">M. en C. José Isaac Sánchez Guerra</th>
+                                    <th class="nombre py-2" scope="row">Dr. Sánchez Barrera Julio Moisés</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                                 <tr>
-                                    <th class="nombre py-2" scope="row ">Dr. Hugo Sánchez Nava</th>
-                                    <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                </tr>
-                                <tr>
-                                    <th class="nombre py-2" scope="row">M.A.O. Martha Lilia Urrutia Vargas</th>
-                                    <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                </tr>
-                                <tr>
-                                    <th class="nombre py-2" scope="row ">L.D.C.V Karina Simón Farfán</th>
-                                    <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
-                                </tr>
-                                <tr>
-                                    <th class="nombre py-2" scope="row">Dr. Valentín Roldán Vázquez</th>
+                                    <th class="nombre py-2" scope="row ">Dr. Sánchez Nava Hugo</th>
                                     <td class="institucion py-2">Facultad de Estudios Superiores Cuautitlán</td>
                                 </tr>
                             </tbody>
