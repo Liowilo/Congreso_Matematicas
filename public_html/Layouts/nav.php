@@ -205,15 +205,5 @@ $congresoNombre = $rowNombre['nombre_congreso'];
   </div>
   </div>
 </nav>
-<!-- Cargar jQuery primero -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-<!-- Luego, cargar Bootstrap 5 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    jQuery.noConflict();
-    jQuery(document).ready(function($) {
-        // Tu código de jQuery aquí  
-        console.log("jQuery y Bootstrap están cargados correctamente.");
-    });
-</script>
+
