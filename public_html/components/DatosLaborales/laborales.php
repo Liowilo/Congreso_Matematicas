@@ -64,6 +64,11 @@ $countryIds = array_unique(array_column($data, 'CountryID'));
 
 <body>
     <header>
+        <!-- Cargar jQuery primero -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <!-- Luego, cargar Bootstrap 5 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
         <?php
         require_once('../../Layouts/nav.php');
         require '../../modelo/completarPerfil.php';
@@ -241,12 +246,17 @@ $countryIds = array_unique(array_column($data, 'CountryID'));
                                     }
                                     ?>
 
-                                    <strong style="font-size: 20px;">¿No encontraste tu institución? Envía correo a: <br> <br>
-                                        <a class="text-secondary" style="text-decoration:none; font-size:16px;" id="correo" href="mailto:<?php echo $correoEscapado; ?>">
+                                    <strong style="font-size: 20px;">¿No encontraste tu institución? Envía correo a:
+                                        <br> <br>
+                                        <a class="text-secondary" style="text-decoration:none; font-size:16px;"
+                                            id="correo" href="mailto:<?php echo $correoEscapado; ?>">
                                             <?php echo $correoEscapado; ?>
                                         </a><br><br>
                                     </strong>
-                                    <p style="font-size: 18px;">Con el asunto: <b>"SOLICITUD REGISTRO DE INSTITUCIÓN"</b> y nombre completo de la institución para registrarla en el congreso. Una vez completado el registro de la institución podrás terminar de completar los datos laborales.</p>
+                                    <p style="font-size: 18px;">Con el asunto: <b>"SOLICITUD REGISTRO DE
+                                            INSTITUCIÓN"</b> y nombre completo de la institución para registrarla en el
+                                        congreso. Una vez completado el registro de la institución podrás terminar de
+                                        completar los datos laborales.</p>
                                 </div>
                                 <!--  PARTEL DEL PARCHE OTRA INSTITUCIÓN 
 

@@ -23,19 +23,20 @@ $_SESSION['estadoPrivilegio'] = $estadoPrivilegio;
 
 foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
     if ($valor == 43 && $estado == 'ON') {
-?>
+        ?>
         <!DOCTYPE html>
         <html lang="es">
 
         <head>
             <?php
-		        require_once('../../Layouts/iconoCongresoLink.php');
-	        ?>
+            require_once('../../Layouts/iconoCongresoLink.php');
+            ?>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Reportes</title>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
             <link rel="stylesheet" href="../../styles.css">
             <link rel="stylesheet" href="../../Layouts/NavbarYPestaña/pestaña.css">
             <link rel="stylesheet" href="./admin.css">
@@ -44,6 +45,11 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
         </head>
 
         <body>
+            <!-- Cargar jQuery primero -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Luego, cargar Bootstrap 5 -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
             <header>
                 <?php
                 require_once('../../Layouts/nav.php');
@@ -75,59 +81,59 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 
                         </div>
                         <!----------------------------------script para exportar a excel------------------------------->
-                        <script>
-                            function exportTableToExcel(tableID, filename = '') {
-                                var downloadLink;
-                                var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-                                var tableSelect = document.getElementById(tableID);
+                <script>
+                    function exportTableToExcel(tableID, filename = '') {
+                        var downloadLink;
+                        var dataType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+                        var tableSelect = document.getElementById(tableID);
 
-                                tableSelect.setAttribute('lang', 'es');
+                        tableSelect.setAttribute('lang', 'es');
 
-                                var workbook = XLSX.utils.book_new();
+                        var workbook = XLSX.utils.book_new();
 
-                                var worksheet = XLSX.utils.table_to_sheet(tableSelect);
+                        var worksheet = XLSX.utils.table_to_sheet(tableSelect);
 
-                                XLSX.utils.book_append_sheet(workbook, worksheet, 'Hoja 1');
+                        XLSX.utils.book_append_sheet(workbook, worksheet, 'Hoja 1');
 
-                                var xlsxFile = XLSX.write(workbook, {
-                                    bookType: 'xlsx',
-                                    type: 'binary'
-                                });
+                        var xlsxFile = XLSX.write(workbook, {
+                            bookType: 'xlsx',
+                            type: 'binary'
+                        });
 
-                                var byteArray = new Uint8Array(xlsxFile.length);
-                                for (var i = 0; i < xlsxFile.length; i++) {
-                                    byteArray[i] = xlsxFile.charCodeAt(i) & 0xFF;
-                                }
+                        var byteArray = new Uint8Array(xlsxFile.length);
+                        for (var i = 0; i < xlsxFile.length; i++) {
+                            byteArray[i] = xlsxFile.charCodeAt(i) & 0xFF;
+                        }
 
-                                var blob = new Blob([byteArray], {
-                                    type: dataType
-                                });
+                        var blob = new Blob([byteArray], {
+                            type: dataType
+                        });
 
-                                filename = filename ? filename + '.xlsx' : 'excel_data.xlsx';
+                        filename = filename ? filename + '.xlsx' : 'excel_data.xlsx';
 
-                                downloadLink = document.createElement("a");
+                        downloadLink = document.createElement("a");
 
-                                document.body.appendChild(downloadLink);
+                        document.body.appendChild(downloadLink);
 
-                                if (navigator.msSaveOrOpenBlob) {
-                                    navigator.msSaveOrOpenBlob(blob, filename);
-                                } else {
-                                    downloadLink.href = URL.createObjectURL(blob);
+                        if (navigator.msSaveOrOpenBlob) {
+                            navigator.msSaveOrOpenBlob(blob, filename);
+                        } else {
+                            downloadLink.href = URL.createObjectURL(blob);
 
-                                    downloadLink.download = filename;
+                            downloadLink.download = filename;
 
-                                    downloadLink.click();
-                                }
-                            }
-                        </script>
-                        <!-------------------------------------------------------------------------------------------->
+                            downloadLink.click();
+                        }
+                    }
+                </script>
+                <!-------------------------------------------------------------------------------------------->
                         <hr>
 
 
 
 
                         <!----------------------------------------------------------------------------------------------->
-                    </div><!--container-->
+            </div><!--container-->
                 </div><!--col-10-->
             </div><!--row-->
             </div><!--fluid-->
@@ -138,12 +144,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             </footer>
 
             <script src="admin.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+                crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
         </body>
 
         </html>
-<?php
+        <?php
     } // Cierre del if
 } // Cierre del foreach
 ?>
