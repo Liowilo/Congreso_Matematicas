@@ -179,8 +179,8 @@
 
 
 
-                    <div id="rcaptcha" data-callback="validarCaptcha" class="g-recaptcha my-3"></div>
-
+                    <!-- <div id="rcaptcha" data-callback="validarCaptcha" class="g-recaptcha my-3"></div> -->
+                    <div id="rcaptcha" data-callback="validarCaptcha" class="g-recaptcha my-3" data-sitekey="6LcELiEpAAAAAErU0beIwb2pkBdOQSHhOUOc6pFX"></div>
 
                     <!--Grupo Tienes cuenta-->
                     <div class="mb-1 contenedor_link">
@@ -219,7 +219,8 @@
 
     <script src="cuenta.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer> -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </script>
 
 </body>

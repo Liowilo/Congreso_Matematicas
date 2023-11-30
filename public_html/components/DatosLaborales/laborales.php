@@ -241,11 +241,12 @@ $countryIds = array_unique(array_column($data, 'CountryID'));
                                     }
                                     ?>
 
-                                    <strong>¿NO ENCONTRASTE TU INSTITUCIÓN? ENVÍA UN CORREO A
-                                        <a id="correo" href="mailto:<?php echo $correoEscapado; ?>">
+                                    <strong style="font-size: 20px;">¿No encontraste tu institución? Envía correo a: <br> <br>
+                                        <a class="text-secondary" style="text-decoration:none; font-size:16px;" id="correo" href="mailto:<?php echo $correoEscapado; ?>">
                                             <?php echo $correoEscapado; ?>
-                                        </a>
+                                        </a><br><br>
                                     </strong>
+                                    <p style="font-size: 18px;">Con el asunto: <b>"SOLICITUD REGISTRO DE INSTITUCIÓN"</b> y nombre completo de la institución para registrarla en el congreso. Una vez completado el registro de la institución podrás terminar de completar los datos laborales.</p>
                                 </div>
                                 <!--  PARTEL DEL PARCHE OTRA INSTITUCIÓN 
 
