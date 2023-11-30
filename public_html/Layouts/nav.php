@@ -82,12 +82,12 @@ $congresoNombre = $rowNombre['nombre_congreso'];
         <ul class="dropdown-menu super">
 
         <li><a class="dropdown-item" href="/desarrollo/components/ponenciasOrales/ponenciasOrales.php">Ponencias orales</a></li>
-          <li><a class="dropdown-item" href="">Talleres</a></li>
-          <li><a class="dropdown-item" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/Talleres/talleres.php">Talleres</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/ConcursodeCarteles/concursoCarteles.php">Concurso de carteles</a></li>
           <!-- <li><a class="dropdown-item disabled" href="/desarrollo/components/actividadesConcursoC/concursoC.php">Concurso de carteles</a></li> -->
-          <li><a class="dropdown-item" href="">Presentación de prototipos y proyectos de IA</a></li>
-          <li><a class="dropdown-item" href="">Mesa redonda</a></li>
-          <li><a class="dropdown-item" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Conferencias magistrales</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/PrototiposyProyectos/prototiposyp.php">Presentación de prototipos robóticos y aplicaciones de IA</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/MesaRedonda/mesaRedonda.php">Mesa redonda</a></li>
+          <li><a class="dropdown-item" href="/desarrollo/components/ConferenciasMagistrales/conferenciasMagistrales.php">Conferencias magistrales</a></li>
           <!-- <li><a class="dropdown-item disabled" href="/desarrollo/components/programaMagistrales/programaMagistral.php">Ponencias magistrales</a></li> -->
 
          <!--  <li><a class="dropdown-item " href="../../components/actividadesCategorias/categorias.php">Categorias</a></li>  -->
