@@ -22,6 +22,7 @@ $mail->Port = 465;
 $email= $correoCongreso;
 $mail->Username = $email;
 $mail->Password = $hashContra;
+$mensaje = '';
 
 // Obtener ID de la ponencia a eliminar
 $idPonencia = $_GET['id'];
@@ -160,10 +161,9 @@ $mail->Subject = "Se ha eliminado el trabajo " . $nombrePonencia;
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISETAM";
 $mail->Send();
 $mail->ClearAddresses();
-
 
 
 if (isset($_GET['id'])) {
@@ -183,8 +183,6 @@ if (isset($_GET['id'])) {
     echo "ID de ponencia no válido.";
 }
 
-$info = "ELIMINACIÓN de trabajo exitoso. Se ha enviado un correo electrónico al autor y a los coautores (si existen) con la información del registro.";
+$info = "<script>alert(\" Eliminacíón de trabajo exitoso. Se ha enviado un correo electrónico al autor y coautores.\");window.location='../../components/TrabajosRegistrados/trabajosRegistrados.php';</script>";
 echo $info;
-
-header("Location: ../../components/TrabajosRegistrados/trabajosRegistrados.php");
 ?>
