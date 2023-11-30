@@ -161,7 +161,7 @@ $mail->Subject = "Se ha eliminado el trabajo " . $nombrePonencia;
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $mail->From = $email;
-$mail->FromName = "CISETAM";
+$mail->FromName = "CISEMAT";
 $mail->Send();
 $mail->ClearAddresses();
 

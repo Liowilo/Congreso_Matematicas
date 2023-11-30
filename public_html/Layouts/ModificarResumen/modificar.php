@@ -233,7 +233,7 @@ $mail->Subject = "Se ha modificado el trabajo " . $nombrePonencia;
 $mail->isHTML(true);
 $mail->CharSet = 'UTF-8';
 $mail->From = $email;
-$mail->FromName = "CISEyAM";
+$mail->FromName = "CISEMAT";
 $mail->Send();
 $mail->ClearAddresses();
 
