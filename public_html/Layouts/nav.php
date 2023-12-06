@@ -57,7 +57,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
           <li><a class="dropdown-item " href="../../components/registroInscripcion/inscripcion.php">Inscripción</a></li>
           <li><a class="dropdown-item " href="../../components/Lugar/lugar.php">Lugar</a></li>
           <li><a class="dropdown-item " href="../../components/registroCuotas/cuotas.php">Cuotas</a></li>
-          <li><a class="dropdown-item " href="../../components/GuiasYPlantillas/guias.php">Guias</a></li>
+          <li><a class="dropdown-item " href="../../components/GuiasYPlantillas/guias.php">Guías</a></li>
           <li><a class="dropdown-item " href="../../components/acercaDe/acercaDe.php">Acerca de...</a></li>
           <li><a class="dropdown-item " href="../../components/avisoPrivacidad/avisoPrivacidad.php">Aviso de
               privacidad</a></li>
@@ -113,7 +113,7 @@ $congresoNombre = $rowNombre['nombre_congreso'];
         <ul class="dropdown-menu super">
           <li><a class="dropdown-item " href="../../components/organizadoresComites/cOrganizador.php">Comite
               organizador</a></li>
-          <li><a class="dropdown-item " href="../../components/organizadoresComites/cTecnico.php">Comite tecnico</a>
+          <li><a class="dropdown-item " href="../../components/organizadoresComites/cTecnico.php">Comite técnico</a>
           </li>
           <li><a class="dropdown-item " href="../../components/organizadoresComites/cEvaluador.php">Comite evaluador</a>
           </li>
