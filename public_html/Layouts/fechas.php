@@ -104,7 +104,7 @@
 
                             
                             //Selecciona la fecha más cercana
-                            if(strtotime($fecha_c) <= strtotime($fecha_i) && strtotime($fecha_c) <= strtotime($fecha_f)){
+                            if(strtotime($fecha_c) <= strtotime($fecha_f)){
 
                                 $contador = $contador + 1;
 
