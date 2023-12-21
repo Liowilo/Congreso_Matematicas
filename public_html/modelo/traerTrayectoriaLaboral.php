@@ -10,7 +10,7 @@
 
 require "conexion.php";
 
-$datosTrayectoriaLaboral = "SELECT * FROM institucion";
+$datosTrayectoriaLaboral = "SELECT * FROM institucion ORDER BY nombre_institucion";
 $resTrayectoriaLaboral = mysqli_query($conexion, $datosTrayectoriaLaboral);
 
 $consPais = "SELECT * FROM countries";
