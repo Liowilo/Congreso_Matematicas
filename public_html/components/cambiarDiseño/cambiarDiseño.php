@@ -33,8 +33,8 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 
         <head>
             <?php
-		        require_once('../../Layouts/iconoCongresoLink.php');
-	        ?>
+            require_once('../../Layouts/iconoCongresoLink.php');
+            ?>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,12 +45,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             <link rel="stylesheet" href="../../components/cambiarDiseño/cambiarDiseño.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-fbnYnJt1BfFj/tKuWELG5S7tv+20a2OvEgduPJi1d0zDAtMDodhQKgX8hKfQIP3z" crossorigin="anonymous">
             <link rel="stylesheet" href="./disact.css">
-            <style>
-
-            </style>
         </head>
 
         <body>
+            <!-- Cargar jQuery primero -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Luego, cargar Bootstrap 5 -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
             <header>
                 <?php
                 require_once('../../Layouts/nav.php');
