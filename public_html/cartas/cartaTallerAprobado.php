@@ -2,7 +2,7 @@
  
 require('fpdf/fpdf.php');
 //require('script/conexion.php');
-header("Content-Type: text/html; charset=iso-8859-1 ");
+// header("Content-Type: text/html; charset=iso-8859-1 ");
  
 class PDF extends FPDF
 {
@@ -43,11 +43,9 @@ class PDF extends FPDF
 
          $this->Line(10,60,200,60);
         //logo del congreso dentro de lineas
-     $conexion = mysqli_connect("localhost","desarrollo","Desarrollo","desarrollo");
- 				$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
-				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
-				$rowImagen6 = $traerIMG6->fetch_assoc();
-				$logo = $rowImagen6['banner_congreso'];
+        
+        require_once 'traerImagenes.php';
+
         $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
         
         
@@ -89,14 +87,14 @@ class PDF extends FPDF
 }
 
    
-$id = $idPonencia;
-$titulo = $titulo_trabajo;
-$modalidad = $id_modalidad;
-$categoria = $id_categoria;
-$rfc = $RFC;
-$aceptado = $comentarioGeneral;
-$nombre = $nombre_usuario;
-$apellidos= $apellidos_usuario;
+// $id = $idPonencia;
+// $titulo = $titulo_trabajo;
+// $modalidad = $id_modalidad;
+// $categoria = $id_categoria;
+// $rfc = $RFC;
+// $aceptado = $comentarioGeneral;
+// $nombre = $nombre_usuario;
+// $apellidos= $apellidos_usuario;
 
     $h = date("j-m-Y");  // Fecha actual
    $h2 = date("G:i:s");  // Hora actual en 24 hr
@@ -106,19 +104,29 @@ $apellidos= $apellidos_usuario;
         //$pdf -> SetLeftMargin(30);
         $pdf->AddPage('P', 'Letter'); 
 
-$pdf ->Text(180,64, utf8_decode($id));    
+$pdf ->Text(180,64, utf8_decode($idPonencia));    
 //
  $pdf -> SetXY(10,71);
-for ($i=0; $i < 5 ; $i++) { 
+// for ($i=0; $i < 5 ; $i++) { 
     
-    $pdf -> MultiCell(80,5, utf8_decode($primerap[$i].' '.$segundoap[$i].' '.$nombre[$i]),0,'L');
+    $pdf -> MultiCell(80,5, utf8_decode($nombre_usuario.' '.$apellidos_usuario),0,'L');
+    if(count($coautores)!=0){
+        for ($i=0; $i <=count($coautores)-1; $i++) { 
+        $nombresCoautor=$coautores[$i]["nombres"];
+        $apellidosCoautor=$coautores[$i]["apellidos"];
+        $emailCoautor=$coautores[$i]["email"];
+    
+        $pdf -> MultiCell(80,5, utf8_decode($nombresCoautor.' '.$apellidosCoautor),0,'L');
+        //$pdf -> Ln(1);
+    }
+    }
     //$pdf -> Ln(1);
-}
+// }
 //$pdf->Text(10,75, utf8_decode($rfc));
 $pdf ->SetXY(10,106);
-$pdf ->MultiCell(0,3,utf8_decode($titulo), 0, 'L');
+$pdf ->MultiCell(0,3,utf8_decode($titulo_trabajo), 0, 'L');
 $pdf ->SetXY(10,126);
-$pdf ->MultiCell(0,3, utf8_decode($aceptado),0, 'L');
+$pdf ->MultiCell(0,3, utf8_decode($comentarioGeneral),0, 'L');
 
 $pdf ->SetXY(65,240);
 $pdf ->MultiCell(0,3, utf8_decode('Cuautitlán Izcalli, Edo. de México. '.$h.'  '.$h2),0, 'L');
@@ -126,9 +134,9 @@ $pdf ->MultiCell(0,3, utf8_decode('Cuautitlán Izcalli, Edo. de México. '.$h.' 
 
 //$pdf->Output('mipdf.pdf','d');    
 
-    $pdf->Output('extensos/'.$id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
+    $pdf->Output('../../cartas/resumen/'.$idPonencia.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
 
-if(isset($mysql))
+// if(isset($mysql))
     //$mysql->close();    
-header("location: index.php");              
+// header("location: index.php");              
 ?>

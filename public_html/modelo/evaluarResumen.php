@@ -30,14 +30,43 @@
             //Campos de la revision
             $comentarioGeneral=mysqli_real_escape_string($conexion,$_POST["comentarioGeneral"]);
             $idRevision=$fetchUsuarioRevisionPonencia['id_revision'];
-            $updRevision="UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='A', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
-            $resRevision=mysqli_query($conexion,$updRevision);
+            // $updRevision="UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='A', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
+            // $resRevision=mysqli_query($conexion,$updRevision);
 
-            require_once ('../../cartas/cartaResumenPonenciaAprobado.php');
-            require_once ('../../librerias/PHPMailer/src/correoAceptacionResumen.php');
+            $tipoTrabajoEvaluado = substr($idPonencia, 3, 2);
+            $confirmacionCorreo = '';
 
-            $info = "Se ha evaluado el RESUMEN con estatus de APROBADO. Se ha enviado un correo electrónico al autor del trabajo.";
-            $_SESSION['info'] = $info;
+            if($tipoTrabajoEvaluado == 'CA'){
+                require_once ('../../cartas/cartaCartelAprobado.php');
+                $confirmacionCorreo = 'ON';
+            } 
+            
+            if($tipoTrabajoEvaluado == 'TA'){
+                require_once ('../../cartas/cartaTallerAprobado.php');
+                $confirmacionCorreo = 'ON';
+            } 
+
+            if($tipoTrabajoEvaluado == 'PO'){
+                require_once ('../../cartas/cartaResumenPonenciaAprobado.php');
+                $confirmacionCorreo = 'ON';
+            }
+
+            if($confirmacionCorreo == 'ON'){
+                require_once ('../../librerias/PHPMailer/src/correoAceptacionResumen.php');
+                $info = "Se ha evaluado el RESUMEN con estatus de APROBADO. Se ha enviado un correo electrónico al autor del trabajo.";
+                $_SESSION['info'] = $info;
+            } else {
+                $info = "Error al evaluar el trabajo. Comunicate con el administrador a través del correo del congreso.";
+                $_SESSION['info'] = $info;
+            }
+            
+            
+
+            // require_once ('../../cartas/cartaResumenPonenciaAprobado.php');
+            // require_once ('../../librerias/PHPMailer/src/correoAceptacionResumen.php');
+
+            // $info = "Se ha evaluado el RESUMEN con estatus de APROBADO. Se ha enviado un correo electrónico al autor del trabajo.";
+            // $_SESSION['info'] = $info;
 
         
         }

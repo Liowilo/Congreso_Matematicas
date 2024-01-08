@@ -1,8 +1,8 @@
 <?php
 
-require('../../librerias/fpdf/fpdf.php');
+require('fpdf/fpdf.php');
 //require('script/conexion.php');
-header("Content-Type: text/html; charset=iso-8859-1 ");
+// header("Content-Type: text/html; charset=iso-8859-1 ");
  
 $id = $idPonencia;
 $titulo = $titulo_trabajo;
@@ -28,11 +28,8 @@ class PDF extends FPDF
         
         $this->SetFont('Arial','B',9);
  
-    $conexion = mysqli_connect("localhost","desarrollo","Desarrollo","desarrollo");
- 			$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
-				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
-				$rowImagen6 = $traerIMG6->fetch_assoc();
-				$logo = $rowImagen6['banner_congreso'];
+        require_once 'traerImagenes.php';
+ 			
 			
         $this->Line(10,60,200,60);
         //logo del congreso dentro de lineas
@@ -73,7 +70,7 @@ class PDF extends FPDF
  
     $pdf = new PDF();             
     $pdf->AddPage('P', 'Letter'); 
-    $pdf ->Text(180,64, utf8_decode($idPonencia)); 
+    $pdf ->Text(176,64, utf8_decode($idPonencia)); 
 
     $pdf -> SetXY(10,72);
     
@@ -89,7 +86,8 @@ $pdf ->SetXY(65,240);
 $pdf ->MultiCell(0,3, utf8_decode('Cuautitlán Izcalli, Edo. de México. '.$h.'  '.$h2),0, 'L');
 
 
-$pdf->Output('extensos/'.$id.'.pdf', 'F'); //esta linea guarda el pdf en el navegador
+$pdf->Output('../../cartas/resumen/'.$id.'.pdf','F'); //esta linea guarda el pdf en el navegador
+
 
 
              
