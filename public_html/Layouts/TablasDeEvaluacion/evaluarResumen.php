@@ -57,6 +57,7 @@ if($idPonencia==''){
             </tr>
         </tbody>
     </table>
+    <span id="contadorPalabras"><b></b></span>
     </div>
     <div class="col-2"></div>
 </div>
@@ -85,6 +86,35 @@ if($idPonencia==''){
 <script>
 const formulario=document.getElementById("formulario");
 const inputs=document.querySelectorAll("#formulario");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textarea = document.getElementById("resultado");
+    const contadorPalabras = document.getElementById("contadorPalabras");
+    const rechazarBtn = document.querySelector('input[name="rechazar"]');
+    const aprobarBtn = document.querySelector('input[name="aprobar"]');
+
+    function actualizarContador() {
+        const texto = textarea.value.trim();
+        const palabras = texto === "" ? 0 : texto.split(/\s+/).length;
+
+        contadorPalabras.textContent = `${palabras} de 80`;
+
+        if (palabras > 80) {
+            rechazarBtn.disabled = true;
+            aprobarBtn.disabled = true;
+            contadorPalabras.style.color = 'red';
+        } else {
+            rechazarBtn.disabled = false;
+            aprobarBtn.disabled = false;
+            contadorPalabras.style.color = '';
+        }
+    }
+
+    textarea.addEventListener("input", actualizarContador);
+
+    actualizarContador(); // Actualizar el contador al cargar la página con texto preexistente
+});
 
 
 /*
