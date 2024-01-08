@@ -30,8 +30,10 @@
             //Campos de la revision
             $comentarioGeneral=mysqli_real_escape_string($conexion,$_POST["comentarioGeneral"]);
             $idRevision=$fetchUsuarioRevisionPonencia['id_revision'];
-            // $updRevision="UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='A', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
-            // $resRevision=mysqli_query($conexion,$updRevision);
+
+            // Comentar las siguientes 2 variables para pruebas
+            $updRevision="UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='A', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
+            $resRevision=mysqli_query($conexion,$updRevision);
 
             $tipoTrabajoEvaluado = substr($idPonencia, 3, 2);
             $confirmacionCorreo = '';
