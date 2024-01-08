@@ -49,7 +49,7 @@ if(count($coautores)!=0){
 }
 ///agregar pdf solo utilizar menos de 3megas 
 //ya que de lo contrario el archivo se puede corromper
-$mail->AddAttachment('../../cartas/resumen/'.$idPonencia.'.pdf' , $isPonencia.'.pdf');
+$mail->AddAttachment('../../cartas/resumen/'.$idPonencia.'.pdf' , $idPonencia.'.pdf');
 $mail->IsHTML(true);
 
 $mail->CharSet = 'UTF-8';
