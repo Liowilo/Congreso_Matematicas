@@ -122,6 +122,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         <thead>
                                                             <tr class="table-cabecera">
                                                                 <th scope="col" class="text-wrap">#</th>
+                                                                <th scope="col" class="text-wrap">Trabajo</th>
                                                                 <th scope="col" class="text-wrap">Título</th>
                                                                 <th scope="col" class="text-wrap">Autor</th>
                                                                 <th scope="col" class="text-wrap">Tipo</th>
@@ -218,6 +219,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                                         </div>
                                                                     </th>
                                                                     <td>
+                                                                        <?php echo $idPonencia ?>
+                                                                    </td>
+                                                                    <td>
                                                                         <?php echo $tituloPonencia ?>
                                                                     </td>
                                                                     <td>
@@ -269,6 +273,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <?php endif; ?>
 
                                                     <table class="table">
+
                                                         <thead>
                                                             <tr class="table-cabecera">
                                                                 <th scope="col" class="text-wrap">#</th>
@@ -770,7 +775,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                 </div>
                             </div>
                             <hr>
-                            <!--Totla de trabajos que cuentan con un evaluador-->
+                            <!--Total de trabajos que cuentan con un evaluador-->
                             <div class="container">
                                 <h4>Trabajos Totales con Evaluador </h4>
                                 <div class="row">
@@ -795,7 +800,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                         <table class="table">
                                             <thead>
                                                 <tr class="table-cabecera">
-                                                    <th scope="col" class="text-wrap">#</th>
+                                                    <th scope="col" class="text-wrap">Trabajo</th>
                                                     <th scope="col" class="text-wrap">Título</th>
                                                     <th scope="col" class="text-wrap">Autor</th>
                                                     <th scope="col" class="text-wrap">Tipo</th>
@@ -803,6 +808,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <th scope="col" class="text-wrap">Fecha</th>
                                                     <th scope="col" class="text-wrap">Ver Detalles</th>
                                                     <th scope="col" class="text-wrap">Evaluador</th>
+                                                    <th scope="col" class="text-wrap"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -882,11 +888,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                             $nombreCompletoUsuarioEvalua = '';
                                                         }
                                                         ?>
-                                                        <th scope="row">
-                                                            <!-- <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" id="<?php echo htmlspecialchars($idPonencia) ?>" value="<?php echo htmlspecialchars($idPonencia) ?>" name="checkbox[]">
-                                                            </div>-->
-                                                        </th>
+                                                        <td scope="row">
+                                                            <?php echo $idPonencia ?>
+                                                        </td>
                                                         <td>
                                                             <?php echo $tituloPonencia ?>
                                                         </td>
@@ -907,6 +911,11 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         </td>
                                                         <td>
                                                             <?php echo $nombreCompletoUsuarioEvalua ?>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <button value="<?= $idPonencia ?>" class="btn btn-small btn-danger"
+                                                                type="submit" name="botonDesasignar" id="botonDesasignar">Desasignar
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
