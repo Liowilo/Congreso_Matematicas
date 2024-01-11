@@ -9,15 +9,17 @@ $consTrabajosRegistrados = "SELECT * FROM ponencia WHERE id_congreso='$idCongres
 // CA = CARTELES   PR = PROTOTIPOS |       SE = SIN EVALUADOR
 // PO = PONENCIAS                  |       CE = CON EVALUADOR
 // TA = TALLERES                   |
-$consCARegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'CA'"; //
-$consCARegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'CA'";
-$consPORegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'PO'";
-$consPORegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'PO'";
-$consTARegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'TA'";
-$consTARegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'TA'";
-$consPRRegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'PR'";
-$consPRRegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'PR'";
-$consTrabajosTotCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' and id_usuario_evalua is not null";
+$consCARegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'CA' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC"; //
+$consCARegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'CA' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consPORegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'PO' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consPORegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'PO' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consTARegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'TA' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consTARegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'TA' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consPRRegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'PR' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+$consPRRegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'PR' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
+
+$consTrabajosTotCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' ORDER BY SUBSTRING(id_ponencia, 4, 2) ASC, SUBSTRING(id_ponencia, -3) ASC";
+
 $resTrabajosRegistrados = mysqli_query($conexion, $consTrabajosRegistrados);
 $resTrabajosTotCE = mysqli_query($conexion, $consTrabajosTotCE);
 

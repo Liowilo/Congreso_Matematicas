@@ -778,7 +778,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             <!--Total de trabajos que cuentan con un evaluador-->
                             <div class="container">
                                 <h4>Trabajos Totales con Evaluador </h4>
-                                <div class="row">
+                                <div class="row" style="margin-bottom: 50px;>
                                     <div class="table-responsive border border-success p-2 border-opacity-10 rounded">
                                         <?php if (strlen($_SESSION['info']) > 1): ?>
                                             <div id="informacionExito" class="alert alert-success text-center">
@@ -797,7 +797,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             </div>
                                         <?php endif; ?>
 
-                                        <table class="table">
+                                        <table class="table"">
                                             <thead>
                                                 <tr class="table-cabecera">
                                                     <th scope="col" class="text-wrap">Trabajo</th>
