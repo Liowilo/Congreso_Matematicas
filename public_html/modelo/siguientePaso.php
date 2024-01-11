@@ -26,14 +26,14 @@
     }
 
     if(isset($_POST['subirCartel'])){
-            $tamanio = 10000;
+            $tamanio = 20;
             if(isset($_FILES['inputCartel']) && ($_FILES['inputCartel']['type'] == 'image/jpg' || $_FILES['inputCartel']['type'] == 'image/jpeg')){
             //Rutas
             $ruta="../../src/carteles_usuario/";
             $fichero=$ruta.basename($_FILES["inputCartel"]["name"]);
             //Mueve el fichero al servidor
             $rutaCartel=$ruta.$idPonencia."_CARTEL_".$nombrePonencia."_".$_FILES['inputCartel']['name'];
-                if( $_FILES['inputCartel']['size'] < ($tamanio * 1024) ){
+                if( $_FILES['inputCartel']['size'] < ($tamanio * 1024*1024) ){
                     move_uploaded_file( $_FILES['inputCartel']['tmp_name'], $rutaCartel);
                     $info = "Se ha subido el cartel. Se ha enviado un correo electrónico al evaluador del trabajo.";
                     $_SESSION['info'] = $info;
@@ -68,7 +68,7 @@
         }
 
         if(isset($_POST['subirPonencia'])){
-            $tamanio = 15000;
+            $tamanio = 20;
             if(!empty($_FILES['inputExtenso']['name'])){
                 if(!empty($_FILES['inputExtenso']['name']) && mime_content_type($_FILES['inputExtenso']['tmp_name']) == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                 //Rutas
@@ -76,7 +76,7 @@
                 $fichero=$ruta.basename($_FILES["inputExtenso"]["name"]);
                 //Mueve el fichero al servidor
                 $rutaExtenso=$ruta.$idPonencia."_EXTENSO_".$nombrePonencia."_".$_FILES['inputExtenso']['name'];
-                    if( $_FILES['inputExtenso']['size'] < ($tamanio * 1024) ){
+                    if( $_FILES['inputExtenso']['size'] < ($tamanio * 1024*1024) ){
                         move_uploaded_file( $_FILES['inputExtenso']['tmp_name'],$rutaExtenso );
                         $info = "Se ha subido el extenso. Se ha enviado un correo electrónico al evaluador del trabajo.";
                         $_SESSION['info'] = $info;
