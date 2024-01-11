@@ -93,7 +93,7 @@ class PDF extends FPDF
         $this->Text(10, 150, utf8_decode('4 - Utilizar la "Plantilla para Trabajos Extensos" para realizar el extenso.'));
         $this->Text(10, 155, utf8_decode('5 - Alumnos sin un grado académico que participan en los trabajos no podrán ser ponentes o expositores.'));
         $this->Text(10, 160, utf8_decode('6 - Realizar el pago correspondiente a partir del ' . $fecha_formateada . ' para ser incluido en el evento.'));
-        $this->Text(10, 165, utf8_decode('7 - Realizar y subir el vídeo de la ponencia en el siguiente sitio: '));
+        // $this->Text(10, 165, utf8_decode('7 - Realizar y subir el vídeo de la ponencia en el siguiente sitio: '));
         //$this->Text(10,170,utf8_decode('    https://matematicasfesc.cuautitlan.unam.mx/ponencias/index.php/login'));
 
         $this->Text(10, 195, utf8_decode('Sin más por el momento, quedamos de usted.'));
