@@ -44,6 +44,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title mb-2" id="TituloTrabajo"><?php echo $tituloPonencia; ?></h5><!--Titulo de la Ponencia-->
+        <h5 class="card-title" ><?php echo $idPonencia ?></h5><!--ID de la Ponencia-->
         <div class="row mt-4">
             <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12"><!--TIPO DE TRABAJO-->
                 <p class="card-text mb-1">Ponencia</p>

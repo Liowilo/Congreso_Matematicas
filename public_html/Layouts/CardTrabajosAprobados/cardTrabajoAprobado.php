@@ -79,6 +79,7 @@ require "../../modelo/trabajosRegistrados.php";
         </div>
         <div class="card-body">
             <h5 class="card-title" id="TituloTrabajo"><?php echo $tituloPonencia ?></h5><!--Titulo de la Ponencia-->
+            <h5 class="card-title" ><?php echo $idPonencia ?></h5><!--ID de la Ponencia-->
             <p class="card-text mb-1">Ponencia</p>
             <div class="divTipoPonencia mb-3">
                 <span class="tipoPonencia" ><?php echo $categoriaPonencia ?></span>
@@ -191,6 +192,7 @@ require "../../modelo/trabajosRegistrados.php";
         </div>
         <div class="card-body">
             <h5 class="card-title" ><?php echo $tituloPonencia ?></h5><!--Titulo de la Ponencia-->
+            <h5 class="card-title" ><?php echo $idPonencia ?></h5><!--ID de la Ponencia-->
             <p class="card-text mb-1">Ponencia</p>
             <div class="divTipoPonencia mb-3">
                 <span class="tipoPonencia" id="tipoPonencia"><?php echo $categoriaPonencia ?></span>
