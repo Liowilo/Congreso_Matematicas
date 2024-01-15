@@ -18,7 +18,7 @@ $consTARegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' A
 $consPRRegistradosSE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is null AND substring(id_ponencia, 4, 2) = 'PR' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
 $consPRRegistradosCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null AND substring(id_ponencia, 4, 2) = 'PR' ORDER BY CAST(SUBSTRING(id_ponencia, -3) AS UNSIGNED) ASC";
 
-$consTrabajosTotCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' ORDER BY SUBSTRING(id_ponencia, 4, 2) ASC, SUBSTRING(id_ponencia, -3) ASC";
+$consTrabajosTotCE = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_usuario_evalua is not null ORDER BY SUBSTRING(id_ponencia, 4, 2) ASC, SUBSTRING(id_ponencia, -3) ASC";
 
 $resTrabajosRegistrados = mysqli_query($conexion, $consTrabajosRegistrados);
 $resTrabajosTotCE = mysqli_query($conexion, $consTrabajosTotCE);
