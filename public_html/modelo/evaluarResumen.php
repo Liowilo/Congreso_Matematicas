@@ -62,6 +62,16 @@
                 $_SESSION['info'] = $info;
             }
             
+            ?>
+
+        <script>
+            setTimeout(function() {
+                alert("Se ha evaluado el RESUMEN con estatus de APROBADO. Se ha enviado un correo electrónico al autor del trabajo.");
+                window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+            }, 0);
+        </script>
+
+            <?php
             
 
             // require_once ('../../cartas/cartaResumenPonenciaAprobado.php');
@@ -83,6 +93,17 @@
             require_once ('../../librerias/PHPMailer/src/correoRechazoResumen.php');
             $info = "Se ha evaluado el RESUMEN con estatus de RECHAZADO. Se ha enviado un correo electrónico al autor del trabajo.";
             $_SESSION['info'] = $info;
+
+            ?>
+
+            <script>
+                setTimeout(function() {
+                    alert("Se ha evaluado el RESUMEN con estatus de RECHAZADO. Se ha enviado un correo electrónico al autor del trabajo.");
+                    window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                }, 0);
+            </script>
+
+            <?php
         }    
     }else{
         $info = '';
