@@ -104,7 +104,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     <?php if (strlen($_SESSION['info']) > 1): ?>
                                                         <div id="informacionExito" class="alert alert-success text-center">
                                                             <?php echo htmlspecialchars($_SESSION['info']);
-                                                            require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
+                                                            // require_once "../../librerias/PHPMailer/src/correoAsignacionEvaluador.php";
                                                             ?>
 
                                                         </div>
