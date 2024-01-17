@@ -4,7 +4,6 @@ require 'modelo/conexion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<?php
 		require_once('Layouts/iconoCongresoLink.php');
