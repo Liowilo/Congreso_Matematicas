@@ -168,7 +168,9 @@ $mail->ClearAddresses();
 
 if (isset($_GET['id'])) {
     $idPonencia = $_GET['id'];
+    $consBorrarPonenciaColabora = "DELETE FROM usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
     $consBorrarPonencia = "DELETE FROM ponencia WHERE id_ponencia='$idPonencia'";
+    $resBorrarPonencia = mysqli_query($conexion, $consBorrarPonenciaColabora);
     $resBorrarPonencia = mysqli_query($conexion, $consBorrarPonencia);
 
     if ($resBorrarPonencia) {
