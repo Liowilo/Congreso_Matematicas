@@ -51,6 +51,7 @@ $_SESSION['referencia_ponencia'] = '';
             </div>
             <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                 <div class="container pb-3">
+                    
                     <h2 class="mt-5 mb-3">Subir Trabajo</h2>
                     <?php
                     if (mysqli_num_rows($resFechaResumen) > 0) {
