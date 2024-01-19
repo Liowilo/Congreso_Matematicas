@@ -84,20 +84,19 @@ $mensaje .= "<li><b>Autor: </b>" . $nombreAutor . "</li>";
 $mensaje .= "</ul>";
 
 if(!empty($coautores)){
-        if(count($coautores) > 1){
-            $txt = "Con los Coautores:<ul>";
-        }
-        else{
-            $txt = "Con el Coautor:<ul>";
-        }
-        $mensaje .= "<br>" . $txt;
-        // Nombre de Coautores
-        foreach ($coautores as $coautor) {
-            $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
-            $coautoresCadena .= "<li>" . $nombreCoautor . "</li>";
-        }
-        $coautoresCadena .= "</ul><br>";
-        $mensaje .= $coautoresCadena;
+    if(count($coautores) > 1){
+        $txt = "Con los Coautores:<ul>";
+    }
+    else{
+        $txt = "Con el Coautor:<ul>";
+    }
+    $mensaje .= "<br>" . $txt;
+    // Imprimir coautores
+    foreach($coautores as $coautor){
+        $nombreCoautor = $coautor['nombres'].' '.$coautor['apellidos'];
+        $mensaje .= "<li>" . $nombreCoautor . "</li>";
+    }
+    $mensaje .= "</ul><br>";
 }
 
 $mensaje .= "Fecha: " . date('Y-m-d') . "<br><br>";
