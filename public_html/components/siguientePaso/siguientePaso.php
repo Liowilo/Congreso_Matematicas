@@ -128,22 +128,22 @@ $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
                                             </div>
                                         </div>
                                     </div>
-                </div>
-                <div class="container-fluid p-5 mt-5 mb-5 d-none d-md-block"></div>
-                <div class="container-fluid p-1 mt-2 mb-2 d-none d-md-block"></div>
-                <div class="container-fluid p-5 mt-5 mb-5"></div>
-                <!----------------------------------------------------------------------------------------------->
-            <?php
-                                    break;
+                            </div>
+                            <div class="container-fluid p-5 mt-5 mb-5 d-none d-md-block"></div>
+                            <div class="container-fluid p-1 mt-2 mb-2 d-none d-md-block"></div>
+                            <div class="container-fluid p-5 mt-5 mb-5"></div>
+                            <!----------------------------------------------------------------------------------------------->
+                        <?php
+                            break;
                                 case '2':
-            ?>
-                <h2 class="mt-5 mb-3">Subir Extenso</h2>
-                <hr>
-                <?php
+                        ?>
+                                <h2 class="mt-5 mb-3">Subir Extenso</h2>
+                                <hr>
+                                <?php
                                     //Restriccion de la fecha de correcion de resumen
                                     require "../../modelo/fechasRecepcionExtensos.php";
                                     if (mysqli_num_rows($resFechaRecepcionExtenso) > 0) {
-                ?>
+                                ?>
                     <!-------------------------------------------------------------------------------------------->
                     <!-------------------------CONTAINER QUE SE MUESTRA CUANDO EL USUARIO SUBE UN EXTENSO---------->
                     <div class="containerSubirArchivo" id="containerSubirArchivo">
@@ -200,7 +200,8 @@ $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
             <div class="container-fluid p-5 mt-5 mb-5"></div>
             <!----------------------------------------------------------------------------------------------->
         <?php
-                                    } else {
+                                    } 
+                                    else {
         ?>
             <!--------------ESTE CONTENEDOR SE MUESTRA CUANDO EL USUARIO NO TIENE PONENCIAS ASIGNADAS--------->
             <div class=" containerSinR " id="containerSinR">
