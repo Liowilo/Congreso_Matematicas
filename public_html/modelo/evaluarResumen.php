@@ -61,7 +61,7 @@
                 $info = "Error al evaluar el trabajo. Comunicate con el administrador a través del correo del congreso.";
                 $_SESSION['info'] = $info;
             }
-            
+          
             ?>
 
         <script>
