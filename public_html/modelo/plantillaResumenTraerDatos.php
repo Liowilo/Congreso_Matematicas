@@ -268,37 +268,37 @@
                         $fetchNumeroPrototiposRegistradosValidacionCoautor = mysqli_fetch_assoc($rescNumeroPrototiposRegistradosValidacionCoautor);
                         $numeroPrototiposRegistradosValidacionCoautor=$fetchNumeroPrototiposRegistradosValidacionCoautor['count(*)']; 
                     //Todas las ponencias hasta el momento del Coautor como Coautor
-                        $consPonenciasRegistradasCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia
-                        INNER JOIN ponencia ON usuario_colabora_ponencia.id_ponencia=ponencia.id_ponencia
-                        WHERE usuario_colabora_ponencia.id_usuario='$idAutor' AND usuario_colabora_ponencia.id_congreso='$idCongreso'";
+                        $consPonenciasRegistradasCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia_18012024
+                        INNER JOIN ponencia ON usuario_colabora_ponencia_18012024.id_ponencia=ponencia.id_ponencia
+                        WHERE usuario_colabora_ponencia_18012024.id_usuario='$idAutor' AND usuario_colabora_ponencia_18012024.id_congreso='$idCongreso'";
                         $resPonenciasRegistradasCoautorValidacionCoautor = mysqli_query($conexion, $consPonenciasRegistradasCoautorValidacionCoautor);
                         $fetchPonenciasRegistradasCoautorValidacionCoautor = mysqli_fetch_assoc($resPonenciasRegistradasCoautorValidacionCoautor);
                         $numeroDePonenciasRegistradasCoautorValidacionCoautor=$fetchPonenciasRegistradasCoautorValidacionCoautor['count(*)']; 
                         //Carteles
-                        $consNumeroCartelesRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia
-                        INNER JOIN ponencia ON usuario_colabora_ponencia.id_ponencia=ponencia.id_ponencia
-                        WHERE usuario_colabora_ponencia.id_usuario='$idAutor' AND usuario_colabora_ponencia.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='1'";
+                        $consNumeroCartelesRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia_18012024
+                        INNER JOIN ponencia ON usuario_colabora_ponencia_18012024.id_ponencia=ponencia.id_ponencia
+                        WHERE usuario_colabora_ponencia_18012024.id_usuario='$idAutor' AND usuario_colabora_ponencia_18012024.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='1'";
                         $rescNumeroCartelesRegistradosCoautorValidacionCoautor = mysqli_query($conexion, $consNumeroCartelesRegistradosCoautorValidacionCoautor);
                         $fetchNumeroCartelesRegistradosCoautorValidacionCoautor = mysqli_fetch_assoc($rescNumeroCartelesRegistradosCoautorValidacionCoautor);
                         $numeroCartelesRegistradosCoautorValidacionCoautor=$fetchNumeroCartelesRegistradosCoautorValidacionCoautor['count(*)']; 
                         //Ponencias
-                        $consNumeroPonenciasRegistradasCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia
-                        INNER JOIN ponencia ON usuario_colabora_ponencia.id_ponencia=ponencia.id_ponencia
-                        WHERE usuario_colabora_ponencia.id_usuario='$idAutor' AND usuario_colabora_ponencia.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='2'";
+                        $consNumeroPonenciasRegistradasCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia_18012024
+                        INNER JOIN ponencia ON usuario_colabora_ponencia_18012024.id_ponencia=ponencia.id_ponencia
+                        WHERE usuario_colabora_ponencia_18012024.id_usuario='$idAutor' AND usuario_colabora_ponencia_18012024.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='2'";
                         $rescNumeroPonenciasRegistradasCoautorValidacionCoautor = mysqli_query($conexion, $consNumeroPonenciasRegistradasCoautorValidacionCoautor);
                         $fetchNumeroPonenciasRegistradasCoautorValidacionCoautor = mysqli_fetch_assoc($rescNumeroPonenciasRegistradasCoautorValidacionCoautor);
                         $numeroPonenciasRegistradasCoautorValidacionCoautor=$fetchNumeroPonenciasRegistradasCoautorValidacionCoautor['count(*)'];
                         //Talleres
-                        $consNumeroTalleresRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia
-                        INNER JOIN ponencia ON usuario_colabora_ponencia.id_ponencia=ponencia.id_ponencia
-                        WHERE usuario_colabora_ponencia.id_usuario='$idAutor' AND usuario_colabora_ponencia.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='3'";
+                        $consNumeroTalleresRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia_18012024
+                        INNER JOIN ponencia ON usuario_colabora_ponencia_18012024.id_ponencia=ponencia.id_ponencia
+                        WHERE usuario_colabora_ponencia_18012024.id_usuario='$idAutor' AND usuario_colabora_ponencia_18012024.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='3'";
                         $rescNumeroTalleresRegistradosCoautorValidacionCoautor = mysqli_query($conexion, $consNumeroTalleresRegistradosCoautorValidacionCoautor);
                         $fetchNumeroTalleresRegistradosCoautorValidacionCoautor = mysqli_fetch_assoc($rescNumeroTalleresRegistradosCoautorValidacionCoautor);
                         $numeroTalleresRegistradosCoautorValidacionCoautor=$fetchNumeroTalleresRegistradosCoautorValidacionCoautor['count(*)'];
                         //Prototipo
-                        $consNumeroPrototiposRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia
-                        INNER JOIN ponencia ON usuario_colabora_ponencia.id_ponencia=ponencia.id_ponencia
-                        WHERE usuario_colabora_ponencia.id_usuario='$idAutor' AND usuario_colabora_ponencia.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='3'";
+                        $consNumeroPrototiposRegistradosCoautorValidacionCoautor = "SELECT count(*) FROM usuario_colabora_ponencia_18012024
+                        INNER JOIN ponencia ON usuario_colabora_ponencia_18012024.id_ponencia=ponencia.id_ponencia
+                        WHERE usuario_colabora_ponencia_18012024.id_usuario='$idAutor' AND usuario_colabora_ponencia_18012024.id_congreso='$idCongreso' AND ponencia.id_tipo_ponencia='3'";
                         $rescNumeroPrototiposRegistradosCoautorValidacionCoautor = mysqli_query($conexion, $consNumeroPrototiposRegistradosCoautorValidacionCoautor);
                         $fetchNumeroPrototiposRegistradosCoautorValidacionCoautor = mysqli_fetch_assoc($rescNumeroPrototiposRegistradosCoautorValidacionCoautor);
                         $numeroPrototiposRegistradosCoautorValidacionCoautor=$fetchNumeroPrototiposRegistradosCoautorValidacionCoautor['count(*)'];
@@ -429,7 +429,7 @@
                                                     $nombresAutor=$coautores[$i]["nombres"];
                                                     $rfcAutor=$coautores[$i]["rfc"];
                                                     //Inserta nueva ponencia
-                                                    $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia (id_ponencia, id_usuario, id_congreso)
+                                                    $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia_18012024 (id_ponencia, id_usuario, id_congreso)
                                                     values('$idPonencia', '$idAutor', '$idCongreso')";
                                                     $data_check1 = mysqli_query($conexion, $insertarColaboradorPonencia);
                                                     $infoCoautores=" y a la de tus coautores. ";
@@ -514,7 +514,7 @@
                                                 $nombresAutor=$coautores[$i]["nombres"];
                                                 $rfcAutor=$coautores[$i]["rfc"];
                                                 //Inserta nueva ponencia
-                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia (id_ponencia, id_usuario, id_congreso)
+                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia_18012024 (id_ponencia, id_usuario, id_congreso)
                                                 values('$idPonencia', '$idAutor', '$idCongreso')";
                                                 $data_check1 = mysqli_query($conexion, $insertarColaboradorPonencia);
                                                 $infoCoautores=" y a la de tus coautores. ";
@@ -604,7 +604,7 @@
                                                 $nombresAutor=$coautores[$i]["nombres"];
                                                 $rfcAutor=$coautores[$i]["rfc"];
                                                 //Inserta nueva ponencia
-                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia (id_ponencia, id_usuario, id_congreso)
+                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia_18012024 (id_ponencia, id_usuario, id_congreso)
                                                 values('$idPonencia', '$idAutor', '$idCongreso')";
                                                 $data_check1 = mysqli_query($conexion, $insertarColaboradorPonencia);
                                                 $infoCoautores=" y a la de tus coautores. ";
@@ -689,7 +689,7 @@
                                                 $nombresAutor=$coautores[$i]["nombres"];
                                                 $rfcAutor=$coautores[$i]["rfc"];
                                                 //Inserta nueva ponencia
-                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia (id_ponencia, id_usuario, id_congreso)
+                                                $insertarColaboradorPonencia = "INSERT INTO usuario_colabora_ponencia_18012024 (id_ponencia, id_usuario, id_congreso)
                                                 values('$idPonencia', '$idAutor', '$idCongreso')";
                                                 $data_check1 = mysqli_query($conexion, $insertarColaboradorPonencia);
                                                 $infoCoautores=" y a la de tus coautores. ";

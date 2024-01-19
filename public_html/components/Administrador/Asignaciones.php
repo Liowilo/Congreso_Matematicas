@@ -913,9 +913,25 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                             <?php echo $nombreCompletoUsuarioEvalua ?>
                                                         </td>
                                                         <td style="text-align: right;">
-                                                            <button value="<?= $idPonencia ?>" class="btn btn-small btn-danger"
-                                                                type="submit" name="botonDesasignar" id="botonDesasignar">Desasignar
-                                                            </button>
+
+
+                                                            <?php
+
+                                                            $extensoFinal = "SELECT estatus_revision FROM revision WHERE fecha_revision = ( SELECT MAX(fecha_revision) FROM revision INNER JOIN usuario_revision_ponencia ON revision.id_revision = usuario_revision_ponencia.id_revision_ponencia WHERE usuario_revision_ponencia.id_ponencia = '$idPonencia' );";
+                                                            $resExtensoFinal = mysqli_query($conexion, $extensoFinal);
+
+                                                            // Asegúrate de obtener el valor de estatus_revision correctamente
+                                                            $rowExtensoFinal = mysqli_fetch_assoc($resExtensoFinal);
+                                                            $estatusRevision = $rowExtensoFinal['estatus_revision'];
+
+                                                            if ($estatusRevision != 'AF') { ?>
+                                                                <button value="<?= $idPonencia ?>" class="btn btn-small btn-danger"
+                                                                    type="submit" name="botonDesasignar" id="botonDesasignar">Desasignar
+                                                                </button>
+
+                                                            <?php } ?>
+
+
                                                         </td>
                                                     </tr>
                                                 <?php } ?>

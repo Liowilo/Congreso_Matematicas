@@ -10,11 +10,7 @@
 
       $this->Line(10,10,206,10);
       //$this->Line(10,35.5,206,35.5);
-      $conexion = mysqli_connect("localhost","desarrollo","Desarrollo","desarrollo");
- 				$imagenSQL6 = "SELECT banner_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
-				$traerIMG6 = mysqli_query($conexion, $imagenSQL6);
-				$rowImagen6 = $traerIMG6->fetch_assoc();
-				$logo = $rowImagen6['banner_congreso'];
+      require_once 'traerImagenes.php';
       $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
 
       //$this->Cell(30,25,'',0,0,'C',$this->Image('imagenes/logomate.jpeg', 182,12, 19));

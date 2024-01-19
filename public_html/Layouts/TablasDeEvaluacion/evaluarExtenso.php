@@ -32,7 +32,7 @@ require "../../modelo/evaluarExtenso.php"
         ?>
         <div id="informacionExito" class="alert alert-success alert-dismissible fade show mt-3">
             <?php echo $_SESSION['info']; ?>
-            <a href="/desarrollo/components/TrabajosRegistrados/trabajosRegistrados.php"> Ver mis trabajos asignados</a>
+            <a href='../../components/TrabajosAsignados/trabajosAsignados.php'>"> Ver mis evaluaciones asignadas</a>
         </div>
         <?php
     }
@@ -47,7 +47,7 @@ require "../../modelo/evaluarExtenso.php"
                 echo $showerror;
             }
             ?>
-            <a href="../TrabajosAsignados/trabajosAsignados.php"> Ver mis trabajos asignados</a>
+            <a href='../../components/TrabajosAsignados/trabajosAsignados.php'> Ver mis trabajos asignados</a>
         </div>
         <?php
     }
@@ -303,7 +303,8 @@ require "../../modelo/evaluarExtenso.php"
             <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mb-3">
                 <div class="d-grid">
                     <!---------BOTON FINALIZAR---->
-                    <input disabled class="btn btn-style" type="submit" id="finalizarEvaluacion" name="finalizarEvaluacion"  value="Finalizar Evaluacion" >
+                    <input disabled class="btn btn-style" type="submit" id="finalizarEvaluacion" name="finalizarEvaluacion"  value="Finalizar Evaluacion">
+                    
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mb-3">

@@ -31,12 +31,12 @@ $idEvaluador = $fetchPonencia['id_usuario_evalua'];
 $idCategoriaPonencia = $fetchPonencia['id_categoria'];
 
 //Consulta si tiene coautores la ponencia
-$consCoautorPonencia = "SELECT * FROM  usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
+$consCoautorPonencia = "SELECT * FROM  usuario_colabora_ponencia_18012024 WHERE id_ponencia='$idPonencia'";
 $resCoautorPonencia = mysqli_query($conexion, $consCoautorPonencia);
 
 //Trae los datos de coautores de la ponencia
-$consCoautores = "SELECT * FROM  usuario_colabora_ponencia 
-    INNER JOIN usuario ON usuario_colabora_ponencia.id_usuario=usuario.id_usuario WHERE usuario_colabora_ponencia.id_ponencia='$idPonencia'";
+$consCoautores = "SELECT * FROM  usuario_colabora_ponencia_18012024 
+    INNER JOIN usuario ON usuario_colabora_ponencia_18012024.id_usuario=usuario.id_usuario WHERE usuario_colabora_ponencia_18012024.id_ponencia='$idPonencia'";
 $resCoautores = mysqli_query($conexion, $consCoautores);
 //$fetch=mysqli_fetch_assoc($resCoautores);
 
@@ -114,7 +114,7 @@ if ($filaAutor = mysqli_fetch_assoc($resultadoAutor)) {
 }
 
 // Consulta para obtener id_usuario de coautores
-$consultaCoautores = "SELECT id_usuario FROM usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
+$consultaCoautores = "SELECT id_usuario FROM usuario_colabora_ponencia_18012024 WHERE id_ponencia='$idPonencia'";
 $resultadoCoautores = mysqli_query($conexion, $consultaCoautores);
 
 $coautoresEmails = array();
@@ -418,7 +418,7 @@ if (count($errores) == 1) {
 
             <div class="col-xl-2 col-lg-2 d-md-inline col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mt-2">
                 <div class="d-grid">
-                    <button type="button" name="btn-prototipo" id="btn-prototipo" class="btn btn-tipo-ponencia p-2">Prototipo</button>
+                    <button type="button" name="btn-prototipo" id="btn-prototipo" class="btn btn-tipo-ponencia p-2" disabled>Prototipo</button>
                 </div>
             </div>
         </div>

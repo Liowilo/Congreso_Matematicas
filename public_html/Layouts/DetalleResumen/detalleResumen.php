@@ -38,8 +38,8 @@
     $primerApellidoAutor=strtok($apellidosAutor," ");
     $nombreAutorFormato=$primerNombreAutor." ".$primerApellidoAutor;
     //Trae los datos de coautores de la ponencia
-    $consCoautores = "SELECT * FROM  usuario_colabora_ponencia 
-    INNER JOIN usuario ON usuario_colabora_ponencia.id_usuario=usuario.id_usuario WHERE usuario_colabora_ponencia.id_ponencia='$idPonencia'";
+    $consCoautores = "SELECT * FROM  usuario_colabora_ponencia_18012024 
+    INNER JOIN usuario ON usuario_colabora_ponencia_18012024.id_usuario=usuario.id_usuario WHERE usuario_colabora_ponencia_18012024.id_ponencia='$idPonencia'";
     $resCoautores = mysqli_query($conexion, $consCoautores);
     $coautoresFormato=".";
     $coautores=array();
