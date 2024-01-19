@@ -277,6 +277,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         <thead>
                                                             <tr class="table-cabecera">
                                                                 <th scope="col" class="text-wrap">#</th>
+                                                                <th scope="col" class="text-wrap">Trabajo</th>
                                                                 <th scope="col" class="text-wrap">Título</th>
                                                                 <th scope="col" class="text-wrap">Autor</th>
                                                                 <th scope="col" class="text-wrap">Tipo</th>
@@ -373,6 +374,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                                         </div>
                                                                     </th>
                                                                     <td>
+                                                                        <?php echo $idPonencia ?>
+                                                                    </td>
+                                                                    <td>
                                                                         <?php echo $tituloPonencia ?>
                                                                     </td>
                                                                     <td>
@@ -429,6 +433,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         <thead>
                                                             <tr class="table-cabecera">
                                                                 <th scope="col" class="text-wrap">#</th>
+                                                                <th scope="col" class="text-wrap">Trabajo</th>
                                                                 <th scope="col" class="text-wrap">Título</th>
                                                                 <th scope="col" class="text-wrap">Autor</th>
                                                                 <th scope="col" class="text-wrap">Tipo</th>
@@ -525,6 +530,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                                         </div>
                                                                     </th>
                                                                     <td>
+                                                                        <?php echo $idPonencia ?>
+                                                                    </td>
+                                                                    <td>
                                                                         <?php echo $tituloPonencia ?>
                                                                     </td>
                                                                     <td>
@@ -580,6 +588,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                         <thead>
                                                             <tr class="table-cabecera">
                                                                 <th scope="col" class="text-wrap">#</th>
+                                                                <th scope="col" class="text-wrap">Trabajo</th>
                                                                 <th scope="col" class="text-wrap">Título</th>
                                                                 <th scope="col" class="text-wrap">Autor</th>
                                                                 <th scope="col" class="text-wrap">Tipo</th>
@@ -675,6 +684,9 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                                                 name="checkbox[]">
                                                                         </div>
                                                                     </th>
+                                                                    <td>
+                                                                        <?php echo $idPonencia ?>
+                                                                    </td>
                                                                     <td>
                                                                         <?php echo $tituloPonencia ?>
                                                                     </td>
