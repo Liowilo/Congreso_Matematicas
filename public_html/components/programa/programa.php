@@ -189,7 +189,7 @@ $numeroCongresoRomano = convertirARomano($idCongreso);
                                                 $nombreCompletoAutor = $nombreAutor . " " . $apellidosAutor;
 
                                                 //colabora ponencia
-                                                $consCoautor = "SELECT * FROM usuario_colabora_ponencia WHERE id_ponencia='$idPonencia'";
+                                                $consCoautor = "SELECT * FROM usuario_colabora_ponencia_18012024 WHERE id_ponencia='$idPonencia'";
                                                 $resCoautor = mysqli_query($conexion, $consCoautor);
 
 
