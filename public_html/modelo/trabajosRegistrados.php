@@ -26,8 +26,8 @@
 
     //Hace la consulta de los trabajos disponibles en el congreso para coautor
     $consTrabajosRegistradosCoautor = "SELECT * FROM ponencia 
-    INNER JOIN usuario_colabora_ponencia ON ponencia.id_ponencia=usuario_colabora_ponencia.id_ponencia
-        WHERE ponencia.id_congreso='$idCongreso' AND usuario_colabora_ponencia.id_usuario='$_SESSION[id]'";
+    INNER JOIN usuario_colabora_ponencia_18012024 ON ponencia.id_ponencia=usuario_colabora_ponencia_18012024.id_ponencia
+        WHERE ponencia.id_congreso='$idCongreso' AND usuario_colabora_ponencia_18012024.id_usuario='$_SESSION[id]'";
     $resTrabajosRegistradosCoautor = mysqli_query($conexion, $consTrabajosRegistradosCoautor);
 
 
