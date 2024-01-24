@@ -8,7 +8,7 @@ require "../../modelo/conexion.php";
 
 $idPonencia = $_GET['id'];
 if ($idPonencia == '') {
-    print "<script>window.location='/cbb/index.php';</script>";
+    print "<script>window.location='../../index.php';</script>";
 }
 
 //Consulta su tipo de ponencia para subir Extenso o Cartel

@@ -10,7 +10,7 @@
 
       $this->Line(10,10,206,10);
       //$this->Line(10,35.5,206,35.5);
-      require_once 'traerImagenes.php';
+      require('traerImagenes.php');
       $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
 
       //$this->Cell(30,25,'',0,0,'C',$this->Image('imagenes/logomate.jpeg', 182,12, 19));

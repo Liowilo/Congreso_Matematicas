@@ -140,6 +140,16 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     $cambiarEstadoRevision = "UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='R', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
                     $rescambiarEstadoRevision = mysqli_query($conexion, $cambiarEstadoRevision);
                     $info = "Se ha evaluado el EXTENSO con estatus de RECHAZADO. Se ha notificado al AUTOR para la correción correspondiente.";
+                    require_once('../../cartas/cartaCorreccionesExtenso.php');
+                    require_once('../../librerias/PHPMailer/src/correoRechazoExtenso.php');
+                    ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO con estatus de RECHAZADO. Se ha notificado al AUTOR para la correción correspondiente.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                 }
                 //Si lo rechaza el Evaluador FINAl
                 if (($estatusRevision == "F" && $descripcionRevision == 'EXTENSO REVISION FINAL') || ($estatusRevision == "" && $descripcionRevision == 'EXTENSO REVISION FINAL')) {
@@ -150,6 +160,14 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     $info = "Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de RECHAZADO. Se ha notificado al AUTOR para su pronta correción.";
                     require_once('../../cartas/cartaCorreccionesExtenso.php');
                     require_once('../../librerias/PHPMailer/src/correoRechazoExtenso.php');
+                    ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de RECHAZADO. Se ha notificado al AUTOR para su pronta correción.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                 }
 
 
@@ -167,6 +185,16 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     $cambiarEvaluadorPonencia = "UPDATE oral SET id_usuario_evalua_final='$idEvaluadorFinal' WHERE id_ponencia='$idPonencia'";
                     $resCambiarEvaluadorPonencia = mysqli_query($conexion, $cambiarEvaluadorPonencia);
                     $info = "Se ha evaluado el EXTENSO con estatus de APROBADO. Se ha ENVIADO AL EVALUADOR FINAL para su ULTIMA REVISION, se ha notificado al AUTOR.";
+                    require_once('../../cartas/cartaExtensoAprobado.php');
+                    require_once('../../librerias/PHPMailer/src/correoAprobacionExtenso.php');
+                    ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO con estatus de APROBADO. Se ha ENVIADO AL EVALUADOR FINAL para su ULTIMA REVISION, se ha notificado al AUTOR.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                 }
                 //Si ya ha sido enviado una o más veces a REVISION FINAL y es ACEPTADO
                 if (($estatusRevision == "NULL" && $descripcionRevision == 'EXTENSO REVISION FINAL') || ($estatusRevision == '' && $descripcionRevision == 'EXTENSO REVISION FINAL') || ($estatusRevision == 'F' && $descripcionRevision == 'EXTENSO REVISION FINAL')) {
@@ -179,6 +207,14 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     $info = "Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO. Se ha se ha notificado al AUTOR.";
                     require_once('../../cartas/cartaExtensoAprobado.php');
                     require_once('../../librerias/PHPMailer/src/correoAprobacionExtenso.php');
+                    ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO. Se ha se ha notificado al AUTOR.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                 }
 
 
@@ -189,7 +225,7 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
 
         }
 
-            
+
     }
 
     if ($estatusRevision == 'FA' || $estatusRevision == 'FR' && $descripcionRevision = 'EXTENSO') {
@@ -292,6 +328,14 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                         $info = "Se ha evaluado el EXTENSO con estatus de APROBADO. Se ha enviado al EVALUADOR FINAL para corroborar la finalización del trabajo.";
                         require_once('../../cartas/cartaExtensoAprobado.php');
                         require_once('../../librerias/PHPMailer/src/correoAprobacionExtenso.php');
+                        ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO con estatus de APROBADO. Se ha enviado al EVALUADOR FINAL para corroborar la finalización del trabajo.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                     }
                 }
                 //Si el estatus de la revision es Final evaluada
@@ -304,15 +348,31 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                         //Cambia el estatus del trabajo
                         $cambiarEstadoRevision = "UPDATE revision SET estatus_revision='FR' WHERE id_revision='$idRevision'";
                         $rescambiarEstadoRevision = mysqli_query($conexion, $cambiarEstadoRevision);
+                        ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO con estatus de RECHAZADO FINAL. Se ha enviado al EVALUADOR FINAL para la corrección del trabajo.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
 
                     } else {
                         $info = "Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO.";
                         //CAMBIAR EL ID POR EL DE LOS PRIVILEGIOS
                         //Cambia el estatus del trabajo
-                        $cambiarEstadoRevision = "UPDATE revision SET descripcion_revision='EXTENSO REVISION FINAL APROBADO', estatus_revision='AF' WHERE id_revision='$idRevision'";
+                        $cambiarEstadoRevision = "UPDATE revision SET estatus_revision='A' WHERE id_revision='$idRevision'";
                         $rescambiarEstadoRevision = mysqli_query($conexion, $cambiarEstadoRevision);
                         require_once('../../cartas/cartaExtensoAprobado.php');
                         require_once('../../librerias/PHPMailer/src/correoAprobacionExtenso.php');
+                        ?>
+                    <script>
+                        setTimeout(function() {
+                        alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO.");
+                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                    }, 0);
+                    </script>
+                    <?php
                     }
                 }
 

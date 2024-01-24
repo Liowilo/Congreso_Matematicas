@@ -1,5 +1,4 @@
 <?php
-/*
 use \PHPMailer\PHPMailer\PHPMailer;
 use \PHPMailer\PHPMailer\SMTP;
 use \PHPMailer\PHPMailer\PHPException;
@@ -25,10 +24,10 @@ $mail->Password = $hashContra;
 /// para envio de correo
 $mail->From = $email;
 $mail->FromName = "CISEMAT";
-$mail->Subject = "Evaluación resumen";
+$mail->Subject = "Evaluación extenso";
 
 //mensaje en html 
-$mail->MsgHTML("Le informamos que el Comité Evaluador ha evaluado el resumen de su propuesta de ponencia<br> 
+$mail->MsgHTML("Le informamos que el Comité Evaluador ha evaluado el extenso de su propuesta de ponencia<br> 
                 determinando que debe corregirse en uno o mas aspectos.<br>
 				        <br>El documento PDF adjunto en éste correo contiene las observaciones y comentarios del Comité sobre éstos aspectos que deberá 
                 corregir en su trabajo, para ser sometido a una nueva evaluación y pueda subirlo nuevamente.<br>
@@ -50,7 +49,7 @@ if(count($coautores)!=0){
 }
 ///agregar pdf solo utilizar menos de 3megas 
 //ya que de lo contrario el archivo se puede corromper
-$mail->AddAttachment('../../cartas/resumen/'.$idPonencia.'.pdf' , $isPonencia.'.pdf');
+$mail->AddAttachment('../../cartas/extensos/'.$idPonencia.'.pdf' , $idPonencia.'.pdf');
 $mail->IsHTML(true);
 
 $mail->CharSet = 'UTF-8';
@@ -59,5 +58,4 @@ if(!$mail->Send()) {
   //si hay un error en el envio de correo se informa
   echo "Error: " . $mail->ErrorInfo;
 }
-*/
 ?>

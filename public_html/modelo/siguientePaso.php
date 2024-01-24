@@ -108,7 +108,17 @@
                                 $insertaRelacionRevision = "INSERT INTO usuario_revision_ponencia(id_usuario_evalua,id_ponencia,id_revision_ponencia) VALUES ('$idUsuarioEvalua','$idPonencia','$idGenerado')";
                                 $resRelacionRevision= mysqli_query($conexion, $insertaRelacionRevision);  
                                 //Se le notifica al evaluador
-                                require_once '../../librerias/PHPMailer/src/correoAsignacionEvaluador.php';  
+                                require_once '../../librerias/PHPMailer/src/correoAsignacionEvaluador.php';
+                                ?>
+
+                                <script>
+                                    setTimeout(function() {
+                                    alert("Se ha subido el video. Se ha enviado un correo electrónico al evaluador del trabajo.");
+                                    window.location.href = '../../components/TrabajosRegistrados/trabajosRegistrados.php';
+                                    }, 0);
+                                </script>
+
+                                <?php  
                                 /*$segundo = "2";
                                 sleep($segundo);
                                 print "<script>window.location='../../components/TrabajosRegistrados/trabajosRegistrados.php';</script>";*/
@@ -120,7 +130,17 @@
                                 $insertaRelacionRevision = "INSERT INTO usuario_revision_ponencia(id_usuario_evalua,id_ponencia,id_revision_ponencia) VALUES ('$idUsuarioEvalua','$idPonencia','$idGenerado')";
                                 $resRelacionRevision= mysqli_query($conexion, $insertaRelacionRevision);  
                                 //Se le notifica al evaluador
-                                require_once '../../librerias/PHPMailer/src/correoAsignacionEvaluador.php';  
+                                require_once '../../librerias/PHPMailer/src/correoAsignacionEvaluador.php';
+                                ?>
+
+                                <script>
+                                    setTimeout(function() {
+                                    alert("Se ha subido el extenso. Se ha enviado un correo electrónico al evaluador del trabajo.");
+                                    window.location.href = '../../components/TrabajosRegistrados/trabajosRegistrados.php';
+                                    }, 0);
+                                </script>
+
+                    <?php  
                                 /*$segundo = "2";
                                 sleep($segundo);
                                 print "<script>window.location='../../components/TrabajosRegistrados/trabajosRegistrados.php';</script>";*/
