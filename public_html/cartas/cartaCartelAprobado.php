@@ -99,9 +99,9 @@ class PDF extends FPDF
 
         $this->Text(10, 135, utf8_decode('1 - Consultar los lineamientos de presentación del cartel.'));
         $this->Text(10, 140, utf8_decode('https://congresomatematicas.cuautitlan2.unam.mx/components/GuiasYPlantillas/guias.php'));
-        $this->Text(10, 145, utf8_decode('2 - Enviar su cartel en formato pdf al correo: martha_lurrutia@yahoo.com.mx.'));
+        $this->Text(10, 145, utf8_decode('2 - Enviar su cartel en formato pdf al correo: clarisa.clementerdz@comunidad.unam.mx'));
         $this->Text(10, 150, utf8_decode('3 - Crear un vídeo de exposición del cartel máximo de 5 minutos en formato mp4'));
-        $this->Text(10, 155, utf8_decode('4 - Enviar su vídeo al correo: martha_lurrutia@yahoo.com.mx.'));
+        $this->Text(10, 155, utf8_decode('4 - Enviar su vídeo al correo: clarisa.clementerdz@comunidad.unam.mx'));
         $this->Text(10, 160, utf8_decode('5 - La recepción de carteles y videos de exposición será hasta el día ' . $fecha_formateada1));
         $this->Text(10, 165, utf8_decode('6 - Realizar el pago correspondiente.'));
 

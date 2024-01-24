@@ -291,7 +291,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#panelsStayOpen-collapseCuarto" aria-expanded="true"
                                             aria-controls="panelsStayOpen-collapseCuarto">
-                                            ¿Cómo elaborar un resúmen?
+                                            ¿Cómo elaborar un resúmen de cartel?
                                         </button>
                                     </h2>
                                     <div id="panelsStayOpen-collapseCuarto" class="accordion-collapse collapse"
@@ -404,7 +404,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                                 <li>Logo del congreso (se lo compartiremos por correo)</li>
                                                 <li>Logo de su institución</li>
                                                 <li>Titulo centrado entre los logos de no más de 15 palabras</li>
-                                                <li>No más de 4 autores</li>
+                                                <li>No más de 5 autores</li>
                                                 <li>El texto debe limitarse a no más de 500 palabras</li>
                                             </ul>
                                             <br>
