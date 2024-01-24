@@ -410,8 +410,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                             <br>
                                             <li class="fw-semibold mb-2">Elementos de Formato</li>
                                             <ul style="list-style-type: square;">
-                                                <li>El tipo de letra será a elección del autor. Un tamaño recomendado es
-                                                    28 puntos</li>
+                                                <li>El tipo de letra será a elección del autor.</li>
                                                 <li>Es necesario una cuidadosa presentación tipográfica y calidad en los
                                                     títulos, fotos, gráficos, etc.</li>
                                                 <li>Todas las imágenes, figuras, tablas y ecuaciones deberán estar
