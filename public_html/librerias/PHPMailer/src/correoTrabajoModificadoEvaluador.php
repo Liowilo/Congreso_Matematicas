@@ -4,10 +4,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
-require 'traerCorreoCongreso.php';
 
 // Configuración de la clase PHPMailer para el envío de correo utilizando SMTP
 $mail = new PHPMailer();

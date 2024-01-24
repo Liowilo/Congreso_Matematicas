@@ -204,7 +204,7 @@ formulario.addEventListener("keyup",(e)=>{
 });
 
 function validarFormulario(){
-	if(campos.titulo && campos.resumen && campos.referencia){
+	if(campos.titulo || campos.resumen || campos.referencia){
 		botonParticipar.disabled=false;
 	}else{
 		botonParticipar.disabled=true;
