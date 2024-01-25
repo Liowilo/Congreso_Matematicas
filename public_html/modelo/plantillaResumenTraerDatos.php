@@ -737,6 +737,16 @@
 
         }else{
             $errores['sistema-restriccion'] = "Este nombre de la ponencia ya ha sido elegido, por favor, elige otro.";
+            ?>
+
+        <script>
+            setTimeout(function() {
+                alert("Este nombre de la ponencia ya ha sido elegido, por favor, elige otro.");
+                window.location.href = '../../components/subirResumen/subirResumen.php';
+            }, 0);
+        </script>
+
+            <?php
         }
 
 
