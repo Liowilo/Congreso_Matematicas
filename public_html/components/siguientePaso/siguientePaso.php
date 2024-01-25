@@ -230,6 +230,7 @@ $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
                             require "../../modelo/fechasRecepcionVideos.php";
                             if (mysqli_num_rows($resFechaRecepcionVideos) > 0) {
 ?>
+    <!--
     <div class="containerSubirArchivo mb-5" id="containerSubirArchivo">
         <span class="card-text"><strong>Google Drive</strong></span>
         <div class="row mt-4">
@@ -244,18 +245,22 @@ $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
             <div class="col-2">
             </div>
         </div>
+    -->
+    <div class="containerSubirArchivo mb-5" id="containerSubirArchivo">
+        <span class="card-text"><strong>Por favor sigue las indicaciones de la carta de extenso aceptado enviado al correo.</strong></span>
+        
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 d-sm-block col-sm-12 col-xs-12">
                 <div class="mt-4 d-flex align-self-end">
                     <img src="../../src/question.png" class="imgQuestion me-2" alt="">
-                    <span class="span-textos ">Revisa las Especificaciones del video antes de agregar el link</span>
+                    <span class="span-textos ">Revisa las Especificaciones del video antes de enviar el link</span>
                 </div>
             </div>
             <div class="col-6"></div>
         </div>
         <div class="row mt-5">
             <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 col-xs-12 d-grid">
-                <a href="/desarrollo/components/GuiasYPlantillas/guias.php"><button type="button" class="btn-azul">Especificaciones de video</button></a>
+                <a href="../../components/GuiasYPlantillas/guias.php"><button type="button" class="btn-azul">Especificaciones de video</button></a>
             </div>
         </div>
         <div class="mt-3">

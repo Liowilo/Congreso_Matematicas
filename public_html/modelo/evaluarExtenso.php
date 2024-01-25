@@ -164,7 +164,7 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     <script>
                         setTimeout(function() {
                         alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de RECHAZADO. Se ha notificado al AUTOR para su pronta correción.");
-                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                        window.location.href = '../../components/ExtensosFinales/extensosAsignados.php';
                     }, 0);
                     </script>
                     <?php
@@ -211,7 +211,7 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     <script>
                         setTimeout(function() {
                         alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO. Se ha se ha notificado al AUTOR.");
-                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                        window.location.href = '../../components/ExtensosFinales/extensosAsignados.php';
                     }, 0);
                     </script>
                     <?php
@@ -369,7 +369,7 @@ if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 
                     <script>
                         setTimeout(function() {
                         alert("Se ha evaluado el EXTENSO por el EVALUADOR FINAL con estatus de APROBADO.");
-                        window.location.href = '../../components/TrabajosAsignados/trabajosAsignados.php';
+                        window.location.href = '../../components/ExtensosFinales/extensosAsignados.php';
                     }, 0);
                     </script>
                     <?php
