@@ -71,7 +71,7 @@
   $pdf->Text(10,175,utf8_decode('Consulte las características del vídeo en el menú del sitio.'));
   $pdf->Text(10,180,utf8_decode('https://congresomatematicas.cuautitlan2.unam.mx/components/GuiasYPlantillas/guias.php'));
  
-  $pdf->Text(10,195,utf8_decode('Le informamos que su extenso pudiera tener ajustes en el diseño para integrarlo en las memorias '));
+  $pdf->Text(10,195,utf8_decode('Le informamos que su extenso pudiera tener ajustes en el diseño para integrarlo en las memorias. '));
   $pdf->Text(10,200,utf8_decode('Las memorias serán publicadas cuatro semanas después de terminado el evento.'));
   $pdf->Text(10,205,utf8_decode('Recuerde realizar el pago correspondiente para que su trabajo sea incluido en las memorias del congreso.'));
   
