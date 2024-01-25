@@ -79,7 +79,7 @@ if(count($coautores)!=0){
   $pdf->SetXY(10, 135);
   $pdf->MultiCell(0,5,utf8_decode('Necesita correcciones en uno o mas aspectos, de acuerdo a las observaciones emitidas por el Comité Evaluador. Estas observaciones se detallan en la página siguiente de éste documento.'), 0, 'L');
 
-  $pdf->MultiCell(0,5,utf8_decode("Usted podrá subir nuevamente su trabajo en extenso en la misma página en donde subió anteriormente."), 0, 'L');
+  $pdf->MultiCell(0,5,utf8_decode("Usted podrá subir nuevamente su trabajo en extenso en la misma página en donde lo subió anteriormente."), 0, 'L');
   
   $pdf->SetXY(10, 156);
   $pdf->MultiCell(0,5,utf8_decode('El formato y plantilla de los trabajos extensos podrá consultarlos en la página:'), 0, 'L');
