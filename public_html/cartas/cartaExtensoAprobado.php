@@ -11,6 +11,7 @@
       $this->Line(10,10,206,10);
       //$this->Line(10,35.5,206,35.5);
       require('traerImagenes.php');
+      require('../librerias/PHPMailer/src/traerCorreoCongreso.php');
       $this->Cell(50,25,'',0,0,'C',$this->Image($logo, 10,8, 190));
 
       //$this->Cell(30,25,'',0,0,'C',$this->Image('imagenes/logomate.jpeg', 182,12, 19));
@@ -61,23 +62,25 @@
   $pdf->Text(10,135,utf8_decode('El comité le(s) recomienda lo siguiente: '));
 
   $pdf->Text(10,145,utf8_decode('La ponencia será presentada en formato de vídeo el día del evento en el siguiente sitio:'));
-  $pdf->Text(10,150,utf8_decode('https://matematicasfesc.cuautitlan.unam.mx/salasvirtuales/'));
+  $pdf->Text(10,150,utf8_decode('https://congresomatematicas.cuautitlan.unam.mx/ponenciasv/'));
 
-  $pdf->Text(10,160,utf8_decode('Es necesario subir el vídeo de la presentación de la ponencia en el sitio:'));
+  $pdf->Text(10,160,utf8_decode('Es necesario subir el vídeo de la presentación de la ponencia al correo del congreso: ' . strtolower($correoCongreso)) . ' .');
   //$pdf->Text(10,165,utf8_decode('https://matematicasfesc.cuautitlan.unam.mx/ponencias/index.php/login'));
   //$pdf->Text(10,170,utf8_decode('Para acceder utilice el mismo usuario y contraseña de este sitio'));
-  $pdf->Text(10,165,utf8_decode('Consulte las características del vídeo en el menú del sitio.'));
+  $pdf->Text(10,165,utf8_decode('El vídeo debe ser cargado en la nube mediante plataformas como Google Drive, OneDrive u otro servicio de preferencia. Favor de asegurarse de configurar el vídeo para que sea accesible a través del enlace proporcionado.'));
+  $pdf->Text(10,175,utf8_decode('Consulte las características del vídeo en el menú del sitio.'));
+  $pdf->Text(10,180,utf8_decode('https://congresomatematicas.cuautitlan2.unam.mx/components/GuiasYPlantillas/guias.php'));
  
-  $pdf->Text(10,185,utf8_decode('Le informamos que su extenso pudiera tener ajustes en el diseño para integrarlo en las memorias '));
-  $pdf->Text(10,190,utf8_decode('Las memorias serán publicadas cuatro semanas después de terminado el evento.'));
-  $pdf->Text(10,195,utf8_decode('Recuerde realizar el pago correspondiente para que su trabajo sea incluido en las memorias del congreso.'));
+  $pdf->Text(10,195,utf8_decode('Le informamos que su extenso pudiera tener ajustes en el diseño para integrarlo en las memorias '));
+  $pdf->Text(10,200,utf8_decode('Las memorias serán publicadas cuatro semanas después de terminado el evento.'));
+  $pdf->Text(10,205,utf8_decode('Recuerde realizar el pago correspondiente para que su trabajo sea incluido en las memorias del congreso.'));
   
-  $pdf->Text(10,205,utf8_decode('Sin más por el momento, quedamos de usted.'));
-  $pdf->Text(10,215,utf8_decode('Atentamente'));
-  $pdf->Text(10,220,utf8_decode('"Por mi Raza Hablará el Espíritu"'));
+  $pdf->Text(10,215,utf8_decode('Sin más por el momento, quedamos de usted.'));
+  $pdf->Text(10,225,utf8_decode('Atentamente'));
+  $pdf->Text(10,230,utf8_decode('"Por mi Raza Hablará el Espíritu"'));
   
  
-  $pdf->Text(72,230,utf8_decode('El Comité Organizador'));
+  $pdf->Text(72,240,utf8_decode('El Comité Organizador'));
   //$pdf->Text(10,235,utf8_decode('http://congresomatematicas.cuautitlan2.unam.mx'));
 
   //firmas

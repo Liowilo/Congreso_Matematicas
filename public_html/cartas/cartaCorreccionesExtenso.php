@@ -79,14 +79,14 @@ if(count($coautores)!=0){
   $pdf->SetXY(10, 135);
   $pdf->MultiCell(0,5,utf8_decode('Necesita correcciones en uno o mas aspectos, de acuerdo a las observaciones emitidas por el Comité Evaluador. Estas observaciones se detallan en la página siguiente de éste documento.'), 0, 'L');
 
-  $pdf->MultiCell(0,5,utf8_decode("Usted podrá subir el documento con las correcciones necesarias en la misma página en donde subió anteriormente su trabajo extenso."), 0, 'L');
+  $pdf->MultiCell(0,5,utf8_decode("Usted podrá subir nuevamente su trabajo en extenso en la misma página en donde subió anteriormente."), 0, 'L');
   
   $pdf->SetXY(10, 156);
   $pdf->MultiCell(0,5,utf8_decode('El formato y plantilla de los trabajos extensos podrá consultarlos en la página:'), 0, 'L');
-  $pdf->MultiCell(0,5,utf8_decode('http://congresomatematicas.cuautitlan2.unam.mx/instrucciones_extenso.php'), 0, 'L');
+  $pdf->MultiCell(0,5,utf8_decode('https://congresomatematicas.cuautitlan2.unam.mx/src/GuiasYPlantillas/Plantilla_extenso_2023.docx'), 0, 'L');
 
   $pdf->SetXY(10, 170);
-  $pdf->MultiCell(0,5,utf8_decode('Podrá descargar la plantilla de trabajos extensos solo después de haber iniciado su sesión.'), 0, 'L');
+  $pdf->MultiCell(0,5,utf8_decode('O bien ingresando al sistema en el menú del perfil opción "plantillas".'), 0, 'L');
 
   $pdf->Text(12,185,utf8_decode('Sin más por el momento, quedamos de usted.'));
   $pdf->Text(12,200,utf8_decode('Atentamente'));
