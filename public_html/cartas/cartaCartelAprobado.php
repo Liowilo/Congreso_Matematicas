@@ -145,7 +145,7 @@ if (count($coautores) != 0) {
 
 $pdf->SetXY(10, 107);
 $pdf->MultiCell(0, 2, utf8_decode($titulo_trabajo), 0, 'L');
-$pdf->SetXY(10, 177);
+$pdf->SetXY(10, 168);
 $pdf->MultiCell(0, 3, utf8_decode('Comentario de la aprobación: ' . $comentarioGeneral), 0, 'L');
 
 

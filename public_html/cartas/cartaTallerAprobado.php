@@ -125,7 +125,7 @@ $pdf ->Text(180,64, utf8_decode($idPonencia));
 //$pdf->Text(10,75, utf8_decode($rfc));
 $pdf ->SetXY(10,106);
 $pdf ->MultiCell(0,3,utf8_decode($titulo_trabajo), 0, 'L');
-$pdf ->SetXY(10,126);
+$pdf ->SetXY(10,123);
 $pdf ->MultiCell(0,3, utf8_decode($comentarioGeneral),0, 'L');
 
 $pdf ->SetXY(65,240);
