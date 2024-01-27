@@ -53,7 +53,7 @@
             $fetchIdUsuario=mysqli_fetch_assoc($resIdUsuario);
             $idUsuario=$fetchIdUsuario['id_usuario'];
             //Inserta sus trabajos por defecto
-            $insertarTrabajosRegistrar = "INSERT INTO trabajos_registrar(cartel_trabajos_registrar, ponencia_trabajos_registrar, taller_trabajos_registrar, prototipo_trabajos_registrar, id_usuario, maximo_trabajos_registrar) VALUES ('2','3','1','1','$idUsuario','5')";
+            $insertarTrabajosRegistrar = "INSERT INTO trabajos_registrar(cartel_trabajos_registrar, ponencia_trabajos_registrar, taller_trabajos_registrar, prototipo_trabajos_registrar, id_usuario, maximo_trabajos_registrar) VALUES ('2','6','1','1','$idUsuario','8')";
             $consTrabajosRegistrar = mysqli_query($conexion, $insertarTrabajosRegistrar);
 
             //Datos Academicos

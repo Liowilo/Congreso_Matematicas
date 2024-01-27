@@ -714,46 +714,114 @@
                                             }                                  
                                         }else{
                                         $errores['sistema-restriccion'] = "Alguno de tus coautores no puede registrar más trabajos de tipo ".$tipoPonencia." ya que ha excedió el límite.";
+                                        ?>
+                                        <script>
+                                            setTimeout(function() {
+                                                <?php 
+                                                    $errorRestriccion = json_encode($errores);
+                                                ?>
+                                                let mensajeError = <?php echo $errorRestriccion; ?>;
+                                                alert(mensajeError['sistema-restriccion']);
+                                                window.location.href = '../../components/subirResumen/subirResumen.php';
+                                            }, 0);
+                                        </script>
+                                        <?php
                                         }
                                     }else{
                                         $errores['sistema-restriccion'] = "Alguno de tus coautores rebasa el limite de trabajos a registrar. Ponte en contacto con ellos.";
+                                        ?>
+                                        <script>
+                                            setTimeout(function() {
+                                                <?php 
+                                                    $errorRestriccion = json_encode($errores);
+                                                ?>
+                                                let mensajeError = <?php echo $errorRestriccion; ?>;
+                                                alert(mensajeError['sistema-restriccion']);
+                                                window.location.href = '../../components/subirResumen/subirResumen.php';
+                                            }, 0);
+                                        </script>
+                                        <?php
                                     }
                                 }else{
                                     $errores['sistema-restriccion'] = "No puedes registrar más de ".$limiteCoautoresPrototipo." coautores en prototipo.";
+                                    ?>
+                                    <script>
+                                        setTimeout(function() {
+                                            <?php 
+                                                $errorRestriccion = json_encode($errores);
+                                            ?>
+                                            let mensajeError = <?php echo $errorRestriccion; ?>;
+                                            alert(mensajeError['sistema-restriccion']);
+                                            window.location.href = '../../components/subirResumen/subirResumen.php';
+                                        }, 0);
+                                    </script>
+                                    <?php
                                 } 
                             }else{
                                 $errores['sistema-restriccion'] = "No puedes registrar más de ".$restriccionPrototipo." prototipo(s).";
+                                ?>
+                                <script>
+                                    setTimeout(function() {
+                                        <?php 
+                                            $errorRestriccion = json_encode($errores);
+                                        ?>
+                                        let mensajeError = <?php echo $errorRestriccion; ?>;
+                                        alert(mensajeError['sistema-restriccion']);
+                                        window.location.href = '../../components/subirResumen/subirResumen.php';
+                                    }, 0);
+                                </script>
+                                <?php
                             }                 
                         
                             break;
                         default:
                             $errores['sistema-restriccion'] = "Selecciona un tipo de Trabajo.";
+                            ?>
+                            <script>
+                                setTimeout(function() {
+                                    <?php 
+                                        $errorRestriccion = json_encode($errores);
+                                    ?>
+                                    let mensajeError = <?php echo $errorRestriccion; ?>;
+                                    alert(mensajeError['sistema-restriccion']);
+                                    window.location.href = '../../components/subirResumen/subirResumen.php';
+                                }, 0);
+                            </script>
+                            <?php
                             break;
                     }
             }else{
                 $errores['sistema-restriccion'] = "Has excedido el número de trabajos registrados, solo puedes registrar ".$limiteDePonenciasTotales." trabajos por congreso.
                 En caso de querer registrar más, acude a la dirección del congreso.";
+                ?>
+            <script>
+                setTimeout(function() {
+                    <?php 
+                        $errorRestriccion = json_encode($errores);
+                    ?>
+                    let mensajeError = <?php echo $errorRestriccion; ?>;
+                    alert(mensajeError['sistema-restriccion']);
+                    window.location.href = '../../components/subirResumen/subirResumen.php';
+                }, 0);
+            </script>
+            <?php
             }
 
         }else{
             $errores['sistema-restriccion'] = "Este nombre de la ponencia ya ha sido elegido, por favor, elige otro.";
             ?>
-
-        <script>
-            setTimeout(function() {
-                alert("Este nombre de la ponencia ya ha sido elegido, por favor, elige otro.");
-                window.location.href = '../../components/subirResumen/subirResumen.php';
-            }, 0);
-        </script>
-
+            <script>
+                setTimeout(function() {
+                    <?php 
+                        $errorRestriccion = json_encode($errores);
+                    ?>
+                    let mensajeError = <?php echo $errorRestriccion; ?>;
+                    alert(mensajeError['sistema-restriccion']);
+                    window.location.href = '../../components/subirResumen/subirResumen.php';
+                }, 0);
+            </script>
             <?php
-        }
-
-
-
-        
+        }   
     }
-
-
 
 ?>

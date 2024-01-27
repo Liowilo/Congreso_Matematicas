@@ -68,7 +68,7 @@
         }
 
         if(isset($_POST['subirPonencia'])){
-            $tamanio = 20;
+            $tamanio = 10;
             if(!empty($_FILES['inputExtenso']['name'])){
                 if(!empty($_FILES['inputExtenso']['name']) && mime_content_type($_FILES['inputExtenso']['tmp_name']) == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
                 //Rutas
