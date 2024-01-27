@@ -52,7 +52,7 @@ if($idPonencia==''){
         <tbody>
             <tr>
             <th scope="row">
-                <textarea name="comentarioGeneral" id="resultado" rows="10" class="col-12"></textarea>
+                <textarea name="comentarioGeneral" id="resultado" rows="10" class="col-12" onkeydown="return evitarEnter(event)"></textarea>
             </th>
             </tr>
         </tbody>
@@ -133,7 +133,13 @@ inputs.forEach((input)=>{
 });
 */
 
-
-
+function evitarEnter(event) {
+        // Si se presiona la tecla Enter (código 13), evita el salto de línea
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
 
 </script>
