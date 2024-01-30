@@ -732,7 +732,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                             $consEvaluadores = "SELECT * FROM usuario 
                                 INNER JOIN funcion_usuario ON usuario.id_usuario = funcion_usuario.id_usuario
                                 INNER JOIN funcion ON funcion_usuario.id_funcion = funcion.id_funcion
-                                WHERE funcion.id_funcion = 20 AND estado_funcion = 'ON'";
+                                WHERE funcion.id_funcion = 20 AND estado_funcion = 'ON' ORDER BY nombres_usuario";
 
                                             $stmt = mysqli_prepare($conexion, $consEvaluadores);
                                             mysqli_stmt_execute($stmt);
