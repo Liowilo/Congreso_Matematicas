@@ -53,6 +53,30 @@ $_SESSION['referencia_ponencia'] = '';
                 <div class="container pb-3">
                     
                     <h2 class="mt-5 mb-3">Subir Trabajo</h2>
+                    <?php 
+                    $id_evento = 2;
+                    $sql = "SELECT fecha_congreso_fin FROM fecha_congreso WHERE id_evento = $id_evento AND id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso WHERE id_evento = $id_evento)";
+                    $result = $conexion->query($sql);
+                    $row = $result->fetch_assoc();
+                    $fecha = new DateTime($row["fecha_congreso_fin"]);
+                    $locale = 'es_ES'; // Establece la configuración regional en español
+            
+                    $dateFormatter = new IntlDateFormatter(
+                        $locale,
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        IntlDateFormatter::FULL, // Estilo completo de fecha y hora
+                        'UTC', // Zona horaria
+                        IntlDateFormatter::GREGORIAN
+                    );
+            
+                    $dateFormatter->setPattern("EEEE d 'de' MMMM 'de' y"); // Define el patrón de formato
+            
+                    $fecha_formateada = $dateFormatter->format($fecha);
+            
+                    // Capitalizar la primera letra del día
+                    $fecha_formateada1 = ucfirst($fecha_formateada);
+                    ?>
+                    <h5>El periodo de recepción de resumenes es hasta el <b><?php echo $fecha_formateada1; ?></b>.</h5>
                     <?php
                     if (mysqli_num_rows($resFechaResumen) > 0) {
                         require_once('../../Layouts/Resumen/plantillaResumen.php');
