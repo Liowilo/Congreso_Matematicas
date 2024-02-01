@@ -39,6 +39,14 @@
         if(mysqli_num_rows($res) > 0){
             $errores['email_usuario'] = "¡Este correo ya ha sido registrado!";
         }
+
+        //Verifica si existe un rfc ya registrado y le menciona un error.
+        $verificarRFC = "SELECT * FROM usuario WHERE rfc_usuario = '$rfc'";
+        $resRFC = mysqli_query($conexion, $verificarRFC);
+        if(mysqli_num_rows($resRFC) > 0){
+            $errores['rfc_usuario'] = "¡Este RFC ya ha sido registrado!";
+        }
+
         //Si no hay errores ejecuta el registro.
         if(count($errores) === 0){
             $fotoUsuarioDefault="/desarrollo/src/fotos_usuarios/picProfileNull.png";
