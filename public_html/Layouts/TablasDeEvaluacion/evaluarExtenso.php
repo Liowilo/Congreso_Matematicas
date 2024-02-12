@@ -86,7 +86,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th> 
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4 text-punto-evaluar ">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto1" id="comentarioPunto1" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto1" id="comentarioPunto1" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -108,7 +108,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4 text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  class="col-12 form-control text-punto-evaluar" name="comentarioPunto2" id="comentarioPunto2" rows="6" class="col-12"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  class="col-12 form-control text-punto-evaluar" name="comentarioPunto2" id="comentarioPunto2" rows="6" class="col-12" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -130,7 +130,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto3" id="comentarioPunto3" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto3" id="comentarioPunto3" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -152,7 +152,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto4" id="comentarioPunto4" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto4" id="comentarioPunto4" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -174,7 +174,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4 text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto5" id="comentarioPunto5" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto5" id="comentarioPunto5" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -196,7 +196,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto6" id="comentarioPunto6" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto6" id="comentarioPunto6" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -218,7 +218,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto7" id="comentarioPunto7" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();" name="comentarioPunto7" id="comentarioPunto7" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -240,7 +240,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto8" id="comentarioPunto8" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto8" id="comentarioPunto8" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -262,7 +262,7 @@ require "../../modelo/evaluarExtenso.php"
                     </div>
                 </th>
                 <th class="col-xl-5 col-lg-5 col-md-4 col-sm-4  text-punto-evaluar">
-                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto9" id="comentarioPunto9" rows="6" class="col-12 form-control text-punto-evaluar"></textarea>
+                    <textarea onfocus="validarInputNo(event); validarFormulario();"  name="comentarioPunto9" id="comentarioPunto9" rows="6" class="col-12 form-control text-punto-evaluar" onkeydown="return evitarEnter(event)"></textarea>
                     <div class="invalid-feedback">
                         Debes colocar un comentario si no cumple con este punto de la rubrica.
                     </div>
@@ -288,7 +288,7 @@ require "../../modelo/evaluarExtenso.php"
         <tbody>
             <tr>
             <th scope="row">
-                <textarea name="comentarioGeneral" id="resultado" onkeyup="" rows="10" class="col-12"></textarea>
+                <textarea name="comentarioGeneral" id="resultado" onkeyup="" rows="10" class="col-12" onkeydown="return evitarEnter(event)"></textarea>
             </th>
             </tr>
         </tbody>
@@ -523,5 +523,14 @@ const expresiones = {
 if(window.history.replaceState){
     window.history.replaceState(null,null,window.location.href);
 }
+
+function evitarEnter(event) {
+        // Si se presiona la tecla Enter (código 13), evita el salto de línea
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
 
 </script>
