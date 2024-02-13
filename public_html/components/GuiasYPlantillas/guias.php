@@ -25,6 +25,12 @@ require "../avisoPrivacidad/correoCongreso.php";
             padding-left: 20px;
             /* Elimina el sangrado izquierdo */
         }
+
+        @media (max-width: 768px) {
+            .boton-QR {
+                font-size: 14px !important;
+            }
+        }
     </style>
 </head>
 
@@ -485,7 +491,145 @@ require "../avisoPrivacidad/correoCongreso.php";
                                     </div>
                                 </div>
 
-                                <!-------------NOVENO ITEM---------------------->
+                                <!-------------Prototipo 1---------------------->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingPrototipo1">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapsePrototipo1" aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapsePrototipo1">
+                                            ¿Cómo registrar un prototipo robótico o una aplicación de inteligencia artificial?
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsePrototipo1" class="accordion-collapse collapse"
+                                        aria-labelledby="panelsStayOpen-headingPrototipo1">
+                                        <div class="accordion-body Cuerpo-texto">
+                                            <strong class="">
+                                            El registro de prototipo robótico o una aplicación de inteligencia artificial consta de dos procesos:
+                                            </strong><br><br>
+                                            <ol>
+                                                <li>El resumen.</li>
+                                                <li>Vídeo de exposición demostrativo.</li>
+                                            </ol>
+                                            <span>El resumen, y el vídeo de cada prototipo robótico o una aplicación de inteligencia artificial requieren ser registrados y evaluados por el comité correspondiente.
+                                            <br> <br>
+                                            Para realizar el registro y envío de resumen de su prototipo deberá ir a la siguiente URL: <br> <br>
+                                            </span>
+                                            
+                                            <center>
+                                            <a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR">https://bit.ly/prototipos_congreso16</a> <br> <br>
+                                            <img src="../../src/QRprototipos.png" alt="QR del enlace" style="margin: 0 auto;" class="imagen-QR">
+                                            </center>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------Prototipo 2---------------------->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingPrototipo2">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapsePrototipo2" aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapsePrototipo2">
+                                            ¿Cuáles son los elementos que debe contener un resumen para un prototipo robótico o aplicación de inteligencia artificial (IA)? 
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsePrototipo2" class="accordion-collapse collapse"
+                                        aria-labelledby="panelsStayOpen-headingPrototipo2">
+                                        <div class="accordion-body Cuerpo-texto">
+                                            <span class="">
+                                            El prototipo robótico o aplicación de inteligencia artificial, debe ser original y propio, con fundamentos teóricos. Serán aceptados todos los trabajos que puedan dar solución a un problema real con el uso de la robótica o inteligencia artificial. 
+                                            </span><br><br>
+                                            <strong>El resumen deberá contener:</strong><br><br>
+                                            <ol>
+                                                <li>Título.</li>
+                                                <li>Categoría.</li>
+                                                <li>Contenido (máximo 300 palabras).</li>
+                                                <li>Referencias bibliográficas o electrónicas en formato APA al final (American Psychological Association).</li>
+                                                <li>Nombre de participantes (Número de participantes 3 por cada trabajo y en caso de ser alumnos requerirán un asesor docente).</li>
+                                            </ol>
+                                            
+                                            <strong>Especificaciones del resumen:</strong> <br><br>
+                                            <ol>
+                                                <li>El título debe contener máximo 15 palabras.</li>
+                                                <li>Las categorías en donde los autores podrán registrar sus trabajos relacionados a Prototipos Robóticos o Aplicaciones de Inteligencia Artificial son:</li>
+                                            </ol>
+                                            <p>Categorías Inteligencia Artificial:</p>
+                                            <p>Machine learning (ML) <br>
+                                            Chat bot (CB)
+                                            </p><br>
+                                            <p>Categorías Prototipos Robóticos</p>
+                                            <p>Robots de asistencia y servicio (RS) <br>
+                                            Robots móviles (RM)
+                                            </p><br>
+                                            <ol start="3">
+                                                <li>En el contenido se expondrá una síntesis del tema referido y se debe incluir según la categoría elegida:</li> <br>
+                                                <ul style="list-style-type: square;">
+                                                    <li>Título</li>
+                                                    <li>Objetivo</li>
+                                                    <li>Estado del arte </li>
+                                                    <li>Metodología o desarrollo </li>
+                                                    <li>Resultados y/o conclusiones </li>
+                                                </ul> <br>
+                                                <li>Es necesario que las citas y referencias incluidas en el documento se encuentren en formato APA.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------Prototipo 3---------------------->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="panelsStayOpen-headingPrototipo3">
+                                        <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#panelsStayOpen-collapsePrototipo3" aria-expanded="true"
+                                            aria-controls="panelsStayOpen-collapsePrototipo3">
+                                            ¿Cuáles son los elementos que debe tener un video para un prototipo Robótico o aplicación de Inteligencia Artificial? 
+                                        </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapsePrototipo3" class="accordion-collapse collapse"
+                                        aria-labelledby="panelsStayOpen-headingPrototipo3">
+                                        <div class="accordion-body Cuerpo-texto">
+                                            <strong>El vídeo debe ajustarse a los siguientes requisitos:</strong>
+                                            <ol>
+                                                <li>Incluir al inicio la plantilla de Power Point del Congreso (<a href="https://docs.google.com/presentation/d/1-2zMXHBqwQfMeUH1o6QJDzil2BVOnel7/edit?usp=drivesdk&ouid=103777439515985071111&rtpof=true&sd=true" class="boton-QR" style="text-decoration: none;">ver plantilla de Power Point</a>).</li>
+                                                <li>No debe exceder los 300 MB.</li>
+                                                <li>Formato .mp4.</li>
+                                                <li>Resolución 1280 × 720 fps (fotogramas por segundo).</li>
+                                                <li>Buen audio y vídeo.</li>
+                                                <li>
+                                                    El nombre del archivo es categoría-nombre de autor (sin espacios).
+                                                    <ul style="list-style-type: square;"> <br>
+                                                        <li><b>Ejemplo: RS-PerlaEstradaLopez</b></li>
+                                                    </ul> <br>
+                                                </li>
+                                                <li>El vídeo deberá subirlo a drive, OneDrive o cualquier otra plataforma y se deberá compartir el URL en el formulario de registro: <br><a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR">https://bit.ly/prototipos_congreso16</a></li>
+                                                <li>Incluir referencias en formato APA.</li>
+                                            </ol>
+                                            <strong>Los elementos que debe incluir la exposición son:</strong> <br>
+                                            <ul style="list-style-type: square;">
+                                                <li>Temática.</li>
+                                                <li>Objetivo </li>
+                                                <li>Sustento teórico, Estado del arte o introducción. </li>
+                                                <li>Metodología o desarrollo. </li>
+                                                <li>Resultados y/o conclusiones. </li>
+                                                <li>Bibliografía. </li>
+                                            </ul>
+
+                                            <strong>Fechas</strong> <br>
+                                            <p>El periodo de recepción de resúmenes será del 4 al 15 de marzo y la recepción será vía URL a través de un formulario.</p>
+                                            <p>El periodo de evaluación de resúmenes será del 18 al 22 de marzo y una vez aceptado el trabajo, se les notificará vía correo electrónico las instrucciones para enviar el video.</p>
+                                            <p>El periodo de recepción de videos será del 25 de marzo al 5 de abril.</p>
+
+                                            <strong>Costos</strong> <br>
+                                            <p>Costo alumnos $250 <br>Costo profesores $1500</p>
+
+                                            <strong>Cómo realizar el pago</strong> <br>
+                                            <p>Solicitar una ficha referenciada al correo altamira@unam.mx, para realizar el pago bancario, especificando el monto a pagar. En caso de requerir factura se deberán enviar sus datos fiscales al mismo correo electrónico. <br>
+                                            <b>Nota: solamente se facturará depósitos del mes corriente.</b></p>
+                                            <p>Para pagos en el plantel, se pueden realizar directamente en el área de las cajas del plantel y especificar si es ponente o participante en prototipos robóticos aplicaciones IA.</p>
+                                            <p>Se otorgará constancia de participación individual de la exposición.</p>
+                                            <p><b>Cualquier aspecto o situación no considerada en la presente convocatoria será resuelta por el comité y su decisión será inapelable.</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-------------Constancia---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingSeptimo">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
