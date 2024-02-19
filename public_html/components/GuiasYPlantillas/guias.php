@@ -516,7 +516,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                             </span>
                                             
                                             <center>
-                                            <a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR">https://bit.ly/prototipos_congreso16</a> <br> <br>
+                                            <a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR" target="_blank">https://bit.ly/prototipos_congreso16</a> <br> <br>
                                             <img src="../../src/QRprototipos.png" alt="QR del enlace" style="margin: 0 auto;" class="imagen-QR">
                                             </center>
                                             <br><br>
@@ -588,7 +588,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                         <div class="accordion-body Cuerpo-texto">
                                             <strong>El vídeo debe ajustarse a los siguientes requisitos:</strong>
                                             <ol>
-                                                <li>Incluir al inicio la plantilla de Power Point del Congreso (<a href="https://docs.google.com/presentation/d/1-2zMXHBqwQfMeUH1o6QJDzil2BVOnel7/edit?usp=drivesdk&ouid=103777439515985071111&rtpof=true&sd=true" class="boton-QR" style="text-decoration: none;">ver plantilla de Power Point</a>).</li>
+                                                <li>Incluir al inicio la plantilla de Power Point del Congreso (<a href="https://docs.google.com/presentation/d/1-2zMXHBqwQfMeUH1o6QJDzil2BVOnel7/edit?usp=drivesdk&ouid=103777439515985071111&rtpof=true&sd=true" class="boton-QR" style="font-size: 20px; text-decoration: none;" target="_blank">ver plantilla de Power Point</a>).</li>
                                                 <li>No debe exceder los 300 MB.</li>
                                                 <li>Formato .mp4.</li>
                                                 <li>Resolución 1280 × 720 fps (fotogramas por segundo).</li>
@@ -599,7 +599,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                                         <li><b>Ejemplo: RS-PerlaEstradaLopez</b></li>
                                                     </ul> <br>
                                                 </li>
-                                                <li>El vídeo deberá subirlo a drive, OneDrive o cualquier otra plataforma y se deberá compartir el URL en el formulario de registro: <br><a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR">https://bit.ly/prototipos_congreso16</a></li>
+                                                <li>El vídeo deberá subirlo a drive, OneDrive o cualquier otra plataforma y se deberá compartir el URL en el formulario de registro: <br><a href="https://bit.ly/prototipos_congreso16" style="font-size: 20px; text-decoration: none;" class="boton-QR" target="_blank">https://bit.ly/prototipos_congreso16</a></li>
                                                 <li>Incluir referencias en formato APA.</li>
                                             </ol>
                                             <strong>Los elementos que debe incluir la exposición son:</strong> <br>
@@ -629,7 +629,7 @@ require "../avisoPrivacidad/correoCongreso.php";
                                         </div>
                                     </div>
                                 </div>
-                                <!-------------Constancia---------------------->
+                                <!-------------NOVENO ITEM---------------------->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingSeptimo">
                                         <button class="accordion-button Titulos" type="button" data-bs-toggle="collapse"
