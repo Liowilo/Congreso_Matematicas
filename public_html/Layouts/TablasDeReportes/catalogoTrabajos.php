@@ -1,4 +1,4 @@
-<div id="catalogoTrabajos" class=" table-responsive border border-success border-opacity-10 rounded pt-2 px-2 pb-5 mt-4 scroll">
+<div id="catalogoTrabajos" class=" table-responsive border border-success border-opacity-10 rounded pt-2 px-2 pb-5 mt-4 scroll" style="max-height: 800px;">
 <button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableCatalogo', 'Catalogo')">Descargar Excel</button>
 <table class="table data" id="tableCatalogo">
     <thead>    
@@ -26,7 +26,7 @@
         while ($fetchTrabajosRegistrados=mysqli_fetch_assoc($resTrabajosRegistrados)) {
             $idPonencia=$fetchTrabajosRegistrados['id_ponencia'];
             //Se da formato al id del trabajo, se debe modificar si el congreso excede los tres digitos
-            $idPonenciaFormato=substr("$idPonencia", 0,-2);
+            $idPonenciaFormato=$idPonencia;
             
             $tituloPonencia=$fetchTrabajosRegistrados['titulo_ponencia'];
             $tipoPonencia=$fetchTrabajosRegistrados['categoria_ponencia'];
@@ -71,7 +71,12 @@
                     $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
                     //Campos de la revision
                     $estadoRevisionPonencia=$fetchUsuarioRevisionPonencia['estatus_revision'];
-                    $descripcionRevisionPonencia=$fetchUsuarioRevisionPonencia['descripcion_revision'];
+                    $descripcionRevisionPonenciaSF=$fetchUsuarioRevisionPonencia['descripcion_revision'];
+                    if($estadoRevisionPonencia == NULL) {
+                        $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". PENDIENTE POR REVISAR.";
+                    } else {
+                        $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". TRABAJO EN REVISIÓN.";
+                    }
                     $fechaRevisionPonencia=$fetchUsuarioRevisionPonencia['fecha_revision'];
                     //Da formato de fecha
                     $date = date_create($fechaRevisionPonencia);
