@@ -303,7 +303,7 @@ require "../../modelo/evaluarExtenso.php"
             <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mb-3">
                 <div class="d-grid">
                     <!---------BOTON FINALIZAR---->
-                    <input disabled class="btn btn-style" type="submit" id="finalizarEvaluacion" name="finalizarEvaluacion"  value="Finalizar Evaluacion">
+                    <input onclick="confirmar(event)" disabled class="btn btn-style" type="submit" id="finalizarEvaluacion" name="finalizarEvaluacion"  value="Finalizar Evaluacion">
                     
                 </div>
             </div>
@@ -531,6 +531,12 @@ function evitarEnter(event) {
             return false;
         }
         return true;
+    }
+
+    function confirmar(event) {
+        if (!confirm('¿Esta seguro de evaluar este extenso?')) {
+            event.preventDefault();
+        }
     }
 
 </script>
