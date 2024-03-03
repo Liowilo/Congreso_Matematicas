@@ -72,7 +72,7 @@ if (count($errores) > 0) {
                 <div class="col-xl-4 col-lg-4 col-md-6 d-sm-block col-sm-12 d-xs-block col-xs-12 mb-3">
                     <div class="d-grid ">
                         <!---------BOTON CANCELAR---->
-                        <input onclick="confirmar(event)" class="btn btn-style" type="submit" name="aprobar" value="Aprobar">
+                        <input onclick="confirmar2(event)" class="btn btn-style" type="submit" name="aprobar" value="Aprobar">
                     </div>
                 </div>
             </div>
@@ -141,7 +141,13 @@ if (count($errores) > 0) {
     }
 
     function confirmar(event) {
-        if (!confirm('¿Esta seguro de evaluar este trabajo?')) {
+        if (!confirm('¿Esta seguro de RECHAZAR este resumen?')) {
+            event.preventDefault();
+        }
+    }
+
+    function confirmar2(event) {
+        if (!confirm('¿Esta seguro de ACEPTAR este resumen?')) {
             event.preventDefault();
         }
     }
