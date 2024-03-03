@@ -65,4 +65,41 @@ if(!$mail->Send()) {
 echo "Error: " . $mail->ErrorInfo;
 }
 
+// CORREO PARA EL EVALUADOR
+
+$mail2 = new PHPMailer();
+$mail2->IsSMTP();
+$mail2->SMTPAuth = true;
+$mail2->SMTPSecure = "ssl";
+$mail2->Host = "smtp.gmail.com";
+$mail2->Port = 465;
+$email= $correoCongreso;
+$mail2->Username = $email;
+$mail2->Password = $hashContra;
+
+///contenido del correro electronico y configuracion de la cuenta 
+/// para envio de correo
+$mail2->From = $email;
+$mail2->FromName = "CISEMAT";
+$mail2->Subject = "Confirmación de Evaluacion de RESUMEN";
+
+//mensaje en html 
+$mail2->MsgHTML("Le informamos que la evaluacion del RESUMEN<b> " . $idPonencia . " </b>ha sido exitosa con el estado de<b> " . $evaluacionResumen . "</b>. <br><br>
+	            
+				Atentamente: El comite organizador ");
+//direccon de envio
+$mail2->AddAddress ($correoEvaluador);
+
+///agregar pdf solo utilizar menos de 3megas 
+//ya que de lo contrario el archivo se puede corromper
+$mail2->IsHTML(true);
+
+$mail2->CharSet = 'UTF-8';
+
+if(!$mail2->Send()) {
+//si hay un error en el envio de correo se informa
+
+echo "Error: " . $mail2->ErrorInfo;
+}
+
 ?>

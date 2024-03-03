@@ -25,6 +25,13 @@
     //Trae los datos del autor y coautores de la ponencia
     require '../../modelo/traerDatosAutoresYCoautores.php';
 
+    // Taer correo del evaluador para correo de evaluacion
+    $idEvaluador = $_SESSION["id"];
+    $queryCorreoEvaluador = "SELECT * FROM usuario WHERE id_usuario = $idEvaluador";
+    $resqueryCorreoEvaluador = mysqli_query($conexion, $queryCorreoEvaluador);
+    $fetchCorreoEvaluador = mysqli_fetch_assoc($resqueryCorreoEvaluador);
+    $correoEvaluador = $fetchCorreoEvaluador['email_usuario'];
+
     if(empty($estatusRevision)){
         if(isset($_POST['aprobar'])){
             //Campos de la revision
@@ -54,6 +61,7 @@
             }
 
             if($confirmacionCorreo == 'ON'){
+                $evaluacionResumen = 'ACEPTADO';
                 require_once ('../../librerias/PHPMailer/src/correoAceptacionResumen.php');
                 $info = "Se ha evaluado el RESUMEN con estatus de APROBADO. Se ha enviado un correo electrónico al autor del trabajo.";
                 $_SESSION['info'] = $info;
@@ -87,10 +95,14 @@
             $comentarioGeneral=mysqli_real_escape_string($conexion,$_POST["comentarioGeneral"]);
             //Campos de la revision
             $idRevision=$fetchUsuarioRevisionPonencia['id_revision'];
+            // Comentar las siguientes 2 variables para pruebas
             $updRevision="UPDATE revision SET fecha_revision='$fechaActual', estatus_revision='R', descripcion_general_revision='$comentarioGeneral' WHERE id_revision='$idRevision'";
             $resRevision=mysqli_query($conexion,$updRevision);
+            
             require_once ('../../cartas/cartaRechazoResumen.php');
+            $evaluacionResumen = 'RECHAZADO';
             require_once ('../../librerias/PHPMailer/src/correoRechazoResumen.php');
+            
             $info = "Se ha evaluado el RESUMEN con estatus de RECHAZADO. Se ha enviado un correo electrónico al autor del trabajo.";
             $_SESSION['info'] = $info;
 
