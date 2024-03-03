@@ -46,6 +46,13 @@ $estatusRevision = $fetchUsuarioRevisionPonencia['estatus_revision'];
 $descripcionRevision = $fetchUsuarioRevisionPonencia['descripcion_revision'];
 require '../../modelo/traerDatosAutoresYCoautores.php';
 
+// Taer correo del evaluador para correo de evaluacion
+$idEvaluador = $_SESSION["id"];
+$queryCorreoEvaluador = "SELECT * FROM usuario WHERE id_usuario = $idEvaluador";
+$resqueryCorreoEvaluador = mysqli_query($conexion, $queryCorreoEvaluador);
+$fetchCorreoEvaluador = mysqli_fetch_assoc($resqueryCorreoEvaluador);
+$correoEvaluador = $fetchCorreoEvaluador['email_usuario'];
+
 
 if ($estatusRevision == '' || $estatusRevision == 'F' && $descripcionRevision = 'EXTENSO REVISION FINAL') {
     if (isset($_POST["finalizarEvaluacion"])) {

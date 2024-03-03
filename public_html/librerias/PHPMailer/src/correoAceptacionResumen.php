@@ -81,10 +81,10 @@ $mail2->Password = $hashContra;
 /// para envio de correo
 $mail2->From = $email;
 $mail2->FromName = "CISEMAT";
-$mail2->Subject = "Confirmación de Evaluacion de RESUMEN";
+$mail2->Subject = "Confirmación de evaluación del RESUMEN";
 
 //mensaje en html 
-$mail2->MsgHTML("Le informamos que la evaluacion del RESUMEN<b> " . $idPonencia . " </b>ha sido exitosa con el estado de<b> " . $evaluacionResumen . "</b>. <br><br>
+$mail2->MsgHTML("Estimado evaluador. <br><br>Le informamos que la evaluacion del RESUMEN<b> " . $idPonencia . " </b>ha sido exitosa con el estado de<b> " . $evaluacionResumen . "</b>. <br><br>
 	            
 				Atentamente: El comite organizador ");
 //direccon de envio
