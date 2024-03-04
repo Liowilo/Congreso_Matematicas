@@ -87,14 +87,11 @@ if (!isset($_SESSION["id"]) || $_SESSION["id"] == null) {
             </div>
         </div>
     </div>
-    <div class=" d-sm-block d-md-none">
         <footer>
             <?php
             require_once('../../Layouts/footer.php');
             ?>
         </footer>
-
-    </div>
     <script src="extensosAsignados.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c7b1d2a865.js" crossorigin="anonymous"></script>
