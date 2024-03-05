@@ -21,7 +21,7 @@
     $resTrabajosRegistrados = mysqli_query($conexion, $consTrabajosRegistrados);
 
     //Hace la consulta de los trabajos disponibles en el congreso actual para ponencias
-    $consPonenciasRegistradas = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_tipo_ponencia='2'";
+    $consPonenciasRegistradas = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_tipo_ponencia='2' ORDER BY SUBSTRING(id_ponencia, 4, 2) ASC, SUBSTRING(id_ponencia, -3) ASC";
     $resPonenciasRegistradas = mysqli_query($conexion, $consPonenciasRegistradas);
 
 ?>

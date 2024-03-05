@@ -67,8 +67,20 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                         <div class="container">
-                            <h2 class="mt-5 mb-5">Reportes</h2>
+                            <h2 class="mt-5 mb-3">Reportes</h2>
 
+                            <!-- <h3>Reportes de <b>resumenes</b></h3> -->
+                            <?php /*
+                            require "../../Layouts/NavbarYPestaña/navbarYPestañaReportesResumenes.php";
+                            require "../../Layouts/TablasDeReportes/catalogoTrabajos.php";
+                            require "../../Layouts/TablasDeReportes/resumenesAprobados.php";
+                            require "../../Layouts/TablasDeReportes/resumenesPendientesEvaluar.php";
+                            require "../../Layouts/TablasDeReportes/resumenesPendientesCorregir.php";
+                            require "../../Layouts/TablasDeReportes/tablaDeEvaluadores.php"; */
+                            ?>
+
+                            <hr>
+                            <h3 class="mt-5">Reportes de <b>extensos</b></h3>
                             <!-------------------------------------------------------------------------------------------->
                             <?php
                             require "../../Layouts/NavbarYPestaña/navbarYPestañaReportes.php";

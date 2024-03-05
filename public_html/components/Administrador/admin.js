@@ -1,4 +1,4 @@
-//Aqui estan las tablas de los reportes
+//Aqui estan las tablas de los reportes EXTENSOS
 var catalogoTrabajos=document.getElementById("catalogoTrabajos");
 var extensosAprobados=document.getElementById("extensosAprobados");
 var extensosPendientesCorregir=document.getElementById("extensosPendientesCorregir");

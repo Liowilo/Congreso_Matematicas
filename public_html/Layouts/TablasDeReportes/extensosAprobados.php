@@ -64,18 +64,13 @@
                                 $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
                                 //Campos de la revision
                                 $estadoRevisionPonencia = $fetchUsuarioRevisionPonencia['estatus_revision'];
-                                $descripcionRevisionPonenciaSF = $fetchUsuarioRevisionPonencia['descripcion_revision'];
-                                if ($estadoRevisionPonencia == NULL) {
-                                    $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". PENDIENTE POR REVISAR.";
-                                } else {
-                                    $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". TRABAJO EN REVISIÓN.";
-                                }
+                                $descripcionRevisionPonencia = $fetchUsuarioRevisionPonencia['descripcion_revision'];
                                 $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
                                 //Da formato de fecha
                                 $date = date_create($fechaRevisionPonencia);
                                 $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
 
-                                if ($estadoRevisionPonencia == 'A') {
+                                if ($descripcionRevisionPonencia == 'EXTENSO REVISION FINAL') {
                                     //Trae el extenso
                                     $consPonencia = "SELECT * FROM oral WHERE id_ponencia='$idPonencia'";
                                     $resPonencia = mysqli_query($conexion, $consPonencia);

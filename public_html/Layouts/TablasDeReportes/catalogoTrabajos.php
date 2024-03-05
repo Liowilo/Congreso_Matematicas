@@ -1,5 +1,5 @@
 <div id="catalogoTrabajos" class=" table-responsive border border-success border-opacity-10 rounded pt-2 px-2 pb-5 mt-4 scroll" style="max-height: 800px;">
-<button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableCatalogo', 'Catalogo')">Descargar Excel</button>
+<button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableCatalogo', 'Catalogo')" disabled>Descargar Excel</button>
 <table class="table data" id="tableCatalogo">
     <thead>    
     <tr class="head-table">
@@ -71,12 +71,7 @@
                     $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
                     //Campos de la revision
                     $estadoRevisionPonencia=$fetchUsuarioRevisionPonencia['estatus_revision'];
-                    $descripcionRevisionPonenciaSF=$fetchUsuarioRevisionPonencia['descripcion_revision'];
-                    if($estadoRevisionPonencia == NULL) {
-                        $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". PENDIENTE POR REVISAR.";
-                    } else {
-                        $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". TRABAJO EN REVISIÓN.";
-                    }
+                    $descripcionRevisionPonencia=$fetchUsuarioRevisionPonencia['descripcion_revision'];
                     $fechaRevisionPonencia=$fetchUsuarioRevisionPonencia['fecha_revision'];
                     //Da formato de fecha
                     $date = date_create($fechaRevisionPonencia);
@@ -88,7 +83,8 @@
                 $descripcionRevisionPonencia='SIN EVALUADOR ASIGNADO';
             }
 
-            
+            if ($descripcionRevisionPonencia == 'EXTENSO'){
+
         ?>    
             <td class="text-wrap text-uppercase"><?php echo $idPonenciaFormato ?></td>
             <td class="text-wrap text-uppercase"><?php echo $tituloPonencia; ?></td>
@@ -127,6 +123,7 @@
             ?>
         </tr>
         <?php
+        }
             }
             ?>
     </tbody>

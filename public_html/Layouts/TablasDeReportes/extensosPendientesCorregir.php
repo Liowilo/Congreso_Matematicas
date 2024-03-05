@@ -56,20 +56,14 @@
 
                             $resUsuarioRevisionPonencia = mysqli_query($conexion, $consUsuarioRevisionPonencia);
                             $fetchUsuarioRevisionPonencia = mysqli_fetch_assoc($resUsuarioRevisionPonencia);
-                            //Campos de la revision
                             $estadoRevisionPonencia = $fetchUsuarioRevisionPonencia['estatus_revision'];
-                            $descripcionRevisionPonenciaSF = $fetchUsuarioRevisionPonencia['descripcion_revision'];
-                            if ($estadoRevisionPonencia == NULL) {
-                                $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". PENDIENTE POR REVISAR.";
-                            } else {
-                                $descripcionRevisionPonencia = $descripcionRevisionPonenciaSF . ". TRABAJO EN REVISIÓN.";
-                            }
+                            $descripcionRevisionPonencia = $fetchUsuarioRevisionPonencia['descripcion_revision'];
                             $fechaRevisionPonencia = $fetchUsuarioRevisionPonencia['fecha_revision'];
                             //Da formato de fecha
                             $date = date_create($fechaRevisionPonencia);
                             $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
 
-                            if ($estadoRevisionPonencia == 'R') {
+                            if ($descripcionRevisionPonencia == 'EXTENSO' && $estadoRevisionPonencia == 'R') {
                                 //Consulta la categoria de la ponencia
                                 $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
                                 $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);
