@@ -614,7 +614,7 @@ require "../avisoPrivacidad/correoCongreso.php";
 
                                             <strong>Fechas</strong> <br>
                                             <p>El periodo de recepción de resúmenes será del 4 al 15 de marzo y la recepción será vía URL a través de un formulario.</p>
-                                            <p>El periodo de evaluación de resúmenes será del 18 al 22 de marzo y una vez aceptado el trabajo, se les notificará vía correo electrónico las instrucciones para enviar el video.</p>
+                                            <p>Una vez aceptado su trabajo, recibirá un correo electrónico donde se le proporcionará las instrucciones para compartir su video.</p>
                                             <p>El periodo de recepción de videos será del 25 de marzo al 5 de abril.</p>
 
                                             <strong>Costos</strong> <br>
