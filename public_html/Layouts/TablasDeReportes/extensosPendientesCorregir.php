@@ -63,7 +63,7 @@
                             $date = date_create($fechaRevisionPonencia);
                             $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
 
-                            if ($descripcionRevisionPonencia == 'EXTENSO' && $estadoRevisionPonencia == 'R') {
+                            if ($descripcionRevisionPonencia == $_SESSION['reporte'] && $estadoRevisionPonencia == 'R') {
                                 //Consulta la categoria de la ponencia
                                 $consTipoPonencia = "SELECT * FROM tipo_ponencia WHERE id_tipo_ponencia='$idTipoPonencia'";
                                 $resTipoPonencia = mysqli_query($conexion, $consTipoPonencia);

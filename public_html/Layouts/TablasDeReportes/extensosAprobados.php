@@ -70,7 +70,7 @@
                                 $date = date_create($fechaRevisionPonencia);
                                 $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
 
-                                if ($descripcionRevisionPonencia == 'EXTENSO REVISION FINAL') {
+                                if ($descripcionRevisionPonencia == $_SESSION['reporte'] && $estadoRevisionPonencia = 'A') {
                                     //Trae el extenso
                                     $consPonencia = "SELECT * FROM oral WHERE id_ponencia='$idPonencia'";
                                     $resPonencia = mysqli_query($conexion, $consPonencia);

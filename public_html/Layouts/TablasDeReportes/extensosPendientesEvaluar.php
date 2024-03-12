@@ -74,7 +74,7 @@
                             $date = date_create($fechaRevisionPonencia);
                             $fechaRevisionPonenciaFormato = date_format($date, "Y/m/d H:i");
                             //Verifica que tenga Revision pero que no haya sido calificada
-                            if ($descripcionRevisionPonencia == 'EXTENSO' && $estadoRevisionPonencia == '') {
+                            if ($descripcionRevisionPonencia == $_SESSION['reporte'] && $estadoRevisionPonencia == '') {
                                 //Trae el extenso
                                 $consPonencia = "SELECT * FROM oral WHERE id_ponencia='$idPonencia'";
                                 $resPonencia = mysqli_query($conexion, $consPonencia);
