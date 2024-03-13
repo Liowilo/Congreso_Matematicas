@@ -1,5 +1,5 @@
 <div id="catalogoTrabajos" class=" table-responsive border border-success border-opacity-10 rounded pt-2 px-2 pb-5 mt-4 scroll" style="max-height: 800px;">
-<button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableCatalogo', 'Catalogo')" disabled>Descargar Excel</button>
+<!-- <button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableCatalogo', 'Catalogo')" disabled>Descargar Excel</button> -->
 <table class="table data" id="tableCatalogo">
     <thead>    
     <tr class="head-table">

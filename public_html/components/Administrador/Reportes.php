@@ -78,20 +78,33 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                     <input class="form-check-input" type="radio" name="option" id="extenso" value="EXTENSO" required>
                                     <label class="form-check-label" for="extenso">EXTENSOS</label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="option" id="extensoFinal" value="EXTENSO REVISION FINAL" required>
+                                    <label class="form-check-label" for="extenso">EXTENSOS FINALES</label>
+                                </div>
                                 <input class="btn btn-primary mt-3" type="submit" value="Aplicar" name="aplicarReportes">
                             </form>
 
                             <?php
                             if (isset($_POST["aplicarReportes"])) {
                                 $_SESSION['reporte'] = $_POST["option"];
-                                echo "<script>alert('" . $_SESSION['reporte'] . "');</script>";
+                                require_once "../../modelo/trabajosReportesTMP.php";
                             }
                             ?>
 
                             <?php
                             if (isset($_POST["aplicarReportes"])) {
+                                if($_SESSION['reporte'] == 'RESUMEN'){
+                                    $tipoReporte = 'Resumenes';
+                                }
+                                if($_SESSION['reporte'] == 'EXTENSO'){
+                                    $tipoReporte = 'Extensos';
+                                }
+                                if($_SESSION['reporte'] == 'EXTENSO REVISION FINAL'){
+                                    $tipoReporte = 'Extensos revision final';
+                                }
                             ?>
-                                <h3 class="mt-5">Reportes de <b><?php echo $_SESSION['reporte']; ?></b></h3>
+                                <h3 class="mt-5">Reportes de <b><?php echo $tipoReporte; ?></b></h3>
                             <?php
                                 require "../../Layouts/NavbarYPestaña/navbarYPestañaReportes.php";
                                 require "../../Layouts/TablasDeReportes/catalogoTrabajos.php";
@@ -153,7 +166,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             }
                         </script>
                         <!-------------------------------------------------------------------------------------------->
-                        <hr>
+                        
 
 
 

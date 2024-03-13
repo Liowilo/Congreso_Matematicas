@@ -1,5 +1,5 @@
 <div id="tablaDeEvaluadores"  class="tablaDeEvaluadores scroll table-responsive border border-success border-opacity-10 rounded pt-2 px-2 pb-5 mt-4">
-<button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableEvaluadores', 'Evaluadores Asignados')">Descargar Excel</button>
+<!-- <button class="btn btn-style block px-4 my-2 mx-2" onclick="exportTableToExcel('tableEvaluadores', 'Evaluadores Asignados')">Descargar Excel</button> -->
 <table class="table" id="tableEvaluadores">
     <tr class="head-table">
         <th scope="col">Id Usuario</th>

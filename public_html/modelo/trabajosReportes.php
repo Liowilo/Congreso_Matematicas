@@ -24,4 +24,79 @@
     $consPonenciasRegistradas = "SELECT * FROM ponencia WHERE id_congreso='$idCongreso' AND id_tipo_ponencia='2' ORDER BY SUBSTRING(id_ponencia, 4, 2) ASC, SUBSTRING(id_ponencia, -3) ASC";
     $resPonenciasRegistradas = mysqli_query($conexion, $consPonenciasRegistradas);
 
+    $etapaTrabajo = $_SESSION['reporte'];
+
+    // Consulta tabla temporal (por favor si lees esto automatiza el codigo XD)
+    $queryTemporalPendienteEvaluar = "SELECT b.num,
+       b.id_ponencia,
+       b.titulo_ponencia,
+       b.ponente,
+       b.email_usuario,
+       r.descripcion_revision,
+       b.fecha,
+       r.estatus_revision,
+       b.id_usuario_evalua,
+     concat(u.nombres_usuario,' ',u.apellidos_usuario) as Evaluador,
+       u.email_usuario as correo_evaluador 
+    FROM tmp b, 
+     revision r, 
+     usuario_revision_ponencia ur, 
+     usuario u
+    WHERE b.id_ponencia=ur.id_ponencia 
+      AND ur.id_revision_ponencia=r.id_revision 
+      AND b.fecha=r.fecha_revision
+      AND b.id_usuario_evalua=u.id_usuario
+      AND r.descripcion_revision = '$etapaTrabajo'
+      AND r.estatus_revision = NULL
+    ORDER BY b.num";
+
+    $queryTemporalPendienteCorregir = "SELECT b.num,
+    b.id_ponencia,
+    b.titulo_ponencia,
+    b.ponente,
+    b.email_usuario,
+    r.descripcion_revision,
+    b.fecha,
+    r.estatus_revision,
+    b.id_usuario_evalua,
+    concat(u.nombres_usuario,' ',u.apellidos_usuario) as Evaluador,
+    u.email_usuario as correo_evaluador 
+    FROM tmp b, 
+    revision r, 
+    usuario_revision_ponencia ur, 
+    usuario u
+    WHERE b.id_ponencia=ur.id_ponencia 
+    AND ur.id_revision_ponencia=r.id_revision 
+    AND b.fecha=r.fecha_revision
+    AND b.id_usuario_evalua=u.id_usuario
+    AND r.descripcion_revision = '$etapaTrabajo'
+    AND r.estatus_revision = 'R'    
+    ORDER BY b.num";
+
+    $queryTemporalAprobado = "SELECT b.num,
+    b.id_ponencia,
+    b.titulo_ponencia,
+    b.ponente,
+    b.email_usuario,
+    r.descripcion_revision,
+    b.fecha,
+    r.estatus_revision,
+    b.id_usuario_evalua,
+    concat(u.nombres_usuario,' ',u.apellidos_usuario) as Evaluador,
+    u.email_usuario as correo_evaluador 
+    FROM tmp b, 
+    revision r, 
+    usuario_revision_ponencia ur, 
+    usuario u
+    WHERE b.id_ponencia=ur.id_ponencia 
+    AND ur.id_revision_ponencia=r.id_revision 
+    AND b.fecha=r.fecha_revision
+    AND b.id_usuario_evalua=u.id_usuario
+    AND r.descripcion_revision = '$etapaTrabajo'
+    AND r.estatus_revision = 'A'
+    ORDER BY b.num";
+
+    $ejecucionTMPPendienteEvaluar = mysqli_query($conexion, $queryTemporalPendienteEvaluar);
+    $ejecucionTMPPendienteCorregir = mysqli_query($conexion, $queryTemporalPendienteCorregir);
+    $ejecucionTMPAprobado = mysqli_query($conexion, $queryTemporalAprobado);
 ?>
