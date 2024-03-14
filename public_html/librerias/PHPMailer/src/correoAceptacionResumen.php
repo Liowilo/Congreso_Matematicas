@@ -30,10 +30,9 @@ $mail->Subject = "Evaluacion de propuesta";
 //mensaje en html 
 $mail->MsgHTML("Le informamos con agrado que el Comité Evaluador ha evaluado el RESUMEN de su trabajo y éste ha sido <b>ACEPTADO</b> 
 	            para formar parte del Congreso Internacional sobre la Enseñanza y Aplicación de las Matemáticas.<br><br>
-	            Para que sea programada su ponencia es necesario realizar el extenso, cartel o video de su taller y subirlo al sitio del congreso, 
-	            por ningún motivo se reciben trabajos por otro medio que no sea el sitio del evento. <br>
+	            Para que sea programada su ponencia es necesario realizar el extenso, cartel o video de su taller y subirlo al sitio del congreso, por ningún motivo se reciben trabajos por otro medio que no sea el sitio del evento.
                 <br><br>
-                En caso de no subir su trabajo no podrá ser programada su ponencia.<br>
+                En caso de no subir su trabajo no podrá ser programada su ponencia<br>
                 Alumnos de educación media, media superior y superior que participan en las ponencias orales, carteles o talleres no podran ser expositores o ponentes.<br>
 
 				<br>Se adjunta en éste correo la carta de aceptacion de su trabajo.<br><br>
