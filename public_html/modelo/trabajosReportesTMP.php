@@ -1,8 +1,19 @@
 <?php
 require "conexion.php";
 
+$nombreTabla = 'tmp';
+
+$nombreTablaEscapada = mysqli_real_escape_string($conexion, $nombreTabla);
+
+$consulta = "SELECT 1 FROM information_schema.tables WHERE table_name = '$nombreTablaEscapada'";
+$resultado = mysqli_query($conexion, $consulta);
+
+if (mysqli_num_rows($resultado) > 0) {
+    mysqli_query($conexion, "DROP TABLE $nombreTablaEscapada");
+}
+
 $tablaTemporal = '
-create TEMPORARY table tmp
+CREATE TABLE tmp
 SELECT substring(p.id_ponencia,8,3) as num,
     p.id_ponencia,
     p.titulo_ponencia,
@@ -21,9 +32,10 @@ WHERE p.id_ponencia=ur.id_ponencia
     AND p.id_congreso="16"
     AND p.id_tipo_ponencia=2
     AND p.id_usuario_registra = u.id_usuario
-group by p.id_ponencia
+GROUP BY p.id_ponencia
 ';
 
 mysqli_query($conexion, $tablaTemporal);
+
 
 ?>

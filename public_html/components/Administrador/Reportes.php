@@ -65,7 +65,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
 
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
-                        <div class="container">
+                        <div class="container mb-5">
                             <h2 class="mt-5 mb-3">Reportes</h2>
 
                             <form method="post">
@@ -89,11 +89,7 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             if (isset($_POST["aplicarReportes"])) {
                                 $_SESSION['reporte'] = $_POST["option"];
                                 require_once "../../modelo/trabajosReportesTMP.php";
-                            }
-                            ?>
 
-                            <?php
-                            if (isset($_POST["aplicarReportes"])) {
                                 if($_SESSION['reporte'] == 'RESUMEN'){
                                     $tipoReporte = 'Resumenes';
                                 }
@@ -116,8 +112,6 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                             ?>
 
                             <!-------------------------------------------------------------------------------------------->
-
-
                         </div>
                         <!----------------------------------script para exportar a excel------------------------------->
                         <script>

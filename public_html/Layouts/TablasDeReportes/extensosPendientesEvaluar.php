@@ -18,6 +18,7 @@
 
                 //En caso de que el autor tenga ponencias
                 require "../../modelo/trabajosReportes.php";
+                // require "../../modelo/trabajosReportesTMP.php";
 
                 while ($fetchPonenciasRegistradas = mysqli_fetch_assoc($ejecucionTMPPendienteEvaluar)) {
                     $idPonencia = $fetchPonenciasRegistradas['id_ponencia'];
