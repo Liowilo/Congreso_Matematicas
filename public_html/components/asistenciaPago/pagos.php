@@ -3,9 +3,39 @@ session_start();
 if (!isset($_SESSION["id"]) || $_SESSION["id"] == null) {
     print "<script>alert(\"Acceso invalido!\");window.location='../../components/inicioSesion/sesion.php';</script>";
 }
+
 ob_start();
 require "../../modelo/conexion.php";
 require "../../modelo/traerCongresoActual.php";
+?>
+<?php
+// inglés a español
+function traducirMes($mes_en_ingles) {
+    $meses = array(
+        'January' => 'Enero',
+        'February' => 'Febrero',
+        'March' => 'Marzo',
+        'April' => 'Abril',
+        'May' => 'Mayo',
+        'June' => 'Junio',
+        'July' => 'Julio',
+        'August' => 'Agosto',
+        'September' => 'Septiembre',
+        'October' => 'Octubre',
+        'November' => 'Ooviembre',
+        'December' => 'Diciembre'
+    );
+
+    return $meses[$mes_en_ingles];
+}
+
+// Consulta para obtener la fecha de inicio y fin del congreso más reciente con el ID de evento igual a 8 desde la base de datos
+$queryFechas = "SELECT fecha_congreso_inicio, fecha_congreso_fin FROM fecha_congreso WHERE id_congreso = (SELECT MAX(id_congreso) FROM fecha_congreso) AND id_evento = 8";
+$resultFechas = mysqli_query($conexion, $queryFechas);
+if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
+    $fechaInicio = date('d', strtotime($rowFechas['fecha_congreso_inicio'])) . ' de ' . traducirMes(date('F', strtotime($rowFechas['fecha_congreso_inicio']))) . ' de ' . date('Y', strtotime($rowFechas['fecha_congreso_inicio']));
+    $fechaFin = date('d', strtotime($rowFechas['fecha_congreso_fin'])) . ' de ' . traducirMes(date('F', strtotime($rowFechas['fecha_congreso_fin']))) . ' de ' . date('Y', strtotime($rowFechas['fecha_congreso_fin']));
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -171,11 +201,10 @@ require "../../modelo/traerCongresoActual.php";
                 </div>
                 <div class="col-xl-9 col-lg-9 col-md-11 col-sm-12">
                     <div class="container">
-                        <h2 class="my-5">Referencia de pago</h2>
-                        <p class="sub my-4">A partir del 14 de noviembre de 2022, se podrá realizar el pago de la
-                            inscripción de la siguiente forma:</p>
-                        <p class="sub my-4 fw-semibold">Para cajas de Campo 4:</p>
-                    </div>
+    <h2 class="my-5">Referencia de pago</h2>
+    <p class="sub my-4">A partir del <?php echo $fechaInicio; ?> hasta el <?php echo $fechaFin; ?>, se podrá realizar el pago de la inscripción de la siguiente forma:</p>
+    <p class="sub my-4 fw-semibold">Para cajas de Campo 4:</p>
+</div>
                     <div class="container">
                         <div class="row my-5 justify-content-right">
                             <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
@@ -185,7 +214,7 @@ require "../../modelo/traerCongresoActual.php";
                                         <option disabled>Selecciona una opción</option>
                                         <?php
                                         //Trae los datos de las categorias
-                                        $tipoAsistenciaPago = "SELECT * FROM costo";
+                                        $tipoAsistenciaPago = "SELECT * FROM costo WHERE id_congreso = (SELECT MAX(id_congreso) FROM costo)";
                                         $res2 = mysqli_query($conexion, $tipoAsistenciaPago);
                                         while ($fetch2 = mysqli_fetch_assoc($res2)) {
                                             $idTipoAsistenciaPago = $fetch2["idCosto"];
