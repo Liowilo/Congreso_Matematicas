@@ -2,7 +2,7 @@
     <div class="mt-3">
     <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a id="catalogoTrabajosNav" onclick="mostrarCatalogoTrabajos()" class="nav-link  navYPestaña" aria-current="page" href="#">Catalogo</a>
+        <a id="catalogoTrabajosNav" onclick="mostrarCatalogoTrabajos()" class="nav-link  navYPestaña" aria-current="page" href="#">Catálogo</a>
     </li>
     <li class="nav-item">
         <a id="extensosAprobadosNav"  onclick="mostrarExtensosAprobados()" class="nav-link navYPestaña" href="#"><?php echo $tipoReporte; ?> Aprobados</a>

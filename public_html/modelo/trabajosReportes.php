@@ -38,6 +38,28 @@
       $rechazoTipo = 'FR';
     }
 
+    // Consulta tabla temporal TODOS LOS TRABAJOS "CATALOGO"
+    $queryTemporalCatalogo = "SELECT b.num,
+       b.id_ponencia,
+       b.titulo_ponencia,
+       b.ponente,
+       b.email_usuario,
+       r.descripcion_revision,
+       b.fecha,
+       r.estatus_revision,
+       b.id_usuario_evalua,
+     concat(u.nombres_usuario,' ',u.apellidos_usuario) as Evaluador,
+       u.email_usuario as correo_evaluador 
+    FROM tmp b, 
+     revision r, 
+     usuario_revision_ponencia ur, 
+     usuario u
+    WHERE b.id_ponencia=ur.id_ponencia 
+      AND ur.id_revision_ponencia=r.id_revision 
+      AND b.fecha=r.fecha_revision
+      AND b.id_usuario_evalua=u.id_usuario
+    ORDER BY b.num";
+
     // Consulta tabla temporal NO EVALUADO
     $queryTemporalPendienteEvaluar = "SELECT b.num,
        b.id_ponencia,
@@ -110,6 +132,7 @@
     AND r.estatus_revision = 'A'
     ORDER BY b.num";
 
+    $ejecucionTMPCatalogo = mysqli_query($conexion, $queryTemporalCatalogo);
     $ejecucionTMPPendienteEvaluar = mysqli_query($conexion, $queryTemporalPendienteEvaluar);
     $ejecucionTMPPendienteCorregir = mysqli_query($conexion, $queryTemporalPendienteCorregir);
     $ejecucionTMPAprobado = mysqli_query($conexion, $queryTemporalAprobado);
