@@ -25,8 +25,20 @@
     $resPonenciasRegistradas = mysqli_query($conexion, $consPonenciasRegistradas);
 
     $etapaTrabajo = $_SESSION['reporte'];
+    $pendienteEF = NULL;
+    $rechazoTipo = 'R';
+    
+    // Pendiente por evaluar extenso final
+    if($etapaTrabajo == 'EXTENSO REVISION FINAL'){
+      $pendienteEF = 'F';
+    }
 
-    // Consulta tabla temporal (por favor si lees esto automatiza el codigo XD)
+    // Rechazo de extenso
+    if($etapaTrabajo == 'EXTENSO REVISION FINAL'){
+      $rechazoTipo = 'FR';
+    }
+
+    // Consulta tabla temporal NO EVALUADO
     $queryTemporalPendienteEvaluar = "SELECT b.num,
        b.id_ponencia,
        b.titulo_ponencia,
@@ -47,9 +59,10 @@
       AND b.fecha=r.fecha_revision
       AND b.id_usuario_evalua=u.id_usuario
       AND r.descripcion_revision = '$etapaTrabajo'
-      AND r.estatus_revision = NULL
+      AND r.estatus_revision = '$pendienteEF'
     ORDER BY b.num";
 
+    // Consulta tabla temporal TRABAJO RECHAZADO
     $queryTemporalPendienteCorregir = "SELECT b.num,
     b.id_ponencia,
     b.titulo_ponencia,
@@ -70,9 +83,10 @@
     AND b.fecha=r.fecha_revision
     AND b.id_usuario_evalua=u.id_usuario
     AND r.descripcion_revision = '$etapaTrabajo'
-    AND r.estatus_revision = 'R'    
+    AND r.estatus_revision = '$rechazoTipo'    
     ORDER BY b.num";
 
+  // Consulta tabla temporal TRABAJO ACEPTADO
     $queryTemporalAprobado = "SELECT b.num,
     b.id_ponencia,
     b.titulo_ponencia,
