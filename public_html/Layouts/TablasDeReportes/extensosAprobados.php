@@ -7,9 +7,6 @@
         echo '<h5>Los resumenes ACEPTADOS son los que tienen pendiente enviar su EXTENSO</h5>';
     }
 
-    if ($etapaTrabajo == 'EXTENSO') {
-        echo '<h5>Los extensos ACEPTADOS pasan automaticamente a la etapa EXTENSOS FINALES pendientes por evaluar</h5>';
-    }
     ?>
     <table class="table">
         <tr class="head-table">
@@ -56,7 +53,11 @@
             <?php
                 }
             } else {
-                echo '<td colspan="9"><h5 class="text-center">No se encontraron trabajos aceptados en la etapa <b>' . $etapaTrabajo . '</b></h5></td>';
+                if ($etapaTrabajo == 'EXTENSO') {
+                    echo '<td colspan="9"><h5 class="text-center">No se encontraron trabajos aceptados en la etapa <b>' . $etapaTrabajo . '.</b><br><br>Los extensos ACEPTADOS pasan automaticamente a la etapa EXTENSOS FINALES pendientes por evaluar.</h5></td>';
+                } else {
+                    echo '<td colspan="9"><h5 class="text-center">No se encontraron trabajos aceptados en la etapa <b>' . $etapaTrabajo . '</b></h5></td>';
+                }
             }
             ?>
 
