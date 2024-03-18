@@ -134,7 +134,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                 if ($pagoEstatus == 'APROBADO') {
                                     ?>
                                     <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                                        Tu asistencia ha sido confirmada. Descargar referencia de pago: <a href="ordenPago.pdf"
+                                        Tu asistencia ha sido confirmada. Descargar referencia de pago: <a href="FormatoPago.pdf"
                                             target="blank">orden.pdf</a>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
                                             aria-label="Close"></button>
@@ -143,7 +143,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                 } else if ($pagoEstatus == 'RECHAZADO') {
                                     ?>
                                         <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                                            Descargar referencia de pago: <a href="ordenPago.pdf" target="blank">orden.pdf</a>
+                                            Descargar referencia de pago: <a href="FormatoPago.pdf" target="blank">orden.pdf</a>
                                             Tu pago no se ha podido comprobar, por favor contáctate al
                                             14congresomatematicas@gmail.com
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -154,7 +154,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                     ?>
                                         <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
                                             Después de subir tu vaucher, espera para saber si tu pago ha sido aprobado. Descargar
-                                            referencia de pago: <a href="ordenPago.pdf" target="blank">orden.pdf</a>
+                                            referencia de pago: <a href="FormatoPago.pdf" target="blank">orden.pdf</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
@@ -250,7 +250,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                         if ($resultados) {
                                             ?>
                                             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                                                Se ha registrado su solicitud con éxito. Descargar referencia de pago: <a href="pdf.php"
+                                                Se ha registrado su solicitud con éxito. Descargar referencia de pago: <a href="FormatoPago.pdf
                                                     target="blank">orden.pdf</a>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                     aria-label="Close"></button>

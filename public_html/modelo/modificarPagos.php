@@ -69,32 +69,33 @@ $_SESSION['info']=""; //Muestra la informacion exitosa y los muestra
         }
     }
 
-    if(!empty($_POST["rechazarPago"])){
-        if(isset($_POST['checkbox'])){
-            foreach($_POST['checkbox'] as $valor){
-                $consComparar="SELECT * FROM pago WHERE id_pago='$valor'";
-                $resComparar=mysqli_query($conexion,$consComparar);
-                $fetchComparar=mysqli_fetch_assoc($resComparar);
-                if($estatus=='RECHAZADO'){
-                    $errores['info']="El pago ya se encuentra rechazado";
-                }
-                else{
-                   
-                    $consActualizaPago="UPDATE pago  SET estatus_pago='RECHAZADO' WHERE id_pago='$valor'";
+    if (!empty($_POST["rechazarPago"])) {
+        if (isset($_POST['checkbox'])) {
+            foreach ($_POST['checkbox'] as $valor) {
+                $consComparar = "SELECT * FROM pago WHERE id_pago='$valor'";
+                $resComparar = mysqli_query($conexion, $consComparar);
+                $fetchComparar = mysqli_fetch_assoc($resComparar);
+                
+                // Obtener el estado actual del pago
+                $estatus = $fetchComparar['estatus_pago'];
+                
+                if ($estatus == 'RECHAZADO') {
+                    $errores['info'] = "El pago ya se encuentra rechazado";
+                } else {
+                    $consActualizaPago = "UPDATE pago SET estatus_pago='RECHAZADO' WHERE id_pago='$valor'";
                     $resActualizaPago = mysqli_query($conexion, $consActualizaPago);
-
-                    if($resActualizaPago){
-                         //Muestra si el registro fue exitoso y lo muestra en información.
-                        $info = "¡Se ha rechazado el pago con exito!";
+    
+                    if ($resActualizaPago) {
+                        $info = "¡Se ha rechazado el pago con éxito!";
                         $_SESSION['info'] = $info;
-                        
-                    }else{
+                    } else {
                         $errores['db-error'] = "Fallo mientras intentaba hacer el registro en la base.";
                     }
                 }
             }
         }
     }
+    
 
 
 
