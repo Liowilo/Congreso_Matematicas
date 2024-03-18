@@ -18,24 +18,23 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             <?php
-                if(mysqli_fetch_assoc($ejecucionTMPPendienteEvaluar) > 0){
-                    while ($fetchPonenciasRegistradas = mysqli_fetch_assoc($ejecucionTMPPendienteEvaluar)) {
-                        $idPonencia = $fetchPonenciasRegistradas['id_ponencia'];
-                        $tituloPonencia = $fetchPonenciasRegistradas['titulo_ponencia'];
-                        $nombrePonente = $fetchPonenciasRegistradas['ponente'];
-                        $emailPonente = $fetchPonenciasRegistradas['email_usuario'];
-                        $descRevision = $fetchPonenciasRegistradas['descripcion_revision'];
-                        $estatusRev = $fetchPonenciasRegistradas['estatus_revision'];
-                        $fechaRegistroPonencia = $fetchPonenciasRegistradas['fecha'];
-                        //Da formato de fecha
-                        $date = date_create($fechaRegistroPonencia);
-                        $fechaRegistroPonenciaFormato = date_format($date, "Y/m/d H:i");
-                        $nombreEvaluador = $fetchPonenciasRegistradas['Evaluador'];
-                        $emailEvaluador = $fetchPonenciasRegistradas['correo_evaluador'];
-    
-                    ?>
+            if (mysqli_num_rows($ejecucionTMPPendienteEvaluar) > 0) {
+                while ($fetchPonenciasRegistradas = mysqli_fetch_assoc($ejecucionTMPPendienteEvaluar)) {
+                    $idPonencia = $fetchPonenciasRegistradas['id_ponencia'];
+                    $tituloPonencia = $fetchPonenciasRegistradas['titulo_ponencia'];
+                    $nombrePonente = $fetchPonenciasRegistradas['ponente'];
+                    $emailPonente = $fetchPonenciasRegistradas['email_usuario'];
+                    $descRevision = $fetchPonenciasRegistradas['descripcion_revision'];
+                    $estatusRev = $fetchPonenciasRegistradas['estatus_revision'];
+                    $fechaRegistroPonencia = $fetchPonenciasRegistradas['fecha'];
+                    //Da formato de fecha
+                    $date = date_create($fechaRegistroPonencia);
+                    $fechaRegistroPonenciaFormato = date_format($date, "Y/m/d H:i");
+                    $nombreEvaluador = $fetchPonenciasRegistradas['Evaluador'];
+                    $emailEvaluador = $fetchPonenciasRegistradas['correo_evaluador'];
+            ?>
+                    <tr>
                         <td class="text-wrap text-uppercase"><?php echo $idPonencia; ?></td>
                         <td class="text-wrap text-uppercase"><?php echo $tituloPonencia; ?></td>
                         <td class="text-wrap text-uppercase"><?php echo $nombrePonente; ?></td>
@@ -45,12 +44,12 @@
                         <td class="text-wrap text-uppercase"><?php echo $fechaRegistroPonenciaFormato; ?></td>
                         <td class="text-wrap text-uppercase"><?php echo $nombreEvaluador; ?></td>
                         <td class="text-wrap text-uppercase"><?php echo $emailEvaluador; ?></td>
-                </tr>
+                    </tr>
             <?php
-                    }
-                } else {
-                    echo '<td colspan="9"><h5 class="text-center">No se encontraron trabajos pendeintes por evaluar en la etapa <b>'. $etapaTrabajo .'</b></h5></td>';
                 }
+            } else {
+                echo '<tr><td colspan="9"><h5 class="text-center">No se encontraron trabajos pendientes por evaluar en la etapa <b>' . $etapaTrabajo . '</b></h5></td></tr>';
+            }
             ?>
         </tbody>
     </table>
