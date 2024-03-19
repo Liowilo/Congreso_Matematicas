@@ -7,8 +7,8 @@ require "../../modelo/conexion.php";
 
 <head>
     <?php
-		require_once('../../Layouts/iconoCongresoLink.php');
-	?>
+    require_once('../../Layouts/iconoCongresoLink.php');
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,36 +27,53 @@ require "../../modelo/conexion.php";
         ?>
     </header>
     <section style="margin-top: 250px;">
-        <div class="container-fluid mt-5 mb-5"><!----------CONTENEDOR PRINCIPAL----------->
+        <div class="container mt-5 mb-5"><!----------CONTENEDOR PRINCIPAL----------->
             <div class="row p-2">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <div class="container col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                        <h2 class="mb-3">Costos individuales</h2><!--------TITULO INTERNO------------>
-                        <!-----------DATOS DE CUOTAS AL CONGRESO------------>
-                        <?php 
-                        
-                             while($row=mysqli_fetch_assoc($res)){
-                        ?>
-                        <div class="col-sm-4 col-md-6 col-lg-6 px-3 pt-2 mt-3">
-                            <div class="card-body-cuotas rounded text-center py-2"><?php echo $row['Tipo'];//Asigna el nombre
-                                        ?></div>
+                <div class="col-sm col-lg-6 col-md-6">
+
+                    <h2 class="mb-3 text-center">Costos individuales</h2><!--------TITULO INTERNO------------>
+                    <!-----------DATOS DE CUOTAS AL CONGRESO------------>
+                    <?php
+
+                    while ($row = mysqli_fetch_assoc($res)) {
+                    ?>
+                        <div class="col-sm col-md-12 col-lg-12 px-3 pt-2 mt-3">
+                            <div class="card-body-cuotas rounded text-center py-2"><?php echo $row['Tipo']; //Asigna el nombre
+                                                                                    ?></div>
                             <div class="row m-1">
                                 <div class="col mt-2">
                                     <p class="pt py-2 text-center">Cuota</p>
                                 </div>
                                 <div class="col mt-3">
-                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$<?php echo $row['Costo'];//Asigna el nombre
-                                        ?>.00</span>
+                                    <span class="cuotas text-center border border-success p-2 border-opacity-10 rounded">$<?php echo $row['Costo']; //Asigna el nombre
+                                                                                                                            ?>.00</span>
                                 </div>
                             </div>
                             <div class="row m-1">
-                                <i class="fa fa-question-circle" style="font-size: 30px;" aria-hidden="true"><p class="subtitulo py-2"><?php echo $row['Descripcion'];//Asigna el nombre
-                                        ?></p></i>
-                                
+                                <i class="fa fa-question-circle" style="font-size: 30px;" aria-hidden="true">
+                                    <p class="subtitulo py-2"><?php echo $row['Descripcion']; //Asigna el nombre
+                                                                ?></p>
+                                </i>
+
                             </div>
                         </div>
-                        <?php } mysqli_free_result($res);?>
-                    </div>
+                    <?php }
+                    mysqli_free_result($res); ?>
+
+                </div>
+                <div class="col-sm col-lg-6 col-md-6 px-5">
+                    <h2 class="text-center">¿Cómo realizo el pago?</h2>
+                    <p class="fs-5">Solicitar una ficha referenciada al correo altamira@unam.mx, para realizar el pago bancario, especificando el monto a pagar. En caso de requerir factura se deberán enviar sus datos fiscales al mismo correo electrónico.</p>
+                    <p class="fs-5"><span class="fw-bold">Nota: </span>solamente se facturará depósitos del mes corriente.</p>
+                    <p class="fs-5">Para pagos en el plantel, se pueden realizar directamente en el área de cajas con la orden de pago en cajas.</p>
+                    <?php // Traer color automatizado
+                    $valorColor = "SELECT color_congreso FROM recursos_pagprin WHERE idRecurso = '1'";
+                    $color = mysqli_query($conexion, $valorColor);
+                    $rowColor = $color->fetch_assoc();
+                    $colorHex = $rowColor['color_congreso'];
+                    ?>
+                    <a href="../../components/asistenciaPago/pagos.php">
+                    <button class="btn btn-style shadow mt-4 mb-4 px-5" type="button" style="background-color: <?php echo $colorHex; ?>!important;">Generar ficha</button></a>
                 </div>
                 <section>
                     <?php
