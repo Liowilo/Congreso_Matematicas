@@ -7,6 +7,7 @@ if (!isset($_SESSION["id"]) || empty($_SESSION["id"])) {
 
 require_once "../../modelo/conexion.php";
 require_once "../../modelo/privilegiosUsuario.php";
+require "../../modelo/traerCongresoActual.php";
 
 $estadoPrivilegio = []; // Un arreglo que guarda los estados del privilegio
 $cont2 = 0; // Para recorrer las posiciones del segundo arreglo
@@ -149,14 +150,14 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                     $apellidos = htmlspecialchars($fetchNombresUsuario['apellidos_usuario']);
 
                                                     // Obtener tipo de asistencia
-                                                    $conTipoAsistencia = "SELECT * FROM tipo_asistencia_pago WHERE id_tipo_asistencia_pago = ?";
+                                                    $conTipoAsistencia = "SELECT * FROM costo WHERE idCosto = ? AND id_congreso = $idCongreso";
                                                     $stmtTipoAsistencia = mysqli_prepare($conexion, $conTipoAsistencia);
                                                     mysqli_stmt_bind_param($stmtTipoAsistencia, "i", $idTipoAsistencia);
                                                     mysqli_stmt_execute($stmtTipoAsistencia);
                                                     $resTipoAsistencia = mysqli_stmt_get_result($stmtTipoAsistencia);
                                                     $fetchTipoAsistencia = mysqli_fetch_assoc($resTipoAsistencia);
-                                                    $asistencia = htmlspecialchars($fetchTipoAsistencia['tipo_asistencia_pago']);
-                                                    $monto = htmlspecialchars($fetchTipoAsistencia['costo_asistencia_pago']);
+                                                    $asistencia = htmlspecialchars($fetchTipoAsistencia['Tipo']);
+                                                    $monto = htmlspecialchars($fetchTipoAsistencia['Costo']);
                                                     ?>
 
                                                     <th class="cInicial" scope="row">
@@ -213,12 +214,12 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
                                                 <option disabled selected>Selecciona una opción</option>
                                                 <?php
                                                 // Obtener los datos de las categorías
-                                                $tipoAsistenciaPago = "SELECT * FROM tipo_asistencia_pago";
+                                                $tipoAsistenciaPago = "SELECT * FROM costo where id_congreso = $idCongreso";
                                                 $res2 = mysqli_query($conexion, $tipoAsistenciaPago);
                                                 while ($fetch2 = mysqli_fetch_assoc($res2)) {
-                                                    $idTipoAsistenciaPago = $fetch2["id_tipo_asistencia_pago"];
-                                                    $tipoAsistenciaPago = $fetch2["tipo_asistencia_pago"];
-                                                    $costoAsistenciaPago = $fetch2["costo_asistencia_pago"];
+                                                    $idTipoAsistenciaPago = $fetch2["idCosto"];
+                                                    $tipoAsistenciaPago = $fetch2["Tipo"];
+                                                    $costoAsistenciaPago = $fetch2["Costo"];
                                                     ?>
                                                     <option value="<?php echo $idTipoAsistenciaPago; ?>">
                                                         <?php echo $tipoAsistenciaPago; ?>

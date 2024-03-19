@@ -51,7 +51,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="./pago.css">
+    <link rel="stylesheet" href="pago.css">
 </head>
 
 <body>
@@ -72,7 +72,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
     $resPago = mysqli_query($conexion, $consulta_pago);
     if (mysqli_num_rows($resPago) != 0) {
         ?>
-        <div class="container-fluid " style="margin-top: 180px;" id="subirVaucher">
+        <div class="container-fluid " style="margin-top: 165px;" id="subirVaucher">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-1 d-sm-block background-lateral">
                     <?php
@@ -145,7 +145,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                         <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                                             Descargar referencia de pago: <a href="FormatoPago.pdf" target="blank">orden.pdf</a>
                                             Tu pago no se ha podido comprobar, por favor contáctate al
-                                            14congresomatematicas@gmail.com
+                                            <?php echo strtolower($correoActual); ?>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
@@ -250,7 +250,7 @@ if ($rowFechas = mysqli_fetch_assoc($resultFechas)) {
                                         if ($resultados) {
                                             ?>
                                             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                                                Se ha registrado su solicitud con éxito. Descargar referencia de pago: <a href="FormatoPago.pdf
+                                                Se ha registrado su solicitud con éxito. Descargar referencia de pago: <a href="FormatoPago.pdf"
                                                     target="blank">orden.pdf</a>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                     aria-label="Close"></button>

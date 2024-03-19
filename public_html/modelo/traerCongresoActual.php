@@ -11,4 +11,5 @@
     $fetchCongreso = mysqli_fetch_assoc($resCongreso);
     $idCongreso=$fetchCongreso['id_congreso'];
     $rutaProvisional =$fetchCongreso['logo_congreso'];
+    $correoActual = $fetchCongreso['correo_congreso'];
 ?>  
