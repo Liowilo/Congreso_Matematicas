@@ -222,6 +222,10 @@ if (isset($_SESSION['id'])) {
                         </li>
                         <li class="list-group-item lis background">
                             <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 "
+                                    href="../../components/Administrador/Memorias.php">Memorias</a></label>
+                        </li>
+                        <li class="list-group-item lis background">
+                            <label class="form-check-label " for="firstRadio"><a class="text-a ms-4 "
                                     href="../../components/Administrador/tablaDeTrabajosHistorico.php">Historial de
                                     trabajos</a></label>
                         </li>
