@@ -85,34 +85,6 @@ foreach (array_combine($privilegios, $estadoPrivilegio) as $valor => $estado) {
             ?>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
             <script>
-                document.getElementById('botonDescargarTodo').addEventListener('click', function() {
-                    var zip = new JSZip();
-
-                    var botonesDescarga = document.querySelectorAll('.btn-secondary');
-                    botonesDescarga.forEach(function(boton) {
-                        var url = boton.getAttribute('href');
-
-                        var nombreArchivo = url.substring(url.lastIndexOf('/') + 1);
-
-                        fetch(url)
-                            .then(response => response.blob())
-                            .then(blob => zip.file(nombreArchivo, blob));
-                    });
-
-                    zip.generateAsync({
-                            type: 'blob'
-                        })
-                        .then(function(blob) {
-                            var url = URL.createObjectURL(blob);
-                            var a = document.createElement('a');
-                            a.href = url;
-                            a.download = 'Memorias.zip';
-                            document.body.appendChild(a);
-                            a.click();
-                            document.body.removeChild(a);
-                        });
-                });
-
                 var botonesDescarga = document.querySelectorAll('.btn-secondary');
 
                 botonesDescarga.forEach(function(boton) {
